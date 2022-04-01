@@ -21,16 +21,14 @@
         </div>
 
         <div class="menu__links">
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="index.html">Home</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="alquiler.html">Alquiler</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="venta.html">Venta</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="complementos.html">Complementos</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="eventos.html">Eventos</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="noticias.html">Noticias</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="contacto.html">Contacto</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('home') }}">Home</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('rent') }}">Alquiler</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('sale') }}">Venta</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('toys') }}">Complementos</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('events') }}">Eventos</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('news') }}">Noticias</a></div>
+            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('contact') }}">Contacto</a></div>
         </div>
-        
-        <div class="menu__section margin-bottom-4">
             <div class="menu__link"><a class="text-upper text-bold" href="#">Área Privada</a></div>
         </div>
     </div>

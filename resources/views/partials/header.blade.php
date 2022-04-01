@@ -21,10 +21,4 @@
             <a href="#" class="img__brand-container"><img class="img-fluid" src="img/sessa.png" alt="brand imgage"></a>
         </div>
     </div>
-    <!-- Hero -->
-    <div class="hero__content">
-        <div class="hero-container">
-            <img class="img-fluid" src="img/home/home-06.jpg" alt="Hero Image">
-        </div>
-    </div>
 </div>

@@ -2,13 +2,24 @@
 
 @section('title', 'Home')
 
+@section('hero')
+
+<!-- Hero -->
+<div class="hero__content">
+    <div class="hero-container">
+        <img class="img-fluid" src="img/home/home-06.jpg" alt="Hero Image">
+    </div>
+</div>
+    
+@endsection
+
 @section('content')
 
 <!-- Section Content -->
 <div class="content">
     <div class="container home__grid">
         <!-- Main Card -->
-        <a class="card" href="alquiler.html">
+        <a class="card" href="{{route('rent')}}">
         <div >
             <div class="card-head">
                 <div class="card__img ">
@@ -21,7 +32,7 @@
         </div>
         </a>
 
-        <a class="card" href="venta.html">
+        <a class="card" href="{{route('sale')}}">
         <div>
             <div class="card-head">
                 <div class="card__img">
@@ -34,7 +45,7 @@
         </div>
         </a>
 
-        <a class="card" href="complementos.html">
+        <a class="card" href="{{route('toys')}}">
         <div>
             <div class="card-head">
                 <div class="card__img">
@@ -47,7 +58,7 @@
         </div>
         </a>
 
-        <a class="card" href="eventos.html">
+        <a class="card" href="{{route('events')}}">
         <div>
             <div class="card-head">
                 <div class="card__img">
@@ -60,7 +71,7 @@
         </div>
         </a>
 
-        <a class="card" href="noticias.html">
+        <a class="card" href="{{route('news')}}">
         <div>
             <div class="card-head">
                 <div class="card__img">
@@ -72,7 +83,7 @@
             </div>
         </div>
         </a>
-        <a class="card" href="contacto.html">
+        <a class="card" href="{{route('contact')}}">
         <div>
             <div class="card-head">
                 <div class="card__img">
