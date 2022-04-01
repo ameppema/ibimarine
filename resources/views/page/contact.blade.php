@@ -14,9 +14,9 @@
 @section('content')
     <!-- Section Content -->
     <div class="content">
-        <div class="container home__grid">
+        <div class="container">
             <!-- Card -->
-            <div class="card">
+            <div class="card m-auto">
                 <div class="card-head">
                     <div class="card__img">
                         <img class="img-fluid smooth-top-corners" src="img/contact/contact.jpeg" alt="card image">
