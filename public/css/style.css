@@ -1,0 +1,1070 @@
+/* Main Values */
+:root {
+    --main-color-yellow: #AAA173;
+    --main-color-black: #3C4045;
+
+    --color-white: #ffffff;
+    --color-light: #dbdbdb;
+    --color-light-off: #bebebe;
+}
+
+/* Fonts */
+
+/* Italic */
+@font-face {
+    font-family: 'Athelas';
+    src: url('./../fonts/Athelas-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+/* Regular */
+@font-face {
+    font-family: 'Athelas';
+    src: url('./../fonts/Athelas-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Athelas';
+    src: url('./../fonts/Athelas-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+/* Bold Italic */
+@font-face {
+    font-family: 'Athelas';
+    src: url('./../fonts/Athelas-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Resseting default rules */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Athelas;
+    font-size: 1.6rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+/* HEAD-TOP/HEADER */
+
+.head__top{
+    margin: 25px 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.head__logo {
+    width: 185px;
+}
+
+@media screen and (min-width: 768px){
+    .head__top {
+        margin: 7rem 0 3rem 0;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .head__logo {
+        width: 22rem;
+    }
+}
+
+/* menu */
+.menu__icon {
+    width: 25px;
+}
+@media screen and (min-width: 768px){
+    .menu__icon {
+        visibility: hidden;
+    }
+}
+.menu__icon i{
+    font-size: 22px;
+    color: var(--main-color-yellow);
+}
+
+.menu__overlay { 
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    background-color: var(--main-color-black); /* Black fallback color */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.menu__head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#menu_close {
+    margin-top: -2rem;
+    color: var(--main-color-yellow);
+    font-size: 5rem;
+}
+
+.head__logo-menu {
+    width: 20rem;
+}
+
+
+.menu__content {
+    position: relative;
+    top: 0; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.menu__link {
+    /* padding: 8px; */
+    font-size: 2.2rem;
+    display: block;
+    transition: 0.3s;
+}
+.menu__link a{
+    color: #fff;
+}
+
+.menu__section {
+    width: 100%;
+    position: relative;
+    padding: 1.5rem 0;
+}
+.menu__section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 80%;
+    height: 2px;
+    background-color: var(--main-color-yellow);
+}
+.menu__section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 80%;
+    height: 2px;
+    background-color: var(--main-color-yellow);
+}
+
+.menu__langs {
+    display: flex;
+    justify-content: center;
+
+    color: #fff;
+}
+
+.lang_img {
+    width: 2.8rem;
+    margin-right: .8rem;
+}
+
+.lang {
+    padding: 0 1rem;
+    font-size: 2.5rem;
+    opacity: .4;
+}
+
+.bar {
+    font-size: 2.2rem;
+}
+
+/* Head Brands */
+.agent__brands{
+    display: flex;
+    justify-content: center;
+    gap: 0 1rem;
+}
+
+.img__brand-container {
+    margin: 1.8rem .5rem;
+    flex: 0 0 12%;
+    width: 15%;
+    max-width: 6rem;
+}
+
+.brand-icon-small {
+    max-width: 50px;
+}
+
+/* Hero section */
+
+.hero__content {
+    text-align: center;
+}
+
+.hero-container{
+    height: auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    max-height: 42rem;
+    border-top: .4rem solid var(--main-color-yellow);
+    border-bottom: .4rem solid var(--main-color-yellow);
+}
+
+@media (min-width: 768px) {
+    .hero-container{
+        display: inline-block;
+        width: auto;
+        line-height: 1.2em;
+        padding: 0 4rem;
+    }
+}
+
+/* Main Card */
+
+.card{
+    max-width: 90%;
+    width: 30rem;
+    margin: 2.2rem auto;
+    overflow: hidden;
+    display: block;
+}
+
+.card-head {
+    position: relative;
+}
+
+.card__img {
+    height: 191px;
+    overflow: hidden;
+}
+
+.card__img img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-es {
+    overflow: hidden;
+}
+
+.label-en {
+    overflow: hidden;
+}
+.label-en::before {
+    content: 'Recomended';
+    position: absolute;
+    height: 30px;
+    width: 150%;
+    background-color: var(--main-color-yellow );
+    transform: rotate(45deg) translateY(-40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.label-es::before {
+    content: 'Recomendada';
+    position: absolute;
+    height: 30px;
+    width: 150%;
+    background-color: var(--main-color-yellow );
+    transform: rotate(45deg) translateY(-40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.card__title{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--main-color-yellow);
+    display: block;
+    width: 100%;
+}
+.card__title>p {
+    font-family: Athelas;
+    font-weight: bold;
+    line-height: 3rem;
+    color: #fff;
+}
+
+
+.card-body {
+    border: 2px solid var(--main-color-yellow);
+}
+.card__price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+}
+
+@media (min-width: 768px) {
+    /* home page */
+    .home__grid {
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .home__grid a:nth-child(odd),
+    .home__grid .card:nth-child(odd):not(:last-of-type)
+    {
+        margin-right: 3rem;
+    }
+
+    .card {
+        max-width: 100%;
+        width: 39rem;
+        margin: 2.2rem 0;
+    }
+    .card__img {
+        height: 225px;
+    }
+
+    .card__title>p {
+        line-height: 3.8rem;
+        font-size: 1.8rem;
+    }
+}
+
+/* Card - News and Lifestyle */
+
+.card__news {
+    display: flex;
+    align-items: center;
+    height: 17.5rem;
+}
+
+.card__news:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.card__img-news {
+    height: 100%;
+}
+
+.card__news_text>.card__text>p {
+    font-size: 1.5rem;
+    margin: .5rem auto;
+}
+
+.card-border-golden {
+    border: 1px solid var(--main-color-yellow);
+}
+
+.card__news-element {
+    height: 100%;
+    flex: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+.text-ellipsed {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.img-news {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    -o-object-fit: cover;
+    -o-object-position: center;
+}
+
+/* Footer */
+
+.footer__contact-section {
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact__text {
+    font-size: 2.1rem;
+    font-weight: bold;
+}
+
+.contact__phone {
+    color: var(--main-color-black);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.social__icons {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+ .social__icons i{
+     margin: 0 .7rem;
+ }
+
+
+/* RENT SHOW - Page */
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper {
+    width: 100%;
+    height: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.thumbnails-row {
+    height: 20%;
+    padding: 1rem 0;
+}
+
+.thumbnails-row .swiper-slide {
+    height: 63px;
+    opacity: 0.4;
+}
+.thumbnails-row .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.slide_carousel {
+    width: 350px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Yacht Info */
+
+.container-sm {
+    max-width: 560px;
+    width: 95%;
+    margin: 1rem auto;
+}
+
+
+.yacht__title {
+    color: #fff;
+    width: 90%;
+    line-height: 3rem;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 0 auto;
+}
+
+.yacht__description {
+    font-size: 1.4rem;
+    padding: 2rem;
+    line-height: 21px;
+}
+
+.yacht__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+.yacht__feature_icon {
+    width: 3rem;
+    line-height: 15px;
+    margin: 0.5rem;
+}
+
+.yacht__icon-caption {
+    font-size: 1rem;
+}
+
+/* Yacht Table - #d9d9d9*/
+
+.yacht__features-table {
+    width: 100%;
+    height: auto;
+    padding: 0 1.75rem;
+}
+
+.yacht__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 1rem;
+}
+
+.yacht__item:nth-child(even) {
+    background-color: #e4e4e4;
+}
+
+/* Utilities */
+
+/* Rent Pricing section */
+.calendar__pricing {
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.calendar__pricing .price-per-day {
+    max-width: 27rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.calendar__pricing .sale-price {
+    max-width: 27rem;
+    margin: 2rem auto;
+    padding: 1.5rem 1rem;
+}
+
+.calendar__pricing .price-per-day .price {
+    font-size: 2rem;
+}
+
+/* Calendar - BackOffice calendar */
+.calendar__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0 1rem;
+    margin-top: -7rem;
+    margin-bottom: 7rem;
+}
+
+/* Calendar - BackOffice make Reservation */
+
+/* Add Reservation */
+.reservation__add_new_date {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    height: auto;
+    padding: 1rem;
+}
+
+.reservation__input {
+    border: 1px solid;
+    padding: 0 0.5rem;
+    margin-bottom: 1em;
+}
+.reservation__input input[type=text]{
+    height: 4rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+.reservation__input textarea{
+    height: 8rem;
+    width: 100%;
+    padding: .5rem 1rem;
+}
+.reservation__input.-no-border {
+    border: none;
+    padding: 0;
+}
+.reservation__input_head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 2.5em;
+}
+.reservation__input_body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease;
+}
+
+div.reservation__input_option{
+    height: 3rem;
+    border-bottom: 1px solid;
+    width: 20rem;
+    margin: 1.6rem auto;
+}
+div.reservation__input_option:last-child{
+    border-bottom: none;
+}
+
+/* Existing reservation */
+
+.reservation__existing {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    height: auto;
+    padding: 1rem;
+}
+
+.reserved__day {
+    margin-bottom: 1rem;
+}
+.reserved__card {
+    border: 1px solid var(--main-color-black);
+    padding: 0 0.5rem;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.reserved__head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 2.5em;
+}
+.reserved__head span {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translate(-50%, -50%);
+}
+
+.not-available {
+    color: #c3c3c3;
+}
+
+.accordion-arrow {
+    width: 1.6rem;
+    margin-right: 2rem;
+}
+.accordion-arrow svg {
+    transform: rotate(-180deg);
+    transition: transform 1s ease;
+}
+
+
+/* Forms - Reservation - FrontPage */
+
+.reservation__form {
+    margin: 0 auto 4rem auto;
+}
+
+.reservation__form .form__input:not(:last-child) {
+    padding: 1.75rem;
+}
+
+.reservation__form .form__input label {
+    font-weight: bold;
+}
+
+.reservation__form .form__input input[type=text],
+.reservation__form .form__input input[type=email] {
+    border: 1px solid var(--main-color-black);
+    padding: .8rem;
+    width: 100%;
+}
+
+/* Bottom Slide - Similar Boats Slider*/
+
+.similar__boats {
+    margin-bottom: 4rem;
+}
+
+.swiper-similar-boats {
+    width: 15rem;
+    height: 15rem;
+}
+
+@media (min-width: 768px) {
+    .swiper-similar-boats {
+        width: 90%;
+    }
+}
+
+.similar-boat-thumbnails {
+    width: 11rem;
+    height: 11rem;
+}
+
+.similar-boat-thumbnails img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Rent Request - Dark Overlay */
+
+.overlay__request__dark {
+    position: fixed;
+    overflow: scroll;
+    z-index: 9; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100vh;
+    background-color: rgba(60, 64, 69, 0.96);
+    display: none;
+}
+
+.overlay__dark_content {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay__section {
+    opacity: 1;
+    padding: 0 1.75rem;
+    margin: 0 auto;
+}
+.overlay__section-fullwidth {
+    opacity: 1;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.overlay__section .overlay__request_text {
+    padding: 0 3rem;
+    font-size: 2.4rem;
+}
+
+.head__logo_overlay-request {
+    width: 200px;
+}
+
+/* Overlay Photos */
+
+.overlay__photo_hero {
+    overflow: hidden;
+    width: 100%;
+    height: 22rem;
+    margin: 0 auto;
+}
+
+.overlay__photos_main {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+
+    position: relative;
+}
+.overlay__photos_main #photosArrowPrev {
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -65%);
+}
+.overlay__photos_main #photosArrowNext {
+    display: inline;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -65%);
+}
+
+.overlay__photos_main img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    -o-object-fit: cover;
+    -o-object-position: center;
+}
+
+.overlay__photos_thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.overlay__photos_thumbnails img {
+    height: 100%;
+    max-height: 7rem;
+    width: 100%;
+}
+/* Utilities */
+
+/* Margin and Padding */
+
+.m-auto {
+    margin:0 auto;
+}
+
+.margin-1 {
+    margin: 1rem;
+}
+
+.margin-top-1 {
+    margin-top: 1rem;
+}
+.margin-top-2 {
+    margin-top: 2rem;
+}
+.margin-top-4 {
+    margin-top: 4rem;
+}
+
+.margin-bottom-1 {
+    margin-bottom: 1rem;
+}
+
+.margin-bottom-2 {
+    margin-bottom: 2rem;
+}
+
+.margin-bottom-4 {
+    margin-bottom: 4rem;
+}
+
+.padding-vertical-1 {
+    padding: 1rem 0;
+}
+
+/* Line - Spaces */
+
+.hr-spacer {
+    display: block;
+    border-top: 2px solid var(--main-color-black);
+    margin: 0.7rem auto;
+    width: 143px;
+    opacity: .7;
+}
+
+/* Cursor */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Displays */
+.calendar-active {
+    display: block;
+}
+.d-none {
+    display: none;
+}
+.d-block {
+    display: block;
+}
+.d-inline-block {
+    display: inline-block;
+}
+
+.invisible {
+    visibility: hidden;
+}
+.active {
+    opacity: 1;
+}
+
+/* Blocks - Borders*/
+
+.smooth-corners {
+    border-radius: 5%;
+}
+
+.smooth-top-corners {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+/* Used in News Section */
+.smooth-side-corners-alternating {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    overflow: hidden;
+}
+.smooth-side-corners-alternating:nth-child(even) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+}
+
+/* Block-Spacer */
+.margin-2 {
+    margin: 2rem ;
+}
+
+.margin-vertical-1 {
+    margin: 1.5rem 0;
+}
+
+.margin-vertical-2 {
+    margin: 3rem 0;
+}
+
+.margin-vertical-4 {
+    margin: 4rem 0;
+}
+
+.margin-bottom-4{
+    margin-bottom: 4rem;
+}
+
+.padding-horizontal-1 {
+    padding: 0 1rem;
+}
+
+/* Buttons */
+.button {
+    border: none;
+    border-radius: 6px;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button.button-lg {
+    padding: 8px 40px;
+    font-size: 2.1rem;
+}
+.button.button-white {
+    background: var(--color-white);
+    color: var(--main-color-black);
+    border: 1px solid;
+}
+.button.button-white-disable {
+    background: var(--color-white);
+    color: var(--color-light-off);
+    border: 1px solid var(--color-light-off);
+}
+.button.button-golden {
+    background-color: var(--main-color-yellow);
+    color: white;
+}
+
+.button.button-golden:hover {
+    background-color: var(--main-color-black);
+}
+.button.button-white:hover {    
+    background-color: var(--main-color-yellow);
+    color: white;
+}
+
+/* Texts */
+.text-title {
+    font-size: 2.2rem;
+}
+.text-center {
+    text-align: center;
+}
+
+/* Colors */
+.bg-golden {
+    background-color: var(--main-color-yellow);
+}
+
+.bg-gray {
+    background-color: var(--color-light);
+}
+
+.text-color-main {
+    color: var(--main-color-yellow);
+}
+.text-color-golden {
+    color: var(--main-color-yellow);
+}
+
+.text-color-black-muted {
+    color: #707070;
+}
+
+.text-color-black {
+    color: var(--main-color-black);
+}
+
+.text-color-white {
+    color: var(--color-white);
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.text-upper{
+    text-transform: uppercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/* Images */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Text Fonts */
+
+.f-bold {
+    font-family: Athelas;
+    font-weight: bold;
+}
+.text-bold {
+    font-family: Athelas;
+    font-weight: bold;
+}
