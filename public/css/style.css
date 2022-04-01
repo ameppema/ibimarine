@@ -103,7 +103,7 @@ ul, ol, li {
 .menu__icon {
     width: 25px;
 }
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 900px){
     .menu__icon {
         visibility: hidden;
     }
@@ -249,7 +249,7 @@ div.navbar {
     font-size: 2.2rem;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 900px) {
     .menu__desktop {
         display: flex;
     }
@@ -305,8 +305,6 @@ div.navbar {
 /* Main Card */
 
 .card{
-    /* max-width: 90%; */
-    /* width: 30rem; */
     max-width: 30rem;
     width: 90%;
     margin: 2.2rem auto;
@@ -417,8 +415,12 @@ div.navbar {
     max-width: 39rem;
     flex-grow: 1;
 }
+
+/* .card:nth-child(odd):not(:last-child){
+    margin-right: 1rem;
+} */
 .card__img {
-    height: 225px;
+    height: 22.5rem;
 }
 
 .card__title>p {
@@ -427,7 +429,13 @@ div.navbar {
 }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 900px) {
+    .card {
+        max-width: 37rem;
+    }
+}
+
+@media (min-width: 1200px) {
     .home__grid {
         display: grid;
         grid-template-columns: repeat(8,1fr);
@@ -436,8 +444,7 @@ div.navbar {
 
     .card {
         justify-self: center;
-        width: auto;
-        /* max-width: 100%; */
+        margin: 2.2rem 1rem;
         max-width: 45rem;
     }
     .home__grid a:nth-child(odd),
@@ -1004,6 +1011,16 @@ div.reservation__input_option:last-child{
 }
 .d-inline-block {
     display: inline-block;
+}
+
+.d-lg {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .d-lg {
+        display: block;
+    }
 }
 
 .invisible {

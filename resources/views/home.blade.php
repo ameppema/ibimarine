@@ -27,6 +27,19 @@
                     <p class="text-center text-upper">Alquiler de yates</p>
                 </div>
             </div>
+            <div class="card-body-no-border d-lg">
+                <div class="card__text text-center margin-bottom-1">
+                    <p class="text-color-black margin-vertical-1 padding-horizontal-1">
+                        Cras venenatis porta ligula sed suscipit.
+                        Ut in vehicula ex. Vivamus fermentum nunc mi,
+                        ac condimentum magna porttitor faucibus.
+                        Vestibulum ante ipsum primis in faucibus
+                        orci luctus et ultrices posuere cubila curae;
+                        sed non lorem at felis tincidunt lacinia nec
+                        id leo fermentum quam gravida ut.
+                    </p>
+                </div>
+            </div>
         </div>
         </a>
 
@@ -38,6 +51,19 @@
                 </div>
                 <div class="card__title">
                     <p class="text-center text-upper">Venta de yates</p>
+                </div>
+            </div>
+            <div class="card-body-no-border d-lg">
+                <div class="card__text text-center margin-bottom-1">
+                    <p class="text-color-black margin-vertical-1 padding-horizontal-1">
+                        Cras venenatis porta ligula sed suscipit.
+                        Ut in vehicula ex. Vivamus fermentum nunc mi,
+                        ac condimentum magna porttitor faucibus.
+                        Vestibulum ante ipsum primis in faucibus
+                        orci luctus et ultrices posuere cubila curae;
+                        sed non lorem at felis tincidunt lacinia nec
+                        id leo fermentum quam gravida ut.
+                    </p>
                 </div>
             </div>
         </div>
@@ -53,6 +79,19 @@
                     <p class="text-center text-upper">Complementos Nauticos</p>
                 </div>
             </div>
+            <div class="card-body-no-border d-lg">
+                <div class="card__text text-center margin-bottom-1">
+                    <p class="text-color-black margin-vertical-1 padding-horizontal-1">
+                        Cras venenatis porta ligula sed suscipit.
+                        Ut in vehicula ex. Vivamus fermentum nunc mi,
+                        ac condimentum magna porttitor faucibus.
+                        Vestibulum ante ipsum primis in faucibus
+                        orci luctus et ultrices posuere cubila curae;
+                        sed non lorem at felis tincidunt lacinia nec
+                        id leo fermentum quam gravida ut.
+                    </p>
+                </div>
+            </div>
         </div>
         </a>
 
@@ -64,6 +103,19 @@
                 </div>
                 <div class="card__title">
                     <p class="text-center text-upper">Eventos</p>
+                </div>
+            </div>
+            <div class="card-body-no-border d-lg">
+                <div class="card__text text-center margin-bottom-1">
+                    <p class="text-color-black margin-vertical-1 padding-horizontal-1">
+                        Cras venenatis porta ligula sed suscipit.
+                        Ut in vehicula ex. Vivamus fermentum nunc mi,
+                        ac condimentum magna porttitor faucibus.
+                        Vestibulum ante ipsum primis in faucibus
+                        orci luctus et ultrices posuere cubila curae;
+                        sed non lorem at felis tincidunt lacinia nec
+                        id leo fermentum quam gravida ut.
+                    </p>
                 </div>
             </div>
         </div>
@@ -79,6 +131,19 @@
                     <p class="text-center text-upper">Noticias y LifeStyle</p>
                 </div>
             </div>
+            <div class="card-body-no-border d-lg">
+                <div class="card__text text-center margin-bottom-1">
+                    <p class="text-color-black margin-vertical-1 padding-horizontal-1">
+                        Cras venenatis porta ligula sed suscipit.
+                        Ut in vehicula ex. Vivamus fermentum nunc mi,
+                        ac condimentum magna porttitor faucibus.
+                        Vestibulum ante ipsum primis in faucibus
+                        orci luctus et ultrices posuere cubila curae;
+                        sed non lorem at felis tincidunt lacinia nec
+                        id leo fermentum quam gravida ut.
+                    </p>
+                </div>
+            </div>
         </div>
         </a>
         <a class="card" href="{{route('contact')}}">
@@ -89,6 +154,19 @@
                 </div>
                 <div class="card__title">
                     <p class="text-center text-upper">Contacto</p>
+                </div>
+            </div>
+            <div class="card-body-no-border d-lg">
+                <div class="card__text text-center margin-bottom-1">
+                    <p class="text-color-black margin-vertical-1 padding-horizontal-1">
+                        Cras venenatis porta ligula sed suscipit.
+                        Ut in vehicula ex. Vivamus fermentum nunc mi,
+                        ac condimentum magna porttitor faucibus.
+                        Vestibulum ante ipsum primis in faucibus
+                        orci luctus et ultrices posuere cubila curae;
+                        sed non lorem at felis tincidunt lacinia nec
+                        id leo fermentum quam gravida ut.
+                    </p>
                 </div>
             </div>
         </div>
