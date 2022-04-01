@@ -26,11 +26,16 @@
     </head>
     <body>
 
-    <!-- Mobile Menu Overlay -->
-    @include('partials.menuMobile')
-
+        
     <!-- Header -->
     @include('partials.header')
+    
+    <!-- Mobile Menu Overlay -->
+    @include('partials.menuMobile')
+    
+    <!-- Menu Desktop -->
+    @include('partials.menuDesktop')
+
     
     @yield('hero')
 

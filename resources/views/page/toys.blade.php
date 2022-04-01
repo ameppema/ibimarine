@@ -6,7 +6,7 @@
     <!-- Hero -->
     <div class="hero__content">
         <div class="hero-container hero-container-text">
-            <h1 class="margin-1 text-title text-center text-upper text-bold text-color-black">Complementos Náuticos</h1>
+            <h1 class="margin-1 text-title text-center text-upper text-bold text-color-black">Toys</h1>
         </div>
     </div>
 @endsection

@@ -5,7 +5,7 @@
 @section('hero')
     <!-- Hero -->
     <div class="hero__content">
-        <div class="hero-container hero-container-text">
+        <div class="hero-container h-auto hero-container-text">
             <h1 class="margin-1 text-title text-center text-upper text-bold text-color-black">Venta de Yates</h1>
         </div>
     </div>

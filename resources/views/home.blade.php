@@ -5,7 +5,7 @@
 @section('hero')
 <!-- Hero -->
 <div class="hero__content">
-    <div class="hero-container">
+    <div class="hero-container padding-0">
         <img class="img-fluid" src="img/home/home-06.jpg" alt="Hero Image">
     </div>
 </div>

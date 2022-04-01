@@ -87,7 +87,7 @@ ul, ol, li {
 
 @media screen and (min-width: 768px){
     .head__top {
-        margin: 7rem 0 3rem 0;
+        margin: 4rem 0 2rem 0;
         max-width: 100%;
         display: flex;
         justify-content: space-around;
@@ -103,7 +103,7 @@ ul, ol, li {
 .menu__icon {
     width: 25px;
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1200px){
     .menu__icon {
         visibility: hidden;
     }
@@ -204,8 +204,55 @@ ul, ol, li {
     opacity: .4;
 }
 
+/* Menu Desktop */
+
+div.navbar {
+    margin: 2rem auto;
+}
+
+.menu__desktop {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.menu__desktop li {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+.menu__desktop .menu__item_langs {
+    display: flex;
+    justify-content: inherit;
+
+}
+.menu__desktop .menu__item_langs a {
+    align-items: center;
+    display: inherit;
+}
+.menu__desktop .menu__item_langs a>img {
+    margin-right: .5rem;
+    width: 2.5rem;
+}
+
+.menu__desktop .selected {
+    background: var(--main-color-yellow);
+    color: var(--color-white);
+}
+
+
 .bar {
     font-size: 2.2rem;
+}
+
+@media (min-width: 1280px) {
+    .menu__desktop {
+        display: flex;
+    }
 }
 
 /* Head Brands */
@@ -233,11 +280,10 @@ ul, ol, li {
 }
 
 .hero-container{
-    height: auto;
+    height:20rem ;
     width: 100%;
     position: relative;
     overflow: hidden;
-    max-height: 42rem;
     border-top: .4rem solid var(--main-color-yellow);
     border-bottom: .4rem solid var(--main-color-yellow);
 }
@@ -246,16 +292,23 @@ ul, ol, li {
     .hero-container{
         display: inline-block;
         width: auto;
+        height: 42rem;
         line-height: 1.2em;
         padding: 0 4rem;
     }
 }
 
+.hero-container-text {
+    height: auto;
+}
+
 /* Main Card */
 
 .card{
-    max-width: 90%;
-    width: 30rem;
+    /* max-width: 90%; */
+    /* width: 30rem; */
+    max-width: 30rem;
+    width: 90%;
     margin: 2.2rem auto;
     overflow: hidden;
     display: block;
@@ -350,33 +403,59 @@ ul, ol, li {
     gap: 0 10px;
 }
 
-@media (min-width: 768px) {
-    /* home page */
-    .home__grid {
-        max-width: 1200px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
-    .home__grid a:nth-child(odd),
-    .home__grid .card:nth-child(odd):not(:last-of-type)
-    {
-        margin-right: 3rem;
+@media (min-width: 768px) {
+/* home page */
+.home__grid {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    max-width: 39rem;
+    flex-grow: 1;
+}
+.card__img {
+    height: 225px;
+}
+
+.card__title>p {
+    line-height: 3.8rem;
+    font-size: 1.8rem;
+}
+}
+
+@media (min-width: 1280px) {
+    .home__grid {
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        gap: 0 3rem;
     }
 
     .card {
-        max-width: 100%;
-        width: 39rem;
-        margin: 2.2rem 0;
+        justify-self: center;
+        width: auto;
+        /* max-width: 100%; */
+        max-width: 45rem;
     }
-    .card__img {
-        height: 225px;
+    .home__grid a:nth-child(odd),
+    .home__grid .card:nth-child(odd):not(:last-of-type)
+    {
+        margin-right: 0;
     }
 
-    .card__title>p {
-        line-height: 3.8rem;
-        font-size: 1.8rem;
+    .card:nth-child(odd) {
+        grid-column: 1 / 5;
+    }
+    .card:nth-child(even) {
+        grid-column: 5 / 9;
+    }
+
+    .card__img {
+        height: 26rem;
+        max-width: 45rem;
     }
 }
 
@@ -510,6 +589,15 @@ ul, ol, li {
     max-width: 560px;
     width: 95%;
     margin: 1rem auto;
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1200px;
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 
@@ -851,6 +939,9 @@ div.reservation__input_option:last-child{
 .m-auto {
     margin:0 auto;
 }
+.h-auto {
+    height: auto;
+}
 
 .margin-1 {
     margin: 1rem;
@@ -880,6 +971,10 @@ div.reservation__input_option:last-child{
 
 .padding-vertical-1 {
     padding: 1rem 0;
+}
+
+.padding-0{
+    padding: 0;
 }
 
 /* Line - Spaces */
