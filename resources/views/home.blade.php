@@ -3,14 +3,12 @@
 @section('title', 'Home')
 
 @section('hero')
-
 <!-- Hero -->
 <div class="hero__content">
     <div class="hero-container">
         <img class="img-fluid" src="img/home/home-06.jpg" alt="Hero Image">
     </div>
 </div>
-    
 @endsection
 
 @section('content')

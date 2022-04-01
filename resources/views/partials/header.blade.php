@@ -5,7 +5,9 @@
             <i class="fa-solid fa-bars"></i>
         </div>
         <div class="head__logo">
-            <img class="img-fluid" src="./img/logoibimarine.png" alt="Logo Ibimarine">
+            <a href="{{route('home')}}">
+                <img class="img-fluid" src="./img/logoibimarine.png" alt="Logo Ibimarine">
+            </a>
         </div>
         <div class="menu__icon" id="menu_open">
             <i class="fa-solid fa-bars"></i>

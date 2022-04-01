@@ -19,7 +19,6 @@
     
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
 
     <!-- Post Css -->
     @yield('post-css')

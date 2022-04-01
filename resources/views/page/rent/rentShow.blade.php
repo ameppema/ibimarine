@@ -3,6 +3,8 @@
 @section('pre-css')
         <!-- Slide -->
         <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css"/>
+        <!-- Calendar theme -->
+        <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
 @endsection
 
 @section('title', 'Rent Show')

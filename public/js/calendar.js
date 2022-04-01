@@ -19,7 +19,9 @@ const calendarElement = document.querySelector('#reservationCalendar');
 let selectedDate = [];
 
 /* Localization settings */
-const locale = 'en';
+const locale = document.documentElement.lang;
+
+console.log(locale);
 
 /**
  * Year & Array with 12 empty slots to save the months with their translations.
@@ -105,6 +107,8 @@ const CalendarTohtml = calendar.map(({ daysOfMonth, monthName, startsOn,monthId 
  * Finally attaching the previously made calendar to the DOM
 */
 document.querySelector('#reservationCalendar').innerHTML = CalendarTohtml.join('');
+
+console.log(CalendarTohtml)
 
 // Calendar API to get Selected Date
 
