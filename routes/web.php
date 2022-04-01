@@ -38,6 +38,9 @@ Route::get('/events', function () {
 Route::get('/news', function () {
     return view('page.news.newsIndex');
 })->name('news');
+Route::get('/newsShow', function () {
+    return view('page.news.newsShow');
+})->name('news.show');
 
 Route::get('/contact', function () {
     return view('page.contact');
