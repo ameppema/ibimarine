@@ -293,7 +293,6 @@
 @section('js')
 <script src="./vendor/swiper/swiper-bundle.min.js"></script>
 <script src="./js/slides.js"></script>
-<script src="./js/calendar.js"></script>
 
 <script>
 
@@ -408,3 +407,31 @@
 
 </script>
 @endsection
+
+{{-- .yacht__features-table {
+    width: 100%;
+    height: auto;
+    padding: 0 10rem;
+} --}}
+
+{{-- .slide_carousel {
+    width: 360px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+} --}}
+
+{{--
+    .reservation__form {
+    margin: 0 auto 4rem auto;
+    width: 36rem;
+} 
+--}}
+
+{{-- .yacht__description {
+    font-size: 1.4rem;
+    padding: 2rem;
+    line-height: 21px;
+    width: 46rem;
+    margin: 0 auto;
+} --}}
