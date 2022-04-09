@@ -1,12 +1,19 @@
 <!-- Footer -->
 <div class="footer">
     <footer>
-        <div class="footer__contact-section">
+        {{-- Contact Section --}}
+        <div class="contact__section d-lg">
             <p class="contact__text text-color-main">!Contacta con nosotros¡</p>
-            <p class="contact__phone">+34 650 020 215</p>
-            <div class="social__icons">
-                <a href="#"><i class="fa-brands fa-facebook-square text-color-main"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram-square text-color-main"></i></a>
+            <div class="contact__numbers">
+                <div class="contact__number">
+                    <div class="contact__number_img"><img class="img-fluid" src="./img/lang_es.png" alt=""></div>
+                    <p class="contact__phone">+34 650 020 215</p>
+                </div>
+                <span>|</span>
+                <div class="contact__number">
+                    <div class="contact__number_img"><img class="img-fluid" src="./img/lang_en.png" alt=""></div>
+                    <p class="contact__phone">+34 650 020 215</p>
+                </div>
             </div>
         </div>
         <div class="footer__legal-section text-center">

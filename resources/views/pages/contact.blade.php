@@ -19,8 +19,8 @@
             <div class="card m-auto">
                 <div class="card-head">
                     <div class="card__img">
-                        <img class="img-fluid smooth-top-corners" src="img/contact/contact.jpeg" alt="card image">
-                    </div>
+                        <img class="img-fluid smooth-top-corners" src="img/contact/contact.jpg" alt="card image">
+                    </div>  
                 </div>
                 <div class="card-body-no-border">
                     <div class="card__text text-center margin-bottom-1">

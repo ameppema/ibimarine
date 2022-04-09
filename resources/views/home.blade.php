@@ -12,6 +12,21 @@
 @endsection
 
 @section('content')
+{{-- Contact Section --}}
+<div class="contact__section d-lg">
+    <p class="contact__text text-color-main">!Contacta con nosotros¡</p>
+    <div class="contact__numbers">
+        <div class="contact__number">
+            <div class="contact__number_img"><img class="img-fluid" src="./img/lang_es.png" alt=""></div>
+            <p class="contact__phone">+34 650 020 215</p>
+        </div>
+        <span>|</span>
+        <div class="contact__number">
+            <div class="contact__number_img"><img class="img-fluid" src="./img/lang_en.png" alt=""></div>
+            <p class="contact__phone">+34 650 020 215</p>
+        </div>
+    </div>
+</div>
 
 <!-- Section Content -->
 <div class="content">
@@ -150,7 +165,7 @@
         <div>
             <div class="card-head">
                 <div class="card__img">
-                    <img class="img-fluid smooth-top-corners" src="img/contact/contact.jpeg" alt="card image">
+                    <img class="img-fluid smooth-top-corners" src="img/contact/contact.jpg" alt="card image">
                 </div>
                 <div class="card__title">
                     <p class="text-center text-upper">Contacto</p>
