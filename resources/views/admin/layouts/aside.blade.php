@@ -1,6 +1,8 @@
 <aside class="px-4 bg-[#3c4045] min-w-44 w-1/4 lg:w-[15%]   py-10 ">
     <div class="logo mb-10 ">
-      <img src="./img/logoibimarine_2.png" alt="">
+      <a href="{{ route('admin') }}">
+        <img src="./img/logoibimarine_2.png" alt="">
+      </a>
     </div>
     <nav class="">
       <ul>

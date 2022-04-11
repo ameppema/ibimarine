@@ -1,4 +1,4 @@
-<div id="menu_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black h-screen w-full">
+<div id="menu_mobile" class="hidden fixed top-0 left-0 z-10  bg-old-black h-screen w-full">
 
     <header class="container mt-8">
 
@@ -37,19 +37,19 @@
     </section>
 
     <section>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Home</p></a>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Alquiler</p></a>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Venta</p></a>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Complementos</p></a>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Eventos</p></a>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Noticias</p></a>
-        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Contacto</p></a>
+        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Home</p></a>
+        <a href="{{ route('rent') }}" class="{{ request()->routeIs('rent') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Alquiler</p></a>
+        <a href="{{ route('sale') }}" class="{{ request()->routeIs('sale') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Venta</p></a>
+        <a href="{{ route('toys') }}" class="{{ request()->routeIs('toys') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Complementos</p></a>
+        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Eventos</p></a>
+        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Noticias</p></a>
+        <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active-link' : ''}}"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Contacto</p></a>
     </section>
 
     <section>
         <div class="border-y-2 border-old-gold w-4/5 mx-auto flex justify-center gap-4 columns-2 text-white py-2">
             <div>
-                <p class="font-bold text-2xl">Área Privada</p>
+                <p class="font-bold text-2xl"> <a href="{{ route('admin') }}">Área Privada</a> </p>
             </div>
         </div>
     </section>
