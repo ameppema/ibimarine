@@ -14,6 +14,18 @@ Route::get('/rent', function () {
 Route::get('/rent/show', function () {
     return view('pages.rent.rentShow');
 });
+Route::get('/sale', function () {
+    return view('pages.sale.sale');
+});
+Route::get('/sale/show', function () {
+    return view('pages.sale.saleShow');
+});
+Route::get('/toys', function () {
+    return view('pages.toys');
+});
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
