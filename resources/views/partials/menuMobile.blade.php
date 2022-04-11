@@ -1,35 +1,58 @@
-<!--Mobile Menu -->
-<div class="menu__overlay" id="menu_mobile">
-    <!-- Menu Content -->
-    <div class="menu__content">
-        <div class="menu__head">
-            <a href="javascript:void(0)" id="close_navbar" class="invisible">&times;</a>
-            
-            <div class="head__logo-menu">
-                <img class="img-fluid" src="./img/logoibimarine_2.png" alt="Logo Ibimarine">
-            </div>
-            
-            <a href="javascript:void(0)" id="menu_close">&times;</a>
-        </div>
+<div id="menu_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black h-screen w-full">
 
-        <div class="menu__section margin-top-2">
-            <div class="menu__langs">
-                <div class="lang active"><img class="img-fluid lang_img" src="./img/lang_es.png" alt=""> ES</div> 
-                <span class="bar">&#124;</span>
-                <div class="lang"><img class="img-fluid lang_img" src="./img/lang_en.png" alt="">EN</div>
+    <header class="container mt-8">
+
+        <div class="relative h-20">
+            <div class="absolute left-0 right-0 mx-auto w-56">
+                <img src="/img/logoibimarine_2.png" alt="Logo ibimarine">
+            </div>
+    
+            <div id="menu_close" class="absolute right-0 top-0 -mt-1 mr-5">
+                <span class="text-5xl text-old-gold">&times;</span>
             </div>
         </div>
 
-        <div class="menu__links">
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('home') }}">Home</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('rent') }}">Alquiler</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('sale') }}">Venta</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('toys') }}">Complementos</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('events') }}">Eventos</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('news') }}">Noticias</a></div>
-            <div class="menu__link margin-vertical-2"><a class="text-upper text-bold" href="{{ route('contact') }}">Contacto</a></div>
+    </header>
+
+    <section>
+        <div class="border-y-2 border-old-gold w-4/5 lg:w-96 lg:h-56 mx-auto flex justify-center gap-4 columns-2 text-white py-2">
+            <div class="w-16 flex items-center hover:opacity-100">
+                <div>
+                    <img src="/img/lang_es.png" alt=""> 
+                </div>
+                <div >
+                    <span class="text-2xl font-bold ml-2">ES</span>
+                </div>
+            </div> 
+            <span class="place-self-center text-lg">&#124;</span>
+            <div class="w-16 flex items-center opacity-50 hover:opacity-100">
+                <div>
+                    <img src="/img/lang_en.png" alt=""> 
+                </div>
+                <div>
+                    <span class="text-2xl font-bold ml-2">EN</span>
+                </div>
+            </div>
         </div>
-            <div class="menu__link"><a class="text-upper text-bold" href="#">Área Privada</a></div>
+    </section>
+
+    <section>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Home</p></a>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Alquiler</p></a>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Venta</p></a>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Complementos</p></a>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Eventos</p></a>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Noticias</p></a>
+        <a href="#"><p class="text-2xl text-white font-bold my-6 text-center uppercase">Contacto</p></a>
+    </section>
+
+    <section>
+        <div class="border-y-2 border-old-gold w-4/5 mx-auto flex justify-center gap-4 columns-2 text-white py-2">
+            <div>
+                <p class="font-bold text-2xl">Área Privada</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+
 </div>

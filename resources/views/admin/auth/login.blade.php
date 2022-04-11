@@ -292,8 +292,8 @@
           <!-- Login Form -->
           <form method="POST" action="{{ route('login') }}">
             @csrf
-            <input type="text" id="login" data-class="fadeIn second" name="login" placeholder="email">
-            <input type="text" id="password" data-class="fadeIn third" name="login" placeholder="password">
+            <input type="text" id="name" data-class="fadeIn second" name="email" placeholder="email">
+            <input type="password" id="password" data-class="fadeIn third" name="password" placeholder="password">
             <input type="submit" data-class="fadeIn fourth" value="Log In">
 
             <div>

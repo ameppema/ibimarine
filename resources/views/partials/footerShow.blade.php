@@ -1,4 +1,4 @@
-<footer class="text-old-black text-center mx-auto lg:flex lg:my-10 lg:w-4/5  lg:gap-4">
+<footer class="text-old-black text-center mx-auto lg:flex lg:my-10 lg:w-4/5  lg:gap-4 ">
     <div class="lg:hidden">
         <p>Derechos Reservados</p>
     </div>
