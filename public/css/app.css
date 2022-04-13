@@ -731,6 +731,10 @@ select {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
 }
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -738,10 +742,6 @@ select {
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }
 .my-4 {
   margin-top: 1rem;
@@ -819,14 +819,14 @@ select {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .mt-40 {
   margin-top: 10rem;
 }
 .mt-32 {
   margin-top: 8rem;
-}
-.mb-20 {
-  margin-bottom: 5rem;
 }
 .block {
   display: block;
@@ -885,6 +885,9 @@ select {
 .h-screen {
   height: 100vh;
 }
+.h-11 {
+  height: 2.75rem;
+}
 .h-44 {
   height: 11rem;
 }
@@ -896,9 +899,6 @@ select {
 }
 .h-full {
   height: 100%;
-}
-.h-11 {
-  height: 2.75rem;
 }
 .h-\[100px\] {
   height: 100px;
@@ -963,6 +963,9 @@ select {
 .w-1\/4 {
   width: 25%;
 }
+.w-80 {
+  width: 20rem;
+}
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -986,9 +989,6 @@ select {
 }
 .w-64 {
   width: 16rem;
-}
-.w-80 {
-  width: 20rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -1047,11 +1047,11 @@ select {
   -moz-columns: 2;
        columns: 2;
 }
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .grid-rows-6 {
   grid-template-rows: repeat(6, minmax(0, 1fr));
@@ -1138,13 +1138,13 @@ select {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
-.rounded-l-xl {
-  border-top-left-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
-}
 .rounded-t-xl {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+}
+.rounded-l-xl {
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
 }
 .rounded-b-xl {
   border-bottom-right-radius: 0.75rem;
@@ -1282,13 +1282,13 @@ select {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .pl-5 {
   padding-left: 1.25rem;
@@ -1928,6 +1928,10 @@ ol.calendar__weekdays {
     margin-top: 1.5rem;
   }
 
+  .lg\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
   .lg\:mt-16 {
     margin-top: 4rem;
   }
@@ -1938,10 +1942,6 @@ ol.calendar__weekdays {
 
   .lg\:ml-10 {
     margin-left: 2.5rem;
-  }
-
-  .lg\:mb-2 {
-    margin-bottom: 0.5rem;
   }
 
   .lg\:block {
@@ -2182,9 +2182,9 @@ ol.calendar__weekdays {
     line-height: 1.75rem;
   }
 
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:text-3xl {
@@ -2192,9 +2192,9 @@ ol.calendar__weekdays {
     line-height: 2.25rem;
   }
 
-  .lg\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .lg\:leading-6 {

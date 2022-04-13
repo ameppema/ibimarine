@@ -127,3 +127,8 @@
 @section('footer')
     @include('partials.footer')
 @endsection
+
+@section('js')
+<script src="/js/calenMod.js"></script>
+<script src="/js/reservationCalendar.js"></script>
+@endsection
