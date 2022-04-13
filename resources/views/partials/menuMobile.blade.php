@@ -18,7 +18,7 @@
         <div class="border-y-2 border-old-gold w-4/5 lg:w-96 lg:h-56 mx-auto flex justify-center gap-4 columns-2 text-white py-2">
             <div class="w-16 flex items-center hover:opacity-100">
                 <div>
-                    <img src="/img/lang_es.png" alt=""> 
+                    <img src="{{asset('img/lang_es.png')}}" alt=""> 
                 </div>
                 <div >
                     <span class="text-2xl font-bold ml-2">ES</span>
@@ -27,7 +27,7 @@
             <span class="place-self-center text-lg">&#124;</span>
             <div class="w-16 flex items-center opacity-50 hover:opacity-100">
                 <div>
-                    <img src="/img/lang_en.png" alt=""> 
+                    <img src="{{asset('img/lang_en.png')}}" alt=""> 
                 </div>
                 <div>
                     <span class="text-2xl font-bold ml-2">EN</span>

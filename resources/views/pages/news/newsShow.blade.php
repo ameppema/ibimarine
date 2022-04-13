@@ -3,56 +3,73 @@
 @section('title', 'Noticias y Life Style')
 
 @section('hero')
-    <!-- Hero -->
-    <div class="hero__content">
-        <div class="hero-container">
-            <h1 class="margin-1 text-title text-center text-upper text-bold text-color-black">Noticias y Life Style</h1>
+    <!-- Section Hero - Title -->
+    <section class="my-5">
+        <div class="border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto lg:w-max">
+           <p class="text-center text-old-black text-2xl uppercase font-bold">Noticias y LifeStyle</p>
         </div>
-    </div>
+    </section>
 @endsection
 
 @section('content')
     <!-- Section Content -->
-    <div class="content">
-        <div class="container">
-            <!-- Card -->
-            <div class="card">
-                <div class="card-head">
-                    <div class="card__img">
-                        <img class="img-fluid smooth-top-corners" src="img/news/news-01.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card-body-no-border">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black margin-vertical-1 padding-horizontal-1">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            ac condimentum magna porttitor faucibus.
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            <br>
-                            <br>
-                            Vestibulum ante ipsum primis in faucibus                            id leo fermentum quam gravida ut.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
+    <div class="container lg:mx-auto lg:flex lg:flex-wrap lg:columns-2 lg:justify-center lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
 
-                        <!-- Back Button -->
-                        <a href="noticias.html">
-                            <button class="button button-golden margin-vertical-1">Volver a Noticias y Life Style</button>
-                        </a>
+        <!-- Cards -->
+            <div class="w-4/5 mx-auto my-6 md:max-w-[340px] lg:max-w-full lg:w-full sm:max-w-[300px]">
+                <!-- Card Head -->
+                <div class="relative lg:h-56 xl:h-96">
+    
+                    <div class="rounded-t-lg max-h-[200px] xl:max-h-full overflow-y-hidden">
+                        <img class="rounded-t-[12px] mx-auto"  src="./img/news/news-01.jpeg" alt="">
                     </div>
                 </div>
+                <!-- Card body -->
+                <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black lg:leading-4">
+                    <div>
+                        <p class="text-sm xl:text-2xl">
+                            Cras venenatis porta ligula sed suscipit.
+                            Ut in vehicula ex. Vivamus fermentum nunc mi.
+                        </p>
+                        <br>
+                        <p class="text-sm xl:text-2xl">
+                            Cras venenatis porta ligula sed suscipit.
+                            Ut in vehicula ex. Vivamus fermentum nunc mi,
+                            ac condimentum magna porttitor faucibus.
+                            Ut in vehicula ex. Vivamus fermentum nunc 
+                        </p>
+                    </div>
+                </div>
+    
+    
             </div>
+    
+            <div class="pb-10 mx-auto text-center">
+                <a class="btn-gold" onclick="history.back()"  href="#">Volver a Noticias y LifeSatyle</a>
+            </div>  
         </div>
-    </div>
+@endsection
+
+@section('footer')
+        <!-- Section footer -->
+        <footer class="text-old-black text-center mx-auto lg:flex lg:my-10 lg:w-4/5  lg:gap-4">
+            <div class="lg:hidden">
+                <p>Derechos Reservados</p>
+            </div>
+            <div>
+                <p class="inline">Términos y condiciones</p> - <p class="inline">Política de Privacidad</p>
+            </div>
+            <div>
+                <p class="inline">Política de cookies</p> - <p class="inline">Protección de datos</p>
+            </div>
+            <div class="lg:-order-1">
+                <p> <b>IBIMARINE &copy;</b> </p>
+            </div>
+    
+            <div class="ml-36 hidden lg:justify-self-end lg:flex">
+                <p class="mr-5">Find US: </p>
+                <a href="#" class="text-old-gold"><i class="fa-brands fa-facebook-square mr-3"></i></a>
+                <a href="#" class="text-old-gold"><i class="fa-brands fa-instagram-square "></i></a>
+            </div>
+        </footer>
 @endsection

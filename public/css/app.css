@@ -795,17 +795,17 @@ select {
 .-mr-2 {
   margin-right: -0.5rem;
 }
-.mr-3 {
-  margin-right: 0.75rem;
-}
-.mr-1 {
-  margin-right: 0.25rem;
-}
 .ml-36 {
   margin-left: 9rem;
 }
 .mr-5 {
   margin-right: 1.25rem;
+}
+.mr-3 {
+  margin-right: 0.75rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
 }
 .mb-1 {
   margin-bottom: 0.25rem;
@@ -824,6 +824,9 @@ select {
 }
 .mt-32 {
   margin-top: 8rem;
+}
+.mb-20 {
+  margin-bottom: 5rem;
 }
 .block {
   display: block;
@@ -882,6 +885,9 @@ select {
 .h-screen {
   height: 100vh;
 }
+.h-44 {
+  height: 11rem;
+}
 .h-\[150px\] {
   height: 150px;
 }
@@ -921,6 +927,9 @@ select {
 .w-4\/5 {
   width: 80%;
 }
+.w-\[120\%\] {
+  width: 120%;
+}
 .w-3\/4 {
   width: 75%;
 }
@@ -954,6 +963,12 @@ select {
 .w-1\/4 {
   width: 25%;
 }
+.w-11\/12 {
+  width: 91.666667%;
+}
+.w-1\/2 {
+  width: 50%;
+}
 .w-\[150px\] {
   width: 150px;
 }
@@ -966,14 +981,14 @@ select {
 .w-10\/12 {
   width: 83.333333%;
 }
-.w-11\/12 {
-  width: 91.666667%;
-}
 .w-7 {
   width: 1.75rem;
 }
 .w-64 {
   width: 16rem;
+}
+.w-80 {
+  width: 20rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -1038,6 +1053,9 @@ select {
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
+.grid-rows-6 {
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+}
 .flex-col {
   flex-direction: column;
 }
@@ -1073,6 +1091,13 @@ select {
 }
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-y-6 {
+  row-gap: 1.5rem;
+}
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1113,6 +1138,10 @@ select {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
+.rounded-l-xl {
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
 .rounded-t-xl {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
@@ -1123,6 +1152,9 @@ select {
 }
 .border {
   border-width: 1px;
+}
+.border-2 {
+  border-width: 2px;
 }
 .border-y-8 {
   border-top-width: 8px;
@@ -1284,6 +1316,9 @@ select {
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 .text-center {
   text-align: center;
@@ -1449,6 +1484,12 @@ select {
 }
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.line-clamp-5 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 /* Active link */
 .active-link {
@@ -1649,8 +1690,16 @@ ol.calendar__weekdays {
   --tw-content: 'Recomended';
   content: var(--tw-content);
 }
-.last\:ml-0:last-child {
-  margin-left: 0px;
+.even\:flex-row-reverse:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.even\:rounded-l-none:nth-child(even) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.even\:rounded-r-xl:nth-child(even) {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 }
 .even\:bg-gray-1:nth-child(even) {
   --tw-bg-opacity: 1;
@@ -1747,22 +1796,94 @@ ol.calendar__weekdays {
 }
 @media (min-width: 768px) {
 
+  .md\:-bottom-9 {
+    bottom: -2.25rem;
+  }
+
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .md\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:h-12 {
+    height: 3rem;
+  }
+
+  .md\:h-56 {
+    height: 14rem;
   }
 
   .md\:w-1\/4 {
     width: 25%;
   }
 
+  .md\:w-11\/12 {
+    width: 91.666667%;
+  }
+
   .md\:max-w-\[340px\] {
     max-width: 340px;
+  }
+
+  .md\:columns-2 {
+    -moz-columns: 2;
+         columns: 2;
+  }
+
+  .md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
+  }
+
+  .md\:gap-0 {
+    gap: 0px;
+  }
+
+  .md\:gap-x-10 {
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
+  }
+
+  .md\:border-none {
+    border-style: none;
+  }
+
+  .md\:bg-opacity-0 {
+    --tw-bg-opacity: 0;
   }
 
   .md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .md\:font-bold {
+    font-weight: 700;
+  }
+
+  .md\:leading-\[3rem\] {
+    line-height: 3rem;
+  }
+
+  .md\:text-old-black {
+    --tw-text-opacity: 1;
+    color: rgb(60 64 69 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 1024px) {
@@ -1819,6 +1940,10 @@ ol.calendar__weekdays {
     margin-left: 2.5rem;
   }
 
+  .lg\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -1845,6 +1970,14 @@ ol.calendar__weekdays {
 
   .lg\:h-56 {
     height: 14rem;
+  }
+
+  .lg\:h-80 {
+    height: 20rem;
+  }
+
+  .lg\:h-auto {
+    height: auto;
   }
 
   .lg\:w-1\/2 {
@@ -1889,6 +2022,14 @@ ol.calendar__weekdays {
     width: 15%;
   }
 
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
+  .lg\:w-2\/5 {
+    width: 40%;
+  }
+
   .lg\:w-\[50\%\] {
     width: 50%;
   }
@@ -1913,17 +2054,25 @@ ol.calendar__weekdays {
     max-width: 100%;
   }
 
+  .lg\:max-w-\[23rem\] {
+    max-width: 23rem;
+  }
+
+  .lg\:max-w-\[28rem\] {
+    max-width: 28rem;
+  }
+
   .lg\:columns-2 {
     -moz-columns: 2;
          columns: 2;
   }
 
-  .lg\:grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:flex-wrap {
@@ -1938,6 +2087,10 @@ ol.calendar__weekdays {
     justify-content: center;
   }
 
+  .lg\:justify-between {
+    justify-content: space-between;
+  }
+
   .lg\:gap-6 {
     gap: 1.5rem;
   }
@@ -1946,21 +2099,12 @@ ol.calendar__weekdays {
     gap: 1rem;
   }
 
-  .lg\:gap-x-10 {
-    -moz-column-gap: 2.5rem;
-         column-gap: 2.5rem;
-  }
-
   .lg\:justify-self-end {
     justify-self: end;
   }
 
   .lg\:border-b-4 {
     border-bottom-width: 4px;
-  }
-
-  .lg\:border-none {
-    border-style: none;
   }
 
   .lg\:border-b-old-gold {
@@ -1997,6 +2141,16 @@ ol.calendar__weekdays {
     padding-right: 8rem;
   }
 
+  .lg\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .lg\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -2007,12 +2161,29 @@ ol.calendar__weekdays {
     padding-right: 0.75rem;
   }
 
+  .lg\:pt-4 {
+    padding-top: 1rem;
+  }
+
   .lg\:pr-3 {
     padding-right: 0.75rem;
   }
 
+  .lg\:text-justify {
+    text-align: justify;
+  }
+
+  .lg\:align-middle {
+    vertical-align: middle;
+  }
+
   .lg\:text-lg {
     font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
 
@@ -2021,22 +2192,28 @@ ol.calendar__weekdays {
     line-height: 2.25rem;
   }
 
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .lg\:font-bold {
-    font-weight: 700;
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:leading-6 {
     line-height: 1.5rem;
   }
 
-  .lg\:text-old-black {
-    --tw-text-opacity: 1;
-    color: rgb(60 64 69 / var(--tw-text-opacity));
+  .lg\:leading-4 {
+    line-height: 1rem;
+  }
+
+  .lg\:line-clamp-8 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+  }
+
+  .lg\:last\:ml-0:last-child {
+    margin-left: 0px;
   }
 }
 @media (min-width: 1280px) {
@@ -2120,10 +2297,6 @@ ol.calendar__weekdays {
     border-top-right-radius: 0.75rem;
   }
 
-  .xl\:bg-opacity-0 {
-    --tw-bg-opacity: 0;
-  }
-
   .xl\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
@@ -2136,11 +2309,6 @@ ol.calendar__weekdays {
   .xl\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-  }
-
-  .xl\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .xl\:text-xl {

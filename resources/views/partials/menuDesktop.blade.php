@@ -7,16 +7,16 @@
             <li class="{{ request()->routeIs('toys') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('toys')}}"> Toys </a></li>
             <li class="{{ request()->routeIs('events') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('events')}}"> Eventos </a></li>
             <li class="{{ request()->routeIs('news') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('news')}}"> Noticias </a></li>
-            <li class="{{ request()->routeIs('contact') ? 'active-link' : ''}}lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('contact')}}"> Contacto </a></li>
-            <li class="{{ request()->routeIs('pivate.area') ? 'active-link' : ''}}lg:py-0 xl:py-1 lg:pr-3 xl:pr-7"><a class="uppercase text-sm " href="/"> Area Privada </a></li>
+            <li class="{{ request()->routeIs('contact') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('contact')}}"> Contacto </a></li>
+            <li class="{{ request()->routeIs('pivate.area') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:pr-3 xl:pr-7"><a class="uppercase text-sm " href="{{route('admin')}}"> Area Privada </a></li>
             <li class="flex">
-                <a href="#" class="flex items-center mr-1">
-                    <img class="mr-1 w-4 h-3" src="./img/lang_es.png" alt="">
+                <a href="#" class="flex items-center mr-1 {{ app()->getLocale() == 'es' ? 'opacity-100' : 'opacity-50' }}" >
+                    <img class="mr-1 w-4 h-3" src="{{asset('./img/lang_es.png')}}" alt="">
                     <span>ES</span>
                 </a>
                 <span class="m-1">|</span>
-                <a href="#" class="flex items-center opacity-50">
-                    <img class="mx-1 w-4 h-3" src="./img/lang_en.png" alt="">
+                <a href="#" class="flex items-center {{ app()->getLocale() == 'en' ? 'opacity-100' : 'opacity-50' }}">
+                    <img class="mx-1 w-4 h-3 opacity-100" src="{{asset('./img/lang_en.png')}}" alt="">
                     <span>EN</span>
                 </a>
             </li>

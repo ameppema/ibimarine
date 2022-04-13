@@ -28,12 +28,15 @@ Route::get('/toys', function () {
 })->name('toys');
 
 Route::get('/events', function () {
-    return view('pages.toys');
+    return view('pages.events');
 })->name('events');
 
 Route::get('/news', function () {
-    return view('pages.toys');
+    return view('pages.news.newsIndex');
 })->name('news');
+Route::get('/news/show', function () {
+    return view('pages.news.newsShow');
+})->name('news.show');
 
 Route::get('/contact', function () {
     return view('pages.contact');

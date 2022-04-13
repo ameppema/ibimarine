@@ -13,7 +13,9 @@
         <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image:url('/img/events/events-01.jpg')"></div>
         
         <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
-            <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Ibimarine</h2>
+            <a href="/">
+                <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Ibimarine</h2>
+            </a>
 
             <p class="text-xl text-center text-gray-600 dark:text-gray-200">Welcome back!</p>
 

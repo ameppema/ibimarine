@@ -3,234 +3,51 @@
 @section('title', 'Noticias y Life Style')
 
 @section('hero')
-    <!-- Hero -->
-    <div class="hero__content">
-        <div class="hero-container hero-container-text">
-            <h1 class="margin-1 text-title text-center text-upper text-bold text-color-black">Noticias y Life Style</h1>
+    <!-- Section Hero - Title -->
+    <section class="my-5">
+        <div class="border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto lg:w-max">
+           <p class="text-center text-old-black text-2xl uppercase font-bold">Noticias y LifeStyle</p>
         </div>
-    </div>
+    </section>
 @endsection
 
 @section('content')
     <!-- Section Content -->
-    <div class="content">
-        <div class="container home__grid">
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-01.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
+
+    <div class="container lg:mx-auto lg:flex lg:flex-wrap lg:columns-2 lg:justify-center lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
+
+        <!-- Cards -->
+
+        <div class="w-11/12 h-44 lg:h-80 my-6 mx-auto flex columns-2 even:flex-row-reverse overflow-y-hidden rounded-l-xl even:rounded-l-none even:rounded-r-xl">
+            <!-- Card Left Side -->
+            <div class="w-1/2 lg:w-3/5">
+                <div>
+                    <img class="object-cover h-44 lg:h-80" src="/img/news/news-01.jpeg" alt="">
                 </div>
             </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-06.jpeg" alt="card image">
-                    </div>
+
+            <!-- Card Right side -->
+            <div class="w-1/2 lg:w-2/5 h-44 lg:h-auto p-4 text-center border-2 border-old-gold">
+                <div class="line-clamp-5 lg:line-clamp-8 text-md lg:text-xl leading-5 lg:align-middle">
+                    Cras venenatis porta ligula sed suscipit.
+                    Ut in vehicula ex. Vivamus fermentum nunc mi,
+                    ac condimentum magna porttitor faucibus.
+                    Vestibulum ante ipsum primis in faucibus
+                    orci luctus et ultrices posuere cubila curae;
+                    sed non lorem at felis tincidunt lacinia nec
+                    id leo fermentum quam gravida ut.
+                    <br>
+                    ac condimentum magna porttitor faucibus.
+                    Vestibulum ante ipsum primis in faucibus
+                    orci luctus et ultrices posuere cubila curae;
+                    sed non lorem at felis tincidunt lacinia nec
+                    id leo fermentum quam gravida ut.
                 </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-10.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-04.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-02.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-03.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-09.jpeg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-07.png" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-            <div class="card card__news smooth-side-corners-alternating">
-                <div class="card__news_image card__news-element">
-                    <div class="card__img-news">
-                        <img class="img-news" src="img/news/news-05.jpg" alt="card image">
-                    </div>
-                </div>
-                <div class="card__news_text card__news-element card-border-golden">
-                    <div class="card__text text-center margin-bottom-1">
-                        <p class="text-color-black padding-horizontal-1 text-ellipsed">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Vestibulum ante ipsum primis in faucibus
-                            orci luctus et ultrices posuere cubila curae;
-                            sed non lorem at felis tincidunt lacinia nec
-                            id leo fermentum quam gravida ut.
-                        </p>
-                        <a href="noticias_show.html">
-                            <button class="button button-golden">Leer más</button>
-                        </a>
-                    </div>
+                <div class="mt-4 ">
+                    <a class="btn-gold" href="{{route('news.show')}}">Leer mas</a>
                 </div>
             </div>
         </div>
+   
     </div>
 @endsection
