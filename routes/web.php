@@ -27,6 +27,14 @@ Route::get('/toys', function () {
     return view('pages.toys');
 })->name('toys');
 
+Route::get('/events', function () {
+    return view('pages.toys');
+})->name('events');
+
+Route::get('/news', function () {
+    return view('pages.toys');
+})->name('news');
+
 Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
