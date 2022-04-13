@@ -98,6 +98,7 @@ const UCalendar = new (function(){
 
       return {
         date: ParsedDate,
+        dateValue: calendarDate.getAttribute('data-day-id'),
         dateId: [year,month,day].join(''),
         dateElement: calendarDate,
         year: ParsedDate.getFullYear(),
@@ -360,8 +361,6 @@ const UICustomeFullCalendar = function({year, target, onDayPicked, onEmptyDates}
         if(typeof target !== 'object') return null;
 
         target.addEventListener('click', function(e){
-          console.log(e.target)
-
           if(e.target.hasAttribute('data-arrow-prev')) {
               e.stopPropagation();
               UXcontroll.showPrevCalendar(e);

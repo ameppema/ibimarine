@@ -1,10 +1,29 @@
 "use strict";
 
+const form = document.getElementById('request_reservation_form');
+
+
 const MyYearCalendar = new UICustomeFullCalendar({
     year: 2022,
     target: document.getElementById('reservationCalendar'),
     onDayPicked: function(calendar){
-        console.log(calendar.getDates())
+        const dateStart = calendar.getDates()[0];
+        const dateEnd = calendar.getDates()[calendar.getDates().length - 1];
+
+        const inputDateStart = document.createElement('input');
+        inputDateStart.setAttribute('type', 'date');
+        inputDateStart.setAttribute('name', 'start_date');
+        inputDateStart.style.display = 'none';
+        inputDateStart.value = dateStart.dateValue; 
+        form.appendChild(inputDateStart);
+
+
+        const inputDateEnd = document.createElement('input');
+        inputDateEnd.setAttribute('type', 'date');
+        inputDateEnd.setAttribute('name', 'end_date');
+        inputDateEnd.style.display = 'none';
+        inputDateEnd.value = dateEnd.dateValue; 
+        form.appendChild(inputDateEnd);
     },
 });
 

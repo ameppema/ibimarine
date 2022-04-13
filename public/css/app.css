@@ -1870,12 +1870,28 @@ ol.calendar__weekdays {
     height: 14rem;
   }
 
+  .md\:h-96 {
+    height: 24rem;
+  }
+
+  .md\:h-80 {
+    height: 20rem;
+  }
+
   .md\:w-1\/4 {
     width: 25%;
   }
 
   .md\:w-11\/12 {
     width: 91.666667%;
+  }
+
+  .md\:w-4\/5 {
+    width: 80%;
+  }
+
+  .md\:w-\[70\%\] {
+    width: 70%;
   }
 
   .md\:max-w-\[340px\] {
@@ -1902,6 +1918,11 @@ ol.calendar__weekdays {
   .md\:gap-x-10 {
     -moz-column-gap: 2.5rem;
          column-gap: 2.5rem;
+  }
+
+  .md\:rounded-t-xl {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
   }
 
   .md\:border-none {
@@ -2026,6 +2047,18 @@ ol.calendar__weekdays {
 
   .lg\:h-auto {
     height: auto;
+  }
+
+  .lg\:h-96 {
+    height: 24rem;
+  }
+
+  .lg\:h-\[4\.5rem\] {
+    height: 4.5rem;
+  }
+
+  .lg\:max-h-\[4\.5rem\] {
+    max-height: 4.5rem;
   }
 
   .lg\:w-1\/2 {
@@ -2271,6 +2304,13 @@ ol.calendar__weekdays {
   .lg\:last\:ml-0:last-child {
     margin-left: 0px;
   }
+
+  @media (min-width: 768px) {
+
+    .lg\:md\:w-4\/5 {
+      width: 80%;
+    }
+  }
 }
 @media (min-width: 1280px) {
 
@@ -2329,6 +2369,10 @@ ol.calendar__weekdays {
 
   .xl\:w-1\/2 {
     width: 50%;
+  }
+
+  .xl\:w-\[70\%\] {
+    width: 70%;
   }
 
   .xl\:max-w-\[30rem\] {

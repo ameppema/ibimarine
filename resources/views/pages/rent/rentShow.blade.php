@@ -97,14 +97,14 @@
 
     </div>
 
-    <div class="container">
+    <div class="container md:mx-auto">
 
         <!-- Section Slides -->
         <div>
 
             <!-- Slider Hero Image -->
-            <div id="photos_open" class="xl:w-4/5 mx-auto">
-                <div class="swiper main_img h-56 xl:h-96 overflow-y-hidden xl:rounded-t-xl">
+            <div id="photos_open" class="md:w-4/5 lg:md:w-4/5 mx-auto">
+                <div class="swiper main_img h-56 lg:h-96 md:h-80 overflow-y-hidden md:rounded-t-xl">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="/img/home/home-04.jpg" alt="Hero Slider Image">
@@ -130,30 +130,30 @@
             </div>
 
             <!-- Slider thumbnails Carousel -->
-            <div class="xl:w-[50%] flex mx-auto justify-center items-center my-2">
-                <div class="arrow w-1/12 h-6 xl:h-12" id="arrowPrev">
+            <div class="md:w-[70%] flex mx-auto justify-center items-center my-2">
+                <div class="arrow w-1/12 h-6 md:h-12" id="arrowPrev">
                     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="43.026 0 161.967 490" width="161.967" height="490">
                         <polyline style="stroke: rgb(60, 64, 69); fill: rgb(60, 64, 69);" points="204.993 0.285 204.993 490 43.026 244.36 204.72 0" bx:origin="0.525 0.496"/>
                     </svg>
                 </div>
                 <div class="swiper thumbnails-row mx-auto w-10/12" thumbsSlider="">
                     <div class="swiper-wrapper flex">
-                        <div class="swiper-slide max-h-14 xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-01.jpg" alt="thumbnail">
                         </div>
-                        <div class="swiper-slide max-h-14 xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
                         </div>
-                        <div class="swiper-slide max-h-14 xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
                         </div>
-                        <div class="swiper-slide max-h-14 xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-01.jpg" alt="thumbnail">
                         </div>
-                        <div class="swiper-slide max-h-14 xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
                         </div>
-                        <div class="swiper-slide max-h-14 xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
                         </div>
                     </div>
@@ -387,7 +387,10 @@
 
             <!-- Form -->
             <div class="lg:ml-10 lg:w-80 w-4/5 mx-auto">
-                <form method="post" action="#" class="font-bold text-old-black">
+                <form id="request_reservation_form" method="POST" action="{{ route('rent.show.reserve') }}" class="font-bold text-old-black">
+                    @csrf
+                    @method('post')
+                    <input type="hidden" name="boat_id" value="1">
                     <div class="mb-4">
                         <label class="block" for="name"> Nombre </label>
                         <input class="w-full" type="text" name="name" id="">
@@ -494,6 +497,7 @@
     <!-- Menu Script -->
     <script src="/vendor/swiper/swiper-bundle.min.js"></script>
 
+
     <script>
 
        // Main Slide
@@ -503,7 +507,7 @@
             breakpoints : {
                 640: {
                     slidesPerView: 4,
-                    spaceBetween: 20
+                    spaceBetween: 10
                     }
             }
         })
@@ -543,12 +547,10 @@
         openRequestBtn.addEventListener('click', openRequest)
 
         function closeRequest(e){
-            e.preventDefault()
             requestOverlay.style.display = 'none';
         }
         
         function openRequest(e){
-            e.preventDefault()
             requestOverlay.style.display = 'block';
         }
 

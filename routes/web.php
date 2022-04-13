@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /* Main Pages */
@@ -14,6 +15,10 @@ Route::get('/rent', function () {
 Route::get('/rent/show', function () {
     return view('pages.rent.rentShow');
 })->name('rent.show');
+
+Route::post('/rent/show', function (Request $request) {
+    return $request;
+})->name('rent.show.reserve');
 
 Route::get('/sale', function () {
     return view('pages.sale.sale');
@@ -34,6 +39,7 @@ Route::get('/events', function () {
 Route::get('/news', function () {
     return view('pages.news.newsIndex');
 })->name('news');
+
 Route::get('/news/show', function () {
     return view('pages.news.newsShow');
 })->name('news.show');
