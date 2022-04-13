@@ -360,6 +360,7 @@ const UICustomeFullCalendar = function({year, target, onDayPicked, onEmptyDates}
         if(typeof target !== 'object') return null;
 
         target.addEventListener('click', function(e){
+          console.log(e.target)
 
           if(e.target.hasAttribute('data-arrow-prev')) {
               e.stopPropagation();
