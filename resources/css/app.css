@@ -54,6 +54,10 @@
 .btn-gold {
     @apply text-white bg-old-gold py-2 px-6 rounded-xl text-lg;
 }
+
+.disabled {
+    @apply opacity-40;
+}
 }
 
 /* Custome styles */
