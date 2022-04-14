@@ -4,8 +4,6 @@
 
 @section('content')
     
-  <div class="content-max mx-auto flex">
-    @include('admin.layouts.aside')
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6]">
       <h2 class="text-[#3c4045] font-bold text-3xl mt-5 pl-5">Página de inicio</h2>
       <div class=" max-w-2xl mx-auto mt-20 flex gap-6 justify-center flex-wrap">
@@ -89,5 +87,4 @@
         </article>
       </div>
     </section>
-  </div>
 @endsection

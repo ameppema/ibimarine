@@ -1,23 +1,30 @@
 <aside class="px-4 bg-[#3c4045] min-w-44 w-1/4 lg:w-[15%]   py-10 ">
     <div class="logo mb-10 ">
       <a href="{{ route('admin') }}">
-        <img src="./img/logoibimarine_2.png" alt="">
+        <img src="{{asset('/img/logoibimarine_2.png')}}" alt="">
       </a>
     </div>
     <nav class="">
       <ul>
-        <li class="flex text-white py-1 bg-blue-500 items-center cursor-pointer mb-6">
-          <div class="ml-3"> <i class="fas fa-home icons"></i></div>
-          <p class="ml-3">Inicio</p>
-        </li>
+        <a class="block" href="{{route('admin')}}">
+          <li class="flex text-white py-1 bg-blue-500 items-center cursor-pointer mb-6">
+            <div class="ml-3"> <i class="fas fa-home icons"></i></div>
+            <p class="ml-3">Inicio</p>
+          </li>
+        </a>
+
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"> <i class="fa-solid fa-bars icons"></i></div>
           <p class="ml-3">Menu</p>
         </li>
-        <li class="flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fa-solid fa-truck-ramp-box icons"></i></div>
-          <p class="ml-3">Alquiler</p>
-        </li>
+
+        <a href="{{route('admin.rent')}}">
+          <li class="flex text-white py-1 items-center cursor-pointer mb-6">
+            <div class="ml-3"><i class="fa-solid fa-truck-ramp-box icons"></i></div>
+            <p class="ml-3">Alquiler</p>
+          </li>
+        </a>
+
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-tags icons"></i></div>
           <p class="ml-3">Venta</p>
