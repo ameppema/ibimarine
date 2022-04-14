@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BoatController;
+use App\Http\Controllers\ReservationsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,13 +9,10 @@ Route::get('/', function () {
 })->name('admin');
 
 // Employs and brokers
-Route::get('/reservation', function () {
-    return view('admin.reservation.reservations');
-})->name('admin.reservation');
 
-Route::get('/calendar', function () {
-    return view('admin.reservation.calendar');
-})->name('admin.calendar');
+Route::get('/calendar',[ReservationsController::class, 'index'])->name('admin.calendar');
+
+Route::post('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
 
 
 // Admin and Editor

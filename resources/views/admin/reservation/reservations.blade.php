@@ -48,7 +48,7 @@
         <div class="text-old-black lg:w-2/3">
             <!-- date -->
             <div class="text-center">
-                <p class="font-bold text-2xl">7 de mayo</p>
+                <p class="font-bold text-2xl">{{ substr($date_start, 0, -7) }} {{ $date_end != null ? 'al ' . substr($date_end, 0, -7) : ''}}</p>
             </div>
 
             <!-- add Reservation btn action -->
@@ -188,7 +188,7 @@
         </div>
 
         <!-- See Reservations -->
-        <div class="w-4/5 mx-auto lg:gap-6 lg:flex lg:justify-center my-10">
+        <div class="hidden lg:hidden w-4/5 mx-auto lg:gap-6 lg:flex lg:justify-center my-10">
             <!-- singular day reservation -->
             <div class="w-full my-5 text-center">
                 <!-- day -->

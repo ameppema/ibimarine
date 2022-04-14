@@ -2,6 +2,10 @@
 
 @section('title', 'Contacto')
 
+@section('pre-css')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
+
 @section('hero')
     <!-- Section Hero - Title -->
     <section class="my-5">
@@ -113,9 +117,12 @@
                     </a>
                 </div>
                 <div>
-                    <a href="/reservation.html">
+                    <form id="request_reservation" method="POST" action="{{route('admin.reservation')}}">
+                        @csrf
+                        <input name="date_start" class="hidden" type="date">
+                        <input name="date_end" class="hidden" type="date">
                         <input id="save_date" class="btn-off" type="submit" value="Reservar">
-                    </a>
+                    </form>
                 </div>
             </div>
         </div>
@@ -129,6 +136,7 @@
 @endsection
 
 @section('js')
+<script src="{{asset('vendor/axios.min.js')}}"></script>
 <script src="/js/calenMod.js"></script>
 <script src="/js/reservationCalendar.js"></script>
 @endsection

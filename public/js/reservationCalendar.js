@@ -1,4 +1,14 @@
 const saveDatesBtn = document.getElementById('save_date');
+const form = document.getElementById('request_reservation');
+
+const reservatioBtn = document.getElementById('save_date');
+
+reservatioBtn.addEventListener('click', function(e){
+    if(!form.date_end.value) {
+        e.preventDefault();
+        return ;
+    }
+});
 
 const customeYearCalendar = new UICustomeFullCalendar({
     year: 2022,
@@ -7,6 +17,24 @@ const customeYearCalendar = new UICustomeFullCalendar({
         console.log(calendar.getDates())
         saveDatesBtn.classList.remove('btn-off');
         saveDatesBtn.classList.add('btn-on');
+
+        // Save date
+
+            form.date_start.value = calendar.getDates()[0].dateValue;
+            form.date_end.value = calendar.getDates()[calendar.getDates().length - 1].dateValue;
+
+
+/*             axios.post('https://ibimarine.test/admin/reservation',{
+                'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'date_start': dateStart.dateValue,
+                'date_end': dateEnd.dateValue,
+            })
+            .then((res) =>{
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            }); */
     },
     onEmptyDates: function(calendar){
             saveDatesBtn.classList.remove('btn-on');

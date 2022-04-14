@@ -91,7 +91,7 @@
             </div>
     
             <div class="ml-36 hidden lg:justify-self-end lg:flex">
-                <p class="mr-5">Find US: </p>
+                <p class="mr-5">Find us: </p>
                 <a href="#" class="text-old-gold"><i class="fa-brands fa-facebook-square mr-3"></i></a>
                 <a href="#" class="text-old-gold"><i class="fa-brands fa-instagram-square "></i></a>
             </div>

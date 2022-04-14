@@ -30,7 +30,7 @@
             <!-- Card body -->
             <div class="border-x-2 md:border-none border-b-2 border-old-gold p-4 md:pt-8 lg:pt-4 text-center text-old-black">
                 <div>
-                    <p class="text-sm lg:text-lg">
+                    <p class="text-sm lg:text-xl">
                         Cras venenatis porta ligula sed suscipit.
                         Ut in vehicula ex. Vivamus fermentum nunc mi.
                     <br>
@@ -61,7 +61,7 @@
             <!-- Card body -->
             <div class="border-x-2 md:border-none border-b-2 border-old-gold p-4 md:pt-8 lg:pt-4 text-center text-old-black">
                 <div>
-                    <p class="text-sm lg:text-lg">
+                    <p class="text-sm lg:text-xl">
                         Cras venenatis porta ligula sed suscipit.
                         Ut in vehicula ex. Vivamus fermentum nunc mi.
                     <br>
@@ -92,7 +92,7 @@
             <!-- Card body -->
             <div class="border-x-2 md:border-none border-b-2 border-old-gold p-4 md:pt-8 lg:pt-4 text-center text-old-black">
                 <div>
-                    <p class="text-sm lg:text-lg">
+                    <p class="text-sm lg:text-xl">
                         Cras venenatis porta ligula sed suscipit.
                         Ut in vehicula ex. Vivamus fermentum nunc mi.
                     <br>

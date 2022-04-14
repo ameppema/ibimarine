@@ -21,18 +21,17 @@
                 <div class="relative lg:h-56 xl:h-96">
     
                     <div class="rounded-t-lg max-h-[200px] xl:max-h-full overflow-y-hidden">
-                        <img class="rounded-t-[12px] mx-auto"  src="./img/news/news-01.jpeg" alt="">
+                        <img class="rounded-t-[12px] mx-auto"  src="{{asset('/img/news/news-01.jpeg')}}" alt="">
                     </div>
                 </div>
                 <!-- Card body -->
                 <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black lg:leading-4">
                     <div>
-                        <p class="text-sm xl:text-2xl">
+                        <p class="text-sm xl:text-xl">
                             Cras venenatis porta ligula sed suscipit.
                             Ut in vehicula ex. Vivamus fermentum nunc mi.
-                        </p>
-                        <br>
-                        <p class="text-sm xl:text-2xl">
+                            <br>
+                            <br>
                             Cras venenatis porta ligula sed suscipit.
                             Ut in vehicula ex. Vivamus fermentum nunc mi,
                             ac condimentum magna porttitor faucibus.
@@ -67,7 +66,7 @@
             </div>
     
             <div class="ml-36 hidden lg:justify-self-end lg:flex">
-                <p class="mr-5">Find US: </p>
+                <p class="mr-5">Find us: </p>
                 <a href="#" class="text-old-gold"><i class="fa-brands fa-facebook-square mr-3"></i></a>
                 <a href="#" class="text-old-gold"><i class="fa-brands fa-instagram-square "></i></a>
             </div>

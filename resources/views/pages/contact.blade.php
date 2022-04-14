@@ -26,12 +26,12 @@
             <!-- Card body -->
             <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black">
                 <div>
-                    <p class="text-sm xl:text-2xl">
+                    <p class="text-sm xl:text-xl">
                         Cras venenatis porta ligula sed suscipit.
                         Ut in vehicula ex. Vivamus fermentum nunc mi.
                     </p>
                     <br>
-                    <p class="text-sm xl:text-2xl">
+                    <p class="text-sm xl:text-xl">
                         Cras venenatis porta ligula sed suscipit.
                         Ut in vehicula ex. Vivamus fermentum nunc mi,
                         ac condimentum magna porttitor faucibus.
