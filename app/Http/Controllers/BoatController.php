@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Boat;
+use Illuminate\Support\Str;
 
 class BoatController extends Controller
 {
@@ -34,7 +35,25 @@ class BoatController extends Controller
      */
     public function storeBoat()
     {
-        return request();
+        $data = request()->validate([
+            'boat_name' => ['required'],
+            'description_es' => ['required'],
+            'low_season_price' => ['required'],
+            'high_season_price' => ['required'],
+        ]);
+
+        $boat = new Boat();
+
+        $boat->name         = $data['boat_name'];
+        $boat->description  = $data['description_es'];
+        $boat->slug         =  Str::slug($data['boat_name']);
+        $boat->is_recomended= request('is_recomended') ? 1 : 0;
+        $boat->low_season_price= $data['low_season_price'];
+        $boat->high_season_price= $data['high_season_price'];
+
+        $boat->save();
+
+        return redirect()->back();
     }
 
     /**
