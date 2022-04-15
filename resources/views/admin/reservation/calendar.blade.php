@@ -117,7 +117,7 @@
                     </a>
                 </div>
                 <div>
-                    <form id="request_reservation" method="POST" action="{{route('admin.reservation')}}">
+                    <form id="request_reservation" method="GET" action="{{route('admin.reservation')}}">
                         @csrf
                         <input name="date_start" class="hidden" type="date">
                         <input name="date_end" class="hidden" type="date">

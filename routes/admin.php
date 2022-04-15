@@ -10,9 +10,10 @@ Route::get('/', function () {
 
 // Employs and brokers
 
+// Reservations
 Route::get('/calendar',[ReservationsController::class, 'index'])->name('admin.calendar');
-
-Route::post('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
+Route::get('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
+Route::post('/reservation/store',[ReservationsController::class, 'store'])->name('admin.reservation.store');
 
 
 // Admin and Editor

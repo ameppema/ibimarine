@@ -2308,6 +2308,10 @@ ol.calendar__weekdays {
     justify-self: end;
   }
 
+  .lg\:border-2 {
+    border-width: 2px;
+  }
+
   .lg\:border-b-4 {
     border-bottom-width: 4px;
   }
@@ -2391,6 +2395,11 @@ ol.calendar__weekdays {
     line-height: 1.75rem;
   }
 
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -2399,11 +2408,6 @@ ol.calendar__weekdays {
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
-  }
-
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 
   .lg\:leading-6 {
@@ -2495,6 +2499,11 @@ ol.calendar__weekdays {
     max-width: 30rem;
   }
 
+  .xl\:columns-2 {
+    -moz-columns: 2;
+         columns: 2;
+  }
+
   .xl\:justify-center {
     justify-content: center;
   }
@@ -2529,11 +2538,6 @@ ol.calendar__weekdays {
 
   .xl\:text-xl {
     font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .xl\:text-lg {
-    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
