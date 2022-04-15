@@ -1,51 +1,19 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Add new Rent Boat')
+@section('title', 'Edit rent boat')
 
 @section('content')
     
 @include('admin.partials.errors')
 
-
     {{-- Content --}}
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6] px-5">
-        <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página de Alquiler</h2>
-        <div class="border-[#3c4045] border bg-white mt-8 px-5 py-5 rounded-lg mb-5">
-          <p class="text-[#343a40] text-xl font-bold mb-2">Listado de embarcaciones publicadas</p>
-          <div class="flex flex-wrap gap-x-12 gap-y-20 mt-5">
+        <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página de Alquiler EDITAR</h2>
 
-          @if ($boats)
-            @foreach ($boats as $boat)
-                
-            <article class="flex flex-col items-center justify-center gap-y-2">
-              <p class="text-sm">{{ $boat->name }}</p>
-              <img src="{{asset('img/rent/rent-02.jpeg')}}" alt="" class="w-28 h-24 object-cover">
-              <div class="flex items-center justify-center gap-4 ">
-                <a href="{{ route('admin.rent.edit', $boat) }}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></a>
-                <button class=""><i
-                    class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-              </div>
-            </article>
-            
-            @endforeach
-          @endif
-
-            {{-- <article class="flex flex-col items-center justify-center gap-y-2">
-              <p class="text-sm">CRANCHI <span class="italic">41</span></p>
-              <img src="{{asset('img/rent/rent-04.jpeg')}}" alt="" class="w-28 h-24 object-cover">
-              <div class="flex items-center justify-center gap-4 ">
-                <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                <button class=""><i
-                    class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-              </div>
-            </article> --}}
-
-          </div>
-        </div>
         <div class="border-[#3c4045] border bg-white mt-8 px-5 py-5 rounded-lg mb-5">
 
-            <p class="text-[#343a40] text-xl font-bold mb-4">Nueva Embarcación de ALQUILER</p>
-            <form method="POST" action="{{route('admin.rent.store')}}" enctype="multipart/form-data">
+            <p class="text-[#343a40] text-xl font-bold mb-4">Editar Embarcación de ALQUILER</p>
+            <form method="POST" action="{{route('admin.rent.update', $boat)}}" enctype="multipart/form-data">
                 @csrf
                 {{-- Name - Is recomended --}}
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
@@ -56,11 +24,13 @@
                     <input type="text"
                       name="boat_name"
                       class="border-[#343a40] text-gray-700 appearance-none leading-tight font-bold border  w-full py-[6px] rounded-md  pl-2 outline-none "
-                      placeholder="Nombre de la Embarcación">
+                      placeholder="Nombre de la Embarcación"
+                      value="{{ $boat->name }}"
+                      >
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input name="is_recomended" type="checkbox" class="w-8 border-red-500">
+                    <input {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox" class="w-8 border-red-500">
                   </div>
 
                 </div>
@@ -106,7 +76,7 @@
                       <span class="text-[#343a40] font-bold mx-5">Descripción de embarcación</span>
                     </div>
                     <textarea name="description_es" id="" rows="8" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                      placeholder="Descripción y texto de la embarcación"></textarea>
+                      placeholder="Descripción y texto de la embarcación">{{ $boat->description ?? '' }}</textarea>
                   </div>
                   <div class="w-full ">
                     <div class="flex items-center mb-3">
@@ -125,6 +95,7 @@
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="length">Length</label>
                       <input type="text"
+                        value="{{ $boat->features->length }}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="length">
                     </div>
@@ -132,66 +103,77 @@
                       <label class="text-[#343a40]" for="beam">Beam</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
+                        value="{{$boat->features->beam}}"
                         name="beam">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="engines">Engines</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
+                        value="{{$boat->features->engines}}"
                         name="engines">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="c_velocity">Cruising velocity</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-52 pl-2 outline-none "
+                        value="{{$boat->features->c_velocity}}"
                         name="c_velocity">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="max_speed">Max speed</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-28 pl-2 outline-none "
+                        value="{{$boat->features->max_speed}}"
                         name="max_speed">
                     </div>
                     <div class="flex items-center gap-3">
-                      <label class="text-[#343a40]" for="fuel_consumption">Fuel Consumtion</label>
+                      <label class="text-[#343a40]" for="fuel_comsuption">Fuel Consuption</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-60 pl-2 outline-none "
-                        name="fuel_consumption">
+                        value="{{$boat->features->fuel_comsuption}}"
+                        name="fuel_comsuption">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="pax">Pax</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
+                        value="{{$boat->features->pax}}"
                         name="pax">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="bathroom">Bathroom</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
+                        value="{{$boat->features->bathroom}}"
                         name="bathroom">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="cabins">Cabins</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-14 pl-2 outline-none "
+                        value="{{$boat->features->cabins}}"
                         name="cabins">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="year">Year</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
+                        value="{{$boat->features->model}}"
                         name="year">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="port">Port</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-64 pl-2 outline-none "
+                        value="{{$boat->features->port}}"
                         name="port">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="model">Model</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-64 pl-2 outline-none "
+                        value="{{$boat->features->model}}"
                         name="model">
                     </div>
                   </div>
@@ -202,12 +184,16 @@
                   <div class="w-1/2 flex justify-start">
                     <span class="text-[#343a40] font-bold mr-5">Precio Temporada Baja</span>
                     <input name="low_season_price" type="text"
-                      class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none ">
+                      class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                      value="{{$boat->low_season_price}}"
+                      >
                   </div>
                   <div class="w-1/2 flex ">
                     <span class="text-[#343a40] font-bold mx-5">Precio Temporada Alta</span>
                     <input type="text"
-                       name="high_season_price" class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none ">
+                       name="high_season_price" class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                       value="{{$boat->high_season_price }}"
+                       >
                   </div>
         
                 </div>

@@ -21,3 +21,5 @@ Route::post('/reservation/store',[ReservationsController::class, 'store'])->name
 // Boat - Rent/Sale
 Route::get('/add-rent-boat', [BoatController::class, 'addRent'])->name('admin.rent');
 Route::post('/add-rent-boat', [BoatController::class, 'storeBoat'])->name('admin.rent.store');
+Route::get('/edit-rent-boat/{boat}', [BoatController::class, 'edit'])->name('admin.rent.edit');
+Route::post('/edit-rent-boat/{boat}', [BoatController::class, 'update'])->name('admin.rent.update');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveBoatRequest;
 use App\Models\Boat;
+use App\Models\BoatFeatures;
 use Illuminate\Support\Str;
 
 class BoatController extends Controller
@@ -14,7 +16,8 @@ class BoatController extends Controller
      */
     public function addRent()
     {
-        return view('admin.sections.addRent');
+        $boats = Boat::all(['id','name']);
+        return view('admin.sections.addRent', compact('boats'));
     }
 
     /**
@@ -33,14 +36,10 @@ class BoatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeBoat()
+    public function storeBoat(SaveBoatRequest $request)
     {
-        $data = request()->validate([
-            'boat_name' => ['required'],
-            'description_es' => ['required'],
-            'low_season_price' => ['required'],
-            'high_season_price' => ['required'],
-        ]);
+        $features = new BoatFeatures($request->all());
+        $data = $request->validated();
 
         $boat = new Boat();
 
@@ -52,19 +51,9 @@ class BoatController extends Controller
         $boat->high_season_price= $data['high_season_price'];
 
         $boat->save();
+        $boat->features()->save($features);
 
         return redirect()->back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Boat  $boat
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Boat $boat)
-    {
-        //
     }
 
     /**
@@ -75,7 +64,7 @@ class BoatController extends Controller
      */
     public function edit(Boat $boat)
     {
-        //
+        return view('admin.sections.editRent', compact('boat'));
     }
 
     /**
@@ -85,9 +74,33 @@ class BoatController extends Controller
      * @param  \App\Models\Boat  $boat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Boat $boat)
+    public function update(SaveBoatRequest $request,Boat $boat)
     {
-        //
+        $data = $request->validated();
+
+        $boat->name = $data['boat_name'];
+        $boat->description = $data['description_es'];
+        $boat->is_recomended = request('is_recomended')? 1 : 0;
+        $boat->low_season_price = $data['low_season_price'];
+        $boat->high_season_price = $data['high_season_price'];
+
+
+        $boat->features->length = request('length');
+        $boat->features->beam = request('beam');
+        $boat->features->engines = request('engines');
+        $boat->features->c_velocity = request('c_velocity');
+        $boat->features->max_speed = request('max_speed');
+        $boat->features->fuel_comsuption = request('fuel_comsuption');
+        $boat->features->pax = request('pax');
+        $boat->features->bathroom = request('bathroom');
+        $boat->features->cabins = request('cabins');
+        $boat->features->year = request('year');
+        $boat->features->port = request('port');
+        $boat->features->model = request('model');
+        
+        $boat->push();
+
+        return redirect()->back(302);
     }
 
     /**
