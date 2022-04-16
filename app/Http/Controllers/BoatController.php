@@ -76,7 +76,6 @@ class BoatController extends Controller
      */
     public function update(SaveBoatRequest $request,Boat $boat)
     {
-        dd(request());
         $data = $request->validated();
 
         $boat->name = $data['boat_name'];
@@ -112,6 +111,7 @@ class BoatController extends Controller
      */
     public function destroy(Boat $boat)
     {
-        //
+        return $boat;
+        $boat->delete();
     }
 }

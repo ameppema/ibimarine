@@ -139,4 +139,6 @@
 <script src="{{asset('vendor/axios.min.js')}}"></script>
 <script src="/js/calenMod.js"></script>
 <script src="/js/reservationCalendar.js"></script>
+
+
 @endsection

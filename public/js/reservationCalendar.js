@@ -39,6 +39,34 @@ const customeYearCalendar = new UICustomeFullCalendar({
     onEmptyDates: function(calendar){
             saveDatesBtn.classList.remove('btn-on');
             saveDatesBtn.classList.add('btn-off');
+    },
+    onChangeMonth: function(calendar){
+        console.log(calendar)
+        const baseUrl = 'http://ibimarine.test/admin/reservation/byAjax';
+        let today =  UCalendar.getMonthCalendarInfo();
+        let date_start = UCalendar.getMonthCalendarInfo(today.year , today.month + 1);
+        // console.log(today);
+        // console.log(date_start);
+        axios.get(baseUrl, {
+            params: {
+                'date_start': '2022-04-27',
+                'date_end': '2022-04-29',
+            }
+        })
+            .then( function(response){
+
+                if(!response.data) return null;
+                const datesBetween = UCalendar.parsePeriod(response.data[0].start_date, response.data[0].end_date);
+                datesBetween.forEach((UDate) => {
+                    if(UDate.dateElement){
+                        UDate.dateElement.style.background = 'grey';
+                    }
+                });
+                console.log(datesBetween)
+            })
+            .catch(function(err){
+                console.log(err);
+            })
     }
 });
 

@@ -48,7 +48,13 @@
         <div class="text-old-black lg:w-2/3">
             <!-- date -->
             <div class="text-center">
-                <p class="font-bold text-2xl">{{ date_to_human_short($date_start) }} {{ $date_end != null ? 'al ' . date_to_human_short($date_end) : ''}}</p>
+                <p class="font-bold text-2xl">
+                    @if (isSameDate($date_start , $date_end))
+                        {{ date_to_human_short($date_start) }}
+                    @else
+                        {{ date_to_human_short($date_start) }} {{ $date_end != null ? 'al ' . date_to_human_short($date_end) : ''}}
+                    @endif
+                </p>
             </div>
 
             <!-- add Reservation btn action -->
@@ -276,6 +282,9 @@
 @endsection
 
 @section('js')
+
+<script src="{{asset('/vendor/axios.min.js')}}"></script>
+
 <script>
     const addReservationBtn = document.getElementById('addReservationBtn');
     const addReservationForm = document.getElementById('addReservationForm');

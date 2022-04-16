@@ -59,6 +59,7 @@ const UCalendar = new (function(){
             numberDaysInMonth: new Date(Year, Month + 1, 0).getDate(),
             monthId: Year + '-' + this.toValidDateNumber(Month + 1),
             year: Year,
+            month: Month,
           }
     }
 
@@ -70,14 +71,38 @@ const UCalendar = new (function(){
         return ('' + number).length < 2 ? '0' + ('' + number): ('' + number);
     }
 
+    this.stringToDateParts = function(DateString = '0000-00-00'){
+      const [year, month, day] = DateString.split('-');
+      return {
+        day,
+        month,
+        year,
+      }
+    }
+
+    this.getPeriodDates = function(dateStart, dateEnd){
+        for(var dates=[],dt=new Date(dateStart); dt<=new Date(dateEnd); dt.setDate(dt.getDate()+1)){
+            dates.push(new Date(dt));
+        }
+    return dates;
+    }
+
+    this.parsePeriod = function(dateStart, dateEnd){
+        const datesInPeriod = this.getPeriodDates(dateStart, dateEnd);
+
+        return datesInPeriod.map((date) => {
+          return this.parserFromNumbers(date.getFullYear(), date.getMonth(), date.getDate());
+        });
+    }
+
     this.parserFromNumbers = function(YYYY,M,D){
       const ParsedDate = new Date(YYYY,M,D);
       const dateId = [YYYY,UCalendar.toValidDateNumber(M+1),UCalendar.toValidDateNumber(D)].join('-');
-      const calendarDate = document.querySelector(`[data-day-id="${dateId}"]`) || document.createElement('span');
+      const calendarElement = document.querySelector(`[data-day-id="${dateId}"]`);
       return {
         date: ParsedDate,
         dateId,
-        dateElement: calendarDate,
+        dateElement: calendarElement,
         year: ParsedDate.getFullYear(),
         month: ParsedDate.getMonth(),
         monthName: LocaleForMonths.format(ParsedDate),
@@ -134,6 +159,10 @@ const UCalendar = new (function(){
       const nextDay = days[days.length - 1];
       return (day.addDays(1).date.getTime() === nextDay.date.getTime());
     }
+
+    this.isCallable = function(func){
+      return typeof func === 'function';
+    }
 })();
 
 const UDatePicker = function(UICalendarInstance,onDayPicked, onEmptyDates){
@@ -158,7 +187,9 @@ const UDatePicker = function(UICalendarInstance,onDayPicked, onEmptyDates){
 
       if(ParsedDate.hasOwnProperty('dateElement')) {
         const isRepeteated = UCalendar.isDuplicatedDate(this.savedDates,ParsedDate);
+
         let classToggle = ParsedDate.dateElement.classList.toggle('calendar__day-selected');
+
         if(isRepeteated === -1){
             this.savedDates.push(ParsedDate);
             if(!UCalendar.areConsecutiveDates(this.savedDates)){
@@ -203,7 +234,7 @@ const UDatePicker = function(UICalendarInstance,onDayPicked, onEmptyDates){
     }
 }
 
-const UXCalendar = function(UIcalendar){
+const UXCalendar = function(UIcalendar, onChangeMonth){
     let counter = 0;
     let yearCounter = UCalendar.Now().Year + 1;
     
@@ -213,13 +244,20 @@ const UXCalendar = function(UIcalendar){
       if(activeCalendar.nextElementSibling) {
           activeCalendar.classList.remove('calendar-active');
           activeCalendar.nextElementSibling.classList.add('calendar-active');
+            if(this.isCallable(onChangeMonth)){
+                onChangeMonth(activeCalendar);
+            }
         } else {
           const year = counter < 11 ? yearCounter : yearCounter++;
           const month = counter > 11 ? 0 : counter++;
           UIcalendar.generateNewMonth(year, month);
           activeCalendar.classList.remove('calendar-active');
           activeCalendar.nextElementSibling.classList.add('calendar-active');
+          if(this.isCallable(onChangeMonth)){
+              onChangeMonth(activeCalendar);
+          }
       }
+      
     }
     this.showPrevCalendar = function(e){
       const activeCalendar = document.querySelector('.calendar-active');
@@ -228,6 +266,10 @@ const UXCalendar = function(UIcalendar){
           activeCalendar.classList.remove('calendar-active');
           activeCalendar.previousElementSibling.classList.add('calendar-active');
       }
+    }
+
+    this.isCallable = function(func){
+      return typeof func === 'function';
     }
 }
 
@@ -322,7 +364,7 @@ const UIFullCalendar = function({Year, target}){
     })
     
 }
-const UICustomeFullCalendar = function({year, target, onDayPicked, onEmptyDates}){
+const UICustomeFullCalendar = function({year, target, onDayPicked, onEmptyDates, onChangeMonth}){
     const these = this;
     const _Year = year || UCalendar.Now().Year;
     this._Year = _Year;
@@ -350,7 +392,7 @@ const UICustomeFullCalendar = function({year, target, onDayPicked, onEmptyDates}
     }
 
     const pickedDays = new UDatePicker(these, onDayPicked, onEmptyDates);
-    const UXcontroll = new UXCalendar(these);
+    const UXcontroll = new UXCalendar(these, onChangeMonth);
 
     this.getDates = function(){
       return pickedDays.savedDates;
@@ -360,7 +402,13 @@ const UICustomeFullCalendar = function({year, target, onDayPicked, onEmptyDates}
 
         if(typeof target !== 'object') return null;
 
+        const activeCalendar = document.querySelector('.calendar-active');
+        
+        if(UCalendar.isCallable(onChangeMonth)){
+          onChangeMonth(activeCalendar);
+        }
         target.addEventListener('click', function(e){
+
           if(e.target.hasAttribute('data-arrow-prev')) {
               e.stopPropagation();
               UXcontroll.showPrevCalendar(e);

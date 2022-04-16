@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservations;
 use Carbon\Carbon;
+use DatePeriod;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -23,6 +24,7 @@ class ReservationsController extends Controller
     {
         $reservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
                                     ->whereBetween('start_date', [request('date_start'), request('date_end')])
+                                    ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
                                     ->join('users', 'reservations.made_by', 'users.id')
                                     ->join('boats', 'reservations.boat_id', 'boats.id')
                                     ->get();
@@ -32,6 +34,17 @@ class ReservationsController extends Controller
 
         return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations'));
 
+    }
+
+    public function getByAjax(){
+        $reservations = Reservations::select('reservations.start_date','reservations.end_date',  'users.name as user', 'boats.name as boat_name')
+        ->whereBetween('start_date', [request('date_start'), request('date_end')])
+        ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
+        ->join('users', 'reservations.made_by', 'users.id')
+        ->join('boats', 'reservations.boat_id', 'boats.id')
+        ->get();
+
+        return response()->json($reservations);
     }
 
     public function store()

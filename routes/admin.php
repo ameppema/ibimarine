@@ -13,6 +13,7 @@ Route::get('/', function () {
 // Reservations
 Route::get('/calendar',[ReservationsController::class, 'index'])->name('admin.calendar');
 Route::get('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
+Route::get('/reservation/byAjax',[ReservationsController::class, 'getByAjax'])->name('admin.reservation.ajax');
 Route::post('/reservation/store',[ReservationsController::class, 'store'])->name('admin.reservation.store');
 
 
