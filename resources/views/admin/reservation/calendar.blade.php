@@ -23,7 +23,7 @@
         <div>
     
             <div id="reservationCalendar">
-                <div data-date-id="2022-05" class="hidden reservation-calendar w-80 mx-auto font-bold lg:text-2xl">
+                <div data-date-id="2022-05" class="bg-gray-1 hidden reservation-calendar w-80 mx-auto font-bold lg:text-2xl">
                     <!-- Calendar Head -->
                     <div class="flex lg:mb-2 justify-center text-old-black h-11 items-center rounded-t-xl text-xl">
                         <div style="width: 2rem" data-arrow-prev="" class="calendar-left-arrow cursor-pointer">
@@ -112,15 +112,20 @@
             <!-- buttons -->
             <div class="mx-auto mt-5 text-center flex justify-center gap-3">
                 <div>
-                    <a href="/reservation.html">
+                    <form id="see_reservation" method="GET" action="{{route('admin.reservation')}}">
+                        @csrf
+                        <input name="date_start" class="hidden" type="date">
+                        <input name="date_end" class="hidden" type="date">
+                        <input name="reffer" value="seeBtn" class="hidden" type="text">
                         <input id="see_date" class="btn-off" type="submit" value="Ver">
-                    </a>
+                    </form>
                 </div>
                 <div>
                     <form id="request_reservation" method="GET" action="{{route('admin.reservation')}}">
                         @csrf
                         <input name="date_start" class="hidden" type="date">
                         <input name="date_end" class="hidden" type="date">
+                        <input name="reffer" value="saveBtn" class="hidden" type="text">
                         <input id="save_date" class="btn-off" type="submit" value="Reservar">
                     </form>
                 </div>

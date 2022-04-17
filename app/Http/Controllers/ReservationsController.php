@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Boat;
 use App\Models\Reservations;
 use Carbon\Carbon;
 use DatePeriod;
@@ -29,10 +30,14 @@ class ReservationsController extends Controller
                                     ->join('boats', 'reservations.boat_id', 'boats.id')
                                     ->get();
 
-        $date_start = request('date_start');
-        $date_end = request('date_end');
+        $boats        = Boat::all(['name', 'id']);
 
-        return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations'));
+
+        $date_end   = request('date_end');
+        $date_start = request('date_start');
+        $ref        = request('reffer') ?? 'saveBtn';
+
+        return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations', 'ref', 'boats'));
 
     }
 
@@ -45,6 +50,10 @@ class ReservationsController extends Controller
         ->get();
 
         return response()->json($reservations);
+    }
+
+    public function getOneByAjax($id){
+        return Reservations::findOrFail($id);
     }
 
     public function store()
@@ -101,9 +110,22 @@ class ReservationsController extends Controller
      * @param  \App\Models\Reservations  $reservations
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservations $reservations)
+    // public function update(Request $request, Reservations $reservations)
+    public function update()
     {
-        //
+
+        // return request();
+        $reservation = Reservations::find(request('reservation_id'));
+
+        $reservation->boat_id = request('boat');
+        $reservation->client_name = request('client');
+        $reservation->client_phone = request('phone');
+        $reservation->status = request('status');
+        $reservation->observations = request('observations');
+        $reservation->last_updated_by = request('last_updated_by');
+
+        $reservation->update();
+        return redirect()->back();
     }
 
     /**
@@ -112,8 +134,10 @@ class ReservationsController extends Controller
      * @param  \App\Models\Reservations  $reservations
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservations $reservations)
+    public function destroy($reservations)
     {
-        //
+        $reservation = Reservations::find($reservations);
+        $reservation->delete();
+        return redirect()->back();
     }
 }

@@ -42,7 +42,10 @@
 
     </div>
 
-    <div id="reservationContainer" class="container lg:pb-10 lg:mx-auto lg:flex lg:flex-wrap lg:columns-2 lg:justify-center lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
+    {{-- Edit Modal --}}
+    @include('admin.reservation.edit-modal')
+
+    <div id="reservationContainer" class="container lg:pb-10 md:mx-auto lg:flex lg:flex-wrap lg:columns-2 lg:justify-center lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
 
         <!-- add reservation -->
         <div class="text-old-black lg:w-2/3">
@@ -58,12 +61,12 @@
             </div>
 
             <!-- add Reservation btn action -->
-            <div id="addReservationBtn" class="text-center mt-4">
+            <div id="addReservationBtn" class="@if ($ref == 'saveBtn') hidden @endif text-center mt-4">
                 <button class="btn">Añadir reservación</button>
             </div>
 
             <!-- add Rerservation form  -->
-            <div id="addReservationForm" class="hidden w-4/5 mx-auto">
+            <div id="addReservationForm" class="{{ $ref == 'seeBtn' ? 'hidden' : '' }} w-4/5 mx-auto">
                 <p class="text-center text-old-gold uppercase">Añadir reservacion</p>
                 <form id="form-add-reservation" action="{{ route('admin.reservation.store') }}" method="POST">
                     @csrf
@@ -72,12 +75,14 @@
                     <div class="border border-old-black cursor-pointer">
                         <div class="hidden">
                             <select name="boat" id="boat">
-                                <option value="0">Van Dautch 40</option>
-                                <option value="1">Sessa Marine c44</option>
-                                <option value="2">Predator 82</option>
-                                <option value="3">Pardo 43</option>
-                                <option value="4">Astromar</option>
-                                <option value="5">Sessa 52</option>
+                                @if ($boats)
+                                    
+                                    @foreach ($boats as $boat)
+                                    
+                                    <option value="{{ $boat->id }}">{{ $boat->name }}</option>
+                                    
+                                    @endforeach
+                                @endif
                                 <option value="null">Otro</option>
                             </select>
                         </div>
@@ -93,27 +98,22 @@
                             </p>
                         </div>
                         <div class="max-h-0 overflow-hidden w-4/5 mx-auto text-center font-bold text-old-black transition-[max-height] duration-300">
-                            <div onclick="setFormValue('form-add-reservation', 'boat', 0, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
-                                <p>Van Dautch 40</p>
-                            </div>
-                            <div onclick="setFormValue('form-add-reservation', 'boat', 1, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
-                                <p>Sessa Marine c44</p>
-                            </div>
-                            <div onclick="setFormValue('form-add-reservation', 'boat', 2, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
-                                <p>Predator 82</p>
-                            </div>
-                            <div onclick="setFormValue('form-add-reservation', 'boat', 3, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
-                                <p>Pardo 43</p>
-                            </div>
-                            <div onclick="setFormValue('form-add-reservation', 'boat', 4, 'boatTextContent', this)" class="disabled border-b border-b-old-black/50 py-2 mb-2">
-                                <p>Astromar</p>
-                            </div>
-                            <div onclick="setFormValue('form-add-reservation', 'boat', 5, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
-                                <p>Sessa 52</p>
-                            </div>
-                            <div onclick="setFormValue('form-add-reservation', 'boat', null, 'boatTextConte, thisnt')" class="border-b border-b-old-black/50 py-2 mb-2">
+
+                            @if ($boats)
+                                
+                                @foreach ($boats as $boat)
+                                    
+                                <div onclick="setFormValue('form-add-reservation', 'boat', {{ $boat->id }}, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
+                                    <p>{{ $boat->name }}</p>
+                                </div>
+                                
+                                @endforeach
+                            @endif
+
+                            <div onclick="setFormValue('form-add-reservation', 'boat', null, 'boatTextConte, thisnt')" class="py-2 mb-2">
                                 <p>OTRO</p>
                             </div>
+
                         </div>
 
                         <div>
@@ -199,33 +199,44 @@
 
 
         </div>
-
-        {{-- @dump($reservations) --}}
-
+        
     @if (count($reservations) > 0)
         <!-- See Reservations -->
-        <div class="w-4/5 mx-auto lg:flex xl:columns-2 lg:justify-center lg:gap-6 my-10">
-
-        
+        <div class="w-4/5 lg:w-full lg:grid lg:grid-cols-2 lg:gap-x-2 xl:gap-x-10 mx-auto my-10">
+    
         @foreach ($reservations as $reservation)
             
             <!-- singular day reservation -->
-            <div class="w-full my-5 text-center">
+            <div class="my-5 text-center">
                 <!-- day -->
                 <div class="my-2">
                     <p class="font-bold text-xl text-old-black">Reservas del {{ date_to_human_short($reservation->start_date) }}</p>
                 </div>
 
                 <!-- reservation card -->
-                <div class="border border-old-black rounded-lg">
+                <div class="border border-old-black rounded-lg" id="{{$reservation->id}}">
                     <!-- head card -->
                     <div data-target-accordion class="px-2 py-1 flex gap-2 justify-center items-center transition duration-300">
+
+                        @if ($reservation->status === 0)
+
+                        <div class="w-3">
+                            <svg class="text-[#ffba00]" style="width: 100%; height: auto; display: inline;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle fill="currentcolor" cx="50" cy="50" r="50"></circle>
+                            </svg>
+                        </div>
+                            
+                        @else
+                            
                         <div class="w-3">
                             <svg class="text-[#0fd821]" style="width: 100%; height: auto; display: inline;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <circle fill="currentcolor" cx="50" cy="50" r="50"/>
                             </svg>
                         </div>
-                        <p class="" id="statusTextContent">
+
+                        @endif
+
+                        <p class="boat_name">
                             {{ $reservation->boat_name }}
                         </p>
                         <div class="w-3">
@@ -260,21 +271,26 @@
                         </div>
                         
                         <div class="flex gap-1 justify-center my-4">
-                            <div><a class="btn-off py-2 px-3" href="#">Editar</a></div>
-                            <div><a class="btn-off py-2 px-3" href="#">Eliminar</a></div>
+                            <div> <button onclick="CaptureReservationData({{$reservation->id}})"> <a data-open-modal="reservation_edit_modal" class="btn-off py-2 px-3 inline">Editar</a> </button></div>
+                            <div> <button> <a class="btn-off py-2 px-3" href="{{ route('admin.reservation.delete', ['reservation'=> $reservation->id]) }}">Eliminar</a></button></div>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-        @endforeach
-        
+        @endforeach     
         
         </div>
     @endif
+
+    {{-- To Calendar Button --}}
+    <div class="pb-10 mx-auto text-center">
+        <a class="btn-gold" href="{{route('admin.calendar')}}">Volver al calendario</a>
+    </div>
    
     </div>
+
 @endsection
 
 @section('footer')
@@ -284,6 +300,36 @@
 @section('js')
 
 <script src="{{asset('/vendor/axios.min.js')}}"></script>
+<script src="{{asset('/js/utils.js')}}"></script>
+
+{{-- Edit Rerservation modal --}}
+<script>
+const modalEdit = document.getElementById('reservation_edit_modal');
+function getElementById(ID){
+    return document.getElementById(ID);
+}
+
+    function CaptureReservationData(ReservationId){
+        axios.get('/admin/reservation/show/'+ ReservationId)
+             .then(response => {
+                 console.log(response)
+
+                 getElementById('clientE').value = response.data.client_name;
+                 getElementById('phoneE').value = response.data.client_phone;
+
+                 getElementById('statusE').value = response.data.status;
+                 getElementById('statusTextContentE').textContent = response.data.status == 0 ? 'Stand By' : 'Confirmed';
+
+                 getElementById('boatE').value = response.data.boat_id;
+
+                 getElementById('reservation_id').value = response.data.id;
+                 getElementById('observationsE').textContent = response.data.observations;
+             })
+             .catch( err => console.log(err));
+    }
+
+    ToggleModal('reservation_edit_modal');
+</script>
 
 <script>
     const addReservationBtn = document.getElementById('addReservationBtn');
@@ -306,39 +352,7 @@
 </script>
 
 <script>
-    const accordions = document.querySelectorAll('[data-target-accordion]');
 
-    for(let i = 0; i < accordions.length; i++){
-        accordions[i].addEventListener('click', function(e){
-            const accordionBody = accordions[i].nextElementSibling;
-
-            const accordion = accordionBody.style.maxHeight
-                        ? accordionBody.style.maxHeight = null
-                        : accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
-        
-    })
-}
-</script>
-
-<script>
-
-    function setFormValue(formId, targetInput, value, targetLabel, instance){
-        const form = document.getElementById(formId);
-        const input  = document.querySelector('[data-target-accordion="'+targetInput+'"]');
-        if(instance.classList.contains('disabled')) return null;
-        input.nextElementSibling.style.maxHeight = null;
-        if(form){
-            form[targetInput].value = value;
-        }
-        if(targetLabel){
-            if(form[targetInput].options){
-                document.getElementById(targetLabel).textContent = form[targetInput].options[form[targetInput].selectedIndex].text;
-                return true;
-            }
-            document.getElementById(targetLabel).textContent = form[targetInput].value;
-        }
-        return false;
-    }
     const form = document.getElementById('form-add-reservation');
     const status = document.querySelector('[data-target-accordion="status"]');
     const boat = document.querySelector('[data-target-accordion="boat"]');

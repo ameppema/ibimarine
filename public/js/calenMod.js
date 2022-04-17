@@ -79,9 +79,18 @@ const UCalendar = new (function(){
         year,
       }
     }
+    this.stringToDateYM = function(DateString = '0000-00'){
+      const [year, month] = DateString.split('-');
+      return {
+        month: Number(month) - 1,
+        year: Number(year),
+      }
+    }
 
     this.getPeriodDates = function(dateStart, dateEnd){
-        for(var dates=[],dt=new Date(dateStart); dt<=new Date(dateEnd); dt.setDate(dt.getDate()+1)){
+      const {day, month, year} = this.stringToDateParts(dateStart);
+      const dateStr = this.stringToDateParts(dateEnd);
+        for(var dates=[],dt=new Date(Number(year), Number(month) - 1, Number(day)); dt<=new Date(Number(dateStr.year), Number(dateStr.month) - 1, Number(dateStr.day)); dt.setDate(dt.getDate()+1)){
             dates.push(new Date(dt));
         }
     return dates;
@@ -244,8 +253,9 @@ const UXCalendar = function(UIcalendar, onChangeMonth){
       if(activeCalendar.nextElementSibling) {
           activeCalendar.classList.remove('calendar-active');
           activeCalendar.nextElementSibling.classList.add('calendar-active');
+
             if(this.isCallable(onChangeMonth)){
-                onChangeMonth(activeCalendar);
+                onChangeMonth(document.querySelector('.calendar-active'));
             }
         } else {
           const year = counter < 11 ? yearCounter : yearCounter++;
@@ -253,8 +263,9 @@ const UXCalendar = function(UIcalendar, onChangeMonth){
           UIcalendar.generateNewMonth(year, month);
           activeCalendar.classList.remove('calendar-active');
           activeCalendar.nextElementSibling.classList.add('calendar-active');
+          
           if(this.isCallable(onChangeMonth)){
-              onChangeMonth(activeCalendar);
+              onChangeMonth(document.querySelector('.calendar-active'));
           }
       }
       
@@ -265,6 +276,10 @@ const UXCalendar = function(UIcalendar, onChangeMonth){
       if(activeCalendar.previousElementSibling) {
           activeCalendar.classList.remove('calendar-active');
           activeCalendar.previousElementSibling.classList.add('calendar-active');
+
+          if(UCalendar.isCallable(onChangeMonth)){
+            onChangeMonth(document.querySelector('.calendar-active'));
+          }
       }
     }
 
