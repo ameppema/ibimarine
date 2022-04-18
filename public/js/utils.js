@@ -48,3 +48,37 @@ function setFormValue(formId, targetInput, value, targetLabel, instance){
     }
     return false;
 }
+
+function setFormValueStatus(formTarget, inputTarget, value, inputLabelTarget){
+    const values = {
+        0: `                                
+        <div class="w-3 mr-1">
+            <svg class="text-[#ffba00]" style="width: 100%; height: auto; display: inline;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle fill="currentcolor" cx="50" cy="50" r="50"/>
+            </svg>
+        </div>
+        <p>Stand By</p>
+        `,
+        1: `
+        <div class="w-3 mr-1">
+            <svg class="text-[#0fd821]" style="width: 100%; height: auto; display: inline;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle fill="currentcolor" cx="50" cy="50" r="50"/>
+            </svg>
+        </div>
+        <p>Confirmada</p>
+        `,
+    };
+
+    const form = document.getElementById(formTarget);
+    const input  = document.querySelector('[data-target-accordion="'+inputTarget+'"]');
+    input.nextElementSibling.style.maxHeight = null;
+    if(form){
+        form[inputTarget].value = value;
+    }
+    if(inputLabelTarget){
+        document.getElementById(inputLabelTarget).innerHTML = values[value];
+        console.log(form[inputTarget].value);
+        return true;
+    }
+
+}

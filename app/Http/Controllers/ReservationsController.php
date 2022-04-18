@@ -79,7 +79,7 @@ class ReservationsController extends Controller
         $reservation->client_phone = $data['phone'];
         $reservation->made_by = $data['made_by'];
         $reservation->status = $data['status'];
-        $reservation->observations = $data['observations'] ?? '';
+        $reservation->observations = $data['observations'] ?? '-';
         $reservation->last_updated_by = auth()->user()->id ?? 'none';
 
         $reservation->save();
@@ -121,7 +121,7 @@ class ReservationsController extends Controller
         $reservation->client_name = request('client');
         $reservation->client_phone = request('phone');
         $reservation->status = request('status');
-        $reservation->observations = request('observations');
+        $reservation->observations = request('observations') ?? '-';
         $reservation->last_updated_by = request('last_updated_by');
 
         $reservation->update();
