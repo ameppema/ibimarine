@@ -62,8 +62,16 @@
           <p class="ml-3">Permisos</p>
         </li>
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fa-solid fa-circle-user icons"></i></i></div>
+          <div class="ml-3"><i class="fa-solid fa-circle-user icons"></i></div>
           <p class="ml-3">Perfil</p>
+        </li>
+        <li class="flex text-white py-1 items-center cursor-pointer mb-6">
+          <div class="ml-3"><i class="fa-solid fa-xmark-large"></i></div>
+          <form method="POST" action="{{route('logout')}}">
+            @csrf
+            <input class="ml-3" type="submit" value="Cerrar Session">
+          </form>
+        
         </li>
       </ul>
     </nav>

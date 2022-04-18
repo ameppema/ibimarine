@@ -15,18 +15,18 @@ class CreateBoatFeaturesTable extends Migration
     {
         Schema::create('boat_features', function (Blueprint $table) {
             $table->id();
-            $table->text('length')->nullable('-');
-            $table->text('beam')->nullable('-');
-            $table->text('engines')->nullable('-');
-            $table->text('c_velocity')->nullable('-');
-            $table->text('max_speed')->nullable('-');
-            $table->text('fuel_comsuption')->nullable('-');
-            $table->text('pax')->nullable('-');
-            $table->text('bathroom')->nullable('-');
-            $table->text('cabins')->nullable('-');
-            $table->text('year')->nullable('-');
-            $table->text('port')->nullable('-');
-            $table->text('model')->nullable('-');
+            $table->string('length',100)->default('-')->nullable();
+            $table->string('beam',100)->default('-')->nullable();
+            $table->string('engines',100)->default('-')->nullable();
+            $table->string('c_velocity',100)->default('-')->nullable();
+            $table->string('max_speed',100)->default('-')->nullable();
+            $table->string('fuel_comsuption',100)->default('-')->nullable();
+            $table->string('pax',100)->default('-')->nullable();
+            $table->string('bathroom',100)->default('-')->nullable();
+            $table->string('cabins',100)->default('-')->nullable();
+            $table->string('year',100)->default('-')->nullable();
+            $table->string('port',100)->default('-')->nullable();
+            $table->string('model',100)->default('-')->nullable();
 
             $table->unsignedBigInteger('boat_id');
         });
@@ -40,7 +40,7 @@ class CreateBoatFeaturesTable extends Migration
     public function down()
     {
         Schema::table('boat_features', function (Blueprint $table) {
-            $table->dropIfExists();
+            $table->dropIfExists('boat_features');
         });
     }
 }

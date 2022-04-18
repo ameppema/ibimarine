@@ -103,16 +103,12 @@
                                 
                                 @foreach ($boats as $boat)
                                     
-                                <div onclick="setFormValue('form-add-reservation', 'boat', {{ $boat->id }}, 'boatTextContent', this)" class="border-b border-b-old-black/50 py-2 mb-2">
+                                <div onclick="setFormValue('form-add-reservation', 'boat', {{ $boat->id }}, 'boatTextContent', this)" class="border-b border-b-old-black/50 last:border-b-0 py-2 mb-2">
                                     <p>{{ $boat->name }}</p>
                                 </div>
                                 
                                 @endforeach
                             @endif
-
-                            <div onclick="setFormValue('form-add-reservation', 'boat', null, 'boatTextConte, thisnt')" class="py-2 mb-2">
-                                <p>OTRO</p>
-                            </div>
 
                         </div>
 
@@ -161,7 +157,7 @@
                                 </div>
                                 <p>Stand By</p>
                             </div>
-                            <div onclick="setFormValue('form-add-reservation','status', 1,'statusTextContent', this)" class="flex gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
+                            <div onclick="setFormValue('form-add-reservation','status', 1,'statusTextContent', this)" class="flex gap-2 justify-center py-2 mb-2">
                                 <div class="w-3 ">
                                     <svg class="text-[#0fd821]" style="width: 100%; height: auto; display: inline;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                         <circle fill="currentcolor" cx="50" cy="50" r="50"/>
@@ -192,7 +188,9 @@
                     <!-- Submit -->
                     <div class="my-4 text-center">
                         <input class="btn" type="submit" value="Guardar">
+                        <button type="button" class="btn-off" id="cancel-reservation-btn">Cancelar</button>
                     </div>
+
                 </form>
                 
             </div>
@@ -200,18 +198,28 @@
 
         </div>
         
-    @if (count($reservations) > 0)
         <!-- See Reservations -->
         <div class="w-4/5 lg:w-full lg:grid lg:grid-cols-2 lg:gap-x-2 xl:gap-x-10 mx-auto my-10">
+    @if (count($reservations) > 0)
     
         @foreach ($reservations as $reservation)
             
             <!-- singular day reservation -->
             <div class="my-5 text-center">
-                <!-- day -->
-                <div class="my-2">
-                    <p class="font-bold text-xl text-old-black">Reservas del {{ date_to_human_short($reservation->start_date) }}</p>
-                </div>
+                
+                <p class="font-bold text-2xl">
+                    @if (isSameDate($reservation->start_date , $reservation->end_date))
+                    <!-- day -->
+                    <div class="my-2">
+                        <p class="font-bold text-xl text-old-black">Reserva {{ date_to_human_short($reservation->start_date) }}</p>
+                    </div>
+                    @else
+                    {{-- multi day reservations --}}
+                    <div class="my-2">
+                        <p class="font-bold text-xl text-old-black">Reserva {{ date_to_human_short($reservation->start_date) }} {{ $reservation->end_date != null ? 'al ' . date_to_human_short($reservation->end_date) : ''}}</p>
+                    </div>
+                    @endif
+                </p>
 
                 <!-- reservation card -->
                 <div class="border border-old-black rounded-lg" id="{{$reservation->id}}">
@@ -247,7 +255,13 @@
                     <div class="max-h-0 overflow-hidden w-4/5 mx-auto text-center font-bold text-old-black transition-[max-height] duration-300">
                         <div class="flex flex-col gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
                             <p class="text-sm">Reservado</p>
-                            <p class="text-xl">{{ date_to_human($reservation->start_date) }}</p>
+                            @if (isSameDate($reservation->start_date , $reservation->end_date))
+                            <!-- day -->
+                            <p class="text-xl">{{ date_to_human_short($reservation->start_date) }}</p>
+                            @else
+                            {{-- multi day reservations --}}
+                            <p class="text-xl">{{ date_to_human_short($reservation->start_date) }} {{ $reservation->end_date != null ? 'al ' . date_to_human_short($reservation->end_date) : ''}}</p>
+                            @endif
                         </div>  
                         <div class="flex flex-col gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
                             <p class="text-sm">Reservado por</p>
@@ -265,12 +279,12 @@
                             <p class="text-sm">Obersvaciones</p>
                             <p class="text-xl">{{ $reservation->observations ?? 'Ninguna' }}</p>
                         </div>  
-                        <div class="flex flex-col gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
+                        <div class="flex flex-col gap-2 justify-centerpy-2 mb-2">
                             <p class="text-sm">Ultima actualizacion por: <span>{{ $reservation->user }}</span> </p>
                             <p class="text-xl">{{ date_to_human($reservation->updated_at) }}</p>
                         </div>
                         
-                        <div class="flex gap-1 justify-center my-4">
+                        <div class="flex gap-1 justify-center mb-4 mt-9">
                             <div> <button onclick="CaptureReservationData({{$reservation->id}})"> <a data-open-modal="reservation_edit_modal" class="btn-off py-2 px-3 inline">Editar</a> </button></div>
                             <div> <button> <a class="btn-off py-2 px-3" href="{{ route('admin.reservation.delete', ['reservation'=> $reservation->id]) }}">Eliminar</a></button></div>
                         </div>
@@ -281,8 +295,8 @@
 
         @endforeach     
         
-        </div>
-    @endif
+        @endif
+    </div>
 
     {{-- To Calendar Button --}}
     <div class="pb-10 mx-auto text-center">
@@ -331,14 +345,22 @@ function getElementById(ID){
     ToggleModal('reservation_edit_modal');
 </script>
 
+{{-- Form and Request Overlay Script --}}
 <script>
     const addReservationBtn = document.getElementById('addReservationBtn');
     const addReservationForm = document.getElementById('addReservationForm');
+    const cancelAddReservationBtn = document.getElementById('cancel-reservation-btn');
 
     addReservationBtn.addEventListener('click', function(){
         addReservationForm.style.display = 'block';
         addReservationBtn.style.display = 'none';
     })
+    
+    cancelAddReservationBtn.addEventListener('click', function(e){
+        document.getElementById('addReservationBtn').style.display = 'block';
+        document.getElementById('addReservationForm').style.display = 'none';
+        document.getElementById('reservation_overlay').style.display = 'none';
+    });
 
     // Reservation overlay
 

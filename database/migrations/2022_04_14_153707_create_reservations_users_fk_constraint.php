@@ -30,7 +30,7 @@ class CreateReservationsUsersFkConstraint extends Migration
     public function down()
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->foreign('last_updated_by');
+            $table->dropForeign('last_updated_by');
         });
     }
 }

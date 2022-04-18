@@ -1,4 +1,4 @@
-    <div class="text-center lg:hidden">
+    <div class="{{ request()->is('admin/*') ? 'hidden' : ''}} text-center lg:hidden">
         <div class="m-0">
             <p class="text-old-gold text-xl font-bold">¡Contacta con nosotros!</p>
         </div>

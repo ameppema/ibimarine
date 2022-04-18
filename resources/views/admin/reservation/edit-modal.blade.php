@@ -58,16 +58,13 @@
                                     
                                     @foreach ($boats as $boat)
                                         
-                                    <div onclick="setFormValue('form-edit-reservation', 'boatE', {{ $boat->id }}, 'boatTextContentE', this)" class="border-b border-b-old-black/50 py-2 mb-2">
+                                    <div onclick="setFormValue('form-edit-reservation', 'boatE', {{ $boat->id }}, 'boatTextContentE', this)" class="border-b border-b-old-black/50 last:border-b-0  py-2 mb-2">
                                         <p>{{ $boat->name }}</p>
                                     </div>
                                     
                                     @endforeach
                                 @endif
-    
-                                <div onclick="setFormValue('form-edit-reservation', 'boat', null, 'boatTextConte, thisnt')" class="py-2 mb-2">
-                                    <p>OTRO</p>
-                                </div>
+
     
                             </div>
     
@@ -116,7 +113,7 @@
                                     </div>
                                     <p>Stand By</p>
                                 </div>
-                                <div onclick="setFormValue('form-edit-reservation','statusE', 1,'statusTextContentE', this)" class="flex gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
+                                <div onclick="setFormValue('form-edit-reservation','statusE', 1,'statusTextContentE', this)" class="flex gap-2 justify-center  py-2 mb-2">
                                     <div class="w-3 ">
                                         <svg class="text-[#0fd821]" style="width: 100%; height: auto; display: inline;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                             <circle fill="currentcolor" cx="50" cy="50" r="50"/>

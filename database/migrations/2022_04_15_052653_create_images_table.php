@@ -16,10 +16,11 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->text('image_src');
-            $table->text('image_alt');
-            $table->text('sort_order');
+            $table->text('image_alt')->nullable();
+            $table->integer('sort_order')->default(0);
             $table->text('gallery_id');
-            $table->text('belongs_to');
+            $table->text('belongs_to')->nullable();
+            $table->text('gallery_type');
         });
     }
 
