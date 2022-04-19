@@ -76,7 +76,6 @@ const customeYearCalendar = new UICustomeFullCalendar({
                     });
                 });
 
-                // console.log(response.data)
 
             })
             .catch(function(err){

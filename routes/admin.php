@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BoatController;
 use App\Http\Controllers\ReservationsController;
+use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,3 +29,7 @@ Route::post('/add-rent-boat', [BoatController::class, 'storeBoat'])->name('admin
 Route::get('/edit-rent-boat/{boat}', [BoatController::class, 'edit'])->name('admin.rent.edit');
 Route::post('/edit-rent-boat/{boat}', [BoatController::class, 'update'])->name('admin.rent.update');
 Route::post('/delete-rent-boat/{boat}', [BoatController::class, 'destroy'])->name('admin.rent.destroy');
+
+// Boat - Roles & Permissions
+Route::get('/manage-roles', [RolesController::class, 'index'])->name('admin.roles');
+Route::post('/manage-roles/set-role-ajax', [RolesController::class, 'setByAjax'])->name('admin.roles.setByAjax');

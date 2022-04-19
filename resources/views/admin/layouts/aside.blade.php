@@ -55,10 +55,12 @@
           <div class="ml-3"><i class="fas fa-address-book icons"></i></div>
           <p class="ml-3">Usuarios</p>
         </li>
-        <li class="flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fas fa-cog icons"></i></div>
-          <p class="ml-3">Roles</p>
-        </li>
+        <a href="{{route('admin.roles')}}">
+          <li class="flex text-white py-1 items-center cursor-pointer mb-6">
+            <div class="ml-3"><i class="fas fa-cog icons"></i></div>
+            <p class="ml-3">Roles</p>
+          </li>
+        </a>
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fas fa-tools icons"></i></div>
           <p class="ml-3">Permisos</p>

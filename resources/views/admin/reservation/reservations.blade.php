@@ -397,15 +397,5 @@ function getElementById(ID){
     const status = document.querySelector('[data-target-accordion="status"]');
     const boat = document.querySelector('[data-target-accordion="boat"]');
         
-    // form.addEventListener('submit', function(e){
-    //     document.getElementById('reservation_overlay').style.display = 'block';
-    //     const statusValue = status.parentElement.querySelector('[name="status"]').value;
-    //     const boatValue = boat.parentElement.querySelector('[name="boat"]').value;
-
-
-    //     const clientName = this.client.value;
-    //     const clientPhone = this.phone.value;
-    //     const employObservations = this.observations.value;
-    // })
 </script>
 @endsection
