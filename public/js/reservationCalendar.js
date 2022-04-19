@@ -27,30 +27,25 @@ const customeYearCalendar = new UICustomeFullCalendar({
         if(calendar.getDates()[0].dateElement.classList.contains('bg-gray-1')){
             seeDatesBtn.classList.remove('btn-off');
             seeDatesBtn.classList.add('btn-on');
+
+            formSee.date_start.value = calendar.getDates()[0].dateValue;
+            formSee.date_end.value = calendar.getDates()[calendar.getDates().length - 1].dateValue;
+        } else {
+            seeDatesBtn.classList.remove('btn-on');
+            seeDatesBtn.classList.add('btn-off');
+            formSee.reset();
+
         }
 
         // Save date
 
         form.date_start.value = calendar.getDates()[0].dateValue;
         form.date_end.value = calendar.getDates()[calendar.getDates().length - 1].dateValue;
-
-        formSee.date_start.value = calendar.getDates()[0].dateValue;
-        formSee.date_end.value = calendar.getDates()[calendar.getDates().length - 1].dateValue;
-
-
-/*             axios.post('https://ibimarine.test/admin/reservation',{
-                'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                'date_start': dateStart.dateValue,
-                'date_end': dateEnd.dateValue,
-            })
-            .then((res) =>{
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log(err)
-            }); */
     },
     onEmptyDates: function(calendar){
+            form.reset();
+            formSee.reset();
+
             saveDatesBtn.classList.remove('btn-on');
             saveDatesBtn.classList.add('btn-off');
 
@@ -92,7 +87,7 @@ const customeYearCalendar = new UICustomeFullCalendar({
 
 customeYearCalendar.CustomeUI( function({monthName, monthId, year, HtmlMonthDays, HtmlWeekDays, fillDaysStart, fillDaysEnd}){
     return `
-    <div data-date-id="${monthId}" class=" ${UCalendar.getMonthCalendarInfo().monthName === monthName ? 'calendar-active': ''} hidden reservation-calendar w-80 mx-auto font-bold">
+    <div data-date-id="${monthId}" class=" ${UCalendar.getMonthCalendarInfo().monthId === monthId ? 'calendar-active': ''} hidden reservation-calendar w-80 mx-auto font-bold">
     <!-- Calendar Head -->
     <div class="flex lg:mb-2 justify-center text-old-black h-11 items-center rounded-t-xl text-xl">
         <div style="width: 1rem" data-arrow-prev class="calendar-left-arrow cursor-pointer">

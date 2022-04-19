@@ -22,7 +22,7 @@
                     <img src="{{asset('img/lang_es.png')}}" class="w-10 h-8 object-cover" alt="">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
-                      name="boat_name"
+                      name="name"
                       class="border-[#343a40] text-gray-700 appearance-none leading-tight font-bold border  w-full py-[6px] rounded-md  pl-2 outline-none "
                       placeholder="Nombre de la Embarcación"
                       value="{{ $boat->name }}"
@@ -30,41 +30,22 @@
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox" class="w-8 border-red-500">
+                    <input value="$boat->is_recomended" {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox" class="w-8 border-red-500">
                   </div>
 
                 </div>
                 {{-- additions Icons --}}
                 <div class="p-5 flex flex-wrap gap-y-5 border-[#3c4045] border gap-x-16">
-                  <span class="text-[#343a40] font-bold">Iconos</span>
+                  <span class="text-[#343a40] font-bold">Adiciones</span>
+
+                  @foreach ($additions as $addition)
+
                   <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/users.png')}}" alt="" class="w-8 object-cover">
-                    <input name="users" type="checkbox">
+                    <img src="{{asset($addition->icon)}}" alt="" class="w-8 object-cover">
+                    <input name="{{$addition->name}}" type="checkbox" value="{{$addition->id}}" {{ $boat->additions->contains($addition) ? 'checked' : ''}}>
                   </div>
-                  <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/captain.png')}}" alt="" class="w-8 object-cover">
-                    <input name="captain" type="checkbox">
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/air-conditioner.png')}}" alt="" class="w-8 object-cover">
-                    <input name="air-conditioner" type="checkbox">
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/shower.png')}}" alt class="w-8 object-cover">
-                    <input name="shower" type="checkbox">
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/drinks.png')}}" alt="" class="w-8 object-cover">
-                    <input name="drinks" type="checkbox">
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/sports.png')}}" alt="" class="w-8 object-cover">
-                    <input name="sports" type="checkbox">
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <img src="{{asset('img/yacht_icons/music.png')}}" alt="" class="w-8 object-cover">
-                    <input name="music" type="checkbox">
-                  </div>
+                  
+                  @endforeach
         
                 </div>
         
@@ -76,7 +57,7 @@
                       <span class="text-[#343a40] font-bold mx-5">Descripción de embarcación</span>
                     </div>
                     <textarea name="description_es" id="" rows="8" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                      placeholder="Descripción y texto de la embarcación">{{ $boat->description ?? '' }}</textarea>
+                      placeholder="Descripción y texto de la embarcación">{{ old($boat->description) ?? $boat->description }}</textarea>
                   </div>
                   <div class="w-full ">
                     <div class="flex items-center mb-3">

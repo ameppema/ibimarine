@@ -283,7 +283,7 @@
                         </div>  
                         <div class="flex flex-col gap-2 justify-centerpy-2 mb-2">
                             <p class="text-sm">Ultima actualizacion por: <span>{{ $reservation->user }}</span> </p>
-                            <p class="text-xl">{{ date_to_human($reservation->updated_at) }}</p>
+                            <p class="text-xl">{{ date_to_human($reservation->updated_at) }}</p> 
                         </div>
                         
                         <div class="flex gap-1 justify-center mb-4 mt-9">

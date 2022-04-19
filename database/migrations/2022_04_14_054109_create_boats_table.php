@@ -19,8 +19,8 @@ class CreateBoatsTable extends Migration
             $table->text('description');
             $table->text('slug')->nullable();
             $table->integer('is_recomended')->default(0);
-            $table->integer('low_season_price');
-            $table->integer('high_season_price');
+            $table->integer('low_season_price')->default(0);
+            $table->integer('high_season_price')->default(0);
             $table->integer('sale_price')->nullable();
             $table->string('locale', 11)->default('es');
             $table->timestamps();

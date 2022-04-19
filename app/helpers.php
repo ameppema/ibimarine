@@ -1,7 +1,8 @@
 <?php
 
 use Carbon\Carbon;
-use phpDocumentor\Reflection\Types\Boolean;
+
+/* DATES */
 
 function date_to_human($date_string = '0000-00-00'){
     $date = explode('-', $date_string);
@@ -96,4 +97,10 @@ function datePeriodsOverlap($range1, $range2) {
 
 function periodsHaveOverlap($start_time1, $end_time1, $start_time2, $end_time2){
     return (($start_time1) <=  ($end_time2) && ($start_time2) < ($end_time1) ? true : false);
+}
+
+/* Forms */
+
+function checkbox_to_bool($value){
+    return $value ? 1 : 0;
 }

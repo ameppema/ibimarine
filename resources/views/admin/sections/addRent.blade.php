@@ -22,23 +22,16 @@
               <img src="{{asset('img/rent/rent-02.jpeg')}}" alt="" class="w-28 h-24 object-cover">
               <div class="flex items-center justify-center gap-4 ">
                 <a href="{{ route('admin.rent.edit', $boat) }}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></a>
-                <button class=""><i
-                    class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+                
+                <form method="POST" action="{{route('admin.rent.destroy', $boat)}}">
+                  @csrf
+                  <button type="submit" class=""><i class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+                </form>
               </div>
             </article>
             
             @endforeach
           @endif
-
-            {{-- <article class="flex flex-col items-center justify-center gap-y-2">
-              <p class="text-sm">CRANCHI <span class="italic">41</span></p>
-              <img src="{{asset('img/rent/rent-04.jpeg')}}" alt="" class="w-28 h-24 object-cover">
-              <div class="flex items-center justify-center gap-4 ">
-                <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                <button class=""><i
-                    class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-              </div>
-            </article> --}}
 
           </div>
         </div>
@@ -51,10 +44,9 @@
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
                   
                   <div class="flex items-center w-4/5">
-                    <img src="{{asset('img/lang_es.png')}}" class="w-10 h-8 object-cover" alt="">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
-                      name="boat_name"
+                      name="name" value="{{old('name')}}"
                       class="border-[#343a40] text-gray-700 appearance-none leading-tight font-bold border  w-full py-[6px] rounded-md  pl-2 outline-none "
                       placeholder="Nombre de la Embarcación">
                   </div>
@@ -66,34 +58,34 @@
                 </div>
                 {{-- additions Icons --}}
                 <div class="p-5 flex flex-wrap gap-y-5 border-[#3c4045] border gap-x-16">
-                  <span class="text-[#343a40] font-bold">Iconos</span>
+                  <span class="text-[#343a40] font-bold">Adiciones</span>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/users.png')}}" alt="" class="w-8 object-cover">
-                    <input name="users" type="checkbox">
+                    <input name="crew" type="checkbox" value="1">
                   </div>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/captain.png')}}" alt="" class="w-8 object-cover">
-                    <input name="captain" type="checkbox">
+                    <input name="captain" type="checkbox" value="2">
                   </div>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/air-conditioner.png')}}" alt="" class="w-8 object-cover">
-                    <input name="air-conditioner" type="checkbox">
+                    <input name="air" type="checkbox" value="6">
                   </div>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/shower.png')}}" alt class="w-8 object-cover">
-                    <input name="shower" type="checkbox">
+                    <input name="shower" type="checkbox" value="5">
                   </div>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/drinks.png')}}" alt="" class="w-8 object-cover">
-                    <input name="drinks" type="checkbox">
+                    <input name="drink" type="checkbox" value="3">
                   </div>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/sports.png')}}" alt="" class="w-8 object-cover">
-                    <input name="sports" type="checkbox">
+                    <input name="sports" type="checkbox" value="7">
                   </div>
                   <div class="flex items-center gap-2">
                     <img src="{{asset('img/yacht_icons/music.png')}}" alt="" class="w-8 object-cover">
-                    <input name="music" type="checkbox">
+                    <input name="music" type="checkbox" value="4">
                   </div>
         
                 </div>
@@ -105,8 +97,8 @@
                       <img src="{{asset('img/lang_es.png')}}" class="w-8 h-6 object-cover" alt="">
                       <span class="text-[#343a40] font-bold mx-5">Descripción de embarcación</span>
                     </div>
-                    <textarea name="description_es" id="" rows="8" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                      placeholder="Descripción y texto de la embarcación"></textarea>
+                    <textarea name="description" id="" rows="8" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
+                      placeholder="Descripción y texto de la embarcación">{{old('description')}}</textarea>
                   </div>
                   <div class="w-full ">
                     <div class="flex items-center mb-3">
@@ -114,7 +106,7 @@
                       <span class="text-[#343a40] font-bold mx-5">Ship description</span>
                     </div>
                     <textarea name="description_en" id="" rows="8" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                      placeholder="Descripción y texto de la embarcación"></textarea>
+                      placeholder="Descripción y texto de la embarcación">{{old('description_en')}}</textarea>
                   </div>
                 </div>
         
@@ -124,73 +116,73 @@
                   <div class="border-[#3c4045] border flex flex-wrap p-5 justify-between gap-y-5">
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="length">Length</label>
-                      <input type="text"
+                      <input type="text" value="{{old('length')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="length">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="beam">Beam</label>
-                      <input type="text"
+                      <input type="text" value="{{old('beam')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="beam">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="engines">Engines</label>
-                      <input type="text"
+                      <input type="text" value="{{old('engines')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="engines">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="c_velocity">Cruising velocity</label>
-                      <input type="text"
+                      <input type="text" value="{{old('c_velocity')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-52 pl-2 outline-none "
                         name="c_velocity">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="max_speed">Max speed</label>
-                      <input type="text"
+                      <input type="text" value="{{old('max_speed')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-28 pl-2 outline-none "
                         name="max_speed">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="fuel_consumption">Fuel Consumtion</label>
-                      <input type="text"
+                      <input type="text" value="{{old('fuel_consumption')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-60 pl-2 outline-none "
                         name="fuel_consumption">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="pax">Pax</label>
-                      <input type="text"
+                      <input type="text" value="{{old('pax')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="pax">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="bathroom">Bathroom</label>
-                      <input type="text"
+                      <input type="text" value="{{old('bathroom')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="bathroom">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="cabins">Cabins</label>
-                      <input type="text"
+                      <input type="text" value="{{old('cabins')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-14 pl-2 outline-none "
                         name="cabins">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="year">Year</label>
-                      <input type="text"
+                      <input type="text" value="{{old('year')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
                         name="year">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="port">Port</label>
-                      <input type="text"
+                      <input type="text" value="{{old('port')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-64 pl-2 outline-none "
                         name="port">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="model">Model</label>
-                      <input type="text"
+                      <input type="text" value="{{old('model')}}"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-64 pl-2 outline-none "
                         name="model">
                     </div>
@@ -201,12 +193,12 @@
                 <div class="flex border-[#343a40] p-5 border my-10 flex-wrap justify-between">
                   <div class="w-1/2 flex justify-start">
                     <span class="text-[#343a40] font-bold mr-5">Precio Temporada Baja</span>
-                    <input name="low_season_price" type="text"
+                    <input name="low_season_price" type="text" value="{{old('low_season_price')}}"
                       class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none ">
                   </div>
                   <div class="w-1/2 flex ">
                     <span class="text-[#343a40] font-bold mx-5">Precio Temporada Alta</span>
-                    <input type="text"
+                    <input type="text" value="{{old('high_season_price')}}"
                        name="high_season_price" class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none ">
                   </div>
         

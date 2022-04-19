@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFkToBoatHasAdditionsTable extends Migration
+class AddFkToAdditionsBoatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class AddFkToBoatHasAdditionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('boat_has_additions', function (Blueprint $table) {
-            $table->foreign('boat_id')
+        Schema::table('additions_boat', function (Blueprint $table) {
+            $table->foreign('addition_id')
             ->references('id')
-            ->on('boats')
+            ->on('additions')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->foreign('addition_id')
+            $table->foreign('boat_id')
             ->references('id')
-            ->on('boat_additions')
+            ->on('boats')
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
@@ -35,8 +35,9 @@ class AddFkToBoatHasAdditionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('boat_has_additions', function (Blueprint $table) {
-            //
+        Schema::table('additions_boat', function (Blueprint $table) {
+            $table->dropForeign('boat_id');
+            $table->dropForeign('additions_id');
         });
     }
 }

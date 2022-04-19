@@ -45,10 +45,12 @@
           <div class="ml-3"><i class="fas fa-envelope icons"></i></div>
           <p class="ml-3">Contacto</p>
         </li>
+        <a href="{{route('admin.calendar')}}">
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fas fa-lock icons"></i></div>
-          <p class="ml-3">Área privada</p>
-        </li>
+            <div class="ml-3"><i class="fas fa-lock icons"></i></div>
+            <p class="ml-3">Área privada</p>
+          </li>
+        </a>
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fas fa-address-book icons"></i></div>
           <p class="ml-3">Usuarios</p>

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveBoatRequest;
+use App\Models\Additions;
 use App\Models\Boat;
+use App\Models\BoatAddition;
 use App\Models\BoatFeatures;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class BoatController extends Controller
@@ -38,19 +41,24 @@ class BoatController extends Controller
      */
     public function storeBoat(SaveBoatRequest $request)
     {
-        $features = new BoatFeatures($request->all());
-        $data = $request->validated();
 
-        $boat = new Boat();
+        $features = new BoatFeatures($request->validated());
 
-        $boat->name         = $data['boat_name'];
-        $boat->description  = $data['description_es'];
-        $boat->slug         =  Str::slug($data['boat_name']);
-        $boat->is_recomended= request('is_recomended') ? 1 : 0;
-        $boat->low_season_price= $data['low_season_price'];
-        $boat->high_season_price= $data['high_season_price'];
-
+        $additions = request()->validate([
+            'crew'=>'nullable',
+            'captain'=>'nullable',
+            'drink'=>'nullable',
+            'music'=>'nullable',
+            'shower'=>'nullable',
+            'air'=>'nullable',
+            'sports'=>'nullable',
+        ]);
+        
+        $boat = new Boat($request->validated());
+        
+        
         $boat->save();
+        $boat->additions()->sync($additions);
         $boat->features()->save($features);
 
         return redirect()->back();
@@ -64,7 +72,8 @@ class BoatController extends Controller
      */
     public function edit(Boat $boat)
     {
-        return view('admin.sections.editRent', compact('boat'));
+        $additions = Additions::all();
+        return view('admin.sections.editRent', compact('boat', 'additions'));
     }
 
     /**
@@ -78,11 +87,22 @@ class BoatController extends Controller
     {
         $data = $request->validated();
 
-        $boat->name = $data['boat_name'];
-        $boat->description = $data['description_es'];
+        $boat->name = $data['name'];
+        $boat->description = $data['description'];
         $boat->is_recomended = request('is_recomended')? 1 : 0;
         $boat->low_season_price = $data['low_season_price'];
         $boat->high_season_price = $data['high_season_price'];
+
+        $additions = request()->validate([
+            'crew'=>'nullable',
+            'captain'=>'nullable',
+            'drink'=>'nullable',
+            'music'=>'nullable',
+            'shower'=>'nullable',
+            'air'=>'nullable',
+            'sports'=>'nullable',
+        ]);
+        
 
 
         $boat->features->length = request('length');
@@ -97,8 +117,10 @@ class BoatController extends Controller
         $boat->features->year = request('year');
         $boat->features->port = request('port');
         $boat->features->model = request('model');
+
         
         $boat->push();
+        $boat->additions()->sync($additions);
 
         return redirect()->back(302);
     }
@@ -111,7 +133,7 @@ class BoatController extends Controller
      */
     public function destroy(Boat $boat)
     {
-        return $boat;
         $boat->delete();
+        return redirect()->back();
     }
 }

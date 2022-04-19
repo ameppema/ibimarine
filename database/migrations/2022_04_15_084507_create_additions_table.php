@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBoatHasAdditionsTable extends Migration
+class CreateAdditionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateBoatHasAdditionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('boat_has_additions', function (Blueprint $table) {
-            $table->unsignedBigInteger('boat_id');
-            $table->unsignedBigInteger('addition_id');
+        Schema::create('additions', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',11);
+            $table->text('icon');
+            $table->integer('is_checked');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateBoatHasAdditionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boat_has_additions');
+        Schema::dropIfExists('additions');
     }
 }

@@ -257,12 +257,11 @@ const UXCalendar = function(UIcalendar, onChangeMonth){
             if(this.isCallable(onChangeMonth)){
                 onChangeMonth(document.querySelector('.calendar-active'));
             }
-        } else {
+        }
+        if(!activeCalendar.nextElementSibling.nextElementSibling) {
           const year = counter < 11 ? yearCounter : yearCounter++;
           const month = counter > 11 ? 0 : counter++;
           UIcalendar.generateNewMonth(year, month);
-          activeCalendar.classList.remove('calendar-active');
-          activeCalendar.nextElementSibling.classList.add('calendar-active');
           
           if(this.isCallable(onChangeMonth)){
               onChangeMonth(document.querySelector('.calendar-active'));
@@ -318,7 +317,7 @@ const UICalendar = function({startsOn, monthName, numberDaysInMonth, monthId, ye
     }
 
     this.HtmlMonthCalendar = `
-    <div data-month-id="${monthId}" class="max-w-xs w-4/5 mx-auto hidden ${UCalendar.getMonthCalendarInfo().monthName === monthName ? 'calendar-active': ''}">
+    <div data-month-id="${monthId}" class="max-w-xs w-4/5 mx-auto hidden ${UCalendar.getMonthCalendarInfo().monthId === monthId ? 'calendar-active': ''}">
     <div class="bg-old-gold flex justify-center text-white h-11 items-center rounded-t-xl text-xl">
       <div class="calendar-left-arrow cursor-pointer"><svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com --></div>
         <div class="calendar__month_year mx-10">
