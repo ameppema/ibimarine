@@ -15,7 +15,7 @@ trait RolesNPermissions
      * In case the permission is "all" you must define the $specificPermissions property in the class
      */
     public function PermissionHandler($permission,Role $role,$giveOrRemove){
-        $permission = $permission != 'all' ? $permission : $this->specificPermissions;
+        $permission = $permission != 'all' ? $permission : $this->allCrudPermissions;
         if($giveOrRemove === true){
             $role->givePermissionTo($permission);
         }else{

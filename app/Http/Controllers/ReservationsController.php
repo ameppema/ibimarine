@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Boat;
 use App\Models\Reservations;
-use Carbon\Carbon;
-use DatePeriod;
-use Illuminate\Http\Request;
-use stdClass;
 
 class ReservationsController extends Controller
 {
@@ -37,7 +33,10 @@ class ReservationsController extends Controller
         $date_start = request('date_start');
         $ref        = request('reffer') ?? 'saveBtn';
 
-        return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations', 'ref', 'boats'));
+        $reservedBoats = $reservations->pluck('boat_id')->intersect($boats->pluck('id'));
+        // dd($reservedBoats);
+
+        return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations', 'ref', 'boats', 'reservedBoats'));
 
     }
 

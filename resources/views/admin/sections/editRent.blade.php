@@ -19,7 +19,6 @@
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
                   
                   <div class="flex items-center w-4/5">
-                    <img src="{{asset('img/lang_es.png')}}" class="w-10 h-8 object-cover" alt="">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
                       name="name"
@@ -333,7 +332,7 @@
                   </div>
         
                   <div class="my-10 flex justify-center">
-                    <input type="submit" class="bg-[#037bff] border border-transparent text-white py-1 px-10 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 " value="Agregar Embarcación">
+                    <input type="submit" class="bg-[#037bff] border border-transparent text-white py-1 px-10 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 " value="Guardar cambios">
                   </div>
                 </div>
 

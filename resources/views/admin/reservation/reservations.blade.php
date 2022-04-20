@@ -103,7 +103,7 @@
                                 
                                 @foreach ($boats as $boat)
                                     
-                                <div onclick="setFormValue('form-add-reservation', 'boat', {{ $boat->id }}, 'boatTextContent', this)" class="border-b border-b-old-black/50 last:border-b-0 py-2 mb-2">
+                                <div onclick="setFormValue('form-add-reservation', 'boat', {{ $boat->id }}, 'boatTextContent', this)" class="{{ $reservedBoats->contains($boat->id) ? 'disabled ' : ''}} border-b border-b-old-black/50 last:border-b-0 py-2 mb-2">
                                     <p>{{ $boat->name }}</p>
                                 </div>
                                 

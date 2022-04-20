@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BoatController;
+use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,6 @@ Route::post('/delete-rent-boat/{boat}', [BoatController::class, 'destroy'])->nam
 
 // Boat - Roles & Permissions
 Route::get('/manage-roles', [RolesController::class, 'index'])->name('admin.roles');
+Route::get('/manage-permissions', [PermissionsController::class, 'index'])->name('admin.permissions');
 Route::post('/manage-roles/set-role-ajax', [RolesController::class, 'setByAjax'])->name('admin.roles.setByAjax');
+Route::post('/manage-roles/set-permission-ajax', [PermissionsController::class, 'setByAjax'])->name('admin.permission.setByAjax');

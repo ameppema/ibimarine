@@ -2,6 +2,16 @@
 
 use Carbon\Carbon;
 
+/* General */
+
+/* Active Link functions */
+function isActive($routeName, $classActive = 'bg-blue-500'){
+    return request()->routeIs($routeName) ? $classActive.' ' : '';
+}
+function isRoute($routePath, $classActive = 'bg-blue-500'){
+    return request()->is($routePath) ? $classActive.' ' : '';
+}
+
 /* DATES */
 
 function date_to_human($date_string = '0000-00-00'){
