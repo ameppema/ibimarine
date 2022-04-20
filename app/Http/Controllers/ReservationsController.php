@@ -19,6 +19,9 @@ class ReservationsController extends Controller
 
     public function create()
     {
+
+        $boats  = Boat::all(['name', 'id']);
+        if(auth()->user()->hasPermissionTo('admin.reservation.read.other')){
         $reservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
                                     ->whereBetween('start_date', [request('date_start'), request('date_end')])
                                     ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
@@ -26,15 +29,31 @@ class ReservationsController extends Controller
                                     ->join('boats', 'reservations.boat_id', 'boats.id')
                                     ->get();
 
-        $boats        = Boat::all(['name', 'id']);
+        $reservedBoats = $reservations->pluck('boat_id')->intersect($boats->pluck('id'));
 
+        }else {
+            $reservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
+            ->whereBetween('start_date', [request('date_start'), request('date_end')])
+            ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
+            ->where('made_by', auth()->user()->id)
+            ->join('users', 'reservations.made_by', 'users.id')
+            ->join('boats', 'reservations.boat_id', 'boats.id')
+            ->get();
 
+            $allReservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
+            ->whereBetween('start_date', [request('date_start'), request('date_end')])
+            ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
+            ->join('users', 'reservations.made_by', 'users.id')
+            ->join('boats', 'reservations.boat_id', 'boats.id')
+            ->get();
+
+            $reservedBoats = $allReservations->pluck('boat_id')->intersect($boats->pluck('id'));
+        }
+        
         $date_end   = request('date_end');
         $date_start = request('date_start');
         $ref        = request('reffer') ?? 'saveBtn';
 
-        $reservedBoats = $reservations->pluck('boat_id')->intersect($boats->pluck('id'));
-        // dd($reservedBoats);
 
         return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations', 'ref', 'boats', 'reservedBoats'));
 

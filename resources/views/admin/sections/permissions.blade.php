@@ -39,21 +39,21 @@
 
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="1" name="1" type="checkbox"
+                      <input id="1" name="1" type="checkbox" @roleCan('admin',1) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="1" name="2" type="checkbox"
+                      <input id="1" name="2" type="checkbox" @roleCan('employ', 1) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="1" name="3" type="checkbox"
+                      <input id="1" name="3" type="checkbox" @roleCan('broker', 1) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -66,21 +66,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="2" name="1" type="checkbox"
+                      <input id="2" name="1" type="checkbox" @roleCan('admin',2) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="2" name="2" type="checkbox"
+                      <input id="2" name="2" type="checkbox" @roleCan('employ',2) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="2" name="3" type="checkbox"
+                      <input id="2" name="3" type="checkbox"  @roleCan('broker',2) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -94,21 +94,21 @@
 
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="3" name="1" type="checkbox"
+                      <input id="3" name="1" type="checkbox" @roleCan('admin',3) checked @endroleCan
+                        class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-table-2" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class=" py-4 px-6 ">
+                    <div class="flex items-center"> 
+                      <input id="3" name="2" type="checkbox" @roleCan('employ',3) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="3" name="2" type="checkbox"
-                        class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                      <label for="checkbox-table-2" class="sr-only">checkbox</label>
-                    </div>
-                  </td>
-                  <td class=" py-4 px-6 ">
-                    <div class="flex items-center">
-                      <input id="3" name="3" type="checkbox"
+                      <input id="3" name="3" type="checkbox" @roleCan('broker',3) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -121,21 +121,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="4" name="1" type="checkbox"
+                      <input id="4" name="1" type="checkbox"  @roleCan('admin',4) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="4" name="2" type="checkbox"
+                      <input id="4" name="2" type="checkbox"  @roleCan('employ',4) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="4" name="3" type="checkbox"
+                      <input id="4" name="3" type="checkbox"  @roleCan('broker',4) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -148,21 +148,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="5" name="1" type="checkbox"
+                      <input id="5" name="1" type="checkbox"  @roleCan('admin',5) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="5" name="2" type="checkbox"
+                      <input id="5" name="2" type="checkbox" @roleCan('employ',5) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="5" name="3" type="checkbox"
+                      <input id="5" name="3" type="checkbox"@roleCan('broker',5) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -175,21 +175,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="6" name="1" type="checkbox"
+                      <input id="6" name="1" type="checkbox" @roleCan('admin',6) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="6" name="2" type="checkbox"
+                      <input id="6" name="2" type="checkbox" @roleCan('employ',6) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="6" name="3" type="checkbox"
+                      <input id="6" name="3" type="checkbox" @roleCan('broker',6) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -202,21 +202,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="7" name="1" type="checkbox"
+                      <input id="7" name="1" type="checkbox" @roleCan('admin',7) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="7" name="2" type="checkbox"
+                      <input id="7" name="2" type="checkbox" @roleCan('employ',7) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="7" name="3" type="checkbox"
+                      <input id="7" name="3" type="checkbox" @roleCan('broker',7) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -229,21 +229,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="8" name="1" type="checkbox"
+                      <input id="8" name="1" type="checkbox" @roleCan('admin',8) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="8" name="2" type="checkbox"
+                      <input id="8" name="2" type="checkbox" @roleCan('employ',8) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="8" name="3" type="checkbox"
+                      <input id="8" name="3" type="checkbox" @roleCan('broker',8) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -256,21 +256,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="9" name="1" type="checkbox"
+                      <input id="9" name="1" type="checkbox" @roleCan('admin',9) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="9" name="2" type="checkbox"
+                      <input id="9" name="2" type="checkbox" @roleCan('employ',9) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="9" name="3" type="checkbox"
+                      <input id="9" name="3" type="checkbox" @roleCan('broker',9) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -283,21 +283,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="10" name="1" type="checkbox"
+                      <input id="10" name="1" type="checkbox" @roleCan('admin',10) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="10" name="2" type="checkbox"
+                      <input id="10" name="2" type="checkbox" @roleCan('employ',10) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="10" name="3" type="checkbox"
+                      <input id="10" name="3" type="checkbox" @roleCan('broker',10) checked @endroleCan
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
@@ -310,21 +310,21 @@
                     </th>
                     <td class=" py-4 px-6 ">
                         <div class="flex items-center">
-                        <input id="12" name="1" type="checkbox"
+                        <input id="12" name="1" type="checkbox" @roleCan('admin',12) checked @endroleCan
                             class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-table-2" class="sr-only">checkbox</label>
                         </div>
                     </td>
                     <td class=" py-4 px-6 ">
                         <div class="flex items-center">
-                        <input id="12" name="2" type="checkbox"
+                        <input id="12" name="2" type="checkbox" @roleCan('employ',12) checked @endroleCan
                             class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-table-2" class="sr-only">checkbox</label>
                         </div>
                     </td>
                     <td class=" py-4 px-6 ">
                         <div class="flex items-center">
-                        <input id="12" name="3" type="checkbox"
+                        <input id="12" name="3" type="checkbox" @roleCan('broker',12) checked @endroleCan
                             class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-table-2" class="sr-only">checkbox</label>
                         </div>
@@ -338,21 +338,21 @@
                   </th>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="all" name="1" type="checkbox"
+                      <input id="all" name="1" type="checkbox" value="admin"
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="all" name="2" type="checkbox"
+                      <input id="all" name="2" type="checkbox" value="employ"
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>
                   </td>
                   <td class=" py-4 px-6 ">
                     <div class="flex items-center">
-                      <input id="all" name="3" type="checkbox"
+                      <input id="all" name="3" type="checkbox" value="brocker"
                         class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                       <label for="checkbox-table-2" class="sr-only">checkbox</label>
                     </div>

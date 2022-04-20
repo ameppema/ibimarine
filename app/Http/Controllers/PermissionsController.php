@@ -11,11 +11,13 @@ class PermissionsController extends Controller
 {
     use RolesNPermissions;
     private $requiredPermissions;
+    private $allCrudPermissions;
 
     public function __construct()
     {
         $this->middleware(['can:admin.permissions']);
-        $this->requiredPermissions = ['admin.menu', 'admin.rent', 'admin.sale', 'admin.toys', 'admin.events', 'admin.news', 'admin.contact', 'admin.users', 'admin.roles', 'admin.profile'];
+        $this->requiredPermissions = ['admin.menu', 'admin.rent', 'admin.sale', 'admin.toys', 'admin.events', 'admin.news', 'admin.contact', 'admin.users', 'admin.roles', 'admin.permissions', 'admin.profile'];
+        $this->allCrudPermissions = $this->requiredPermissions;
     }
     public function index(Request $request)
     {
@@ -29,7 +31,10 @@ class PermissionsController extends Controller
         $input = json_decode(request('data'));
 
         $role = Role::findById($input->role);
-        $permission = Permission::findById($input->permission);
+
+        if(!isset($input->role) || $role->name === 'admin') return response(['msg'=>'Cant\'t Modify Permissions '], 403);
+
+        $permission = ($input->permission === 'all') ? 'all':  Permission::findById($input->permission);
 
         $this->PermissionHandler($permission, $role, $input->isChecked);
 
