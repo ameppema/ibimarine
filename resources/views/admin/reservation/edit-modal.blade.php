@@ -27,7 +27,7 @@
                         @csrf
                         @method('post')
                         <!-- Input accordion -->
-                        <div class="border border-old-black cursor-pointer">
+                        <div class="border border-old-black cursor-pointer  max-h-96 overflow-y-scroll">
                             <div class="hidden">
                                 <select name="boat" id="boatE">
                                     @if ($boats)
@@ -58,7 +58,7 @@
                                     
                                     @foreach ($boats as $boat)
                                         
-                                    <div onclick="setFormValue('form-edit-reservation', 'boatE', {{ $boat->id }}, 'boatTextContentE', this)" class="border-b border-b-old-black/50 last:border-b-0  py-2 mb-2">
+                                    <div onclick="setFormValue('form-edit-reservation', 'boatE', {{ $boat->id }}, 'boatTextContentE', this)" class="{{ $reservedBoats->contains($boat->id) ? 'disabled ' : ''}} border-b border-b-old-black/50 last:border-b-0  py-2 mb-2">
                                         <p>{{ $boat->name }}</p>
                                     </div>
                                     

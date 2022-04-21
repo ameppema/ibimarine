@@ -4,7 +4,7 @@
 
         <div class="relative h-20">
             <div class="absolute left-0 right-0 mx-auto w-56">
-                <img src="/img/logoibimarine_2.png" alt="Logo ibimarine">
+                <img src="{{asset('/img/logoibimarine_2.png')}}" alt="Logo ibimarine">
             </div>
     
             <div id="menu_close" class="absolute right-0 top-0 -mt-1 mr-5">

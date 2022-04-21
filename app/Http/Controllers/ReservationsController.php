@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Boat;
 use App\Models\Reservations;
+use App\Repositories\Reservations as RepositoriesReservations;
 
 class ReservationsController extends Controller
 {
@@ -17,43 +18,25 @@ class ReservationsController extends Controller
         return view('admin.reservation.calendar');
     }
 
-    public function create()
+    public function create(RepositoriesReservations $reservationsReppo)
     {
 
         $boats  = Boat::all(['name', 'id']);
-        if(auth()->user()->hasPermissionTo('admin.reservation.read.other')){
-        $reservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
-                                    ->whereBetween('start_date', [request('date_start'), request('date_end')])
-                                    ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
-                                    ->join('users', 'reservations.made_by', 'users.id')
-                                    ->join('boats', 'reservations.boat_id', 'boats.id')
-                                    ->get();
 
-        $reservedBoats = $reservations->pluck('boat_id')->intersect($boats->pluck('id'));
+        // dd(datePeriodsOverlap('2022-04-02 - 2022-04-04', '2022-04-01 - 2022-04-05'));
 
-        }else {
-            $reservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
-            ->whereBetween('start_date', [request('date_start'), request('date_end')])
-            ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
-            ->where('made_by', auth()->user()->id)
-            ->join('users', 'reservations.made_by', 'users.id')
-            ->join('boats', 'reservations.boat_id', 'boats.id')
-            ->get();
-
-            $allReservations = Reservations::select('reservations.*', 'users.name as user', 'boats.name as boat_name')
-            ->whereBetween('start_date', [request('date_start'), request('date_end')])
-            ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
-            ->join('users', 'reservations.made_by', 'users.id')
-            ->join('boats', 'reservations.boat_id', 'boats.id')
-            ->get();
-
-            $reservedBoats = $allReservations->pluck('boat_id')->intersect($boats->pluck('id'));
+        if(auth()->user()->can('admin.reservation.read.other')){
+            $reservations = $reservationsReppo->getReservations();
+        } else {
+            $reservations = $reservationsReppo->getOwnReservations();
         }
         
         $date_end   = request('date_end');
         $date_start = request('date_start');
         $ref        = request('reffer') ?? 'saveBtn';
 
+        $reservedBoats = $reservationsReppo->getReservations()->pluck('boat_id')->intersect($boats->pluck('id'));
+        $reservedBoats = $reservedBoats->contains(99) ? $reservedBoats->filter(function($value){return $value != 99;}) : $reservedBoats;
 
         return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations', 'ref', 'boats', 'reservedBoats'));
 
@@ -102,7 +85,7 @@ class ReservationsController extends Controller
 
         $reservation->save();
 
-        return redirect()->back(301);
+        return redirect()->back(301)->with(['success' => '¡Reserva Creada!','message'=> 'Puedes comprobar que tu reserva ha sido creada en el calendario.']);;
     }
 
     public function show()
@@ -128,22 +111,20 @@ class ReservationsController extends Controller
      * @param  \App\Models\Reservations  $reservations
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, Reservations $reservations)
     public function update()
     {
 
-        // return request();
-        $reservation = Reservations::find(request('reservation_id'));
+        $reservation = Reservations::findOrFail(request('reservation_id'));
 
         $reservation->boat_id = request('boat');
         $reservation->client_name = request('client');
         $reservation->client_phone = request('phone');
         $reservation->status = request('status');
         $reservation->observations = request('observations') ?? '-';
-        $reservation->last_updated_by = request('last_updated_by');
+        $reservation->last_updated_by = auth()->user()->id;
 
         $reservation->update();
-        return redirect()->back();
+        return redirect()->back()->with(['success' => '¡Reserva Actualizada!','message'=> 'Puedes comprobar que tu reserva ha sido actualizada de inmediato.']);
     }
 
     /**
@@ -156,6 +137,6 @@ class ReservationsController extends Controller
     {
         $reservation = Reservations::find($reservations);
         $reservation->delete();
-        return redirect()->back();
+        return redirect()->back()->with(['success' => '¡Reserva Eliminada!','message'=> 'Su reserva ha sido eliminada.']);;
     }
 }

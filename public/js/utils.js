@@ -19,11 +19,15 @@ function ToggleModal(ModalName){
     const Modal = document.querySelector('[data-target-modal="'+ModalName+'"]');
 
     CloseModal.onclick = function(){
+        document.body.style.overflowY = 'scroll';
         Modal.style.display = 'none'
+        Modal.style.overflowY = 'hidden';
     }
     OpenModal.forEach( button => {
         button.onclick  = function(){
+            document.body.style.overflowY = 'hidden';
             Modal.style.display = 'block';
+            Modal.style.overflowY = 'scroll';
         }
     });
 }

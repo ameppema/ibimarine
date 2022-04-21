@@ -141,9 +141,10 @@
 @endsection
 
 @section('js')
-<script src="{{asset('vendor/axios.min.js')}}"></script>
-<script src="/js/calenMod.js"></script>
-<script src="/js/reservationCalendar.js"></script>
+<script>const ROUTE = "{{route('admin.reservation.ajax')}}";</script>
+<script src="{{asset('/vendor/axios.min.js')}}"></script>
+<script src="{{asset('/js/calenMod.js')}}"></script>
+<script src="{{asset('/js/reservationCalendar.js')}}"></script>
 
 
 @endsection

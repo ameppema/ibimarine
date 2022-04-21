@@ -14,33 +14,8 @@
 @section('content')
     <!-- Section Page content -->
 
-    <!-- Overlay Reservation -->
-    <div id="reservation_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
+    @include('admin.reservation.feedback-overlay')
 
-        <!-- Overlay content -->
-        <div class="h-screen flex flex-col items-center text-center">
-            <div>
-                <div class="w-56 mt-40 mx-auto">
-                    <img src="{{asset('/img/logoibimarine_2.png')}}" alt="Logo Ibimarine">
-                </div>
-            </div>
-
-            <div class="text-white text-center">
-                <div class="w-4/5 mx-auto my-10">
-                    <p class="font-bold text-2xl lg:text-3xl my-5 lg:my-8">Reserva Creada!</p>
-                    <p class="text-xl lg:text-3xl lg:w-[50%] mx-auto">
-                        Puedes comprobar que tu reserva ha sido creada en el calendario.
-                    </p>
-                </div>
-
-            </div>
-
-            <div>
-                <button id="reservation_close" class="btn-gold">Cerrar</button>
-            </div>
-        </div>
-
-    </div>
 
     {{-- Edit Modal --}}
     @include('admin.reservation.edit-modal')
@@ -72,7 +47,7 @@
                     @csrf
                     @method('post')
                     <!-- Input accordion -->
-                    <div class="border border-old-black cursor-pointer">
+                    <div class="border border-old-black cursor-pointer  max-h-96 overflow-y-scroll">
                         <div class="hidden">
                             <select name="boat" id="boat">
                                 @if ($boats)
@@ -267,7 +242,7 @@
                         </div>  
                         <div class="flex flex-col gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
                             <p class="text-sm">Reservado por</p>
-                            <p class="text-xl">{{ $reservation->user}}</p>
+                            <p class="text-xl">{{ $reservation->made_by_user}}</p>
                         </div>  
                         <div class="flex flex-col gap-2 justify-center border-b border-b-old-black/50 py-2 mb-2">
                             <p class="text-sm">Nombre del cliente</p>
@@ -282,7 +257,7 @@
                             <p class="text-xl">{{ $reservation->observations ?? 'Ninguna' }}</p>
                         </div>  
                         <div class="flex flex-col gap-2 justify-centerpy-2 mb-2">
-                            <p class="text-sm">Ultima actualizacion por: <span>{{ $reservation->user }}</span> </p>
+                            <p class="text-sm">Ultima actualizacion por: <span>{{ $reservation->update_by_user }}</span> </p>
                             <p class="text-xl">{{ date_to_human($reservation->updated_at) }}</p> 
                         </div>
                         
@@ -315,6 +290,7 @@
 
 @section('js')
 
+<script>const ROUTE = "{{route('admin.reservation.getOneByAjax')}}";</script>
 <script src="{{asset('/vendor/axios.min.js')}}"></script>
 <script src="{{asset('/js/utils.js')}}"></script>
 
@@ -326,9 +302,11 @@ function getElementById(ID){
 }
 
     function CaptureReservationData(ReservationId){
-        axios.get('/admin/reservation/show/'+ ReservationId)
+        axios.get(ROUTE+'/'+ ReservationId)
              .then(response => {
                  console.log(response)
+                 getElementById('boatE').value = response.data.boat_id;
+                 getElementById('boatTextContentE').textContent = getElementById('boatE').options[getElementById('boatE').selectedIndex].text;
 
                  getElementById('clientE').value = response.data.client_name;
                  getElementById('phoneE').value = response.data.client_phone;
@@ -375,6 +353,10 @@ function getElementById(ID){
     })
     
     cancelAddReservationBtn.addEventListener('click', function(e){
+        
+        document.getElementById('form-add-reservation').reset()
+        document.getElementById('boatTextContent').textContent = 'Embarcación';
+        document.getElementById('statusTextContent').textContent = 'Status';
         document.getElementById('addReservationBtn').style.display = 'block';
         document.getElementById('addReservationForm').style.display = 'none';
         document.getElementById('reservation_overlay').style.display = 'none';

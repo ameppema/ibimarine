@@ -55,7 +55,7 @@ const customeYearCalendar = new UICustomeFullCalendar({
     onChangeMonth: function(calendar){
         const {month, year} = UCalendar.stringToDateYM(calendar.getAttribute('data-date-id'));
         let date_start = UCalendar.getMonthCalendarInfo(year , month );
-        axios.get('/admin/reservation/byAjax', {
+        axios.get(ROUTE, {
             params: {
                 'date_start': calendar.getAttribute('data-date-id') + '-01',
                 'date_end': calendar.getAttribute('data-date-id') + '-' +date_start.numberDaysInMonth,
@@ -68,7 +68,6 @@ const customeYearCalendar = new UICustomeFullCalendar({
                 response.data.forEach(date => {
                     const datesBetween = UCalendar.parsePeriod(date.start_date, date.end_date);
 
-                    // console.log(datesBetween)
                     datesBetween.forEach((UDate) => {
                         if(UDate.dateElement){
                             UDate.dateElement.classList.add('bg-gray-1');

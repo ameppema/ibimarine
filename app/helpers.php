@@ -72,6 +72,11 @@ function periodToDates($period, $separator =' - '){
     return explode($separator, $period);
 }
 
+/**
+ * @param string $range1 - '2022-01-01 - 2022-01-03' 
+ * @param string $range2 - '2022-01-01 - 2022-01-03'
+ */
+
 function datePeriodsOverlap($range1, $range2) {
     list($start, $end) = explode(' - ', $range1);
     $start = new DateTime($start);
