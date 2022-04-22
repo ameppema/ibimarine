@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Boat;
+use App\Models\DailyReservationRecord;
 use App\Models\Reservations;
 use App\Repositories\Reservations as RepositoriesReservations;
+use Carbon\CarbonPeriod;
 
 class ReservationsController extends Controller
 {
@@ -20,7 +22,6 @@ class ReservationsController extends Controller
 
     public function create(RepositoriesReservations $reservationsReppo)
     {
-
         $boats  = Boat::all(['name', 'id']);
 
         // dd(datePeriodsOverlap('2022-04-02 - 2022-04-04', '2022-04-01 - 2022-04-05'));
@@ -30,7 +31,11 @@ class ReservationsController extends Controller
         } else {
             $reservations = $reservationsReppo->getOwnReservations();
         }
-        
+
+        // dump($reservations[0]);
+        // dump($reservations[1]);
+        // die;
+
         $date_end   = request('date_end');
         $date_start = request('date_start');
         $ref        = request('reffer') ?? 'saveBtn';
@@ -71,6 +76,10 @@ class ReservationsController extends Controller
             'observations' => ['nullable'],
         ]);
 
+        $reservationPeriod = CarbonPeriod::create(request('date_start'), request('date_end'));
+        $dailyReservation = [];
+
+
         $reservation = new Reservations();
 
         $reservation->boat_id = $data['boat'];
@@ -84,7 +93,10 @@ class ReservationsController extends Controller
         $reservation->last_updated_by = auth()->user()->id ?? 'none';
 
         $reservation->save();
-
+        foreach($reservationPeriod as $date){
+            $dailyReservation[] = ['reservation_id' => $reservation->id,'reserved_date'=>$date->format('Y-m-d')];
+        }
+        DailyReservationRecord::insert($dailyReservation);
         return redirect()->back(301)->with(['success' => '¡Reserva Creada!','message'=> 'Puedes comprobar que tu reserva ha sido creada en el calendario.']);;
     }
 

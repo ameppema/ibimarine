@@ -14,7 +14,7 @@ class AddFkToAdditionsBoatTable extends Migration
     public function up()
     {
         Schema::table('additions_boat', function (Blueprint $table) {
-            $table->foreign('addition_id')
+            $table->foreign('additions_id')
             ->references('id')
             ->on('additions')
             ->onDelete('cascade')
