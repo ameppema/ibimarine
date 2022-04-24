@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 /* General */
 
@@ -118,4 +119,10 @@ function periodsHaveOverlap($start_time1, $end_time1, $start_time2, $end_time2){
 
 function checkbox_to_bool($value){
     return $value ? 1 : 0;
+}
+
+/* Strings */
+
+function makeToken($length = 16){
+    return Str::random($length);
 }

@@ -5,6 +5,7 @@ DB::listen( function($query){
 });
 
 use App\Http\Controllers\BoatController;
+use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\RolesController;
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.index');
 })->name('admin');
+
+// Gallery - Images
+
+Route::post('/upload-file', [ImagesController::class, 'store'])->name('image.upload');
 
 // Employs and brokers
 

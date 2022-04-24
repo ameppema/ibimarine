@@ -6,6 +6,8 @@
     
 @include('admin.partials.errors')
 
+@include('admin.partials.upload-image')
+
     {{-- Content --}}
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6] px-5">
         <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página de Alquiler EDITAR</h2>
@@ -182,93 +184,24 @@
                 <div class="">
                   <p class="text-[#343a40] font-bold">Fotos de la embarcación</p>
                   <div class="flex flex-wrap gap-x-8 gap-y-20 mt-5 border border-[#343a40] p-5">
+                                       
+                    @foreach ($gallery as $image)
                     <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
+                      <img src="/storage/{{$image->image_src}}" alt="{{$image->alt}}" class="w-36 h-24 object-cover">
                       <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#1</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                        <p class="text-[#343a40] font-bold ">#{{$loop->iteration}}</p>
+                        <button id="image_{{$image->id}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
                         <button class=""><i
                             class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
                       </div>
                     </article>
-        
+                    @endforeach
+   
                     <article class="flex flex-col items-center justify-center gap-y-2">
                       <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
                       <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#2</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#3</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#4</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#5</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#6</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#7</p>
-                        <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#8</p>
-                        <button><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-[#b2b2b2] text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#9</p>
-                        <button><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-[#b2b2b2] text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#10</p>
-                        <button><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
+                        <p class="text-[#343a40] font-bold ">Upload</p>
+                        <button id="image_{{$gallery->count() + 1}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
                         <button class=""><i
                             class="fa-solid fa-xmark text-white bg-[#b2b2b2] text-2xl rounded-md py-1 px-2"></i></button>
                       </div>
@@ -342,4 +275,72 @@
     </section>
     {{-- End Content --}}
 
+@endsection
+@section('js')
+
+    <script>const ROUTE = "{{route('image.upload')}}";</script>
+    <script src="{{asset('vendor/axios.min.js')}}"></script>
+    <script src="{{asset('/js/utils.js')}}"></script>
+    <script>
+        const uniqueToken = {{ $boat->id }};
+        const UploadImageForm = document.getElementById('upload_image_form');
+        
+        UploadImageForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            const imgSrc = document.getElementById("image_src").files[0];
+            const formData = new FormData();
+
+            formData.append('image', imgSrc, imgSrc.name)
+            formData.append('image_alt', document.getElementById('image_alt').value);
+            formData.append('belongs_to', document.getElementById('belongs_to').value);
+            formData.append('gallery_type', document.getElementById('gallery_type').value);
+            formData.append('gallery_id', uniqueToken);
+            formData.append('sort_order', document.getElementById('sort_order').value);
+
+            const settings = { 
+                headers: { 
+                    'content-type': 'multipart/form-data', 
+                    'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+                } 
+            }
+
+            UploadImageByAjax(ROUTE, formData, settings);
+        });
+
+        function UploadImageByAjax(url, params, settings){
+            axios.post(url, params, settings)
+            .then(function(response){
+                console.log(response);
+                const imageCard = makeImageCard(response.data.data);
+                document.getElementById('gallery_container').innerHTML += imageCard;
+            })
+            .catch(function(error){
+                alert('Error al intentar subir su imagen');
+                console.log(error);
+            });
+        }
+
+        function makeImageCard({image_src, image_alt, id,sort_order}){
+                    return `
+                    <article class="flex flex-col items-center justify-center gap-y-2">
+                      <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
+                      <div class="flex items-center justify-center gap-2 ">
+                        <p class="text-[#343a40] font-bold ">#${sort_order}</p>
+                        <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                        <button class=""><i
+                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+                      </div>
+                    </article>
+                    `
+        }
+
+        ToggleModal('upload-image-modal', {
+            onOpen: function(trigger){
+                document.getElementById('sort_order').value = trigger.id.split('_')[1];
+            },
+            onClose: function(trigger){
+                UploadImageForm.reset();
+            }
+        });
+    </script>
 @endsection

@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveBoatRequest;
-use App\Models\Additions;
 use App\Models\Boat;
-use App\Models\BoatAddition;
+use App\Models\Additions;
 use App\Models\BoatFeatures;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use App\Models\Image;
 
 class BoatController extends Controller
 {
@@ -53,11 +51,26 @@ class BoatController extends Controller
             'air'=>'nullable',
             'sports'=>'nullable',
         ]);
+
+        $images = request()->validate([
+            'image_1' => 'nullable',
+            'image_2' => 'nullable',
+            'image_3' => 'nullable',
+            'image_4' => 'nullable',
+            'image_5' => 'nullable',
+            'image_6' => 'nullable',
+            'image_7' => 'nullable',
+            'image_8' => 'nullable',
+            'image_9' => 'nullable',
+            'image_10' => 'nullable',
+        ]);
+
         
         $boat = new Boat($request->validated());
         
         
         $boat->save();
+        Image::assignGalleryId($request->temporal_token, 'boats', $boat->id);
         $boat->additions()->sync($additions);
         $boat->features()->save($features);
 
@@ -73,7 +86,8 @@ class BoatController extends Controller
     public function edit(Boat $boat)
     {
         $additions = Additions::all();
-        return view('admin.sections.editRent', compact('boat', 'additions'));
+        $gallery = Image::getGallery($boat->id);
+        return view('admin.sections.editRent', compact('boat', 'additions', 'gallery'));
     }
 
     /**

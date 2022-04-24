@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Boat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -9,7 +10,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/rent', function () {
-    return view('pages.rent.rent');
+    $boats = Boat::all(['id', 'name', 'description', 'is_recomended', 'low_season_price as price']);
+    return view('pages.rent.rent', compact('boats'));
 })->name('rent');
 
 Route::get('/rent/show', function () {

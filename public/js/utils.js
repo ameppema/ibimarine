@@ -13,18 +13,26 @@ for(let i = 0; i < accordions.length; i++){
 }
 
 /* Modals */
-function ToggleModal(ModalName){
+function ToggleModal(ModalName, onListeners = null){
+    let onOpen = null;
+    let onClose = null;
+    if(onListeners !== 'undefined' && onListeners !== null){
+        onOpen = onListeners.hasOwnProperty('onOpen') ? onListeners.onOpen : null;
+        onClose = onListeners.hasOwnProperty('onClose') ? onListeners.onClose : null;
+    }
     const OpenModal = document.querySelectorAll('[data-open-modal="'+ModalName+'"]');
     const CloseModal = document.querySelector('[data-close-modal="'+ModalName+'"]');
     const Modal = document.querySelector('[data-target-modal="'+ModalName+'"]');
 
     CloseModal.onclick = function(){
+        if(isFunction(onClose)) onClose(this);
         document.body.style.overflowY = 'scroll';
         Modal.style.display = 'none'
         Modal.style.overflowY = 'hidden';
     }
     OpenModal.forEach( button => {
         button.onclick  = function(){
+            if(isFunction(onOpen)) onOpen(this);
             document.body.style.overflowY = 'hidden';
             Modal.style.display = 'block';
             Modal.style.overflowY = 'scroll';
@@ -85,4 +93,9 @@ function setFormValueStatus(formTarget, inputTarget, value, inputLabelTarget){
         return true;
     }
 
+}
+
+/* General Helpers */
+function isFunction(func){
+    return typeof func === 'function';
 }
