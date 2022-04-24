@@ -14,8 +14,9 @@ Route::get('/rent', function () {
     return view('pages.rent.rent', compact('boats'));
 })->name('rent');
 
-Route::get('/rent/show', function () {
-    return view('pages.rent.rentShow');
+Route::get('/rent/show/{boat_id}', function ($boat_id) {
+    $boat = Boat::findOrFail($boat_id);
+    return view('pages.rent.rentShow', compact('boat'));
 })->name('rent.show');
 
 Route::post('/rent/show', function (Request $request) {

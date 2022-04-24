@@ -7,6 +7,7 @@ use App\Models\Boat;
 use App\Models\Additions;
 use App\Models\BoatFeatures;
 use App\Models\Image;
+use App\Models\SimilarBoat;
 
 class BoatController extends Controller
 {
@@ -67,10 +68,16 @@ class BoatController extends Controller
 
         
         $boat = new Boat($request->validated());
-        
+        $boat->description = $request['description_es'] ?? '';
         
         $boat->save();
         Image::assignGalleryId($request->temporal_token, 'boats', $boat->id);
+        if($request->similar_boats){
+            foreach ($request->similar_boats as $boat_id) {
+                $similar_boats[] = ['boat_id'=> $boat->id, 'similar_boat_id' => $boat_id];
+            }
+            SimilarBoat::insert($similar_boats);
+        }
         $boat->additions()->sync($additions);
         $boat->features()->save($features);
 
@@ -100,10 +107,20 @@ class BoatController extends Controller
      */
     public function update(SaveBoatRequest $request,Boat $boat)
     {
+        $similar_boats = [];
+
         $data = $request->validated();
 
+        SimilarBoat::where('boat_id', $boat->id)->delete();
+        if($request->similar_boats){
+            foreach ($request->similar_boats as $boat_id) {
+                $similar_boats[] = ['boat_id'=> $boat->id, 'similar_boat_id' => $boat_id];
+            }
+            SimilarBoat::insert($similar_boats);
+        }
+
         $boat->name = $data['name'];
-        $boat->description = $data['description'];
+        $boat->description = $data['description_es'];
         $boat->is_recomended = request('is_recomended')? 1 : 0;
         $boat->low_season_price = $data['low_season_price'];
         $boat->high_season_price = $data['high_season_price'];

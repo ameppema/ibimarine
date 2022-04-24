@@ -126,3 +126,24 @@ function checkbox_to_bool($value){
 function makeToken($length = 16){
     return Str::random($length);
 }
+
+/* Boat Front End */
+
+function is_low_season(){
+    $currentMonth = Carbon::now()->month;
+    $low_season_months = collect(['6','9']);
+    return $low_season_months->contains($currentMonth);
+}
+function is_high_season(){
+    $currentMonth = Carbon::now()->month;
+    $low_season_months = collect(['7','8']);
+    return $low_season_months->contains($currentMonth);
+}
+
+function feature_display_name($name){
+    $displayNames = collect(['c_velocity'=>'cruising velocity', 'fuel_comsuption'=> 'fuel comsuption', 'max_speed'=> 'max speed']);
+    return $displayNames->contains(function($value, $key) use($name){
+        return $name === $key;
+    }) ? $displayNames->get($name) : $name;
+
+}

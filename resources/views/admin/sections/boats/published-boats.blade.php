@@ -7,7 +7,7 @@
           
       <article class="flex flex-col items-center justify-center gap-y-2">
         <p class="text-sm">{{ $boat->name }}</p>
-        <img src="{{asset('img/rent/rent-02.jpeg')}}" alt="" class="w-28 h-24 object-cover">
+        <img src="/storage/{{ $boat->getCover() }}" alt="" class="w-28 h-24 object-cover">
         <div class="flex items-center justify-center gap-4 ">
           <a href="{{ route('admin.rent.edit', $boat) }}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></a>
           

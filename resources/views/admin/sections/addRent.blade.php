@@ -133,7 +133,7 @@
                 const imageEl = document.createElement('IMG');
                 const imageSlot = document.getElementById('sort_order');
                 imageEl.setAttribute('src', '/storage/'+response.data.data.image_src);
-                imageEl.classList.add('w-36 h-24 object-cover')
+                imageEl.classList.add('w-36', 'h-24', 'object-cover')
                 document.getElementById('image_'+imageSlot.value+'_slot').appendChild(imageEl);
                 document.getElementsByName('image_'+imageSlot.value)[0].value = response.data.data.id;
             })

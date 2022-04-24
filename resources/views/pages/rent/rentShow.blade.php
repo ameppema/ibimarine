@@ -13,14 +13,13 @@
 <section class="mt-5">
     <div class="border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto lg:w-max">
        <p class="lg:hidden text-center text-old-black text-2xl uppercase font-bold">Alquiler de Yates</p>
-       <p class="hidden lg:block text-center text-old-black text-2xl uppercase font-bold">Sessa Marine c44</p>
+       <p class="hidden lg:block text-center text-old-black text-2xl uppercase font-bold">{{ $boat->name }}</p>
     </div>
 </section>
 @endsection
 
 @section('content')
-
-{{-- OVERLAYS --}}
+    {{-- OVERLAYS --}}
     <!-- Request - overlay -->
     <div id="request_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
 
@@ -38,7 +37,7 @@
                     <p class="text-xl lg:text-3xl lg:w-[50%] mx-auto">En menos de 12 horas,
                         nuestros comerciales
                         contactaran con Usted
-                        para finalizar la reserva
+                        para finalizar la reserva.
                     </p>
                 </div>
 
@@ -106,11 +105,13 @@
             <div id="photos_open" class="md:w-4/5 lg:md:w-4/5 mx-auto">
                 <div class="swiper main_img h-56 lg:h-96 md:h-80 overflow-y-hidden md:rounded-t-xl">
                     <div class="swiper-wrapper">
+                        @foreach ($boat->getGallery() as $image)
                         <div class="swiper-slide">
-                            <img src="/img/home/home-04.jpg" alt="Hero Slider Image">
+                            <img src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
                         </div>
+                        @endforeach
 
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <img  src="/img/rent/rent-02.jpeg" alt="">
                         </div>
                         <div class="swiper-slide">
@@ -124,7 +125,7 @@
                         </div>
                         <div class="swiper-slide">
                             <img  src="/img/rent/rent-03.jpeg" alt="">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -138,10 +139,13 @@
                 </div>
                 <div class="swiper thumbnails-row mx-auto w-10/12" thumbsSlider="">
                     <div class="swiper-wrapper flex">
+                        @foreach ($boat->getGallery() as $image)  
                         <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/img/rent/rent-01.jpg" alt="thumbnail">
+                            <img class="object-cover" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
                         </div>
-                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
+                        @endforeach
+
+                        {{-- <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
                         </div>
                         <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
@@ -155,7 +159,7 @@
                         </div>
                         <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="arrow w-1/12 h-6 xl:h-12" id="arrowNext">
@@ -180,51 +184,23 @@
             <!-- yacht feauture icons -->
             <div class="flex justify-evenly xl:justify-center xl:gap-4 px-6 my-3 opacity-50">
 
+                @foreach ($boat->additions as $additon)
                 <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="" src="/img/yacht_icons/users.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">11+1</span>
+                    <img class="" src="{{$additon->icon}}" alt="feature icon">
+                    <span class="yacht__icon-caption text-xs">{{$additon->name}}</span>
                 </div>
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
+                @endforeach
+                {{-- <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
                     <img class="" src="/img/yacht_icons/captain.png" alt="feature icon">
                     <span class="yacht__icon-caption text-xs">Captain</span>
-                </div>
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="" src="/img/yacht_icons/air-conditioner.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">Air</span>
-                </div>
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="img-fluid" src="/img/yacht_icons/drinks.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">Drink</span>
-                </div>
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="img-fluid" src="/img/yacht_icons/sports.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">Sports</span>
-                </div>
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="img-fluid" src="/img/yacht_icons/shower.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">Shower</span>
-                </div>
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="img-fluid" src="/img/yacht_icons/music.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">Music</span>
-                </div>
+                </div> --}}
 
             </div>
             
             <!-- yacht description -->
             <div class="mx-auto xl:text-xl xl:w-1/2 px-6 text-center text-old-black">
                 <p> 
-                    Cras Venenatis porta ligula ses suscipit.
-                    Ut in vehicula ex. Vivamus fermentum
-                    nunc mi, ac codimentum magna 
-                    porttitor faucibus. Maecenas vel odio
-                    nec arcu iaculis convallis.
-                    <br>
-                    <br>
-                    Suspendisse in risus sem. Donec eu
-                    dolor facilis, lacinia justo sit amet,
-                    condimentum leo. integer aliquam
-                    tempor rhoncus.
+                    {{$boat->description}}
                 </p>
             </div>
             <!-- yacht feature table -->
@@ -234,104 +210,16 @@
                         <table class="min-w-full">
                         <tbody table class="min-w-full">
 
+                            @foreach ($boat->getFeatures()->getAttributes() as $key => $value)
                             <tr class="even:bg-gray-1 flex justify-between w-full px-3">
                                 <td class="xl:text-xl text-sm text-old-black font-light">
-                                Length
+                                    {{feature_display_name($key)}}
                                 </td>
                                 <td class="xl:text-xl text-sm text-old-black font-light">
-                                14 m
+                                    {{$value ?? '-'}}
                                 </td>
                             </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Beam
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                3,99 m
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Engines
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                2 x 500 Hp Volvo IPS
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Cruising Velocity
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                -
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Max Speed
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                35 N
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Mark
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Otto
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Mark
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Otto
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Mark
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Otto
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Mark
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Otto
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Mark
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Otto
-                                </td>
-                            </tr>
-
-                            <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Mark
-                                </td>
-                                <td class="xl:text-xl text-sm text-old-black font-light">
-                                Otto
-                                </td>
-                            </tr>
+                            @endforeach
                             
                         </tbody>
                         </table>
@@ -374,15 +262,18 @@
             <!-- Pricing accord to Date -->
 
             <div class="my-4 lg:-order-1 lg:col-span-2">
-                <div class="bg-old-gold mx-auto text-center w-64 lg:w-96 lg:p-2 text-white mb-4">
+                
+                
+                <div class="@if (is_low_season()) bg-old-gold @else bg-gray-1 @endif mx-auto text-center w-64 lg:w-96 lg:p-2 text-white mb-4">
                     <div><p class="text-xl lg:text-3xl">1.800&euro; / Dia  <span>(Jun o Sep)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
-
-                <div class="bg-gray-1 mx-auto text-center w-64 lg:w-96 lg:p-2 text-white">
-                    <div><p class="text-xl lg:text-3xl">1.800&euro; / Dia  <span>(Jun o Sep)</span></p></div>
+                
+                <div class="@if (is_high_season()) bg-old-gold @else bg-gray-1 @endif mx-auto text-center w-64 lg:w-96 lg:p-2 text-white">
+                    <div><p class="text-xl lg:text-3xl">1.800&euro; / Dia  <span>(Jul o Ago)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
+                
             </div>
 
             <!-- Form -->
@@ -430,14 +321,18 @@
                     <div class="swiper swiper-similar-boats mx-auto w-10/12" thumbsSlider="">
                         <div class="swiper-wrapper flex">
     
-                            <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
+                            @foreach ($boat->silimarBoats as $similar_boat)
+                            <a href="{{route('rent.show', ['boat_id'=>$similar_boat->boat->id])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
+                            <div>
                                 <div class="h-[100px] overflow-y-hidden">
-                                    <img class="object-cover" src="/img/rent/rent-01.jpg" alt="thumbnail">
+                                    <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">
                                 </div>
-                                <p class="text-center uppercase mt-2">cranchi 41</p>
+                                <p class="text-center uppercase mt-2">{{$similar_boat->boat->name}}</p>
                             </div>
+                            </a>
+                            @endforeach
     
-                            <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
+                            {{-- <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
                                 <div class="h-[100px] overflow-y-hidden">
                                     <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
                                 </div>
@@ -470,7 +365,7 @@
                                     <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
                                 </div>
                                 <p class="text-center uppercase mt-2">cranchi 41</p>
-                            </div>
+                            </div> --}}
     
                         </div>
                     </div>
