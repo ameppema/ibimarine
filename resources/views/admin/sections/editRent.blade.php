@@ -6,7 +6,14 @@
     
 @include('admin.partials.errors')
 
+@if (session()->has('message'))
+
+  <h1>{{session()->get('message')}}</h1>
+    
+@endif
+
 @include('admin.partials.upload-image')
+@include('admin.partials.update-image')
 
     {{-- Content --}}
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6] px-5">
@@ -181,94 +188,59 @@
                 </div>
         
                 {{-- Gallery --}}
-                <div class="">
+                <div>
+                  
                   <p class="text-[#343a40] font-bold">Fotos de la embarcación</p>
-                  <div class="flex flex-wrap gap-x-8 gap-y-20 mt-5 border border-[#343a40] p-5">
+
+                  <div id="gallery_container" class="flex flex-wrap gap-x-8 gap-y-20 mt-5 border border-[#343a40] p-5">
                                        
                     @foreach ($gallery as $image)
+
                     <article class="flex flex-col items-center justify-center gap-y-2">
+                      
                       <img src="/storage/{{$image->image_src}}" alt="{{$image->alt}}" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#{{$loop->iteration}}</p>
-                        <button id="image_{{$image->id}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
+
+                      <div class="flex items-center justify-center gap-2">
+
+                          <p class="text-[#343a40] font-bold">#{{$loop->iteration}}</p>
+
+                          <button type="button" id="image_{{$image->id}}" type="button" data-open-modal="update-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                          
+                            <a href="{{route('image.destroy', ['image_id'=>$image->id])}}">
+                              <button type="button">
+                                <i class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i>
+                              </button>
+                            </a>
+                            
+                        </div>
                     </article>
+
                     @endforeach
    
-                    <article class="flex flex-col items-center justify-center gap-y-2">
+                    <article id="UploadNewImageCard" class="flex flex-col items-center justify-center gap-y-2">
+
                       <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
+
                       <div class="flex items-center justify-center gap-2 ">
+
                         <p class="text-[#343a40] font-bold ">Upload</p>
                         <button id="image_{{$gallery->count() + 1}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
                         <button class=""><i
                             class="fa-solid fa-xmark text-white bg-[#b2b2b2] text-2xl rounded-md py-1 px-2"></i></button>
                       </div>
+
                     </article>
+
                   </div>
+                  
                 </div>
         
                 {{-- Similar Boats --}}
-                <div class="my-10">
-                  <p class="text-[#343a40] font-bold">Embarcaciones similares</p>
-                  <div class="flex flex-wrap gap-x-14 gap-y-5  mt-5 border border-[#343a40] p-5">
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" name="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Sessa Marine C44</label>
-                    </div>
-        
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Astromar 42</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Cranchi 41</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Pardo 50</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Pardo 50</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Suseeker Predator 68</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Pershing 62</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Princess V58</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Van Dutch 40</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Mangusta 80</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Alfamarine 78</label>
-                    </div>
-                    <div class="flex items-center">
-                      <input type="checkbox" class="" id="sessa_marine_c44">
-                      <label form="sessa_marine_c44" class="text-[#343a40] font-bold ml-2">Vanquish VQ54</label>
-                    </div>
-                  </div>
-        
-                  <div class="my-10 flex justify-center">
-                    <input type="submit" class="bg-[#037bff] border border-transparent text-white py-1 px-10 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 " value="Guardar cambios">
-                  </div>
-                </div>
+                @include('admin.sections.boats.similars')
 
+                <div class="my-10 flex justify-center">
+                  <input type="submit" class="bg-[#037bff] border border-transparent text-white py-1 px-10 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 " value="Guardar cambios">
+                </div>
             </form>
         </div>
   
@@ -278,69 +250,138 @@
 @endsection
 @section('js')
 
-    <script>const ROUTE = "{{route('image.upload')}}";</script>
-    <script src="{{asset('vendor/axios.min.js')}}"></script>
-    <script src="{{asset('/js/utils.js')}}"></script>
-    <script>
-        const uniqueToken = {{ $boat->id }};
-        const UploadImageForm = document.getElementById('upload_image_form');
-        
-        UploadImageForm.addEventListener('submit', function(e){
-            e.preventDefault();
-            const imgSrc = document.getElementById("image_src").files[0];
-            const formData = new FormData();
+<script src="{{asset('vendor/axios.min.js')}}"></script>
+<script src="{{asset('/js/utils.js')}}"></script>
+<!-- Update Image -->
+<script>const ROUTE_UPDATE = "{{route('image.update')}}";</script>
+<script>
+  const GALLERY_ID = "{{ $boat->id }}";
+  const UpdateImageForm = document.getElementById('update_image_form');
 
-            formData.append('image', imgSrc, imgSrc.name)
-            formData.append('image_alt', document.getElementById('image_alt').value);
-            formData.append('belongs_to', document.getElementById('belongs_to').value);
-            formData.append('gallery_type', document.getElementById('gallery_type').value);
-            formData.append('gallery_id', uniqueToken);
-            formData.append('sort_order', document.getElementById('sort_order').value);
+  ToggleModal('update-image-modal', {
+    onOpen: function(trigger){
+        document.getElementById('image_id').value = trigger.id.split('_')[1];
+    },
+    onClose: function(){
+      UpdateImageForm.reset();
+    }
+  });
 
-            const settings = { 
-                headers: { 
-                    'content-type': 'multipart/form-data', 
-                    'X-CSRF-TOKEN' : '{{ csrf_token() }}'
-                } 
-            }
+  UpdateImageForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        console.log('Se dispara actualizar imagen')
+        const imgSrc = document.getElementById("update_image_src").files[0];
+        const formData = new FormData();
 
-            UploadImageByAjax(ROUTE, formData, settings);
-        });
+        formData.append('image', imgSrc, imgSrc.name)
+        formData.append('image_alt', document.getElementById('update_image_alt').value);
+        formData.append('belongs_to', document.getElementById('update_belongs_to').value);
+        formData.append('gallery_type', document.getElementById('update_gallery_type').value);
+        formData.append('gallery_id', GALLERY_ID);
+        formData.append('sort_order', document.getElementById('update_sort_order').value);
 
-        function UploadImageByAjax(url, params, settings){
-            axios.post(url, params, settings)
-            .then(function(response){
-                console.log(response);
-                const imageCard = makeImageCard(response.data.data);
-                document.getElementById('gallery_container').innerHTML += imageCard;
-            })
-            .catch(function(error){
-                alert('Error al intentar subir su imagen');
-                console.log(error);
-            });
+        const settings = { 
+            headers: { 
+                'content-type': 'multipart/form-data', 
+                'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+            } 
         }
 
-        function makeImageCard({image_src, image_alt, id,sort_order}){
-                    return `
-                    <article class="flex flex-col items-center justify-center gap-y-2">
-                      <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
-                      <div class="flex items-center justify-center gap-2 ">
-                        <p class="text-[#343a40] font-bold ">#${sort_order}</p>
-                        <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                        <button class=""><i
-                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                      </div>
-                    </article>
-                    `
+        UdateImageByAjax(ROUTE_UPDATE, formData, settings);
+
+        return true;
+    });
+
+    function UdateImageByAjax(url, params, settings){
+        axios.post(url, params, settings)
+        .then(function(response){
+          console.log('Update Image response;')
+            console.log(response);
+        })
+        .catch(function(error){
+            alert('Error al intentar subir su imagen');
+            console.log(error);
+        });
+        return;
+    }
+
+</script>
+
+<!-- Upload Image -->
+<script>const ROUTE_UPLOAD = "{{route('image.upload')}}";</script>
+<script>
+    const uniqueToken = {{ $boat->id }};
+    const UploadImageForm = document.getElementById('upload_image_form');
+    let TriggerUploadImageId = '';
+
+    ToggleModal('upload-image-modal', {
+        onOpen: function(trigger){
+          TriggerUploadImageId = trigger.id;
+            document.getElementById('sort_order').value = trigger.id.split('_')[1];
+        },
+        onClose: function(trigger){
+            UploadImageForm.reset();
+        }
+    });
+    
+    UploadImageForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const imgSrc = document.getElementById("image_src").files[0];
+        const formData = new FormData();
+        console.log('Se dispara cargar Image')
+        formData.append('image', imgSrc, imgSrc.name)
+        formData.append('image_alt', document.getElementById('image_alt').value);
+        formData.append('belongs_to', document.getElementById('belongs_to').value);
+        formData.append('gallery_type', document.getElementById('gallery_type').value);
+        formData.append('gallery_id', uniqueToken);
+        formData.append('sort_order', document.getElementById('sort_order').value);
+
+        const settings = { 
+            headers: { 
+                'content-type': 'multipart/form-data', 
+                'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+            } 
         }
 
-        ToggleModal('upload-image-modal', {
-            onOpen: function(trigger){
-                document.getElementById('sort_order').value = trigger.id.split('_')[1];
-            },
-            onClose: function(trigger){
-                UploadImageForm.reset();
-            }
+        UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
+
+        return;
+    });
+
+    function UploadImageByAjax(url, params, settings){
+
+        axios.post(url, params, settings)
+        .then(function(response){
+
+            console.log(response);
+
+            const imageCard = makeImageCard(response.data.data);
+            const newImageNode = document.createElement('ARTICLE');
+
+            newImageNode.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'gap-y-2');
+            newImageNode.innerHTML = imageCard;
+            const uploadCard = document.getElementById('UploadNewImageCard');
+            document.getElementById('gallery_container').insertBefore(newImageNode, uploadCard);
+
+        })
+        .catch(function(error){
+            alert('Error al intentar subir su imagen');
+            console.log(error);
         });
-    </script>
+
+        return;
+    }
+
+    function makeImageCard({image_src, image_alt, id,sort_order}){
+                return `
+                  <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
+                  <div class="flex items-center justify-center gap-2 ">
+                    <p class="text-[#343a40] font-bold ">#${sort_order}</p>
+                    <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                    <button class=""><i
+                        class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+                  </div>
+                `
+    }
+</script>
 @endsection

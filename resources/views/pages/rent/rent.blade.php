@@ -27,7 +27,7 @@
             @endif
 
             <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px]"  src="./img//home/home-04.jpg" alt="">
+                <img class="rounded-t-[12px]"  src="/storage/{{$boat->getCover()}}" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{$boat->name}}</p>

@@ -18,6 +18,8 @@ Route::get('/', function () {
 // Gallery - Images
 
 Route::post('/upload-file', [ImagesController::class, 'store'])->name('image.upload');
+Route::get('/destroy-file/{image_id}', [ImagesController::class, 'destroy'])->name('image.destroy');
+Route::post('/change-file', [ImagesController::class, 'update'])->name('image.update');
 
 // Employs and brokers
 

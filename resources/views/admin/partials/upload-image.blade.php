@@ -12,7 +12,7 @@
                 <div class="my-2 pb-2 border-b-2">
                     <div class="px-5 flex justify-between">
                         <div>
-                            <p class="text-xl font-bold uppercase">Editar Reservación</p>
+                            <p class="text-xl font-bold uppercase">Subir Nueva Imagen</p>
                         </div>
                         <div data-close-modal="upload-image-modal" id="close_edit_modal" class="-mt-5 cursor-pointer">
                             <span class="text-5xl text-old-gold">&times;</span>

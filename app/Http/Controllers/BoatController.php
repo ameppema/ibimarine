@@ -85,9 +85,10 @@ class BoatController extends Controller
      */
     public function edit(Boat $boat)
     {
+        $boats = Boat::all(['id','name']); 
         $additions = Additions::all();
         $gallery = Image::getGallery($boat->id);
-        return view('admin.sections.editRent', compact('boat', 'additions', 'gallery'));
+        return view('admin.sections.editRent', compact('boat', 'boats','additions', 'gallery'));
     }
 
     /**

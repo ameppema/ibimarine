@@ -83,6 +83,10 @@
                 {{-- Similar Boats --}}
                 @include('admin.sections.boats.similars')
 
+                <div class="my-10 flex justify-center">
+                  <input type="submit" class="bg-[#037bff] border border-transparent text-white py-1 px-10 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 " value="Agregar Embarcación">
+                </div>
+
             </form>
         </div>
   

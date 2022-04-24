@@ -58,7 +58,7 @@ class Image extends Model
                 ->update(['gallery_id'=> $value ]);
     }
 
-    public static function change(Request $request, $imageId){
+    public static function change(Request $request, $imageId, $image_alt = null){
         $image = Image::find($imageId);
         if($request->image)
         {
@@ -69,6 +69,9 @@ class Image extends Model
             $imageSrc = $request['image']->storeAs('boats', $imageName, 'public');
 
             $image->image_src = $imageSrc;
+        }
+        if($image_alt){
+            $image->image_alt = $image_alt;
         }
     }
 }
