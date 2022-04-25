@@ -19,8 +19,13 @@ class BoatController extends Controller
      */
     public function addRent()
     {
-        $boats = Boat::all(['id','name']);
+        $boats = Boat::getRentBoats(['id','name']);
         return view('admin.sections.addRent', compact('boats'));
+    }
+    public function addSale()
+    {
+        $boats = Boat::getSaleBoats(['name','id']);
+        return view('admin.sections.addSale', compact('boats'));
     }
 
     /**
@@ -39,6 +44,8 @@ class BoatController extends Controller
         $additions = $boats->getAdditions($request);
         
         $boat->slug = $boats->getSlug($boat->name);
+
+        $boat->sale_price = request('is_sale') ? request('sale_price') || '' : null;
         
         $boat->save();
 
@@ -66,10 +73,17 @@ class BoatController extends Controller
      */
     public function edit(Boat $boat)
     {
-        $boats = Boat::all(['id','name']); 
+        $boats = Boat::getRentBoats(['id','name']); 
         $additions = Additions::all();
         $gallery = Image::getGallery($boat->id);
         return view('admin.sections.editRent', compact('boat', 'boats','additions', 'gallery'));
+    }
+    public function editSale(Boat $boat)
+    {
+        $boats = Boat::getSaleBoats(['id','name']); 
+        $additions = Additions::all();
+        $gallery = Image::getGallery($boat->id);
+        return view('admin.sections.editSale', compact('boat', 'boats','additions', 'gallery'));
     }
 
     /**

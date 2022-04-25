@@ -36,11 +36,14 @@ Route::get('/reservation/delete/{reservation}',[ReservationsController::class, '
 // Admin and Editor
 
 // Boat - Rent/Sale
-Route::get('/add-rent-boat', [BoatController::class, 'addRent'])->name('admin.rent');
-Route::post('/add-rent-boat', [BoatController::class, 'storeBoat'])->name('admin.rent.store');
-Route::get('/edit-rent-boat/{boat}', [BoatController::class, 'edit'])->name('admin.rent.edit');
-Route::post('/edit-rent-boat/{boat}', [BoatController::class, 'update'])->name('admin.rent.update');
-Route::post('/delete-rent-boat/{boat}', [BoatController::class, 'destroy'])->name('admin.rent.destroy');
+Route::get('/rent/new', [BoatController::class, 'addRent'])->name('admin.rent');
+Route::post('/rent/new', [BoatController::class, 'storeBoat'])->name('admin.rent.store');
+Route::get('/rent/edit/{boat}', [BoatController::class, 'edit'])->name('admin.rent.edit');
+Route::post('/rent/edit/{boat}', [BoatController::class, 'update'])->name('admin.rent.update');
+Route::post('/rent/delete/{boat}', [BoatController::class, 'destroy'])->name('admin.rent.destroy');
+
+Route::get('/sale/new', [BoatController::class, 'addSale'])->name('admin.sale');
+Route::get('/sale/edit/{boat}', [BoatController::class, 'editSale'])->name('admin.sale.edit');
 
 // Boat - Roles & Permissions
 Route::get('/manage-roles', [RolesController::class, 'index'])->name('admin.roles');

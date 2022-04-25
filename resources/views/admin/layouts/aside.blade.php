@@ -19,16 +19,18 @@
         </li>
 
         <a href="{{route('admin.rent')}}">
-          <li class="{{ isActive('admin.rent') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isRoute('admin/rent/*') }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fa-solid fa-truck-ramp-box icons"></i></div>
             <p class="ml-3">Alquiler</p>
           </li>
         </a>
 
-        <li class="{{ isActive('admin.sale.*') }} flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fa-solid fa-tags icons"></i></div>
-          <p class="ml-3">Venta</p>
-        </li>
+        <a href="{{route('admin.sale')}}">
+          <li class="{{ isRoute('admin/sale/*') }} flex text-white py-1 items-center cursor-pointer mb-6">
+            <div class="ml-3"><i class="fa-solid fa-tags icons"></i></div>
+            <p class="ml-3">Venta</p>
+          </li>
+        </a>  
         <li class="{{ isActive('admin.toys') }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-ship icons"></i></div>
           <p class="ml-3">Toys</p>
@@ -72,8 +74,8 @@
           <p class="ml-3">Perfil</p>
         </li>
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fa-solid fa-xmark-large"></i></div>
           <form method="POST" action="{{route('logout')}}">
+            <div class="ml-3"><i class="fa-solid fa-xmark-large"></i></div>
             @csrf
             <input class="ml-3" type="submit" value="Cerrar Session">
           </form>

@@ -9,7 +9,7 @@
         <p class="text-sm">{{ $boat->name }}</p>
         <img src="/storage/{{ $boat->getCover() }}" alt="" class="w-28 h-24 object-cover">
         <div class="flex items-center justify-center gap-4 ">
-          <a href="{{ route('admin.rent.edit', $boat) }}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></a>
+          <a href="{{isActive('admin.rent') ? route('admin.rent.edit', $boat) : route('admin.sale.edit', $boat)}}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></a>
           
           <form method="POST" action="{{route('admin.rent.destroy', $boat)}}">
             @csrf

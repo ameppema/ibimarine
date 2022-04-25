@@ -28,8 +28,9 @@ Route::get('/sale', function () {
     return view('pages.sale.sale', compact('boats'));
 })->name('sale');
 
-Route::get('/sale/show', function () {
-    return view('pages.sale.saleShow');
+Route::get('/sale/show/{boat_id?}', function ($boat_id) {
+    $boat = Boat::findOrFail($boat_id);
+    return view('pages.sale.saleShow', compact('boat'));
 })->name('sale.show');
 
 Route::get('/toys', function () {

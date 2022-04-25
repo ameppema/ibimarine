@@ -131,7 +131,7 @@ function makeToken($length = 16){
 
 function is_low_season(){
     $currentMonth = Carbon::now()->month;
-    $low_season_months = collect(['6','9']);
+    $low_season_months = collect(['6','9','4']);
     return $low_season_months->contains($currentMonth);
 }
 function is_high_season(){

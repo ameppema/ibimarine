@@ -281,7 +281,8 @@
                 <form id="request_reservation_form" method="POST" action="{{ route('rent.show.reserve') }}" class="font-bold text-old-black">
                     @csrf
                     @method('post')
-                    <input type="hidden" name="boat_id" value="1">
+                    <input type="hidden" name="boat_id" value="{{$boat->id}}">
+                    <input type="hidden" name="boat_name" value="{{$boat->name}}">
                     <div class="mb-4">
                         <label class="block" for="name"> Nombre </label>
                         <input class="w-full" type="text" name="name" id="">
