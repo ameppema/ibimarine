@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\BoatFeatures;
 use App\Models\Additions;
 use App\Models\Image;
-use Illuminate\Support\Facades\DB;
 
 class Boat extends Model
 {
@@ -20,6 +19,14 @@ class Boat extends Model
         'low_season_price',
         'is_recomended'
     ];
+
+    public static function getRentBoats($columns = ['*']){
+        return Boat::where('sale_price', '=', NULL)->get($columns)->except(99);
+    }
+    
+    public static function getSaleBoats($columns = ['*']){
+        return Boat::where('sale_price', '!=', NULL)->get($columns);
+    }
 
     public function features(){
         return $this->hasOne(BoatFeatures::class);

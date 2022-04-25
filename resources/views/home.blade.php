@@ -1,5 +1,7 @@
 @extends('layout.template')  
 
+@section('title', 'Home')
+
 @section('hero')
     <!-- Section Hero - Title -->
     <section class="my-5">

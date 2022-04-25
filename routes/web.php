@@ -10,7 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/rent', function () {
-    $boats = Boat::all(['id', 'name', 'description', 'is_recomended', 'low_season_price as price']);
+    $boats = Boat::getRentBoats(['id', 'name', 'description', 'is_recomended', 'low_season_price as price']);
     return view('pages.rent.rent', compact('boats'));
 })->name('rent');
 
@@ -24,7 +24,8 @@ Route::post('/rent/show', function (Request $request) {
 })->name('rent.show.reserve');
 
 Route::get('/sale', function () {
-    return view('pages.sale.sale');
+    $boats = Boat::getSaleBoats(['id', 'name', 'description']);
+    return view('pages.sale.sale', compact('boats'));
 })->name('sale');
 
 Route::get('/sale/show', function () {

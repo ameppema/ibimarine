@@ -1,5 +1,7 @@
 @extends('layout.template')  
 
+@section('title', 'Venta')
+
 @section('hero')
     <!-- Section Hero - Title -->
     <section class="my-5">
@@ -14,24 +16,23 @@
 <div class="container md:mx-auto md:flex md:flex-wrap md:columns-2 md:justify-center lg:justify-between md:gap-0 lg:gap-6 xl:gap-x-10 md:w-11/12 xl:w-4/5 lg:border-b-4 lg:border-b-old-gold">
 
     <!-- Cards -->
+    @foreach ($boats as $boat)
     <div class="lg:last:ml-0 w-4/5 mx-auto md:mx-0 my-6 xl:max-w-[30rem] sm:max-w-[300px] lg:max-w-[28rem]">
         <!-- Card Head -->
         <div class="relative md:h-56 xl:h-72">
 
             <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px]"  src="./img//home/home-04.jpg" alt="">
+                <img class="rounded-t-[12px]"  src="/storage/{{$boat->getCover()}}" alt="Boat Card">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
-                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">sessa marine c44</p>
+                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{ $boat->name }}</p>
             </div>
         </div>
         <!-- Card body -->
         <div class="border-x-2 border-b-2 border-old-gold p-4 text-center text-old-black">
             <div>
                 <p class="text-sm lg:text-lg lg:leading-6">
-                    Cras venenatis porta ligula sed suscipit.
-                    Ut in vehicula ex. Vivamus fermentum nunc mi,
-                    ac condimentum magna porttitor faucibus.
+                    {{ $boat->description }}
                 </p>
             </div>
             <div class="flex justify-center my-5">
@@ -42,6 +43,8 @@
             </div>
         </div>
     </div>
+    @endforeach
+
     <!-- Cards -->
     <div class="lg:last:ml-0 w-4/5 mx-auto md:mx-0 my-6 xl:max-w-[30rem] sm:max-w-[300px] lg:max-w-[28rem]">
         <!-- Card Head -->
