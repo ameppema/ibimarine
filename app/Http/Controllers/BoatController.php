@@ -8,6 +8,7 @@ use App\Models\Additions;
 use App\Models\BoatFeatures;
 use App\Models\Image;
 use App\Models\SimilarBoat;
+use App\Repositories\Boats;
 
 class BoatController extends Controller
 {
@@ -23,62 +24,35 @@ class BoatController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeBoat(SaveBoatRequest $request)
+    public function storeBoat(SaveBoatRequest $request, Boats $boats)
     {
+
+        $boat = new Boat($request->validated());
 
         $features = new BoatFeatures($request->validated());
 
-        $additions = request()->validate([
-            'crew'=>'nullable',
-            'captain'=>'nullable',
-            'drink'=>'nullable',
-            'music'=>'nullable',
-            'shower'=>'nullable',
-            'air'=>'nullable',
-            'sports'=>'nullable',
-        ]);
-
-        $images = request()->validate([
-            'image_1' => 'nullable',
-            'image_2' => 'nullable',
-            'image_3' => 'nullable',
-            'image_4' => 'nullable',
-            'image_5' => 'nullable',
-            'image_6' => 'nullable',
-            'image_7' => 'nullable',
-            'image_8' => 'nullable',
-            'image_9' => 'nullable',
-            'image_10' => 'nullable',
-        ]);
-
+        $additions = $boats->getAdditions($request);
         
-        $boat = new Boat($request->validated());
-        $boat->description = $request['description_es'] ?? '';
+        $boat->slug = $boats->getSlug($boat->name);
         
         $boat->save();
+
         Image::assignGalleryId($request->temporal_token, 'boats', $boat->id);
+
         if($request->similar_boats){
             foreach ($request->similar_boats as $boat_id) {
                 $similar_boats[] = ['boat_id'=> $boat->id, 'similar_boat_id' => $boat_id];
             }
             SimilarBoat::insert($similar_boats);
         }
+
         $boat->additions()->sync($additions);
+
         $boat->features()->save($features);
 
         return redirect()->back();
@@ -105,7 +79,7 @@ class BoatController extends Controller
      * @param  \App\Models\Boat  $boat
      * @return \Illuminate\Http\Response
      */
-    public function update(SaveBoatRequest $request,Boat $boat)
+    public function update(SaveBoatRequest $request,Boat $boat, Boats $boats)
     {
         $similar_boats = [];
 
@@ -120,20 +94,12 @@ class BoatController extends Controller
         }
 
         $boat->name = $data['name'];
-        $boat->description = $data['description_es'];
+        $boat->description = $request->description_es ?? '';
         $boat->is_recomended = request('is_recomended')? 1 : 0;
         $boat->low_season_price = $data['low_season_price'];
         $boat->high_season_price = $data['high_season_price'];
 
-        $additions = request()->validate([
-            'crew'=>'nullable',
-            'captain'=>'nullable',
-            'drink'=>'nullable',
-            'music'=>'nullable',
-            'shower'=>'nullable',
-            'air'=>'nullable',
-            'sports'=>'nullable',
-        ]);
+        $additions = $boats->getAdditions($request);
         
 
 
@@ -142,7 +108,7 @@ class BoatController extends Controller
         $boat->features->engines = request('engines');
         $boat->features->c_velocity = request('c_velocity');
         $boat->features->max_speed = request('max_speed');
-        $boat->features->fuel_comsuption = request('fuel_comsuption');
+        $boat->features->fuel_consumption = request('fuel_consumption');
         $boat->features->pax = request('pax');
         $boat->features->bathroom = request('bathroom');
         $boat->features->cabins = request('cabins');

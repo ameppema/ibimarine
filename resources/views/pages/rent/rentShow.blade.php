@@ -265,12 +265,12 @@
                 
                 
                 <div class="@if (is_low_season()) bg-old-gold @else bg-gray-1 @endif mx-auto text-center w-64 lg:w-96 lg:p-2 text-white mb-4">
-                    <div><p class="text-xl lg:text-3xl">1.800&euro; / Dia  <span>(Jun o Sep)</span></p></div>
+                    <div><p class="text-xl lg:text-3xl">{{$boat->low_season_price}}&euro; / Dia  <span>(Jun o Sep)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
                 
                 <div class="@if (is_high_season()) bg-old-gold @else bg-gray-1 @endif mx-auto text-center w-64 lg:w-96 lg:p-2 text-white">
-                    <div><p class="text-xl lg:text-3xl">1.800&euro; / Dia  <span>(Jul o Ago)</span></p></div>
+                    <div><p class="text-xl lg:text-3xl">{{$boat->high_season_price}}&euro; / Dia  <span>(Jul o Ago)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
                 

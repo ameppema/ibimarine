@@ -117,11 +117,11 @@
                         name="max_speed">
                     </div>
                     <div class="flex items-center gap-3">
-                      <label class="text-[#343a40]" for="fuel_comsuption">Fuel Consuption</label>
+                      <label class="text-[#343a40]" for="fuel_consumption">Fuel Consumption</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-60 pl-2 outline-none "
-                        value="{{$boat->features->fuel_comsuption}}"
-                        name="fuel_comsuption">
+                        value="{{$boat->features->fuel_consumption}}"
+                        name="fuel_consumption">
                     </div>
                     <div class="flex items-center gap-3">
                       <label class="text-[#343a40]" for="pax">Pax</label>
@@ -148,7 +148,7 @@
                       <label class="text-[#343a40]" for="year">Year</label>
                       <input type="text"
                         class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-32 pl-2 outline-none "
-                        value="{{$boat->features->model}}"
+                        value="{{$boat->features->year}}"
                         name="year">
                     </div>
                     <div class="flex items-center gap-3">

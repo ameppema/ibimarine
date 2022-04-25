@@ -16,11 +16,11 @@ class CreateBoatsTable extends Migration
         Schema::create('boats', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->text('description');
-            $table->text('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->text('slug');
             $table->integer('is_recomended')->default(0);
-            $table->integer('low_season_price')->default(0);
-            $table->integer('high_season_price')->default(0);
+            $table->integer('low_season_price')->nullable();
+            $table->integer('high_season_price')->nullable();
             $table->integer('sale_price')->nullable();
             $table->string('locale', 11)->default('es');
             $table->timestamps();

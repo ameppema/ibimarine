@@ -22,8 +22,7 @@ class CreateReservationsTable extends Migration
             $table->text('client_name');
             $table->text('client_phone');
             $table->integer('status');
-            $table->text('observations');
-
+            $table->text('observations')->nullable();
             $table->unsignedBigInteger('last_updated_by');
 
             $table->timestamps();

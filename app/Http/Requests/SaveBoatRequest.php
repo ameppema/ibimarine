@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-// use App\Models\Boat;
-use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SaveBoatRequest extends FormRequest
@@ -28,10 +26,11 @@ class SaveBoatRequest extends FormRequest
         return [
             /* Boat */
             'name' => ['required'],
-            'description_es' => ['nullable'],
             'low_season_price' => ['required'],
             'high_season_price' => ['required'],
             'sale_price' => ['nullable'],
+            'is_recomended' => ['nullable'],
+            'description' => ['nullable'],
 
             /* Features */
             'length' => ['nullable'],
@@ -39,7 +38,7 @@ class SaveBoatRequest extends FormRequest
             'engines'=> ['nullable'], 
             'c_velocity'=> ['nullable'], 
             'max_speed'=> ['nullable'], 
-            'fuel_comsuption' => ['nullable'], 
+            'fuel_consumption' => ['nullable'], 
             'pax' => ['nullable'], 
             'bathroom'=> ['nullable'], 
             'cabins'=> ['nullable'], 
@@ -53,9 +52,8 @@ class SaveBoatRequest extends FormRequest
     protected function prepareForValidation()
 {
     $this->merge([
-        'slug' => Str::slug($this->name),
         'is_recomended' => ($this->is_recomended  ? 1 : 0),
-        'description' => ($this->description_es  ? $this->description_es : ''),
+        'description' => ($this->description ?? ''),
     ]);
 }
 }

@@ -32,7 +32,7 @@
           name="max_speed">
       </div>
       <div class="flex items-center gap-3">
-        <label class="text-[#343a40]" for="fuel_consumption">Fuel Consumtion</label>
+        <label class="text-[#343a40]" for="fuel_consumption">Fuel Consumption</label>
         <input type="text" value="{{old('fuel_consumption')}}"
           class="border-[#343a40] text-gray-700 appearance-none leading-tight border py-[6px] rounded-md  w-60 pl-2 outline-none "
           name="fuel_consumption">

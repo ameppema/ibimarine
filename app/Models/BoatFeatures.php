@@ -11,5 +11,5 @@ class BoatFeatures extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['length', 'beam', 'engines', 'c_velocity', 'masx_speed', 'fuel_comsuption', 'pax', 'bathroom', 'cabins', 'year', 'port', 'model'];
+    protected $fillable = ['length', 'beam', 'engines', 'c_velocity', 'max_speed', 'fuel_consumption', 'pax', 'bathroom', 'cabins', 'year', 'port', 'model'];
 }

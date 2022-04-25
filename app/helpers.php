@@ -141,7 +141,7 @@ function is_high_season(){
 }
 
 function feature_display_name($name){
-    $displayNames = collect(['c_velocity'=>'cruising velocity', 'fuel_comsuption'=> 'fuel comsuption', 'max_speed'=> 'max speed']);
+    $displayNames = collect(['c_velocity'=>'cruising velocity', 'fuel_consumption'=> 'fuel comsuption', 'max_speed'=> 'max speed']);
     return $displayNames->contains(function($value, $key) use($name){
         return $name === $key;
     }) ? $displayNames->get($name) : $name;

@@ -26,7 +26,7 @@ class Boat extends Model
     }
 
     public function getFeatures(){
-        return BoatFeatures::where('boat_id', $this->id)->first(['length','beam','engines','c_velocity','max_speed','fuel_comsuption','pax','bathroom','cabins','year','port','model']);
+        return BoatFeatures::where('boat_id', $this->id)->first(['length','beam','engines','c_velocity','max_speed','fuel_consumption','pax','bathroom','cabins','year','port','model']);
     }
 
     public function additions()

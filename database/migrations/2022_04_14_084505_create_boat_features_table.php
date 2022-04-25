@@ -20,7 +20,7 @@ class CreateBoatFeaturesTable extends Migration
             $table->string('engines',100)->default('-')->nullable();
             $table->string('c_velocity',100)->default('-')->nullable();
             $table->string('max_speed',100)->default('-')->nullable();
-            $table->string('fuel_comsuption',100)->default('-')->nullable();
+            $table->string('fuel_consumption',100)->default('-')->nullable();
             $table->string('pax',100)->default('-')->nullable();
             $table->string('bathroom',100)->default('-')->nullable();
             $table->string('cabins',100)->default('-')->nullable();
