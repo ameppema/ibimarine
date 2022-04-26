@@ -26,12 +26,19 @@
                     <form id="update_image_form" action="{{ route('image.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
-                        <input type="file" name="image_src" id="update_image_src">
-                        <input type="text" name="image_alt" id="update_image_alt" placeholder="image alt...">
+                        <div class="flex w-full items-center justify-between">
+                            <input class="w-2/3 hidden" type="file" name="image_src" id="update_image_src">
+                            
+                            <button class="w-1/3 btn-off" type="button" onclick="document.getElementById('update_image_src').click()"><i class="fa-solid fa-upload"></i>Subir imagen</button>
+                            
+                            <input class="w-2/3" type="text" name="image_alt" id="update_image_alt" placeholder="image alt...">
+                        </div>
                         <input type="hidden" name="image_id" id="image_id" value="">
                         <input type="hidden" name="belongs_to" id="update_belongs_to" value="boats">
                         <input type="hidden" name="gallery_type" id="update_gallery_type" value="none">
-                        <input type="submit" value="Guardar Imagen">
+                        <div class="w-full text-center mt-4">
+                            <input class="btn mx-auto" type="submit" id="submit_boat_image" value="Guardar Imagen">
+                        </div>
 
                     </form>
 

@@ -32,7 +32,7 @@
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input name="is_recomended" type="checkbox" class="w-8 border-red-500">
+                    <input name="is_recomended" type="checkbox" class="w-8 ring-black">
                   </div>
 
                 </div>
