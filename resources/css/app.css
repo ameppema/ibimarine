@@ -111,13 +111,13 @@ ol.calendar__weekdays {
     @apply text-2xl;
 }
 
-/* .calendar__numberDay li {
+.calendar__numberDay li {
     @apply p-2 text-xl leading-normal;
-} */
+}
 
-/* .reservation-calendar .calendar__numberDay li {
+.reservation-calendar .calendar__numberDay li {
     @apply p-2 text-xl leading-[1.3];
-} */
+}
 
 .first-day {
     grid-column-start: var(--first-day-start, 0);
