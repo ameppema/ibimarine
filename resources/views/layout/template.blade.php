@@ -99,10 +99,13 @@ html {
     
         function closeMenu(){
             menuMobile.style.display = 'none';
+            document.body.style.overflow = 'scroll';
         }
     
         function openMenu(){
             menuMobile.style.display = 'block';
+            menuMobile.style.overflowY = 'scroll';
+            document.body.style.overflow = 'hidden';
         }
     </script>
     </body>

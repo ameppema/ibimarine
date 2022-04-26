@@ -36,9 +36,9 @@
             </div>
         </div>
         <!-- Card body -->
-        <div class="border-x-2 border-b-2 border-old-gold p-4 text-center text-old-black">
+        <div class="md:min-h-[234px] border-x-2 border-b-2 border-old-gold p-4 text-center text-old-black">
             <div>
-                <p class="text-sm lg:text-lg lg:leading-6">
+                <p class="text-sm lg:text-lg lg:leading-6 line-clamp-4">
                    {{$boat->description}}
                 </p>
             </div>

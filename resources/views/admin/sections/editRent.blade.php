@@ -345,6 +345,7 @@
 
         UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
 
+        UploadImageForm.reset();
         return;
     });
 

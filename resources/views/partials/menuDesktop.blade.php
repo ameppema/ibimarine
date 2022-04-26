@@ -8,14 +8,19 @@
             <li class="{{ request()->routeIs('events') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('events')}}"> Eventos </a></li>
             <li class="{{ request()->is('news/*') || request()->routeIs('news') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('news')}}"> Noticias </a></li>
             <li class="{{ request()->routeIs('contact') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{route('contact')}}"> Contacto </a></li>
-            {{-- Agrega Padding y de 3.5rem en xl para centrar el background de la clase active --}}
-            <li class="{{ request()->is('admin/*') ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-4 "><a class="uppercase text-sm " href="{{route('admin')}}"> Area Privada </a></li>
+            <li class="{{ (request()->is('calendar') || request()->is('reservation'))  ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3 "><a class="uppercase text-sm " href="{{route('admin')}}"> Area Privada </a></li>
+            @if (auth()->user())  
+            <form method="POST" action="{{route('logout')}}">
+                @csrf
+                <input class="ml-3 uppercase text-sm" type="submit" value="Cerrar Session">
+            </form>
+            @endif
             <li class="flex">
                 <a href="#" class="flex items-center mr-1 {{ app()->getLocale() == 'es' ? 'opacity-100' : 'opacity-50' }}" >
                     <img class="mr-1 w-4 h-3" src="{{asset('./img/lang_es.png')}}" alt="">
                     <span>ES</span>
                 </a>
-                <span class="m-1">|</span>
+                <span class="m-1 -mt-[1.6px]">|</span>
                 <a href="#" class="flex items-center {{ app()->getLocale() == 'en' ? 'opacity-100' : 'opacity-50' }}">
                     <img class="mx-1 w-4 h-3 opacity-100" src="{{asset('./img/lang_en.png')}}" alt="">
                     <span>EN</span>

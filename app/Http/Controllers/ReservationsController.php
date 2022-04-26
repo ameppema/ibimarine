@@ -22,11 +22,11 @@ class ReservationsController extends Controller
 
     public function create(RepositoriesReservations $reservationsReppo)
     {
-        $boats  = Boat::all(['name', 'id']);
+        $boats  = Boat::getAllRentBoats(['name', 'id']);
 
         // dd(datePeriodsOverlap('2022-04-02 - 2022-04-04', '2022-04-01 - 2022-04-05'));
 
-        if(auth()->user()->can('admin.reservation.read.other')){
+        if(true){
             $reservations = $reservationsReppo->getReservations();
         } else {
             $reservations = $reservationsReppo->getOwnReservations();

@@ -94,7 +94,7 @@ customeYearCalendar.CustomeUI( function({monthName, monthId, year, HtmlMonthDays
             </svg>
         </div>
           <div class="calendar__month_year font-bold mx-10 lg:text-2xl">
-            <span class="calendar__month text-capitalize">${monthName}</span>
+            <span class="calendar__month capitalize">${monthName}</span>
             <span class="calendar__year">${year}</span>
           </div>
         <div style="width: 1rem; text-align: end;" data-arrow-next class="calendar-right-arrow cursor-pointer">

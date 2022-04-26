@@ -4,12 +4,11 @@ DB::listen( function($query){
     // echo '<pre>' . $query->sql . '</pre>';
 });
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoatController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\PermissionsController;
-use App\Http\Controllers\ReservationsController;
-use App\Http\Controllers\RolesController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.index');
@@ -21,20 +20,7 @@ Route::post('/upload-file', [ImagesController::class, 'store'])->name('image.upl
 Route::get('/destroy-file/{image_id}', [ImagesController::class, 'destroy'])->name('image.destroy');
 Route::post('/change-file', [ImagesController::class, 'update'])->name('image.update');
 
-// Employs and brokers
-
-// Reservations
-Route::get('/calendar',[ReservationsController::class, 'index'])->name('admin.calendar');
-Route::get('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
-Route::get('/reservation/byAjax',[ReservationsController::class, 'getByAjax'])->name('admin.reservation.ajax');
-Route::post('/reservation/store',[ReservationsController::class, 'store'])->name('admin.reservation.store');
-Route::post('/reservation/update',[ReservationsController::class, 'update'])->name('admin.reservation.update');
-Route::get('/reservation/show/{reservationId?}',[ReservationsController::class, 'getOneByAjax'])->name('admin.reservation.getOneByAjax');
-Route::get('/reservation/delete/{reservation}',[ReservationsController::class, 'destroy'])->name('admin.reservation.delete');
-
-
-// Admin and Editor
-
+// Admin
 // Boat - Rent/Sale
 Route::get('/rent/new', [BoatController::class, 'addRent'])->name('admin.rent');
 Route::post('/rent/new', [BoatController::class, 'storeBoat'])->name('admin.rent.store');

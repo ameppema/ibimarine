@@ -3,6 +3,7 @@
 use App\Models\Boat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservationsController;
 
 /* Main Pages */
 Route::get('/', function () {
@@ -59,3 +60,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+// Reservations
+Route::middleware('auth')->group( function(){
+    Route::get('/calendar',[ReservationsController::class, 'index'])->name('admin.calendar');
+    Route::get('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
+    Route::get('/reservation/byAjax',[ReservationsController::class, 'getByAjax'])->name('admin.reservation.ajax');
+    Route::post('/reservation/store',[ReservationsController::class, 'store'])->name('admin.reservation.store');
+    Route::post('/reservation/update',[ReservationsController::class, 'update'])->name('admin.reservation.update');
+    Route::get('/reservation/show/{reservationId?}',[ReservationsController::class, 'getOneByAjax'])->name('admin.reservation.getOneByAjax');
+    Route::get('/reservation/delete/{reservation}',[ReservationsController::class, 'destroy'])->name('admin.reservation.delete');
+});
+

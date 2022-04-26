@@ -11,7 +11,7 @@
 
 @section('hero')
 <section class="mt-5">
-    <div class="border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto lg:w-max">
+    <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
        <p class="lg:hidden text-center text-old-black text-2xl uppercase font-bold">Alquiler de Yates</p>
        <p class="hidden lg:block text-center text-old-black text-2xl uppercase font-bold">{{ $boat->name }}</p>
     </div>
@@ -55,11 +55,11 @@
         <!-- Overlay content -->
         <div class="h-screen flex flex-col items-center text-center">
             <div>
-                <div class="xl:w-3/5 mx-auto mt-32 lg:mt-16">
-                    <div class="h-56 xl:h-[420px] overflow-y-hidden">
+                <div class="xl:w-3/5 md:w-4/5 mx-auto mt-32 lg:mt-16">
+                    <div class="h-56 lg:h-[420px] overflow-y-hidden">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="/img/home/home-04.jpg" alt="Hero Slider Image">
+                                <img id="photo_overlay_image" src="/storage/{{$boat->getGallery()[0]->image_src ?? ''}}" alt="Hero Slider Image">
                             </div>
                         </div>
                     </div>
@@ -67,25 +67,12 @@
             </div>
 
             <div class="text-white text-center">
-                <div class="xl:w-3/5 xl:mx-auto p-5 grid grid-cols-3 lg:grid-cols-6 gap-2">
+                <div class="xl:mx-auto p-5 grid grid-cols-3 lg:grid-cols-6 gap-2">
+                    @foreach ($boat->getGallery() as $image)
                     <div>
-                        <img src="/img/rent/rent-01.jpg" alt="">
+                        <img class="photo_overlay_thumbnail w-28 h-20 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt}}">
                     </div>
-                    <div>
-                        <img src="/img/rent/rent-01.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="/img/rent/rent-01.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="/img/rent/rent-01.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="/img/rent/rent-01.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="/img/rent/rent-01.jpg" alt="">
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -102,30 +89,14 @@
         <div>
 
             <!-- Slider Hero Image -->
-            <div id="photos_open" class="md:w-4/5 lg:md:w-4/5 mx-auto">
+            <div id="photos_open" class="lg:md:w-4/5 mx-auto">
                 <div class="swiper main_img h-56 lg:h-96 md:h-80 overflow-y-hidden md:rounded-t-xl">
                     <div class="swiper-wrapper">
                         @foreach ($boat->getGallery() as $image)
                         <div class="swiper-slide">
-                            <img src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
+                            <img class="md:w-full lg:w-[1007px] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
                         </div>
                         @endforeach
-
-                        {{-- <div class="swiper-slide">
-                            <img  src="/img/rent/rent-02.jpeg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img  src="/img/rent/rent-03.jpeg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img  src="/img/rent/rent-01.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img  src="/img/rent/rent-02.jpeg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img  src="/img/rent/rent-03.jpeg" alt="">
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -141,25 +112,9 @@
                     <div class="swiper-wrapper flex">
                         @foreach ($boat->getGallery() as $image)  
                         <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
+                            <img class="md:w-44 md:h-28 object-cover" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
                         </div>
                         @endforeach
-
-                        {{-- <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
-                        </div>
-                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
-                        </div>
-                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/img/rent/rent-01.jpg" alt="thumbnail">
-                        </div>
-                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
-                        </div>
-                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
-                            <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
-                        </div> --}}
                     </div>
                 </div>
                 <div class="arrow w-1/12 h-6 xl:h-12" id="arrowNext">
@@ -185,9 +140,9 @@
             <div class="flex justify-evenly xl:justify-center xl:gap-4 px-6 my-3 opacity-50">
 
                 @foreach ($boat->additions as $additon)
-                <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
+                <div class="w-7 lg:w-12 flex flex-col justify-center items-center text-center">
                     <img class="" src="{{$additon->icon}}" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">{{$additon->name}}</span>
+                    <span class="yacht__icon-caption text-xs">{{($additon->name == 'crew' ? $boat->features->pax : $additon->name)}}</span>
                 </div>
                 @endforeach
                 {{-- <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
@@ -198,7 +153,7 @@
             </div>
             
             <!-- yacht description -->
-            <div class="mx-auto xl:text-xl xl:w-1/2 px-6 text-center text-old-black">
+            <div class="md:my-12 mx-auto xl:text-xl xl:w-1/2 px-6 text-center text-old-black">
                 <p> 
                     {{$boat->description}}
                 </p>
@@ -212,7 +167,7 @@
 
                             @foreach ($boat->getFeatures()->getAttributes() as $key => $value)
                             <tr class="even:bg-gray-1 flex justify-between w-full px-3">
-                                <td class="xl:text-xl text-sm text-old-black font-light">
+                                <td class="xl:text-xl text-sm text-old-black font-light capitalize">
                                     {{feature_display_name($key)}}
                                 </td>
                                 <td class="xl:text-xl text-sm text-old-black font-light">
@@ -264,12 +219,12 @@
             <div class="my-4 lg:-order-1 lg:col-span-2">
                 
                 
-                <div class="@if (is_low_season()) bg-old-gold @else bg-gray-1 @endif mx-auto text-center w-64 lg:w-96 lg:p-2 text-white mb-4">
+                <div id="low_season_price" class=" bg-gray-1 mx-auto text-center w-64 lg:w-96 lg:p-2 text-white mb-4 cursor-pointer">
                     <div><p class="text-xl lg:text-3xl">{{$boat->low_season_price}}&euro; / Dia  <span>(Jun o Sep)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
-                
-                <div class="@if (is_high_season()) bg-old-gold @else bg-gray-1 @endif mx-auto text-center w-64 lg:w-96 lg:p-2 text-white">
+                <span class="hidden bg-old-gold"></span>
+                <div id="high_season_price" class="bg-gray-1 mx-auto text-center w-64 lg:w-96 lg:p-2 text-white cursor-pointer">
                     <div><p class="text-xl lg:text-3xl">{{$boat->high_season_price}}&euro; / Dia  <span>(Jul o Ago)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
@@ -282,6 +237,8 @@
                     @csrf
                     @method('post')
                     <input type="hidden" name="boat_id" value="{{$boat->id}}">
+                    <input type="hidden" name="season_price" id="season_price_input">
+                    
                     <input type="hidden" name="boat_name" value="{{$boat->name}}">
                     <div class="mb-4">
                         <label class="block" for="name"> Nombre </label>
@@ -314,7 +271,7 @@
                     <p class=" text-center text-old-black text-2xl uppercase font-bold">Embarcaciones Similares</p>
                 </div>            <!-- Slider thumbnails Carousel -->
                 <div class="flex mx-auto justify-center items-center my-2">
-                    <div class="arrow w-1/12 h-6 xl:h-12" id="arrowPrev">
+                    <div class="lg:-mt-12 arrow w-1/12 h-6 xl:h-12" id="arrowPrev">
                         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="43.026 0 161.967 490" width="161.967" height="490">
                             <polyline style="stroke: rgb(60, 64, 69); fill: rgb(60, 64, 69);" points="204.993 0.285 204.993 490 43.026 244.36 204.72 0" bx:origin="0.525 0.496"/>
                         </svg>
@@ -332,45 +289,10 @@
                             </div>
                             </a>
                             @endforeach
-    
-                            {{-- <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
-                                <div class="h-[100px] overflow-y-hidden">
-                                    <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
-                                </div>
-                                <p class="text-center uppercase mt-2">cranchi 41</p>
-                            </div>
-    
-                            <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
-                                <div class="h-[100px] overflow-y-hidden">
-                                    <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
-                                </div>
-                                <p class="text-center uppercase mt-2">cranchi 41</p>
-                            </div>
-                            
-                            <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
-                                <div class="h-[100px] overflow-y-hidden">
-                                    <img class="object-cover" src="/img/rent/rent-01.jpg" alt="thumbnail">
-                                </div>
-                                <p class="text-center uppercase mt-2">cranchi 41</p>
-                            </div>
-    
-                            <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
-                                <div class="h-[100px] overflow-y-hidden">
-                                    <img class="object-cover" src="/img/rent/rent-02.jpeg" alt="thumbnail">
-                                </div>
-                                <p class="text-center uppercase mt-2">cranchi 41</p>
-                            </div>
-    
-                            <div class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
-                                <div class="h-[100px] overflow-y-hidden">
-                                    <img class="object-cover" src="/img/rent/rent-03.jpeg" alt="thumbnail">
-                                </div>
-                                <p class="text-center uppercase mt-2">cranchi 41</p>
-                            </div> --}}
-    
+
                         </div>
                     </div>
-                    <div class="arrow w-1/12 h-6 xl:h-12" id="arrowNext">
+                    <div class="lg:-mt-12 arrow w-1/12 h-6 xl:h-12" id="arrowNext">
                         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="51.124 -3.92 161.967 490" width="161.967" height="490">
                             <polyline style="stroke: rgb(60, 64, 69); fill: rgb(60, 64, 69);" points="204.993 0.285 204.993 490 43.026 244.36 204.72 0" transform="matrix(-1, 0, 0, -1, 256.117344, 486.079994)" bx:origin="0.525 0.496"/>
                           </svg>
@@ -392,6 +314,32 @@
 
     <!-- Menu Script -->
     <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- Price Season Buttons -->
+    <script>
+        const lowPrice = document.getElementById('low_season_price');
+        const highPrice = document.getElementById('high_season_price');
+        const seasonPriceInput = document.getElementById('season_price_input');
+
+        lowPrice.onclick = function(e){
+            if(highPrice.classList.contains('bg-old-gold')){                
+                highPrice.classList.toggle('bg-gray-1');
+                highPrice.classList.toggle('bg-old-gold');
+            }  
+            this.classList.toggle('bg-gray-1');
+            this.classList.toggle('bg-old-gold');
+            seasonPriceInput.value = 'low season';
+        }
+        highPrice.onclick = function(e){
+            if(lowPrice.classList.contains('bg-old-gold')){                
+                lowPrice.classList.toggle('bg-gray-1');
+                lowPrice.classList.toggle('bg-old-gold');
+            }  
+            this.classList.toggle('bg-gray-1');
+            this.classList.toggle('bg-old-gold');
+            seasonPriceInput.value = 'high season';
+        }
+    </script>
 
 
     <script>
@@ -432,10 +380,13 @@
                     },
         }})
 
+    </script>
 
-                // Request Overlay 
+    <!-- Overlays -->
+    <script>
+        // Request Overlay 
 
-                const closeOverlayRequest = document.getElementById('request_close');
+        const closeOverlayRequest = document.getElementById('request_close');
         const openRequestBtn = document.getElementById('request_open');
         const requestOverlay = document.getElementById('request_overlay');
 
@@ -461,13 +412,29 @@
 
         function closePhotos(e){
             e.preventDefault()
+            document.body.style.overflow = 'scroll';
             photostOverlay.style.display = 'none';
+            photostOverlay.style.overflowY = 'hidden';
         }
         
         function openPhotos(e){
             e.preventDefault()
+            document.body.style.overflow = 'hidden';
             photostOverlay.style.display = 'block';
+            photostOverlay.style.overflowY = 'scroll';
         }
 
+    </script>
+
+    <!-- Photo Overlay Image -->
+    <script>
+        const photoOverlayImage = document.getElementById('photo_overlay_image');
+        const photoOverlayThumbnail = document.getElementsByClassName('photo_overlay_thumbnail');
+
+        photostOverlay.addEventListener('click', function(e){
+            if(e.target.classList.contains('photo_overlay_thumbnail')){
+                photoOverlayImage.src = e.target.src;
+            }
+        })
     </script>
 @endsection

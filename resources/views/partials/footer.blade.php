@@ -3,10 +3,10 @@
         <p>Derechos Reservados</p>
     </div>
     <div>
-        <p class="inline">Términos y condiciones</p> - <p class="inline">Política de Privacidad</p>
+        <p class="inline">Términos y condiciones</p> <span class="hidden lg:inline">&nbsp;&nbsp</span>  <span class="lg:hidden">-</span>  <p class="inline">Política de Privacidad</p>
     </div>
     <div>
-        <p class="inline">Política de cookies</p> - <p class="inline">Protección de datos</p>
+        <p class="inline">Política de cookies</p> <span class="hidden lg:inline">&nbsp;&nbsp</span> <span class="lg:hidden">-</span> <p class="inline">Protección de datos</p>
     </div>
     <div class="lg:-order-1">
         <p> <b>IBIMARINE &copy;</b> </p>
