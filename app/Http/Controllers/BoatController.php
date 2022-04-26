@@ -9,6 +9,8 @@ use App\Models\BoatFeatures;
 use App\Models\Image;
 use App\Models\SimilarBoat;
 use App\Repositories\Boats;
+use App\Repositories\Translator;
+use Illuminate\Support\Facades\App;
 
 class BoatController extends Controller
 {
@@ -49,6 +51,8 @@ class BoatController extends Controller
         
         $boat->save();
 
+        if(request('description_en')) Translator::translate('boats','description', $boat->id, request('description_en'));
+
         Image::assignGalleryId($request->temporal_token, 'boats', $boat->id);
 
         if($request->similar_boats){
@@ -76,7 +80,8 @@ class BoatController extends Controller
         $boats = Boat::getRentBoats(['id','name']); 
         $additions = Additions::all();
         $gallery = Image::getGallery($boat->id);
-        return view('admin.sections.editRent', compact('boat', 'boats','additions', 'gallery'));
+        $boat_description_en = Translator::getTranslate('boats','description',$boat->id)->translation ?? '';
+        return view('admin.sections.editRent', compact('boat', 'boats','additions', 'gallery', 'boat_description_en'));
     }
     public function editSale(Boat $boat)
     {
@@ -98,6 +103,8 @@ class BoatController extends Controller
         $similar_boats = [];
 
         $data = $request->validated();
+
+        Translator::updateTranslate('boats','description', $boat->id, request('description_en'));
 
         SimilarBoat::where('boat_id', $boat->id)->delete();
         if($request->similar_boats){

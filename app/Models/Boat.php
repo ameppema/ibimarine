@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Translations\BoatTranslator;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BoatFeatures;
 use App\Models\Additions;
@@ -10,7 +11,7 @@ use App\Models\Image;
 
 class Boat extends Model
 {
-    use HasFactory;
+    use HasFactory, BoatTranslator;
 
     protected $fillable = [
         'name',

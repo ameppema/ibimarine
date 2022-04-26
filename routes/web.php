@@ -1,9 +1,25 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use App\Models\Boat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
+
+Route::get('/locale/{locale}', function($locale = 'es'){
+    // $prev_url = url()->previous();
+    // $prev_req = app('request')->create($prev_url);
+    // $prev_segmets = $prev_req->segments();
+
+    // $prev_segmets[0] = $locale;
+    // return redirect()->to(implode('/', $prev_segmets));
+    App::setLocale($locale);
+    session()->put('locale', $locale);
+    return back();
+})->name('setlocale');
+
+
+Route::middleware('lang')->group(function(){
 
 /* Main Pages */
 Route::get('/', function () {
@@ -53,6 +69,8 @@ Route::get('/news/show', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
+
+});
 
 
 Route::get('/dashboard', function () {
