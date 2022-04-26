@@ -51,7 +51,8 @@ class BoatController extends Controller
         
         $boat->save();
 
-        if(request('description_en')) Translator::translate('boats','description', $boat->id, request('description_en'));
+        if(request('description_en')) {Translator::translate('boats','description', $boat->id, request('description_en'));}
+        else{Translator::translate('boats','description', $boat->id, '');}
 
         Image::assignGalleryId($request->temporal_token, 'boats', $boat->id);
 
@@ -88,7 +89,8 @@ class BoatController extends Controller
         $boats = Boat::getSaleBoats(['id','name']); 
         $additions = Additions::all();
         $gallery = Image::getGallery($boat->id);
-        return view('admin.sections.editSale', compact('boat', 'boats','additions', 'gallery'));
+        $boat_description_en = Translator::getTranslate('boats','description',$boat->id)->translation ?? '';
+        return view('admin.sections.editSale', compact('boat', 'boats','additions', 'gallery', 'boat_description_en'));
     }
 
     /**

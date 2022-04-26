@@ -20,12 +20,10 @@ class Translator {
                         ->where('table', $table)
                         ->where('column',$column)
                         ->where('row_id',$row_id)
-                        ->updateOrInsert([
-                            'table'=> $table,
-                            'column'=>$column,
-                            'row_id'=>$row_id,
+                        ->where('locale',$locale)
+                        ->update([
+
                             'translation'=>$translation ?? '',
-                            'locale'=>$locale,
                         ]);
     }
     public static function getTranslate($table,$column,$row_id,$locale = 'en'){

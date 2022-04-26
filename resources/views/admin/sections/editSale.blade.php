@@ -69,7 +69,7 @@
                       <span class="text-[#343a40] font-bold mx-5">Ship description</span>
                     </div>
                     <textarea name="description_en" id="" rows="8" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                      placeholder="Descripción y texto de la embarcación"></textarea>
+                      placeholder="Descripción y texto de la embarcación">{{ $boat_description_en }}</textarea>
                   </div>
                 </div>
         
