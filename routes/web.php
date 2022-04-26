@@ -45,10 +45,14 @@ Route::get('/sale', function () {
     return view('pages.sale.sale', compact('boats'));
 })->name('sale');
 
-Route::get('/sale/show/{boat_id?}', function ($boat_id) {
+Route::get('/sale/show/{boat_id}', function ($boat_id) {
     $boat = Boat::findOrFail($boat_id);
     return view('pages.sale.saleShow', compact('boat'));
 })->name('sale.show');
+
+Route::post('/sale/show', function () {
+    return request();
+})->name('sale.show.reserve');
 
 Route::get('/toys', function () {
     return view('pages.toys');

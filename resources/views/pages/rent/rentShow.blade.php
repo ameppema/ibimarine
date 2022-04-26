@@ -145,10 +145,6 @@
                     <span class="yacht__icon-caption text-xs">{{($additon->name == 'crew' ? $boat->features->pax : $additon->name)}}</span>
                 </div>
                 @endforeach
-                {{-- <div class="w-7 lg:w-14 flex flex-col justify-center items-center text-center">
-                    <img class="" src="/img/yacht_icons/captain.png" alt="feature icon">
-                    <span class="yacht__icon-caption text-xs">Captain</span>
-                </div> --}}
 
             </div>
             
