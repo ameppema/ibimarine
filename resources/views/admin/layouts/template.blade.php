@@ -6,7 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {{-- <link rel="stylesheet" href="{{asset('css/output.css')}}"> --}}
-  <script src="https://cdn.tailwindcss.com"></script>
+  {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+  <!-- Main Style -->
+  <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+  <style>
+    html {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
   <script src="https://kit.fontawesome.com/5d3ac5fca1.js" crossorigin="anonymous"></script>
   <title>IBIMARINE - @yield('title')</title>
 </head>
