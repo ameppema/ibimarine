@@ -9,7 +9,7 @@
 @section('hero')
     <!-- Section Hero - Title -->
     <section class="my-5">
-        <div class="border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto lg:w-max">
+        <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
            <p class="text-center text-old-black text-2xl uppercase font-bold">Calendario 2022</p>
         </div>
     </section>
