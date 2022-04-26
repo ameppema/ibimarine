@@ -819,8 +819,8 @@ select {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
-.-mt-\[\.10rem\] {
-  margin-top: -.10rem;
+.-mt-\[1\.6px\] {
+  margin-top: -1.6px;
 }
 .-mt-1 {
   margin-top: -0.25rem;
@@ -860,12 +860,6 @@ select {
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.-mt-\[0\.10rem\] {
-  margin-top: -0.10rem;
-}
-.-mt-\[1\.6px\] {
-  margin-top: -1.6px;
 }
 .block {
   display: block;
@@ -1415,13 +1409,13 @@ select {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 .py-4 {
   padding-top: 1rem;
@@ -1700,6 +1694,12 @@ select {
 }
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .line-clamp-4 {
   overflow: hidden;
@@ -2196,24 +2196,16 @@ ol.calendar__weekdays {
     height: 20rem;
   }
 
-  .md\:h-28 {
-    height: 7rem;
-  }
-
-  .md\:h-\[284px\] {
-    height: 284px;
-  }
-
-  .md\:h-\[384px\] {
-    height: 384px;
-  }
-
   .md\:h-96 {
     height: 24rem;
   }
 
-  .md\:h-\[420px\] {
-    height: 420px;
+  .md\:h-28 {
+    height: 7rem;
+  }
+
+  .md\:h-\[234px\] {
+    height: 234px;
   }
 
   .md\:min-h-\[234px\] {
@@ -2232,20 +2224,16 @@ ol.calendar__weekdays {
     width: 80%;
   }
 
+  .md\:w-full {
+    width: 100%;
+  }
+
   .md\:w-\[70\%\] {
     width: 70%;
   }
 
   .md\:w-44 {
     width: 11rem;
-  }
-
-  .md\:w-\[1007px\] {
-    width: 1007px;
-  }
-
-  .md\:w-full {
-    width: 100%;
   }
 
   .md\:max-w-\[340px\] {
@@ -2343,6 +2331,10 @@ ol.calendar__weekdays {
     margin-right: -2rem;
   }
 
+  .lg\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .lg\:mt-10 {
     margin-top: 2.5rem;
   }
@@ -2353,10 +2345,6 @@ ol.calendar__weekdays {
 
   .lg\:mb-2 {
     margin-bottom: 0.5rem;
-  }
-
-  .lg\:mt-16 {
-    margin-top: 4rem;
   }
 
   .lg\:-mr-60 {
@@ -2407,12 +2395,12 @@ ol.calendar__weekdays {
     height: auto;
   }
 
-  .lg\:h-96 {
-    height: 24rem;
-  }
-
   .lg\:h-\[420px\] {
     height: 420px;
+  }
+
+  .lg\:h-96 {
+    height: 24rem;
   }
 
   .lg\:max-h-\[4\.5rem\] {
@@ -2477,20 +2465,20 @@ ol.calendar__weekdays {
     width: 40%;
   }
 
-  .lg\:w-14 {
-    width: 3.5rem;
-  }
-
-  .lg\:w-80 {
-    width: 20rem;
+  .lg\:w-\[1007px\] {
+    width: 1007px;
   }
 
   .lg\:w-12 {
     width: 3rem;
   }
 
-  .lg\:w-\[1007px\] {
-    width: 1007px;
+  .lg\:w-14 {
+    width: 3.5rem;
+  }
+
+  .lg\:w-80 {
+    width: 20rem;
   }
 
   .lg\:max-w-md {
@@ -2740,10 +2728,6 @@ ol.calendar__weekdays {
 
   .xl\:w-\[50\%\] {
     width: 50%;
-  }
-
-  .xl\:w-\[1007px\] {
-    width: 1007px;
   }
 
   .xl\:max-w-\[30rem\] {

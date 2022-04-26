@@ -24,7 +24,7 @@ class Translator {
                             'table'=> $table,
                             'column'=>$column,
                             'row_id'=>$row_id,
-                            'translation'=>$translation,
+                            'translation'=>$translation ?? '',
                             'locale'=>$locale,
                         ]);
     }
