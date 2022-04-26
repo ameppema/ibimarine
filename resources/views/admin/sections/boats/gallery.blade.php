@@ -6,12 +6,13 @@
           
       {{-- Image Slot --}}
       <article class="flex flex-col items-center justify-center gap-y-2">
-        <div id="image_{{$i + 1}}_slot" style="background: rgb(225, 225, 225)" title="Upload Image" class="w-36 h-24 object-cover">
+        <div id="image_{{$i + 1}}_slot" title="Upload Image" class="w-36 h-24 object-cover border-2 border-[#dadbdc]">
           <input type="hidden" class="hidden" name="image_{{$i + 1}}">
         </div>
         <div class="flex items-center justify-center gap-2 ">
           <p class="text-[#343a40] font-bold ">#{{ $i + 1 }}</p>
-          <button id="image_{{$i + 1}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+          {{-- <button id="image_{{$i + 1}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button> --}}
+          <button id="image_{{$i + 1}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-upload text-white bg-green-600 p-2 text-base rounded-md"></i></button>
           <button type="button" class=""><i
               class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
         </div>

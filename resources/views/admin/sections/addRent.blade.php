@@ -32,7 +32,7 @@
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input name="is_recomended" type="checkbox" class="w-8 ring-black">
+                    <input name="is_recomended" type="checkbox">
                   </div>
 
                 </div>
@@ -64,13 +64,13 @@
         
                 {{-- Prices --}}
                 <div class="flex border-[#343a40] p-5 border my-10 flex-wrap justify-between">
-                  <div class="w-1/2 flex justify-start">
-                    <span class="text-[#343a40] font-bold mr-5">Precio Temporada Baja</span>
+                  <div class="w-1/2 flex justify-start items-center">
+                    <span class="text-[#343a40] font-bold mr-5 text-sm">Precio Temporada Baja</span>
                     <input name="low_season_price" type="text" value="{{old('low_season_price')}}"
                       class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none ">
                   </div>
-                  <div class="w-1/2 flex ">
-                    <span class="text-[#343a40] font-bold mx-5">Precio Temporada Alta</span>
+                  <div class="w-1/2 flex items-center">
+                    <span class="text-[#343a40] font-bold mx-5 text-sm">Precio Temporada Alta</span>
                     <input type="text" value="{{old('high_season_price')}}"
                        name="high_season_price" class="border-[#343a40] w-7/12 text-gray-700 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none ">
                   </div>

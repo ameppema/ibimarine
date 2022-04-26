@@ -38,7 +38,7 @@
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input value="$boat->is_recomended" {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox" class="w-8 border-red-500">
+                    <input value="$boat->is_recomended" {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox" class="w-8">
                   </div>
 
                 </div>
@@ -219,13 +219,15 @@
    
                     <article id="UploadNewImageCard" class="flex flex-col items-center justify-center gap-y-2">
 
-                      <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover">
+                      <div id="" title="Upload Image" class="w-36 h-24 object-cover border-2 border-[#dadbdc]">
+                        {{-- <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover"> --}}
+                      </div>
 
                       <div class="flex items-center justify-center gap-2 ">
 
-                        <p class="text-[#343a40] font-bold ">Upload</p>
+                        <p class="text-[#343a40] font-bold ">#0</p>
                         <button id="image_{{$gallery->count() + 1}}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
-                        <button class=""><i
+                        <button><i
                             class="fa-solid fa-xmark text-white bg-[#b2b2b2] text-2xl rounded-md py-1 px-2"></i></button>
                       </div>
 
