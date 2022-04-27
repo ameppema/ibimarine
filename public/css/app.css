@@ -1217,6 +1217,9 @@ select {
 .overflow-y-scroll {
   overflow-y: scroll;
 }
+.whitespace-nowrap {
+  white-space: nowrap;
+}
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -1489,6 +1492,9 @@ select {
 }
 .pl-2 {
   padding-left: 0.5rem;
+}
+.pl-12 {
+  padding-left: 3rem;
 }
 .pb-60 {
   padding-bottom: 15rem;
@@ -1928,16 +1934,12 @@ ol.calendar__weekdays {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.before\:content-\[\'Recomendado\'\]::before {
-  --tw-content: 'Recomendado';
+.before\:content-\[\'\{\{__\(\'Recomended\'\)\}\}\'\]::before {
+  --tw-content: '{{  ('Recomended')}}';
   content: var(--tw-content);
 }
 .before\:content-\[\'Recomended\'\]::before {
   --tw-content: 'Recomended';
-  content: var(--tw-content);
-}
-.before\:content-\[\'\{\{__\(\'Recomended\'\)\}\}\'\]::before {
-  --tw-content: '{{  ('Recomended')}}';
   content: var(--tw-content);
 }
 .last\:border-b-0:last-child {

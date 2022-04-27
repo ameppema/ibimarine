@@ -36,3 +36,7 @@ Route::get('/manage-roles', [RolesController::class, 'index'])->name('admin.role
 Route::get('/manage-permissions', [PermissionsController::class, 'index'])->name('admin.permissions');
 Route::post('/manage-roles/set-role-ajax', [RolesController::class, 'setByAjax'])->name('admin.roles.setByAjax');
 Route::post('/manage-roles/set-permission-ajax', [PermissionsController::class, 'setByAjax'])->name('admin.permission.setByAjax');
+
+// Menu
+Route::get('/menu', [RolesController::class, 'index'])->name('admin.menu');
+

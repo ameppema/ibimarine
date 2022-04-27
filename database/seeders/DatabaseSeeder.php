@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             additionSeeder::class,
             roleSeeder::class,
             userSeeder::class,
-            boatSeeder::class
+            brandSeeder::class,
+            boatSeeder::class,
         ]);
     }
 }

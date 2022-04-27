@@ -25,7 +25,7 @@
                 <img class="rounded-t-[12px]"  src="./img/home/home-04.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
-                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">Alquiler de Yates</p>
+                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Yacht Rental')}}</p>
             </div>
         </div>
         <div class="p-4 text-center text-old-black">
@@ -49,7 +49,7 @@
                 <img class="rounded-t-[12px]"  src="./img/home/home-05.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
-                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">Venta de yates</p>
+                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Sale Of Yachts')}}</p>
             </div>
         </div>
         <div class="p-4 text-center text-old-black">
@@ -97,7 +97,7 @@
                 <img class="rounded-t-[12px] w-[120%]"  src="./img/home/home-01.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
-                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">Events</p>
+                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Events')}}</p>
             </div>
         </div>
         <div class="p-4 text-center text-old-black">
@@ -121,7 +121,7 @@
                 <img class="rounded-t-[12px]"  src="./img/home/home-02.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
-                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">Noticias y LifeStyle</p>
+                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('News & Lifestyle')}}</p>
             </div>
         </div>
         <div class="p-4 text-center text-old-black">
@@ -145,7 +145,7 @@
                 <img class="rounded-t-[12px]"  src="./img/contact/contact_ibimarine.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
-                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">Conatct</p>
+                <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Contact')}}</p>
             </div>
         </div>
         <div class="p-4 text-center text-old-black">

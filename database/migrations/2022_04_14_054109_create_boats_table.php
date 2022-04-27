@@ -18,6 +18,7 @@ class CreateBoatsTable extends Migration
             $table->text('name');
             $table->text('description')->nullable();
             $table->text('slug');
+            $table->unsignedBigInteger('brand_id');
             $table->integer('is_recomended')->default(0);
             $table->integer('low_season_price')->nullable();
             $table->integer('high_season_price')->nullable();

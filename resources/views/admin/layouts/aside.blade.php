@@ -13,10 +13,12 @@
           </li>
         </a>
 
+        <a href="{{route('admin.menu')}}">
         <li class="flex text-white {{ isActive('admin.menu') }} py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"> <i class="fa-solid fa-bars icons"></i></div>
           <p class="ml-3">Menu</p>
         </li>
+        </a>
 
         <a href="{{route('admin.rent')}}">
           <li class="{{ isRoute('admin/rent/*') }} flex text-white py-1 items-center cursor-pointer mb-6">

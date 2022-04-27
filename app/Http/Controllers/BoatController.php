@@ -48,6 +48,8 @@ class BoatController extends Controller
         $boat->slug = $boats->getSlug($boat->name);
 
         $boat->sale_price = request('is_sale') ? request('sale_price') || '' : null;
+
+        $boat->brand_id = 1 ;
         
         $boat->save();
 

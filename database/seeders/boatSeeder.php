@@ -22,6 +22,7 @@ class boatSeeder extends Seeder
             'description'=> '',
             'low_season_price'=> 1,
             'high_season_price'=>1,
+            'brand_id'=>1,
         ]);
         BoatFeatures::create([
             'length'=> '',
