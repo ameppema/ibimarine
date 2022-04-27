@@ -6,7 +6,7 @@
 <!-- Section Hero - Title -->
 <section class="my-5">
     <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-        <p class="text-center text-old-black text-2xl uppercase font-bold">Alquiler de Yates</p>
+        <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('Yacht Rental')}}</p>
     </div>
 </section>
 @endsection
@@ -25,7 +25,7 @@
 
             <!-- Recomended Label -->
             @if ($boat->is_recomended)
-            <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomended'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm"></span>
+            <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['{{__('Recomended')}}'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm"></span>
             @endif
 
             <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
@@ -47,7 +47,7 @@
                 <p class="xl:text-2xl text-old-black font-bold">Desde <span class="price">{{$boat->price}}</span><span class="currency">€</span> / Día</p>
             </div>
             <div>
-                <a href="{{route('rent.show', ['boat_id'=>$boat->id])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">Reservar</button></a>
+                <a href="{{route('rent.show', ['boat_id'=>$boat->id])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('Go to book')}}</button></a>
             </div>
         </div>
     </div>

@@ -84,7 +84,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 // Reservations
-Route::middleware('auth')->group( function(){
+Route::middleware(['auth','lang'])->group( function(){
     Route::get('/calendar',[ReservationsController::class, 'index'])->name('admin.calendar');
     Route::get('/reservation',[ReservationsController::class, 'create'])->name('admin.reservation');
     Route::get('/reservation/byAjax',[ReservationsController::class, 'getByAjax'])->name('admin.reservation.ajax');

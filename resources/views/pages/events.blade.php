@@ -6,7 +6,7 @@
     <!-- Section Hero - Title -->
     <section class="my-5">
         <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-           <p class="text-center text-old-black text-2xl uppercase font-bold">Eventos</p>
+           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('Events')}}</p>
         </div>
     </section>
 @endsection

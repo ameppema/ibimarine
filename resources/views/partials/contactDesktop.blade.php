@@ -1,8 +1,8 @@
-    <div class="{{ request()->is('admin/*') ? 'lg:hidden' : ''}} w-full my-10 hidden lg:block">
+    <div class="{{ (request()->is('calendar') || request()->is('reservation'))  ? 'lg:hidden' : ''}} w-full my-10 hidden lg:block">
         <div class="flex justify-center items-center flex-col">
             <div>
                 <p class="text-old-gold font-bold text-xl">
-                    ¡Contacta con nosotros!
+                    ¡{{__('Contact us')}}!
                 </p>
             </div>
 

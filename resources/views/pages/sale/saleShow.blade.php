@@ -10,7 +10,7 @@
 @section('hero')
 <section class="mt-5">
     <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-       <p class="lg:hidden text-center text-old-black text-2xl uppercase font-bold">Venta de Yates</p>
+       <p class="lg:hidden text-center text-old-black text-2xl uppercase font-bold">{{__('Sale Of Yachts')}}</p>
        <p class="hidden lg:block text-center text-old-black text-2xl uppercase font-bold">{{ $boat->name }}</p>
     </div>
 </section>
@@ -194,20 +194,20 @@
                     <input type="hidden" name="boat_id" value="{{$boat->id}}">
                     <input type="hidden" name="boat_name" value="{{$boat->name}}">
                     <div class="mb-4">
-                        <label class="block" for="name"> Nombre </label>
+                        <label class="block" for="name">{{__('Name')}}</label>
                         <input class="w-full" type="text" name="name" id="">
                     </div>
                     <div class="mb-4">
-                        <label class="block" for="email">Correo electronico</label>
+                        <label class="block" for="email">{{__('Email')}}</label>
                         <input class="w-full" type="text" name="email" id="">
                     </div>
                     <div class="mb-4">
-                        <label class="block" for="phone">Teléfono</label>
+                        <label class="block" for="phone">{{__('Phone')}}</label>
                         <input class="w-full" type="text" name="phone" id="">
                     </div>
 
                     <div class="text-center">
-                        <input id="request_open" class="btn-gold" type="submit" value="Enviar Petición">
+                        <input id="request_open" class="btn-gold" type="submit" value="{{__('Send Request')}}">
                     </div>
                 </form>
             </div>
@@ -223,7 +223,7 @@
         <section class="lg:w-4/5 lg:mx-auto mt-5">
             <div class="w-2xl border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto">
                 <div>
-                    <p class=" text-center text-old-black text-2xl uppercase font-bold">Embarcaciones Similares</p>
+                    <p class=" text-center text-old-black text-2xl uppercase font-bold">{{__('Similar Boats')}}</p>
                 </div>            <!-- Slider thumbnails Carousel -->
                 <div class="flex mx-auto justify-center items-center my-2">
                     <div class="lg:-mt-11 arrow w-1/12 h-6 xl:h-12" id="arrowPrev">

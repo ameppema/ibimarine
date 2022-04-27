@@ -844,9 +844,6 @@ select {
 .-mt-5 {
   margin-top: -1.25rem;
 }
-.mb-20 {
-  margin-bottom: 5rem;
-}
 .mt-40 {
   margin-top: 10rem;
 }
@@ -1315,12 +1312,12 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
-.border-old-black\/60 {
-  border-color: rgb(60 64 69 / 0.6);
-}
 .border-\[\#dadbdc\] {
   --tw-border-opacity: 1;
   border-color: rgb(218 219 220 / var(--tw-border-opacity));
+}
+.border-old-black\/60 {
+  border-color: rgb(60 64 69 / 0.6);
 }
 .border-b-old-black\/50 {
   border-bottom-color: rgb(60 64 69 / 0.5);
@@ -1673,10 +1670,6 @@ select {
 .outline-\[\#aaa173\] {
   outline-color: #aaa173;
 }
-.ring-black {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
-}
 .transition-colors {
   transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
@@ -1935,8 +1928,16 @@ ol.calendar__weekdays {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.before\:content-\[\'Recomendado\'\]::before {
+  --tw-content: 'Recomendado';
+  content: var(--tw-content);
+}
 .before\:content-\[\'Recomended\'\]::before {
   --tw-content: 'Recomended';
+  content: var(--tw-content);
+}
+.before\:content-\[\'\{\{__\(\'Recomended\'\)\}\}\'\]::before {
+  --tw-content: '{{  ('Recomended')}}';
   content: var(--tw-content);
 }
 .last\:border-b-0:last-child {

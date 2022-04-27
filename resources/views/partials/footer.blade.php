@@ -1,12 +1,12 @@
 <footer class="text-old-black text-center mx-auto lg:flex lg:my-10 lg:w-4/5  lg:gap-4">
     <div class="lg:hidden">
-        <p>Derechos Reservados</p>
+        <p>{{__('All rights reserved')}}</p>
     </div>
     <div>
-        <p class="inline">Términos y condiciones</p> <span class="hidden lg:inline">&nbsp;&nbsp</span>  <span class="lg:hidden">-</span>  <p class="inline">Política de Privacidad</p>
+        <p class="inline">{{__('Terms and Conditions')}}</p> <span class="hidden lg:inline">&nbsp;&nbsp</span>  <span class="lg:hidden">-</span>  <p class="inline">{{__('Privacy Policy')}}</p>
     </div>
     <div>
-        <p class="inline">Política de cookies</p> <span class="hidden lg:inline">&nbsp;&nbsp</span> <span class="lg:hidden">-</span> <p class="inline">Protección de datos</p>
+        <p class="inline">{{__('Cookies policy')}}</p> <span class="hidden lg:inline">&nbsp;&nbsp</span> <span class="lg:hidden">-</span> <p class="inline">{{__('Data Protection')}}</p>
     </div>
     <div class="lg:-order-1">
         <p> <b>IBIMARINE &copy;</b> </p>

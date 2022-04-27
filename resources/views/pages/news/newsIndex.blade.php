@@ -6,7 +6,7 @@
     <!-- Section Hero - Title -->
     <section class="my-5">
         <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-           <p class="text-center text-old-black text-2xl uppercase font-bold">Noticias y LifeStyle</p>
+           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('News & Lifestyle')}}</p>
         </div>
     </section>
 @endsection
@@ -44,7 +44,7 @@
                     id leo fermentum quam gravida ut.
                 </div>
                 <div class="mt-4 ">
-                    <a class="btn-gold" href="{{route('news.show')}}">Leer mas</a>
+                    <a class="btn-gold" href="{{route('news.show')}}">{{__('Read more')}}</a>
                 </div>
             </div>
         </div>

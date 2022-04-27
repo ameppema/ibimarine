@@ -14,7 +14,7 @@
 
     <div class="block text-center lg:mt-6">
         <div>
-            <p class="font-bold text-old-black uppercase">Agente Oficial de Ibiza</p>
+            <p class="font-bold text-old-black uppercase">{{__('Ibiza Oficial Agent')}}</p>
         </div>
         <div class="columns-3xs flex justify-center gap-3 mt-1 mb-1 ">
             <a href="#" ><img class="w-14" src="{{asset('img/sessa.png')}}" alt="brand imgage"></a>

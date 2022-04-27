@@ -6,7 +6,7 @@
     <!-- Section Hero - Title -->
     <section class="my-5">
         <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-           <p class="text-center text-old-black text-2xl uppercase font-bold">Venta de Yates</p>
+           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('Sale Of Yachts')}}</p>
         </div>
     </section>
 @endsection
@@ -39,7 +39,7 @@
                 <div class="w-20"><img class="w-full" src="img/sessa.png" alt="brand imgage"></div>
             </div>
             <div>
-                <a href="{{route('sale.show', ['boat_id'=>$boat->id])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">Ver info.</button></a>
+                <a href="{{route('sale.show', ['boat_id'=>$boat->id])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('See Info.')}}</button></a>
             </div>
         </div>
     </div>

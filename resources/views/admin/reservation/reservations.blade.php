@@ -6,7 +6,7 @@
     <!-- Section Hero - Title -->
     <section class="my-5">
         <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-           <p class="text-center text-old-black text-2xl uppercase font-bold">Calendario 2022</p>
+           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('Calendar')}} 2022</p>
         </div>
     </section>
 @endsection
@@ -188,12 +188,12 @@
                     @if (isSameDate($reservation->start_date , $reservation->end_date))
                     <!-- day -->
                     <div class="my-2">
-                        <p class="font-bold text-xl text-old-black">Reserva {{ date_to_human_short($reservation->start_date) }}</p>
+                        <p class="font-bold text-xl text-old-black">Reserva <span class="capitalize">{{ date_to_human_short($reservation->start_date) }}</span></p>
                     </div>
                     @else
                     {{-- multi day reservations --}}
                     <div class="my-2">
-                        <p class="font-bold text-xl text-old-black">Reserva {{ date_to_human_short($reservation->start_date) }} {{ $reservation->end_date != null ? 'al ' . date_to_human_short($reservation->end_date) : ''}}</p>
+                        <p class="font-bold text-xl text-old-black">Reserva <span class="capitalize">{{ date_to_human_short($reservation->start_date) }} {{ $reservation->end_date != null ? 'al ' . date_to_human_short($reservation->end_date) : ''}} </span></p>
                     </div>
                     @endif
                 </p>
@@ -280,7 +280,7 @@
 
     {{-- To Calendar Button --}}
     <div class="pb-10 mx-auto text-center">
-        <a class="btn-gold" href="{{route('admin.calendar')}}">Volver al calendario</a>
+        <a class="btn-gold" href="{{route('admin.calendar')}}">{{__('Back to calendar')}}</a>
     </div>
    
     </div>

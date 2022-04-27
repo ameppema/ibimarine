@@ -6,7 +6,7 @@
     <!-- Section Hero - Title -->
     <section class="my-5">
         <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-           <p class="text-center text-old-black text-2xl uppercase font-bold">Noticias y LifeStyle</p>
+           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('News & Lifestyle')}}</p>
         </div>
     </section>
 @endsection
@@ -44,7 +44,7 @@
             </div>
     
             <div class="pb-10 mx-auto text-center">
-                <a class="btn-gold" onclick="history.back()"  href="#">Volver a Noticias y LifeSatyle</a>
+                <a class="btn-gold" onclick="history.back()"  href="#">{{__('Back to News & Lifestyle')}}</a>
             </div>  
         </div>
 @endsection

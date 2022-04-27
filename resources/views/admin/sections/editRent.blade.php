@@ -219,7 +219,7 @@
    
                     <article id="UploadNewImageCard" class="flex flex-col items-center justify-center gap-y-2">
 
-                      <div id="" title="Upload Image" class="w-36 h-24 object-cover border-2 border-[#dadbdc]">
+                      <div id="" data-open-modal="upload-image-modal" title="Upload Image" class="w-36 h-24 object-cover border-2 border-[#dadbdc]">
                         {{-- <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover"> --}}
                       </div>
 
