@@ -11,6 +11,7 @@ use App\Models\SimilarBoat;
 use App\Repositories\Boats;
 use App\Repositories\Translator;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 class BoatController extends Controller
 {
@@ -22,12 +23,14 @@ class BoatController extends Controller
     public function addRent()
     {
         $boats = Boat::getRentBoats(['id','name']);
-        return view('admin.sections.addRent', compact('boats'));
+        $brands = DB::table('brands')->get(['name','id']);
+        return view('admin.sections.addRent', compact('boats','brands'));
     }
     public function addSale()
     {
         $boats = Boat::getSaleBoats(['name','id']);
-        return view('admin.sections.addSale', compact('boats'));
+        $brands = DB::table('brands')->get(['name','id']);
+        return view('admin.sections.addSale', compact('boats','brands'));
     }
 
     /**
@@ -48,8 +51,6 @@ class BoatController extends Controller
         $boat->slug = $boats->getSlug($boat->name);
 
         $boat->sale_price = request('is_sale') ? request('sale_price') || '' : null;
-
-        $boat->brand_id = 1 ;
         
         $boat->save();
 
@@ -84,7 +85,8 @@ class BoatController extends Controller
         $additions = Additions::all();
         $gallery = Image::getGallery($boat->id);
         $boat_description_en = Translator::getTranslate('boats','description',$boat->id)->translation ?? '';
-        return view('admin.sections.editRent', compact('boat', 'boats','additions', 'gallery', 'boat_description_en'));
+        $brands = DB::table('brands')->get(['name','id']);
+        return view('admin.sections.editRent', compact('boat', 'boats','additions', 'gallery', 'boat_description_en','brands'));
     }
     public function editSale(Boat $boat)
     {
@@ -119,6 +121,7 @@ class BoatController extends Controller
         }
 
         $boat->name = $data['name'];
+        $boat->brand_id = $data['brand_id'];
         $boat->description = $request->description_es ?? '';
         $boat->is_recomended = request('is_recomended')? 1 : 0;
         $boat->low_season_price = $data['low_season_price'];

@@ -31,6 +31,7 @@ class SaveBoatRequest extends FormRequest
             'sale_price' => ['nullable'],
             'is_recomended' => ['nullable'],
             'description' => ['nullable'],
+            'brand_id' => ['required'],
 
             /* Features */
             'length' => ['nullable'],

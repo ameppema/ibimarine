@@ -18,7 +18,8 @@ class Boat extends Model
         'description',
         'high_season_price',
         'low_season_price',
-        'is_recomended'
+        'is_recomended',
+        'brand_id'
     ];
 
     public static function getRentBoats($columns = ['*']){
@@ -51,6 +52,10 @@ class Boat extends Model
     }
     public function getGallery(){
         return Image::where('gallery_id', $this->id)->orderBy('sort_order')->get(['image_src', 'image_alt']);
+    }
+
+    public function brand(){
+        return $this->belongsTo(Brand::class);
     }
 
     public function silimarBoats(){

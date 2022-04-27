@@ -27,7 +27,7 @@
                 {{-- Name - Is recomended --}}
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
                   
-                  <div class="flex items-center w-4/5">
+                  <div class="flex items-center w-2/5">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
                       name="name"
@@ -35,6 +35,15 @@
                       placeholder="Nombre de la Embarcación"
                       value="{{ $boat->name }}"
                       >
+                  </div>
+                  <div class="flex items-center w-1/5 justify-end">
+                    <span class="text-[#343a40] font-bold mx-5">Marca</span>
+                    <select name="brand_id">
+                      <option value="null" disabled selected>-- Marca --</option>
+                      @foreach ($brands as $brand)
+                      <option value="{{$brand->id}}" {{ $boat->brand_id === $brand->id ? 'selected' : ''}}>{{$brand->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
@@ -220,7 +229,6 @@
                     <article id="UploadNewImageCard" class="flex flex-col items-center justify-center gap-y-2">
 
                       <div id="" data-open-modal="upload-image-modal" title="Upload Image" class="w-36 h-24 object-cover border-2 border-[#dadbdc]">
-                        {{-- <img src="{{asset('img/home/home-04.jpg')}}" alt="" class="w-36 h-24 object-cover"> --}}
                       </div>
 
                       <div class="flex items-center justify-center gap-2 ">

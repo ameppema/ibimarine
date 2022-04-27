@@ -23,12 +23,21 @@
                 {{-- Name - Is recomended --}}
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
                   
-                  <div class="flex items-center w-4/5">
+                  <div class="flex items-center w-2/5">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
                       name="name" value="{{old('name')}}"
                       class="border-[#343a40] text-gray-700 appearance-none leading-tight font-bold border  w-full py-[6px] rounded-md  pl-2 outline-none "
                       placeholder="Nombre de la Embarcación">
+                  </div>
+                  <div class="flex items-center w-1/5 justify-end">
+                    <span class="text-[#343a40] font-bold mx-5">Marca</span>
+                    <select name="brand_id">
+                      <option value="null" disabled selected>-- Marca --</option>
+                      @foreach ($brands as $brand)
+                      <option value="{{$brand->id}}">{{$brand->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
