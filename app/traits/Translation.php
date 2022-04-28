@@ -33,9 +33,7 @@ trait Translation
 	public function getTranslate($default = '', $lang = 'en')
 	{
 
-		$locale = App::getLocale();
-
-		if($this->local == $locale){
+		if($this->local == $lang){
 			return $default;
 		}
 
@@ -43,7 +41,8 @@ trait Translation
 			->where('table', $this->table)
 			->where('locale', $lang)
 			->where('row_id', $this->id)
-			->get();
+			->pluck('translation')
+			->first();
 
 		if($translation){
 			return $translation;

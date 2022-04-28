@@ -5,7 +5,7 @@
     "Calendar":"Calendario",
     "Yacht Rental":"Alquiler de Yates",
     "Recomended":"Recomendado",
-    "Go to book":"Reservar",
+    "Booking":"Reservar",
     "Reservation date":"Fecha de reserva",
     "Name":"Nombre",
     "Email":"Correo electronico",
@@ -23,5 +23,6 @@
     "Terms and Conditions":"Términos y condiciones",
     "Privacy Policy":"Política de Privacidad",
     "Cookies policy":"Política de cookies",
-    "Data Protection":"Protección de datos"
+    "Data Protection":"Protección de datos",
+    "Find us":"Siguenos"
 }

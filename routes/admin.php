@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoatController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PermissionsController;
 
 Route::get('/', function () {
@@ -38,5 +39,6 @@ Route::post('/manage-roles/set-role-ajax', [RolesController::class, 'setByAjax']
 Route::post('/manage-roles/set-permission-ajax', [PermissionsController::class, 'setByAjax'])->name('admin.permission.setByAjax');
 
 // Menu
-Route::get('/menu', [RolesController::class, 'index'])->name('admin.menu');
+Route::get('/menu', [MenuController::class, 'index'])->name('admin.menu');
+Route::post('/menu', [MenuController::class, 'update'])->name('admin.menu.update');
 

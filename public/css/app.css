@@ -1030,6 +1030,9 @@ select {
 .w-3 {
   width: 0.75rem;
 }
+.w-2\/5 {
+  width: 40%;
+}
 .w-7\/12 {
   width: 58.333333%;
 }
@@ -1068,12 +1071,6 @@ select {
 }
 .w-7 {
   width: 1.75rem;
-}
-.w-3\/5 {
-  width: 60%;
-}
-.w-2\/5 {
-  width: 40%;
 }
 .min-w-full {
   min-width: 100%;
@@ -1160,11 +1157,11 @@ select {
 .gap-4 {
   gap: 1rem;
 }
-.gap-2 {
-  gap: 0.5rem;
-}
 .gap-1 {
   gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
 }
 .gap-y-6 {
   row-gap: 1.5rem;
@@ -1940,8 +1937,8 @@ ol.calendar__weekdays {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.before\:content-\[\'\{\{__\(\'Recomended\'\)\}\}\'\]::before {
-  --tw-content: '{{  ('Recomended')}}';
+.before\:content-\[\'RECOMENDADA\'\]::before {
+  --tw-content: 'RECOMENDADA';
   content: var(--tw-content);
 }
 .before\:content-\[\'Recomended\'\]::before {

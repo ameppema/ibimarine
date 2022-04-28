@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Menu;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -146,4 +147,11 @@ function feature_display_name($name){
         return $name === $key;
     }) ? $displayNames->get($name) : $name;
 
+}
+
+
+// General WEBSITE
+
+function menuItems(){
+    return Menu::all();
 }

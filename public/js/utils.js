@@ -13,12 +13,14 @@ for(let i = 0; i < accordions.length; i++){
 }
 
 /* Modals */
-function ToggleModal(ModalName, onListeners = null){
+function ToggleModal(ModalName, Params = null){
     let onOpen = null;
     let onClose = null;
-    if(onListeners !== 'undefined' && onListeners !== null){
-        onOpen = onListeners.hasOwnProperty('onOpen') ? onListeners.onOpen : null;
-        onClose = onListeners.hasOwnProperty('onClose') ? onListeners.onClose : null;
+    let closeOnClickOut = null;
+    if(Params !== 'undefined' && Params !== null){
+        onOpen = Params.hasOwnProperty('onOpen') ? Params.onOpen : null;
+        onClose = Params.hasOwnProperty('onClose') ? Params.onClose : null;
+        closeOnClickOut = Params.hasOwnProperty('closeOnClickOut') ? Params.closeOnClickOut : null;
     }
     const OpenModal = document.querySelectorAll('[data-open-modal="'+ModalName+'"]');
     const CloseModal = document.querySelector('[data-close-modal="'+ModalName+'"]');
@@ -26,18 +28,26 @@ function ToggleModal(ModalName, onListeners = null){
 
     CloseModal.onclick = function(){
         if(isFunction(onClose)) onClose(this);
-        document.body.style.overflowY = 'scroll';
-        Modal.style.display = 'none'
-        Modal.style.overflowY = 'hidden';
+        Close();
     }
     OpenModal.forEach( button => {
         button.onclick  = function(){
             if(isFunction(onOpen)) onOpen(this);
+            if(closeOnClickOut){
+            Modal.addEventListener('click', function(e){
+                const quit = !getElementById(closeOnClickOut).contains(e.target) ? Close() : null;
+            });}
             document.body.style.overflowY = 'hidden';
             Modal.style.display = 'block';
             Modal.style.overflowY = 'scroll';
         }
     });
+
+    const Close = function(){
+        document.body.style.overflowY = 'scroll';
+        Modal.style.display = 'none'
+        Modal.style.overflowY = 'hidden';
+    }
 }
 
 /* Forms */
@@ -93,6 +103,10 @@ function setFormValueStatus(formTarget, inputTarget, value, inputLabelTarget){
         return true;
     }
 
+}
+
+function getElementById(ID){
+    return document.getElementById(ID);
 }
 
 /* General Helpers */
