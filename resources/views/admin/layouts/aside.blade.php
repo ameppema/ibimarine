@@ -45,10 +45,12 @@
           <div class="ml-3"><i class="fas fa-newspaper icons"></i></div>
           <p class="ml-3">Noticias</p>
         </li>
+        <a href="{{route('admin.contact')}}">
         <li class="{{ isActive('admin.contact') }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fas fa-envelope icons"></i></div>
           <p class="ml-3">Contacto</p>
         </li>
+        </a>
         <a href="{{route('admin.calendar')}}">
         <li class="{{ isActive('admin.privarea') }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fas fa-lock icons"></i></div>

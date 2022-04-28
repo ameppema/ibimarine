@@ -29,4 +29,10 @@ class MenuController extends Controller
 
         return back();
     }
+
+    public function delete($id){
+        $menuItem = Menu::findOrFail($id);
+        $menuItem->delete();
+        return back();
+    }
 }

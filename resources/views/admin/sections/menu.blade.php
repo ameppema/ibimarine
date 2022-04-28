@@ -45,7 +45,7 @@
               <thead class=" text-gray-700   ">
                 <tr class="w-full">
                   <th scope="col" class="px-6 py-3 w-1/5">
-                    Orden
+                    #
                   </th>
                   <th scope="col" class="px-6 py-3">
                     <div class="flex items-center ">
@@ -80,7 +80,7 @@
                   </td>
                   <td class="px-6 py-4">
                     <div class="flex items-center  gap-4 ">
-                      <button data-open-modal="update-menu-modal" id="id_{{$menu->name_en}}_{{$menu->id}}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                      <button title="Editar Elemento" data-open-modal="update-menu-modal" id="id_{{$menu->name_en}}_{{$menu->id}}"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
                       <button type="button"><i
                         class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
                       </div>

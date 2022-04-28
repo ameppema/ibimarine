@@ -5,6 +5,7 @@ use App\Models\Boat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
+use App\Models\Contact;
 
 Route::get('/locale/{locale}', function($locale = 'es'){
     // $prev_url = url()->previous();
@@ -71,7 +72,8 @@ Route::get('/news/show', function () {
 })->name('news.show');
 
 Route::get('/contact', function () {
-    return view('pages.contact');
+    $contact = Contact::first(['id','description']);
+    return view('pages.contact', compact('contact'));
 })->name('contact');
 
 });

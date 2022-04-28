@@ -50,4 +50,23 @@ trait Translation
 			return $default;
 		}
 	}
+
+	public function getTranslate_($column, $default = '', $lang = 'en'){
+
+		$translation = DB::table('translations')
+			->where('table', $this->table)
+			->where('column', $column)
+			->where('locale', $lang)
+			->where('row_id', $this->id)
+			->pluck('translation')
+			->first();
+
+
+			if($translation){
+				return $translation;
+			}else{
+				return $default;
+			}
+	}
+	
 }

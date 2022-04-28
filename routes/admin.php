@@ -6,6 +6,7 @@ DB::listen( function($query){
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoatController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MenuController;
@@ -41,4 +42,10 @@ Route::post('/manage-roles/set-permission-ajax', [PermissionsController::class, 
 // Menu
 Route::get('/menu', [MenuController::class, 'index'])->name('admin.menu');
 Route::post('/menu', [MenuController::class, 'update'])->name('admin.menu.update');
+Route::post('/menu/delete', [MenuController::class, 'delete'])->name('admin.menu.delete');
+
+// Contact
+
+Route::get('/contact',[ContactController::class, 'index'])->name('admin.contact');
+Route::post('/contact',[ContactController::class, 'update'])->name('admin.contact.update');
 
