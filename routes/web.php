@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Contact;
+use App\Models\Toy;
 
 Route::get('/locale/{locale}', function($locale = 'es'){
     // $prev_url = url()->previous();
@@ -56,7 +57,8 @@ Route::post('/sale/show', function () {
 })->name('sale.show.reserve');
 
 Route::get('/toys', function () {
-    return view('pages.toys');
+    $toys = Toy::all(['id','title','description','image']);
+    return view('pages.toys', compact('toys'));
 })->name('toys');
 
 Route::get('/events', function () {

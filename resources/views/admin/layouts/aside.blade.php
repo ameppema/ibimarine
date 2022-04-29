@@ -33,10 +33,12 @@
             <p class="ml-3">Venta</p>
           </li>
         </a>  
+        <a href="{{route('admin.toys')}}">
         <li class="{{ isActive('admin.toys') }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-ship icons"></i></div>
           <p class="ml-3">Toys</p>
         </li>
+        </a>
         <li class="{{ isActive('admin.events') }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-champagne-glasses icons"></i></div>
           <p class="ml-3">Eventos</p>

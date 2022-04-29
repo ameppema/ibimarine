@@ -11,6 +11,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\ToyController;
 
 Route::get('/', function () {
     return view('admin.index');
@@ -48,4 +49,12 @@ Route::post('/menu/delete', [MenuController::class, 'delete'])->name('admin.menu
 
 Route::get('/contact',[ContactController::class, 'index'])->name('admin.contact');
 Route::post('/contact',[ContactController::class, 'update'])->name('admin.contact.update');
+
+// Toys
+
+Route::get('/toys', [ToyController::class, 'index'])->name('admin.toys');
+Route::post('/toys', [ToyController::class, 'store'])->name('admin.toys.store');
+Route::get('/toys/{toy}/edit', [ToyController::class, 'edit'])->name('admin.toys.edit');
+Route::put('/toys/{toy}', [ToyController::class, 'update'])->name('admin.toys.update');
+Route::delete('/toys/{toy}', [ToyController::class, 'delete'])->name('admin.toys.delete');
 

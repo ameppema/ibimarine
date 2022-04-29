@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\DB;
 class Translator {
 
     public static function translate($table,$column,$row_id,$translation,$locale = 'en'){
-        $translation = DB::table('translations')
-                        ->insert([
+        return DB::table('translations')
+                        ->insertGetId([
                             'table'=> $table,
                             'column'=>$column,
                             'row_id'=>$row_id,

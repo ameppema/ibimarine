@@ -26,6 +26,13 @@ class Image extends Model
         return $gallery;
     }
 
+    public static function store($request, $directoyName = 'images' ,$image_name = 'image'){
+        $filename = time() . '-' . $request->file($image_name)->getClientOriginalName();
+        $filePath = $request['image']->storeAs($directoyName, $filename, 'public');
+
+        return $filePath;
+    }
+
     public static function upload(Request $request, $options){
 
         $image_alt = $options['image_alt'] ?? '';
