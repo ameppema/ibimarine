@@ -12,6 +12,7 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ToyController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('admin.index');
@@ -57,4 +58,12 @@ Route::post('/toys', [ToyController::class, 'store'])->name('admin.toys.store');
 Route::get('/toys/{toy}/edit', [ToyController::class, 'edit'])->name('admin.toys.edit');
 Route::put('/toys/{toy}', [ToyController::class, 'update'])->name('admin.toys.update');
 Route::delete('/toys/{toy}', [ToyController::class, 'delete'])->name('admin.toys.delete');
+
+// Users
+
+Route::get('/users', [UserController::class, 'index'])->name('admin.users');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
+Route::delete('/users/{user}', [UserController::class, 'delete'])->name('admin.users.delete');
+
+
 

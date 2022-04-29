@@ -7,21 +7,21 @@
     <nav class="">
       <ul>
         <a class="block" href="{{route('admin')}}">
-          <li class="flex text-white py-1 {{ isActive('admin') }} items-center cursor-pointer mb-6">
+          <li class="flex text-white py-1 {{ isRoute('admin') ? 'bg-[#037bff]' : ''}} items-center cursor-pointer mb-6">
             <div class="ml-3"> <i class="fas fa-home icons"></i></div>
             <p class="ml-3">Inicio</p>
           </li>
         </a>
 
         <a href="{{route('admin.menu')}}">
-        <li class="flex text-white {{ isActive('admin.menu') }} py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isRoute('admin.menu') ? 'bg-[#037bff]' : ''}}  flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"> <i class="fa-solid fa-bars icons"></i></div>
           <p class="ml-3">Menu</p>
         </li>
         </a>
 
         <a href="{{route('admin.rent')}}">
-          <li class="{{ isRoute('admin/rent/*') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isRoute('admin.rent') }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fa-solid fa-truck-ramp-box icons"></i></div>
             <p class="ml-3">Alquiler</p>
           </li>
@@ -59,12 +59,14 @@
             <p class="ml-3">Área privada</p>
           </li>
         </a>
-        <li class="{{ isActive('admin.users') }} flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"><i class="fas fa-address-book icons"></i></div>
-          <p class="ml-3">Usuarios</p>
+        <a href="{{route('admin.users')}}">
+        <li class="{{ isRoute('admin.users') }} flex text-white py-1 items-center cursor-pointer mb-6">
+            <div class="ml-3"><i class="fas fa-address-book icons"></i></div>
+            <p class="ml-3">Usuarios</p>
         </li>
+        </a>
         <a href="{{route('admin.roles')}}">
-          <li class="{{ isActive('admin.roles') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isRoute('admin.roles') }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fas fa-cog icons"></i></div>
             <p class="ml-3">Roles</p>
           </li>

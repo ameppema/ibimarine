@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,6 +29,8 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
+
+        $this->authenticated(auth()->user());
 
         $request->session()->regenerate();
 
@@ -53,5 +55,24 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('home');
+    }
+
+    public function authenticated($user){
+        $user->update([
+            'last_session' => Carbon::now()->toDateTimeString()
+        ]);
+    }
+    /**
+     * Deny LogIn if user account is inactive
+     */
+    protected function validateLogin(Request $request){
+        $user = User::where($this->username(), '=', $request->input($this->username()))->first();
+        if ($user && ! $user->status) {
+            throw ValidationException::withMessages([$this->username() => __('The account is inactive')]);
+        }
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ]);
     }
 }
