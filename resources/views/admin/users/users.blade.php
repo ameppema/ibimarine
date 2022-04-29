@@ -5,6 +5,7 @@
 @section('content')
     
 @include('admin.partials.errors')
+@include('admin.users.update-user-modal')
 
 
     {{-- Content --}}
@@ -43,32 +44,34 @@
                 </tr>
               </thead>
               <tbody class="text-[#343a40] ">
+
+                @foreach ($users as $user)
                 <tr class="bg-white border-b hover:bg-gray-50 ">
                   <th scope="row" class="px-6 py-4 whitespace-nowrap">
                     1
                   </th>
                   <td class=" py-4 px-6 ">
-                    New User
+                    {{ $user->name }}
                   </td>
                   <td class="px-6 py-4">
-                    Test
+                    {{ $user->nickname }}
                   </td>
                   <td class="px-6 py-4">
-                    test@test.com
+                    {{ $user->email }}
+                  </td>
+                  <td class="px-6 py-4 capitalize">
+                    {{$user->roles[0]->name ?? 'Sin role' }}
                   </td>
                   <td class="px-6 py-4">
-                    Admin
+                    {{ $user->last_session }}
                   </td>
                   <td class="px-6 py-4">
-                    2022-04-04 12:00:00
-                  </td>
-                  <td class="px-6 py-4">
-                    Activo
+                    {{ $user->status === 1 ? 'Activo' : 'Inactivo' }}
                   </td>
                   <td class="px-6 py-4">
                     <div class="flex items-center  gap-4 ">
                       <!-- Trigger/Open The Modal -->
-                      <button id="myBtn" class=""><i
+                      <button id="{{$user->id}}" data-open-modal="update-user-modal"><i
                           class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
                       <button class=""><i
                           class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
@@ -76,161 +79,9 @@
                   </td>
   
                 </tr>
-                <tr class="bg-white border-b hover:bg-gray-50 ">
-                  <th scope="row" class="px-6 py-4 whitespace-nowrap">
-                    1
-                  </th>
-                  <td class=" py-4 px-6 ">
-                    New User
-                  </td>
-                  <td class="px-6 py-4">
-                    Test
-                  </td>
-                  <td class="px-6 py-4">
-                    test@test.com
-                  </td>
-                  <td class="px-6 py-4">
-                    Admin
-                  </td>
-                  <td class="px-6 py-4">
-                    2022-04-04 12:00:00
-                  </td>
-                  <td class="px-6 py-4">
-                    Activo
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center  gap-4 ">
-                      <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                      <button class=""><i
-                          class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                    </div>
-                  </td>
-  
-                </tr>
-                <tr class="bg-white border-b hover:bg-gray-50 ">
-                  <th scope="row" class="px-6 py-4 whitespace-nowrap">
-                    1
-                  </th>
-                  <td class=" py-4 px-6 ">
-                    New User
-                  </td>
-                  <td class="px-6 py-4">
-                    Test
-                  </td>
-                  <td class="px-6 py-4">
-                    test@test.com
-                  </td>
-                  <td class="px-6 py-4">
-                    Admin
-                  </td>
-                  <td class="px-6 py-4">
-                    2022-04-04 12:00:00
-                  </td>
-                  <td class="px-6 py-4">
-                    Activo
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center  gap-4 ">
-                      <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                      <button class=""><i
-                          class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                    </div>
-                  </td>
-  
-                </tr>
-                <tr class="bg-white border-b hover:bg-gray-50 ">
-                  <th scope="row" class="px-6 py-4 whitespace-nowrap">
-                    1
-                  </th>
-                  <td class=" py-4 px-6 ">
-                    New User
-                  </td>
-                  <td class="px-6 py-4">
-                    Test
-                  </td>
-                  <td class="px-6 py-4">
-                    test@test.com
-                  </td>
-                  <td class="px-6 py-4">
-                    Admin
-                  </td>
-                  <td class="px-6 py-4">
-                    2022-04-04 12:00:00
-                  </td>
-                  <td class="px-6 py-4">
-                    Activo
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center  gap-4 ">
-                      <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                      <button class=""><i
-                          class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                    </div>
-                  </td>
-  
-                </tr>
-                <tr class="bg-white border-b hover:bg-gray-50 ">
-                  <th scope="row" class="px-6 py-4 whitespace-nowrap">
-                    1
-                  </th>
-                  <td class=" py-4 px-6 ">
-                    New User
-                  </td>
-                  <td class="px-6 py-4">
-                    Test
-                  </td>
-                  <td class="px-6 py-4">
-                    test@test.com
-                  </td>
-                  <td class="px-6 py-4">
-                    Admin
-                  </td>
-                  <td class="px-6 py-4">
-                    2022-04-04 12:00:00
-                  </td>
-                  <td class="px-6 py-4">
-                    Activo
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center  gap-4 ">
-                      <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                      <button class=""><i
-                          class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                    </div>
-                  </td>
-  
-                </tr>
-                <tr class="bg-white border-b hover:bg-gray-50 ">
-                  <th scope="row" class="px-6 py-4 whitespace-nowrap">
-                    1
-                  </th>
-                  <td class=" py-4 px-6 ">
-                    New User
-                  </td>
-                  <td class="px-6 py-4">
-                    Test
-                  </td>
-                  <td class="px-6 py-4">
-                    test@test.com
-                  </td>
-                  <td class="px-6 py-4">
-                    Admin
-                  </td>
-                  <td class="px-6 py-4">
-                    2022-04-04 12:00:00
-                  </td>
-                  <td class="px-6 py-4">
-                    Activo
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center  gap-4 ">
-                      <button><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                      <button class=""><i
-                          class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                    </div>
-                  </td>
-  
-                </tr>
+                @endforeach
+
+
               </tbody>
             </table>
             <form action="">
@@ -251,5 +102,31 @@
 @endsection
 
 @section('js')
-    
+<script src="{{asset('/js/utils.js')}}"></script>
+<script src="{{asset('/vendor/axios.min.js')}}"></script>
+<script>const ROUTE = "{{route('admin.users.getByAjax')}}";</script>
+<script>
+    ToggleModal('update-user-modal',{
+        onOpen: function(trigger){
+            const userID = trigger.id;
+            getUserByAjax(userID);
+        },
+        closeOnClickOut: 'inner-modal'
+    })
+
+    function getUserByAjax(ID){
+        axios.get(ROUTE + '/' + ID)
+            .then( response => {
+                const user = response.data;
+                console.log(user)
+                getElementById('name').value = user.name;
+                getElementById('nickname').value = user.nickname;
+                getElementById('role').value = user.roles[0].id;
+                getElementById('status').value = user.status;
+                getElementById('user_id').value = user.id;
+            })
+            .catch( error => console.log(error))
+    }
+</script>
+
 @endsection

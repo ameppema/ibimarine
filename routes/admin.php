@@ -62,7 +62,8 @@ Route::delete('/toys/{toy}', [ToyController::class, 'delete'])->name('admin.toys
 // Users
 
 Route::get('/users', [UserController::class, 'index'])->name('admin.users');
-Route::put('/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
+Route::get('/users/ajax/{user?}', [UserController::class, 'getUserByAjax'])->name('admin.users.getByAjax');
+Route::put('/users', [UserController::class, 'update'])->name('admin.users.update');
 Route::delete('/users/{user}', [UserController::class, 'delete'])->name('admin.users.delete');
 
 
