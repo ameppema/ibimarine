@@ -81,10 +81,12 @@
             <p class="ml-3">Permisos</p>
           </li>
         </a>
+        <a href="{{route('admin.profile')}}">
         <li class="{{ isActive('admin.profile') }}flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-circle-user icons"></i></div>
           <p class="ml-3">Perfil</p>
         </li>
+        </a>
         <li class="flex text-white py-1 items-center cursor-pointer mb-6">
           <form method="POST" action="{{route('logout')}}">
             <div class="ml-3"><i class="fa-solid fa-xmark-large"></i></div>

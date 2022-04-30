@@ -85,5 +85,7 @@ Route::get('/users/ajax/{user?}', [UserController::class, 'getUserByAjax'])->nam
 Route::put('/users', [UserController::class, 'update'])->name('admin.users.update');
 Route::delete('/users', [UserController::class, 'delete'])->name('admin.users.delete');
 
+// Profile
 
-
+Route::get('/profile', [UserController::class, 'profile'])->name('admin.profile');
+Route::patch('/profile/{user}', [UserController::class, 'updateProfile'])->name('admin.profile.update');

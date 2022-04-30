@@ -52,6 +52,23 @@ class UserController extends Controller
         return response()->json(User::where('id',$user)->with('roles')->first());
     }
 
+    public function profile(){
+        $user = auth()->user();
+        return view('admin.profile.profile', compact('user'));
+    }
+    public function updateProfile(User $user){
+        $data = request()->validate([
+            'name' => 'nullable',
+            'nickname' => 'nullable',
+            'email' => 'nullable',
+            'password' => 'sometimes|nullable|confirmed|min:6'
+        ]);
+
+        $user->update( array_filter($data) );
+        
+        return view('admin.profile.profile', compact('user'));
+    }
+
     public function delete(){
         User::destroy(request('user_id'));
         return redirect()->back();
