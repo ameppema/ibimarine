@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -10,6 +11,25 @@ class UserController extends Controller
         $users =  User::with('roles')->get();
         return view('admin.users.users', compact('users'));
     }
+
+
+    public function store(){
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'nickname' => 'nullable',
+            'status' => 'required',
+            'role' => 'required'
+        ]);
+        $user = new User;
+        $data['password'] = Hash::make($data['password']);
+        $user->create( array_filter($data) )->assignRole($data['role']);
+
+        return redirect()->back();
+    }
+
+
     public function update(){
         $data = request()->validate([
             'user_id' => 'required',
@@ -30,5 +50,10 @@ class UserController extends Controller
     }
     public function getUserByAjax($user){
         return response()->json(User::where('id',$user)->with('roles')->first());
+    }
+
+    public function delete(){
+        User::destroy(request('user_id'));
+        return redirect()->back();
     }
 }

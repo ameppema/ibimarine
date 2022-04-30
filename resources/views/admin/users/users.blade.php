@@ -6,6 +6,7 @@
     
 @include('admin.partials.errors')
 @include('admin.users.update-user-modal')
+@include('admin.users.create-user-modal')
 
 
     {{-- Content --}}
@@ -48,7 +49,7 @@
                 @foreach ($users as $user)
                 <tr class="bg-white border-b hover:bg-gray-50 ">
                   <th scope="row" class="px-6 py-4 whitespace-nowrap">
-                    1
+                    {{ $user->id }}
                   </th>
                   <td class=" py-4 px-6 ">
                     {{ $user->name }}
@@ -71,10 +72,13 @@
                   <td class="px-6 py-4">
                     <div class="flex items-center  gap-4 ">
                       <!-- Trigger/Open The Modal -->
-                      <button id="{{$user->id}}" data-open-modal="update-user-modal"><i
-                          class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                      <button class=""><i
-                          class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+                        <button id="{{$user->id}}" data-open-modal="update-user-modal"><i
+                            class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                        <form method="POST" action="{{route('admin.users.delete')}}"> @csrf @method('DELETE')
+                        <input type="hidden" name="user_id" value="{{$user->id}}">
+                        <button><i
+                            class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+                        </form>
                     </div>
                   </td>
   
@@ -87,8 +91,10 @@
             <form action="">
               <div class="flex justify-center mb-6 mt-14">
                 <button
-                  class="bg-[#037bff] border border-transparent text-white py-1 px-20 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 ">
-                  Agregar Nuevo Usuario
+                type="button"
+                    data-open-modal="create-user-modal"
+                    class="bg-[#037bff] border border-transparent text-white py-1 px-20 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 ">
+                    Agregar Nuevo Usuario
                 </button>
               </div>
             </form>
@@ -112,6 +118,9 @@
             getUserByAjax(userID);
         },
         closeOnClickOut: 'inner-modal'
+    })
+    ToggleModal('create-user-modal',{
+        closeOnClickOut: 'inner-create-modal',
     })
 
     function getUserByAjax(ID){
