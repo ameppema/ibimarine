@@ -133,6 +133,9 @@
             }
 
             UploadImageByAjax(ROUTE, formData, settings);
+
+            UploadImageForm.reset();
+            ToggleModal('upload-image-modal',{restart:true})
         });
 
         function UploadImageByAjax(url, params, settings){
@@ -158,7 +161,8 @@
             },
             onClose: function(trigger){
                 UploadImageForm.reset();
-            }
+            },
+            closeOnClickOut: 'inner-upload-image-modal'
         });
     </script>
 @endsection

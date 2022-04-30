@@ -10,7 +10,7 @@
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6] px-5">
         <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página Contacto</h2>
         <div class="border-[#3c4045] border bg-white mt-8 px-5 py-10 rounded-lg mb-5 flex flex-col items-center gap-y-5">
-          <img src="/storage/{{$contact->getCover()->image_src}}" alt="Contact Main Image " class="w-4/5 h-96 object-cover">
+          <img src="/storage/{{$contact->image}}" alt="Contact Main Image " class="w-4/5 h-96 object-cover">
           {{-- <img src="{{asset('/img/contact/contact_ibimarine.jpg')}}" alt="Contact Main Image " class="w-4/5 h-96 object-cover"> --}}
             <form action="{{route('admin.contact.update')}}" method="POST" enctype="multipart/form-data"> @csrf
                 <div class="w-full flex gap-5">

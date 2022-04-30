@@ -27,7 +27,6 @@ Route::post('/upload-file', [ImagesController::class, 'store'])->name('image.upl
 Route::get('/destroy-file/{image_id}', [ImagesController::class, 'destroy'])->name('image.destroy');
 Route::post('/change-file', [ImagesController::class, 'update'])->name('image.update');
 
-// Admin
 // Boat - Rent/Sale
 Route::get('/rent/new', [BoatController::class, 'addRent'])->name('admin.rent');
 Route::post('/rent/new', [BoatController::class, 'storeBoat'])->name('admin.rent.store');

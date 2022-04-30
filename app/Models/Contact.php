@@ -14,8 +14,4 @@ class Contact extends Model
 
     public $appends = ['description_en'];
 
-    public function getCover(){
-        return Image::getGallery($this->id)->first();
-    }
-
 }

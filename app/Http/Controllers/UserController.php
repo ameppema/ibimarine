@@ -48,6 +48,8 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+
     public function getUserByAjax($user){
         return response()->json(User::where('id',$user)->with('roles')->first());
     }
@@ -56,6 +58,8 @@ class UserController extends Controller
         $user = auth()->user();
         return view('admin.profile.profile', compact('user'));
     }
+
+
     public function updateProfile(User $user){
         $data = request()->validate([
             'name' => 'nullable',
@@ -68,6 +72,7 @@ class UserController extends Controller
         
         return view('admin.profile.profile', compact('user'));
     }
+    
 
     public function delete(){
         User::destroy(request('user_id'));

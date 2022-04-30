@@ -7,6 +7,7 @@ use App\Models\DailyReservationRecord;
 use App\Models\Reservations;
 use App\Repositories\Reservations as RepositoriesReservations;
 use Carbon\CarbonPeriod;
+use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
 {
@@ -24,9 +25,7 @@ class ReservationsController extends Controller
     {
         $boats  = Boat::getAllRentBoats(['name', 'id']);
 
-        // dd(datePeriodsOverlap('2022-04-02 - 2022-04-04', '2022-04-01 - 2022-04-05'));
-
-        if(true){
+        if(auth()->user()->can('admin.reservations.read.others')){
             $reservations = $reservationsReppo->getReservations();
         } else {
             $reservations = $reservationsReppo->getOwnReservations();
@@ -43,14 +42,8 @@ class ReservationsController extends Controller
 
     }
 
-    public function getByAjax(){
-        $reservations = Reservations::select('reservations.start_date','reservations.end_date',  'users.name as user', 'boats.name as boat_name')
-        ->whereBetween('start_date', [request('date_start'), request('date_end')])
-        ->orWhereBetween('end_date', [request('date_start'), request('date_end')])
-        ->join('users', 'reservations.made_by', 'users.id')
-        ->join('boats', 'reservations.boat_id', 'boats.id')
-        ->get();
-
+    public function getByAjax(RepositoriesReservations $reservationsReppo){
+        $reservations = $reservationsReppo->getReservationsAjax();
         return response()->json($reservations);
     }
 
@@ -94,22 +87,6 @@ class ReservationsController extends Controller
         }
         DailyReservationRecord::insert($dailyReservation);
         return redirect()->back(301)->with(['success' => '¡Reserva Creada!','message'=> 'Puedes comprobar que tu reserva ha sido creada en el calendario.']);;
-    }
-
-    public function show()
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reservations  $reservations
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Reservations $reservations)
-    {
-        //
     }
 
     /**

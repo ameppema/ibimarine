@@ -358,7 +358,7 @@
         UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
 
         UploadImageForm.reset();
-        ToggleModal('upload-image-modal', {reset:true});
+        ToggleModal('upload-image-modal', {restart:true});
         return;
     });
 

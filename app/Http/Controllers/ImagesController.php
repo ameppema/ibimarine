@@ -68,6 +68,6 @@ class ImagesController extends Controller
             $image->delete();
             redirect()->back()->with(['message' => 'Imagen eliminada']);
         }
-        return redirect()->back()->withErrors(['message' => 'Imagen eliminada']);
+        return redirect()->back()->withErrors(['message' => 'Imagen no se pudo eliminar']);
     }
 }
