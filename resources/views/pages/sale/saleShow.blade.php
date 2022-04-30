@@ -188,7 +188,7 @@
 
 
             <!-- Form -->
-            <div class="lg:ml-10 lg:w-80 w-4/5 mx-auto">
+            <div class="lg:w-80 w-4/5 mx-auto">
                 <form id="request_reservation_form" method="POST" action="{{ route('sale.show.reserve') }}" class="font-bold text-old-black">
                     @csrf
                     <input type="hidden" name="boat_id" value="{{$boat->id}}">
@@ -218,8 +218,8 @@
 
     </div>
 
+        @if ($boat->silimarBoats->count())
         <!-- Section similar boats -->
-
         <section class="lg:w-4/5 lg:mx-auto mt-5">
             <div class="w-2xl border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto">
                 <div>
@@ -255,6 +255,10 @@
                 </div>
             </div>
         </section>
+        @else
+        <div class="lg:w-4/5 lg:mx-auto mt-5 w-2xl border-b-4 border-b-old-gold py-2  lg:px-16 lg:mx-auto"></div>
+        @endif
+
 @endsection
 
 @section('footer')

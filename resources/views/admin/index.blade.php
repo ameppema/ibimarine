@@ -11,79 +11,105 @@
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-home icons_color-primary"></i></div>
           <p class="text-xl">Inicio</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fa-solid fa-bars icons icons_color-primary"></i></div>
           <p class="text-xl">Menu</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.menu')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fa-solid fa-truck-ramp-box icons_color-primary"></i></div>
           <p class="text-xl">Alquiler</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.rent')}}">
+              <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fa-solid fa-tags icons_color-primary"></i></div>
           <p class="text-xl">Venta</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.sale')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fa-solid fa-ship icons_color-primary"></i></div>
           <p class="text-xl">Toys</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.toys')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fa-solid fa-champagne-glasses icons_color-primary"></i></div>
           <p class="text-xl">Eventos</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.events')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-newspaper icons_color-primary"></i></div>
           <p class="text-xl">Noticias</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.news')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-envelope icons_color-primary"></i></div>
           <p class="text-xl">Contacto</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.contact')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-lock icons_color-primary"></i></div>
           <p class="text-xl">Área privada</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.calendar')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-address-book icons_color-primary"></i></div>
           <p class="text-xl">Usuarios</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.users')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-cog icons_color-primary"></i></div>
           <p class="text-xl">Roles</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.roles')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
           class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
           <div class=""> <i class="fas fa-tools icons_color-primary"></i></div>
           <p class="text-xl">Permisos</p>
-          <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          <a href="{{route('admin.permissions')}}">
+            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+          </a>
         </article>
         <article
             class="w-36 h-36 bg-white gap-3 rounded-md border-[#3c4045] border flex flex-col items-center justify-center">
             <div class=""> <i class="fa-solid fa-circle-user icons_color-primary"></i></div>
             <p class="text-xl">Perfil</p>
-            <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+            <a href="{{route('admin.profile')}}">
+              <button class="bg-[#3c4045] pb-1 px-3 text-white">Entrar</button>
+            </a>
         </article>
       </div>
     </section>

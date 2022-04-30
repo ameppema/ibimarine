@@ -7,7 +7,7 @@
         {{-- Overlay Body --}}
         <div class="w-[90%] lg:max-w-xl text-old-black">
 
-            <div class="mx-auto py-4 my-10 bg-white rounded">
+            <div id="inner-upload-image-modal" class="mx-auto py-4 my-10 bg-white rounded">
                 {{-- Head content --}}
                 <div class="my-2 pb-2 border-b-2">
                     <div class="px-5 flex justify-between">

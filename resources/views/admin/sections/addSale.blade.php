@@ -23,17 +23,22 @@
                 {{-- Name - Is recomended --}}
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
                   
-                  <div class="flex items-center w-4/5">
+                  <div class="flex items-center w-3/5">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
                       name="name" value="{{old('name')}}"
                       class="border-[#343a40] text-gray-700 appearance-none leading-tight font-bold border  w-full py-[6px] rounded-md  pl-2 outline-none "
                       placeholder="Nombre de la Embarcación">
                   </div>
-                  {{-- <div class="hidden flex items-center w-1/5 justify-end">
-                    <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input name="is_recomended" type="checkbox" class="w-8 border-red-500">
-                  </div> --}}
+                  <div class="flex items-center w-1/5 justify-end">
+                    <span class="text-[#343a40] font-bold mx-5">Marca</span>
+                    <select name="brand_id">
+                      <option value="null" disabled selected>-- Marca --</option>
+                      @foreach ($brands as $brand)
+                      <option value="{{$brand->id}}">{{$brand->name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
 
                 </div>
                 {{-- Addition Icons --}}
@@ -137,6 +142,8 @@
             }
 
             UploadImageByAjax(ROUTE, formData, settings);
+
+            getElementById('upload-image-modal').style.display = 'none';
         });
 
         function UploadImageByAjax(url, params, settings){
@@ -162,7 +169,8 @@
             },
             onClose: function(trigger){
                 UploadImageForm.reset();
-            }
+            },
+            closeOnClickOut: 'inner-upload-image-modal'
         });
     </script>
 @endsection

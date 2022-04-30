@@ -37,7 +37,7 @@
             </div>
     
             <div class="pb-10 mx-auto text-center">
-                <a class="btn-gold" onclick="history.back()"  href="#">{{__('Back to News & Lifestyle')}}</a>
+                <a class="btn-gold"  href="{{route('news')}}">{{__('Back to News & Lifestyle')}}</a>
             </div>  
         </div>
 @endsection

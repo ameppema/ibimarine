@@ -299,6 +299,8 @@
 
         UdateImageByAjax(ROUTE_UPDATE, formData, settings);
 
+        ToggleModal('upload-image-modal',{restart: true})
+
         return true;
     });
 
@@ -356,6 +358,7 @@
         UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
 
         UploadImageForm.reset();
+        ToggleModal('upload-image-modal', {reset:true});
         return;
     });
 

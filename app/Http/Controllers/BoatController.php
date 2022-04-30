@@ -94,7 +94,8 @@ class BoatController extends Controller
         $additions = Additions::all();
         $gallery = Image::getGallery($boat->id);
         $boat_description_en = Translator::getTranslate('boats','description',$boat->id)->translation ?? '';
-        return view('admin.sections.editSale', compact('boat', 'boats','additions', 'gallery', 'boat_description_en'));
+        $brands = DB::table('brands')->get(['name','id']);
+        return view('admin.sections.editSale', compact('boat', 'boats','additions', 'gallery', 'boat_description_en','brands'));
     }
 
     /**

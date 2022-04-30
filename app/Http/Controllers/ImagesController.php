@@ -64,7 +64,7 @@ class ImagesController extends Controller
 
         $image = Image::find($image_id);
         if($image){
-            Storage::delete('public', $image->image_src);
+            Image::erase($image->image_src);
             $image->delete();
             redirect()->back()->with(['message' => 'Imagen eliminada']);
         }

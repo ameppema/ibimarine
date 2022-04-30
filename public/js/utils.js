@@ -17,10 +17,12 @@ function ToggleModal(ModalName, Params = null){
     let onOpen = null;
     let onClose = null;
     let closeOnClickOut = null;
+    let restart = null;
     if(Params !== 'undefined' && Params !== null){
         onOpen = Params.hasOwnProperty('onOpen') ? Params.onOpen : null;
         onClose = Params.hasOwnProperty('onClose') ? Params.onClose : null;
         closeOnClickOut = Params.hasOwnProperty('closeOnClickOut') ? Params.closeOnClickOut : null;
+        restart = Params.hasOwnProperty('restart') ? true : null;
     }
     const OpenModal = document.querySelectorAll('[data-open-modal="'+ModalName+'"]');
     const CloseModal = document.querySelector('[data-close-modal="'+ModalName+'"]');
@@ -43,11 +45,13 @@ function ToggleModal(ModalName, Params = null){
         }
     });
 
-    const Close = function(){
+    function Close(){
         document.body.style.overflowY = 'scroll';
         Modal.style.display = 'none'
         Modal.style.overflowY = 'hidden';
     }
+
+    if(restart) Close();
 }
 
 /* Forms */

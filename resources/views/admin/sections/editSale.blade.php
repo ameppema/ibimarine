@@ -24,10 +24,10 @@
             <p class="text-[#343a40] text-xl font-bold mb-4">Editar Embarcación de VENTA</p>
             <form method="POST" action="{{route('admin.rent.update', $boat)}}" enctype="multipart/form-data">
                 @csrf
-                {{-- Name - Is recomended --}}
+                {{-- Name - Brand --}}
                 <div class="p-5 flex flex-wrap border-[#3c4045] border justify-between mb-10">
                   
-                  <div class="flex items-center w-4/5">
+                  <div class="flex items-center w-3/5">
                     <span class="text-[#343a40] font-bold mx-5">Nombre</span>
                     <input type="text"
                       name="name"
@@ -35,6 +35,15 @@
                       placeholder="Nombre de la Embarcación"
                       value="{{ $boat->name }}"
                       >
+                  </div>
+                  <div class="flex items-center w-1/5 justify-end">
+                    <span class="text-[#343a40] font-bold mx-5">Marca</span>
+                    <select name="brand_id">
+                      <option value="null" disabled selected>-- Marca --</option>
+                      @foreach ($brands as $brand)
+                      <option value="{{$brand->id}}">{{$brand->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
 
                 </div>
@@ -269,7 +278,8 @@
     },
     onClose: function(){
       UpdateImageForm.reset();
-    }
+    },
+    closeOnClickOut: 'inner-update-image-modal'
   });
 
   UpdateImageForm.addEventListener('submit', function(e){
@@ -326,7 +336,8 @@
         },
         onClose: function(trigger){
             UploadImageForm.reset();
-        }
+        },
+        closeOnClickOut: 'inner-upload-image-modal'
     });
     
     UploadImageForm.addEventListener('submit', function(e){
@@ -349,6 +360,10 @@
         }
 
         UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
+
+        ToggleModal('upload-image-modal',{restart:true})
+
+        UploadImageForm.reset();
 
         return;
     });
