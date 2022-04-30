@@ -16,7 +16,7 @@ class boatSeeder extends Seeder
     public function run()
     {
         Boat::create([
-            'id' => 99,
+            'id' => 1,
             'name'=> 'Otro',
             'slug'=> 'otro',
             'description'=> '',
@@ -37,7 +37,7 @@ class boatSeeder extends Seeder
             'year'=> '',
             'port'=> '',
             'model'=> '',
-            'boat_id'=> 99,
+            'boat_id'=> 1,
         ]);
     }
 }

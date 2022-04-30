@@ -53,7 +53,7 @@ class menuSeeder extends Seeder
             ],
             [
                 'name'=>'Area Privada',
-                'route'=>'privarea',
+                'route'=>'admin',
                 'sort_order'=>8,
             ]
         ]);

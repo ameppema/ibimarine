@@ -16,7 +16,8 @@ class contactSeeder extends Seeder
     public function run()
     {
         $contactPage = Contact::create([
-            'description'=>'Cras venenatis porta ligula sed suscipit. Ut in vehicula ex. Vivamus fermentum nunc mi. \n  Cras venenatis porta ligula sed suscipit. Ut in vehicula ex. Vivamus fermentum nunc mi, ac condimentum magna porttitor faucibus. Ut in vehicula ex. Vivamus fermentum nunc'
+            'description'=>'Cras venenatis porta ligula sed suscipit. Ut in vehicula ex. Vivamus fermentum nunc mi. \n  Cras venenatis porta ligula sed suscipit. Ut in vehicula ex. Vivamus fermentum nunc mi, ac condimentum magna porttitor faucibus. Ut in vehicula ex. Vivamus fermentum nunc',
+            'image'=>'none',
         ]);
 
         DB::table('translations')->insert(

@@ -17,9 +17,6 @@ class ContactController extends Controller
         $contact->descripttion = $request->description;
         $contact->updateDescriptionTranslate($request->description_en);
 
-
-        Image::UpdateImage($request, ['image_id'=> $contact->getCover()->id]);
-
         return redirect()->back();
     }
 }
