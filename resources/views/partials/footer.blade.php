@@ -3,10 +3,16 @@
         <p>{{__('All rights reserved')}}</p>
     </div>
     <div>
-        <p class="inline">{{__('Terms and Conditions')}}</p> <span class="hidden lg:inline">&nbsp;&nbsp</span>  <span class="lg:hidden">-</span>  <p class="inline">{{__('Privacy Policy')}}</p>
+        <p class="inline"><a href="{{route('legal.terms')}}">{{__('Terms and Conditions')}}</a></p>
+        <span class="hidden lg:inline">&nbsp;&nbsp</span>
+        <span class="lg:hidden">-</span>  
+        <p class="inline"><a href="{{route('legal.privacy')}}">{{__('Privacy Policy')}}</a></p>
     </div>
     <div>
-        <p class="inline">{{__('Cookies policy')}}</p> <span class="hidden lg:inline">&nbsp;&nbsp</span> <span class="lg:hidden">-</span> <p class="inline">{{__('Data Protection')}}</p>
+        <p class="inline"><a href="{{route('legal.cookies')}}">{{__('Cookies policy')}}</a></p>
+        <span class="hidden lg:inline">&nbsp;&nbsp</span>
+        <span class="lg:hidden">-</span>
+        <p class="inline"><a href="{{route('legal.dataprotection')}}">{{__('Data Protection')}}</a></p>
     </div>
     <div class="lg:-order-1">
         <p> <b>IBIMARINE &copy;</b> </p>
