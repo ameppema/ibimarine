@@ -78,7 +78,7 @@ Route::get('/news/show/{news}', function (News $news) {
 })->name('news.show');
 
 Route::get('/contact', function () {
-    $contact = Contact::first(['id','description']);
+    $contact = Contact::first(['id','description','image']);
     return view('pages.contact', compact('contact'));
 })->name('contact');
 

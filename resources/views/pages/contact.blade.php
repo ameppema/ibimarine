@@ -19,7 +19,7 @@
             <!-- Card Head -->
             <div class="relative lg:h-56 xl:h-96">
 
-                    <img class="mx-auto w-full object-cover rounded-t-[12px] max-h-[200px] xl:max-h-full overflow-y-hidden"  src="/storage/{{$contact->getCover()->image_src}}" alt="{{$contact->getCover()->image_alt}}">
+                    <img class="mx-auto w-full object-cover rounded-t-[12px] max-h-[200px] xl:max-h-full overflow-y-hidden"  src="/storage/{{$contact->image}}" alt="Contact Ibimarine">
             </div>
             <!-- Card body -->
             <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black">
