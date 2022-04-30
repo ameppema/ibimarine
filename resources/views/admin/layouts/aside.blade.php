@@ -14,75 +14,82 @@
         </a>
 
         <a href="{{route('admin.menu')}}">
-        <li class="{{ isRoute('admin.menu') ? 'bg-[#037bff]' : ''}}  flex text-white py-1 items-center cursor-pointer mb-6">
-          <div class="ml-3"> <i class="fa-solid fa-bars icons"></i></div>
+        <li class="{{ isActive('admin.menu') ? 'bg-[#037bff]' : ''}}  flex text-white py-1 items-center cursor-pointer mb-6">
+          <div class="ml-3"><i class="fa-solid fa-bars icons"></i></div>
           <p class="ml-3">Menu</p>
         </li>
         </a>
 
+        <a href="{{route('admin.brands')}}">
+        <li class="{{ isActive('admin.brands') ? 'bg-[#037bff]' : ''}}  flex text-white py-1 items-center cursor-pointer mb-6">
+          <div class="ml-3"><i class="fa-solid fa-flag"></i></div>
+          <p class="ml-3">Marcas</p>
+        </li>
+        </a>
+
         <a href="{{route('admin.rent')}}">
-          <li class="{{ isRoute('admin.rent') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isActive('admin.rent')  ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fa-solid fa-truck-ramp-box icons"></i></div>
             <p class="ml-3">Alquiler</p>
           </li>
         </a>
 
         <a href="{{route('admin.sale')}}">
-          <li class="{{ isRoute('admin/sale/*') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isActive('admin.sale')  ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fa-solid fa-tags icons"></i></div>
             <p class="ml-3">Venta</p>
           </li>
         </a>  
         <a href="{{route('admin.toys')}}">
-        <li class="{{ isActive('admin.toys') }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.toys')  ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-ship icons"></i></div>
           <p class="ml-3">Toys</p>
         </li>
         </a>
         <a href="{{route('admin.events')}}">
-        <li class="{{ isActive('admin.events') }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.events')  ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-champagne-glasses icons"></i></div>
           <p class="ml-3">Eventos</p>
         </li>
         </a>
         <a href="{{route('admin.news')}}">
-        <li class="{{ isActive('admin.news') }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.news') ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fas fa-newspaper icons"></i></div>
           <p class="ml-3">Noticias</p>
         </li>
         </a>
         <a href="{{route('admin.contact')}}">
-        <li class="{{ isActive('admin.contact') }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.contact') ? 'bg-[#037bff]' : ''}} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fas fa-envelope icons"></i></div>
           <p class="ml-3">Contacto</p>
         </li>
         </a>
         <a href="{{route('admin.calendar')}}">
-        <li class="{{ isActive('admin.privarea') }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.privarea') ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fas fa-lock icons"></i></div>
             <p class="ml-3">Área privada</p>
           </li>
         </a>
         <a href="{{route('admin.users')}}">
-        <li class="{{ isRoute('admin.users') }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.users') ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fas fa-address-book icons"></i></div>
             <p class="ml-3">Usuarios</p>
         </li>
         </a>
         <a href="{{route('admin.roles')}}">
-          <li class="{{ isRoute('admin.roles') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isRoute('admin.roles') ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fas fa-cog icons"></i></div>
             <p class="ml-3">Roles</p>
           </li>
         </a>
         <a href="{{route('admin.permissions')}}">
-          <li class="{{ isActive('admin.permissions') }} flex text-white py-1 items-center cursor-pointer mb-6">
+          <li class="{{ isActive('admin.permissions') ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
             <div class="ml-3"><i class="fas fa-tools icons"></i></div>
             <p class="ml-3">Permisos</p>
           </li>
         </a>
         <a href="{{route('admin.profile')}}">
-        <li class="{{ isActive('admin.profile') }}flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ isActive('admin.profile') ? 'bg-[#037bff]' : '' }}flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-circle-user icons"></i></div>
           <p class="ml-3">Perfil</p>
         </li>

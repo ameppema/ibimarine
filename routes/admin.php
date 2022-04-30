@@ -6,6 +6,7 @@ DB::listen( function($query){
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoatController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RolesController;
@@ -89,3 +90,11 @@ Route::delete('/users', [UserController::class, 'delete'])->name('admin.users.de
 
 Route::get('/profile', [UserController::class, 'profile'])->name('admin.profile');
 Route::patch('/profile/{user}', [UserController::class, 'updateProfile'])->name('admin.profile.update');
+
+// Brand
+
+Route::get('/brands', [BrandController::class, 'index'])->name('admin.brands');
+Route::post('/brands', [BrandController::class, 'store'])->name('admin.brands.store');
+Route::get('/brands/{id?}', [BrandController::class, 'getByAjax'])->name('admin.brands.getByAjax');
+Route::put('/brands', [BrandController::class, 'update'])->name('admin.brands.update');
+Route::delete('/brand/{brand}', [BrandController::class, 'delete'])->name('admin.brands.delete');
