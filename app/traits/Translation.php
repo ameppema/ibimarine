@@ -69,4 +69,11 @@ trait Translation
 			}
 	}
 	
+	public function deleteTranslations($lang = 'en'){
+		return DB::table('translations')
+		->where('table', $this->table)
+		->where('locale', $lang)
+		->where('row_id', $this->id)
+		->delete();
+	}
 }

@@ -105,4 +105,8 @@ class Image extends Model
             return Image::upload($request, $options);
         }
     }
+
+    public static function erase($image_path, $disk = 'public/'){
+        return Storage::delete($disk . $image_path);
+    }
 }

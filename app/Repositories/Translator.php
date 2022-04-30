@@ -34,4 +34,12 @@ class Translator {
                         ->where('locale',$locale)
                         ->first(['translation']);
     }
+    public static function deleteTranslations($table,$column,$row_id,$locale = 'en'){
+        return DB::table('translations')
+                        ->where('table', $table)
+                        ->where('column',$column)
+                        ->where('row_id',$row_id)
+                        ->where('locale',$locale)
+                        ->delete();
+    }
 }

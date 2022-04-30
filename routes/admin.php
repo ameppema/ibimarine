@@ -7,6 +7,7 @@ DB::listen( function($query){
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoatController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MenuController;
@@ -58,6 +59,14 @@ Route::post('/toys', [ToyController::class, 'store'])->name('admin.toys.store');
 Route::get('/toys/{toy}/edit', [ToyController::class, 'edit'])->name('admin.toys.edit');
 Route::put('/toys/{toy}', [ToyController::class, 'update'])->name('admin.toys.update');
 Route::delete('/toys/{toy}', [ToyController::class, 'delete'])->name('admin.toys.delete');
+
+// Toys
+
+Route::get('/events', [EventController::class, 'index'])->name('admin.events');
+Route::post('/events', [EventController::class, 'store'])->name('admin.events.store');
+Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('admin.events.edit');
+Route::put('/events/{event}', [EventController::class, 'update'])->name('admin.events.update');
+Route::delete('/events/{event}', [EventController::class, 'delete'])->name('admin.events.delete');
 
 // Users
 
