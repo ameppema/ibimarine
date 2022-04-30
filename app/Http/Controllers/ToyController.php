@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
 use App\Models\Toy;
+use App\Models\Image;
 use App\Repositories\Translator;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\SaveToyRequest;
 
 class ToyController extends Controller
 {
@@ -18,15 +17,9 @@ class ToyController extends Controller
         return view('admin.toys.editToy', compact('toy'));
     }
 
-    public function store(){
+    public function store(SaveToyRequest $request){
 
-        $data = request()->validate([
-            'title'=> 'required',
-            'title_en'=> 'required',
-            'description'=> 'required',
-            'description_en'=> 'required',
-            'image'=> 'required|image'
-        ]);
+        $data = $request->validated();
 
         $Toy = new Toy;
         $Toy->title = $data['title'];
@@ -42,23 +35,17 @@ class ToyController extends Controller
         return request();
     }
 
-    public function update(Toy $toy){
+    public function update(SaveToyRequest $request,Toy $toy){
 
-        $data = request()->validate([
-            'title'=> 'required',
-            'title_en'=> 'required',
-            'description'=> 'required',
-            'description_en'=> 'required',
-            'image'=> 'image'
-        ]);
+        $data = $request->validated();
 
-        $toy->title = $data['title'];
+        $toy->update( array_filter($data) );
+        
         $toy->updateTitleTranslate($data['title_en']);
-        $toy->description = $data['description'];
         $toy->updateDescriptionTranslate($data['description_en']);
 
         if(isset($data['image'])){
-            Storage::delete('public/', $toy->image);
+            Image::erase($toy->image);
             $toy->image = Image::store(request(),'toys');
         }
         $toy->save();
@@ -66,7 +53,8 @@ class ToyController extends Controller
     }
 
     public function delete(Toy $toy){
-        Storage::delete('public/' . $toy->image);
+        Image::erase($toy->image);
+        $toy->deleteTranslations();
         $toy->delete();
         return redirect()->back();
     }

@@ -41,7 +41,7 @@
           </li>
         </a>  
         <a href="{{route('admin.toys')}}">
-        <li class="{{ isActive('admin.toys')  ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
+        <li class="{{ (isActive('admin.toys') || isActive('admin.toys.*')) ? 'bg-[#037bff]' : '' }} flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-ship icons"></i></div>
           <p class="ml-3">Toys</p>
         </li>

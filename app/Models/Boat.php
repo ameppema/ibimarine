@@ -23,10 +23,10 @@ class Boat extends Model
     ];
 
     public static function getRentBoats($columns = ['*']){
-        return Boat::where('sale_price', '=', NULL)->get($columns)->except(99);
+        return Boat::where('sale_price', '=', NULL)->get($columns)->reverse()->except(1);
     }
     public static function getAllRentBoats($columns = ['*']){
-        return Boat::where('sale_price', '=', NULL)->get($columns);
+        return Boat::where('sale_price', '=', NULL)->get($columns)->reverse();
     }
     
     public static function getSaleBoats($columns = ['*']){

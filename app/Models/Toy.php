@@ -11,4 +11,6 @@ class Toy extends Model
     use HasFactory, ToyTranslator;
 
     public $appends = ['title_en','description_en'];
+
+    public $fillable = ['title', 'description'];
 }
