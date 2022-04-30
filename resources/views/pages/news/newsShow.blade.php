@@ -20,22 +20,15 @@
                 <!-- Card Head -->
                 <div class="relative lg:h-56 xl:h-96">
     
-                    <div class="rounded-t-lg max-h-[200px] xl:max-h-full overflow-y-hidden">
-                        <img class="rounded-t-[12px] mx-auto"  src="{{asset('/img/news/news-01.jpeg')}}" alt="">
+                    <div>
+                        <img class="w-full rounded-t-lg max-h-[200px] xl:max-h-96 overflow-y-hidden mx-auto object-cover"  src="/storage/{{$news->image}}" alt="News By Ibimarine">
                     </div>
                 </div>
                 <!-- Card body -->
                 <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black lg:leading-4">
                     <div>
                         <p class="text-sm xl:text-xl">
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi.
-                            <br>
-                            <br>
-                            Cras venenatis porta ligula sed suscipit.
-                            Ut in vehicula ex. Vivamus fermentum nunc mi,
-                            ac condimentum magna porttitor faucibus.
-                            Ut in vehicula ex. Vivamus fermentum nunc 
+                            {{$news->description}}
                         </p>
                     </div>
                 </div>

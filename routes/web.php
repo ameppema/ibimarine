@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Contact;
 use App\Models\Event;
+use App\Models\News;
 use App\Models\Toy;
 
 Route::get('/locale/{locale}', function($locale = 'es'){
@@ -68,11 +69,12 @@ Route::get('/events', function () {
 })->name('events');
 
 Route::get('/news', function () {
-    return view('pages.news.newsIndex');
+    $news = News::all(['id', 'description', 'image']);
+    return view('pages.news.newsIndex', compact('news'));
 })->name('news');
 
-Route::get('/news/show', function () {
-    return view('pages.news.newsShow');
+Route::get('/news/show/{news}', function (News $news) {
+    return view('pages.news.newsShow', compact('news'));
 })->name('news.show');
 
 Route::get('/contact', function () {

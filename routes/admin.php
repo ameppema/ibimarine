@@ -11,6 +11,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ToyController;
 use App\Http\Controllers\UserController;
@@ -60,13 +61,21 @@ Route::get('/toys/{toy}/edit', [ToyController::class, 'edit'])->name('admin.toys
 Route::put('/toys/{toy}', [ToyController::class, 'update'])->name('admin.toys.update');
 Route::delete('/toys/{toy}', [ToyController::class, 'delete'])->name('admin.toys.delete');
 
-// Toys
+// Events
 
 Route::get('/events', [EventController::class, 'index'])->name('admin.events');
 Route::post('/events', [EventController::class, 'store'])->name('admin.events.store');
 Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('admin.events.edit');
 Route::put('/events/{event}', [EventController::class, 'update'])->name('admin.events.update');
 Route::delete('/events/{event}', [EventController::class, 'delete'])->name('admin.events.delete');
+
+// News
+
+Route::get('/news', [NewsController::class, 'index'])->name('admin.news');
+Route::post('/news', [NewsController::class, 'store'])->name('admin.news.store');
+Route::get('/news/{news}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
+Route::put('/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
+Route::delete('/news/{news}', [NewsController::class, 'delete'])->name('admin.news.delete');
 
 // Users
 
