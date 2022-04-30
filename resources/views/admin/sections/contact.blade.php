@@ -11,7 +11,6 @@
         <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página Contacto</h2>
         <div class="border-[#3c4045] border bg-white mt-8 px-5 py-10 rounded-lg mb-5 flex flex-col items-center gap-y-5">
           <img src="/storage/{{$contact->image}}" alt="Contact Main Image " class="w-4/5 h-96 object-cover">
-          {{-- <img src="{{asset('/img/contact/contact_ibimarine.jpg')}}" alt="Contact Main Image " class="w-4/5 h-96 object-cover"> --}}
             <form action="{{route('admin.contact.update')}}" method="POST" enctype="multipart/form-data"> @csrf
                 <div class="w-full flex gap-5">
                     <div>
@@ -36,7 +35,7 @@
                     <input class="w-1/2 hidden" type="text" name="gallery_id" id="gallery_id" value="{{$contact->id}}"> 
                     <input class="w-1/2 hidden" type="text" name="gallery_type" id="gallery_type" value="cover"> 
 
-                    <button class="w-1/3 btn-off" type="button" onclick="document.getElementById('image').click()"><i class="fa-solid fa-upload mr-1"></i>Subir imagen</button>
+                    <button class="w-1/3 btn-off my-4" type="button" onclick="document.getElementById('image').click()"><i class="fa-solid fa-upload mr-1"></i>Subir imagen</button>
                 </div>
                 <div class="text-center">
                     <button

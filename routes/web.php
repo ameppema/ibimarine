@@ -82,6 +82,17 @@ Route::get('/contact', function () {
     return view('pages.contact', compact('contact'));
 })->name('contact');
 
+
+// Legal
+
+Route::view('terms-and-conditions','legal.termsandconditions')->name('legal.terms');
+
+Route::view('privacy-policy','legal.privacy')->name('legal.privacy');
+
+Route::view('data-protection','legal.dataprotection')->name('legal.dataprotection');
+
+Route::view('cookies-policy','legal.cookies')->name('legal.cookies');
+
 });
 
 
@@ -90,6 +101,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
 
 // Reservations
 Route::middleware(['auth','lang'])->group( function(){
