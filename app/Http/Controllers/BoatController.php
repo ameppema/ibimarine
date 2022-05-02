@@ -70,7 +70,7 @@ class BoatController extends Controller
 
         $boat->features()->save($features);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'En hora buena! Embarcacion agregada exitosamente!');
     }
 
     /**
@@ -149,7 +149,8 @@ class BoatController extends Controller
         $boat->push();
         $boat->additions()->sync($additions);
 
-        return redirect()->back(302);
+        return redirect()->back()->with('success', 'En hora buena! Embarcacion actuzalia
+        zada exitosamente!');
     }
 
     /**

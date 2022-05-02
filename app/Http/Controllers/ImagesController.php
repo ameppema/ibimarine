@@ -9,17 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,6 +26,10 @@ class ImagesController extends Controller
         ];
 
         $image = Image::upload($request, $options);
+
+        if(!$image){
+            return response(['message'=> 'Error', 'data' => request()]);
+        }
 
         return response(['message'=> 'success', 'data' => $image],201);
     }
@@ -66,7 +59,7 @@ class ImagesController extends Controller
         if($image){
             Image::erase($image->image_src);
             $image->delete();
-            redirect()->back()->with(['message' => 'Imagen eliminada']);
+            redirect()->back()->with(['success' => 'Imagen eliminada']);
         }
         return redirect()->back()->withErrors(['message' => 'Imagen no se pudo eliminar']);
     }

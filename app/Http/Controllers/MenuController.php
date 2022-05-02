@@ -21,13 +21,16 @@ class MenuController extends Controller
         $menuUpdates = request()->validate([
             'name'=>'required',
             'name_en'=>'required'
+        ],[
+            'name_en.required'=>'El campo Link es obligatorio',
+            'name.required'=>'El campo Enlace es obligatorio'
         ]);
 
         $menu->name = $menuUpdates['name'];
         $menu->save();
         $menu->updateNameTranslate(request('name_en'));
 
-        return back();
+        return back()->with('success','Actualizado correctamente!');
     }
 
     public function delete($id){

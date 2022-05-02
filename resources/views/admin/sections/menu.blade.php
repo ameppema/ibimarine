@@ -4,7 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 
 {{-- Update Menu Modal --}}
 @include('admin.partials.update-menu-modal')

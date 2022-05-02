@@ -7,7 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Main Style -->
   <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+  <!-- Font awesome -->
   <script src="https://kit.fontawesome.com/5d3ac5fca1.js" crossorigin="anonymous"></script>
+  <!-- Sweet Alert -->
+  <script src="/vendor/sweetalert2.js"></script>
   <style>
     html {
       font-family: Arial, Helvetica, sans-serif;

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Image;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -18,7 +16,11 @@ class BrandController extends Controller
         $data = request()->validate([
             'name'=> 'required',
             'slug'=> 'required',
-            'image'=> 'required'
+            'image'=> 'required',
+        ], [
+            'name.required'=>'Nombre obligatorio',
+            'slug.required'=>'Slug obligatorio',
+            'image.required'=>'Imagen requerida'
         ]);
 
         $Brand = new Brand($data);
@@ -26,7 +28,7 @@ class BrandController extends Controller
         $Brand->image = Image::store(request(), 'brands');
 
         if($Brand->save()){
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Agregado correctamente!');
         }
         return request();
     }
@@ -47,7 +49,7 @@ class BrandController extends Controller
             $brand->image = Image::store(request(), 'brands');
             $brand->save();
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Agregado correctamente!');
     }
 
     public function getByAjax($id){  

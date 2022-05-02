@@ -1,7 +1,5 @@
 @if ($errors->any())
 
-    @foreach ($errors->all() as $error)
-        @dump($error)
-    @endforeach
+{{ implode('', $errors->all('<div>:message</div>')) }}
     
 @endif

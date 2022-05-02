@@ -51,10 +51,18 @@ class SaveBoatRequest extends FormRequest
     }
 
     protected function prepareForValidation()
+    {
+        $this->merge([
+            'is_recomended' => ($this->is_recomended  ? 1 : 0),
+            'description' => ($this->description ?? ''),
+        ]);
+    }
+
+    public function messages()
 {
-    $this->merge([
-        'is_recomended' => ($this->is_recomended  ? 1 : 0),
-        'description' => ($this->description ?? ''),
-    ]);
+    return [
+        'name.required' => 'El campo Nombre es obligatorio',
+        'brand_id.required' => 'El campo Marca es obligatorio',
+    ];
 }
 }

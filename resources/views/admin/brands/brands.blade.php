@@ -1,10 +1,10 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Manage Roles')
+@section('title', 'Marcas')
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 
 {{-- Update Menu Modal --}}
 @include('admin.brands.edit-brand-modal')
@@ -12,7 +12,7 @@
 
     {{-- Content --}}
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6] px-5">
-        <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página de Menú</h2>
+        <h2 class="text-[#3c4045] font-bold text-3xl mt-5 ">Página de Marcas</h2>
         {{-- Form To Create New Menu Item --}}
         <form method="POST" action="{{route('admin.brands.store')}}" enctype="multipart/form-data"> @csrf
           <div

@@ -4,13 +4,8 @@
 
 @section('content')
     
-@include('admin.partials.errors')
 
-@if (session()->has('message'))
-
-  <h1>{{session()->get('message')}}</h1>
-    
-@endif
+@include('partials.alert')
 
 @include('admin.partials.upload-image')
 @include('admin.partials.update-image')
@@ -47,7 +42,7 @@
                   </div>
                   <div class="flex items-center w-1/5 justify-end">
                     <span class="text-[#343a40] font-bold mx-5">Recomendada</span>
-                    <input value="$boat->is_recomended" {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox" class="w-8">
+                    <input value="$boat->is_recomended" {{ $boat->is_recomended === 1 ? 'checked' :'' }} name="is_recomended" type="checkbox">
                   </div>
 
                 </div>
@@ -260,142 +255,143 @@
 @endsection
 @section('js')
 
-<script src="{{asset('vendor/axios.min.js')}}"></script>
+<script src="{{asset('/vendor/axios.min.js')}}"></script>
 <script src="{{asset('/js/utils.js')}}"></script>
 <!-- Update Image -->
 <script>const ROUTE_UPDATE = "{{route('image.update')}}";</script>
 <script>
-  const GALLERY_ID = "{{ $boat->id }}";
-  const UpdateImageForm = document.getElementById('update_image_form');
+const GALLERY_ID = "{{ $boat->id }}";
+const UpdateImageForm = document.getElementById('update_image_form');
 
-  ToggleModal('update-image-modal', {
-    onOpen: function(trigger){
-        document.getElementById('image_id').value = trigger.id.split('_')[1];
-    },
-    onClose: function(){
-      UpdateImageForm.reset();
-    }
+ToggleModal('update-image-modal', {
+  onOpen: function(trigger){
+      document.getElementById('image_id').value = trigger.id.split('_')[1];
+  },
+  onClose: function(){
+    UpdateImageForm.reset();
+  },
+  closeOnClickOut: 'inner-update-image-modal'
+});
+
+UpdateImageForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      console.log('Se dispara actualizar imagen')
+      const imgSrc = document.getElementById("update_image_src").files[0];
+      const formData = new FormData();
+
+      formData.append('image', imgSrc, imgSrc.name)
+      formData.append('image_alt', document.getElementById('update_image_alt').value);
+      formData.append('belongs_to', document.getElementById('update_belongs_to').value);
+      formData.append('gallery_type', document.getElementById('update_gallery_type').value);
+      formData.append('gallery_id', GALLERY_ID);
+      formData.append('sort_order', document.getElementById('update_sort_order').value);
+
+      const settings = { 
+          headers: { 
+              'content-type': 'multipart/form-data', 
+              'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+          } 
+      }
+
+      UdateImageByAjax(ROUTE_UPDATE, formData, settings);
+
+      ToggleModal('upload-image-modal',{restart: true})
+
+      return true;
   });
 
-  UpdateImageForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        console.log('Se dispara actualizar imagen')
-        const imgSrc = document.getElementById("update_image_src").files[0];
-        const formData = new FormData();
-
-        formData.append('image', imgSrc, imgSrc.name)
-        formData.append('image_alt', document.getElementById('update_image_alt').value);
-        formData.append('belongs_to', document.getElementById('update_belongs_to').value);
-        formData.append('gallery_type', document.getElementById('update_gallery_type').value);
-        formData.append('gallery_id', GALLERY_ID);
-        formData.append('sort_order', document.getElementById('update_sort_order').value);
-
-        const settings = { 
-            headers: { 
-                'content-type': 'multipart/form-data', 
-                'X-CSRF-TOKEN' : '{{ csrf_token() }}'
-            } 
-        }
-
-        UdateImageByAjax(ROUTE_UPDATE, formData, settings);
-
-        ToggleModal('upload-image-modal',{restart: true})
-
-        return true;
-    });
-
-    function UdateImageByAjax(url, params, settings){
-        axios.post(url, params, settings)
-        .then(function(response){
-          console.log('Update Image response;')
-            console.log(response);
-        })
-        .catch(function(error){
-            alert('Error al intentar subir su imagen');
-            console.log(error);
-        });
-        return;
-    }
-
+  function UdateImageByAjax(url, params, settings){
+      axios.post(url, params, settings)
+      .then(function(response){
+        console.log('Update Image response;')
+          console.log(response);
+      })
+      .catch(function(error){
+          alert('Error al intentar subir su imagen');
+          console.log(error);
+      });
+      return;
+  }
 </script>
-
 <!-- Upload Image -->
 <script>const ROUTE_UPLOAD = "{{route('image.upload')}}";</script>
 <script>
-    const uniqueToken = {{ $boat->id }};
-    const UploadImageForm = document.getElementById('upload_image_form');
-    let TriggerUploadImageId = '';
+const uniqueToken = "{{ $boat->id }}";
+const UploadImageForm = document.getElementById('upload_image_form');
+let TriggerUploadImageId = '';
 
-    ToggleModal('upload-image-modal', {
-        onOpen: function(trigger){
-          TriggerUploadImageId = trigger.id;
-            document.getElementById('sort_order').value = trigger.id.split('_')[1];
-        },
-        onClose: function(trigger){
-            UploadImageForm.reset();
-        }
-    });
-    
-    UploadImageForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        const imgSrc = document.getElementById("image_src").files[0];
-        const formData = new FormData();
-        console.log('Se dispara cargar Image')
-        formData.append('image', imgSrc, imgSrc.name)
-        formData.append('image_alt', document.getElementById('image_alt').value);
-        formData.append('belongs_to', document.getElementById('belongs_to').value);
-        formData.append('gallery_type', document.getElementById('gallery_type').value);
-        formData.append('gallery_id', uniqueToken);
-        formData.append('sort_order', document.getElementById('sort_order').value);
-
-        const settings = { 
-            headers: { 
-                'content-type': 'multipart/form-data', 
-                'X-CSRF-TOKEN' : '{{ csrf_token() }}'
-            } 
-        }
-
-        UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
-
+ToggleModal('upload-image-modal', {
+    onOpen: function(trigger){
+      TriggerUploadImageId = trigger.id;
+        document.getElementById('sort_order').value = trigger.id.split('_')[1];
+    },
+    onClose: function(trigger){
         UploadImageForm.reset();
-        ToggleModal('upload-image-modal', {restart:true});
-        return;
+    },
+    closeOnClickOut:'inner-upload-image-modal'
+});
+
+UploadImageForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const imgSrc = document.getElementById("image_src").files[0];
+    const formData = new FormData();
+    console.log('Se dispara cargar Image')
+    formData.append('image', imgSrc, imgSrc.name)
+    formData.append('image_alt', document.getElementById('image_alt').value);
+    formData.append('belongs_to', document.getElementById('belongs_to').value);
+    formData.append('gallery_type', document.getElementById('gallery_type').value);
+    formData.append('gallery_id', uniqueToken);
+    formData.append('sort_order', document.getElementById('sort_order').value);
+
+    const settings = { 
+        headers: { 
+            'content-type': 'multipart/form-data', 
+            'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+        } 
+    }
+
+    UploadImageByAjax(ROUTE_UPLOAD, formData, settings);
+
+    UploadImageForm.reset();
+    ToggleModal('upload-image-modal', {restart:true});
+    return;
+});
+
+function UploadImageByAjax(url, params, settings){
+
+    axios.post(url, params, settings)
+    .then(function(response){
+
+        console.log(response);
+
+        const imageCard = makeImageCard(response.data.data);
+        const newImageNode = document.createElement('ARTICLE');
+
+        newImageNode.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'gap-y-2');
+        newImageNode.innerHTML = imageCard;
+        const uploadCard = document.getElementById('UploadNewImageCard');
+        document.getElementById('gallery_container').insertBefore(newImageNode, uploadCard);
+
+    })
+    .catch(function(error){
+        alert('Error al intentar subir su imagen');
+        console.log(error);
     });
 
-    function UploadImageByAjax(url, params, settings){
+    return;
+}
 
-        axios.post(url, params, settings)
-        .then(function(response){
-
-            console.log(response);
-
-            const imageCard = makeImageCard(response.data.data);
-            const newImageNode = document.createElement('ARTICLE');
-
-            newImageNode.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'gap-y-2');
-            newImageNode.innerHTML = imageCard;
-            const uploadCard = document.getElementById('UploadNewImageCard');
-            document.getElementById('gallery_container').insertBefore(newImageNode, uploadCard);
-
-        })
-        .catch(function(error){
-            alert('Error al intentar subir su imagen');
-            console.log(error);
-        });
-
-        return;
-    }
-
-    function makeImageCard({image_src, image_alt, id,sort_order}){
-                return `
-                  <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
-                  <div class="flex items-center justify-center gap-2 ">
-                    <p class="text-[#343a40] font-bold ">#${sort_order}</p>
-                    <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                    <button class=""><i
-                        class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                  </div>
-                `
-    }
+function makeImageCard({image_src, image_alt, id,sort_order}){
+            return `
+              <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
+              <div class="flex items-center justify-center gap-2 ">
+                <p class="text-[#343a40] font-bold ">#${sort_order}</p>
+                <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                <a href="/admin/destroy-file/${id}">
+                <button><i
+                    class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+              </div>
+            `
+}
 </script>
 @endsection

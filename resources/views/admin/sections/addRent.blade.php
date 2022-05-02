@@ -4,7 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 @include('admin.partials.upload-image')
 
     {{-- Content --}}
@@ -142,13 +142,15 @@
             axios.post(url, params, settings)
             .then(function(response){
                 console.log(response);
-                const imageEl = document.createElement('IMG');
-                const imageSlot = document.getElementById('sort_order');
-                imageEl.setAttribute('src', '/storage/'+response.data.data.image_src);
-                imageEl.classList.add('w-36', 'h-24', 'object-cover')
-                document.getElementById('image_'+imageSlot.value+'_slot').appendChild(imageEl);
-                document.getElementsByName('image_'+imageSlot.value)[0].value = response.data.data.id;
-            })
+
+                const imageCard = makeImageCard(response.data.data);
+                const newImageNode = document.createElement('ARTICLE');
+
+                newImageNode.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'gap-y-2');
+                newImageNode.innerHTML = imageCard;
+                const uploadCard = document.getElementById('UploadNewImageCard');
+                document.getElementById('gallery_container').insertBefore(newImageNode, uploadCard);
+              })
             .catch(function(error){
                 alert('Error al intentar subir su imagen');
                 console.log(error);
@@ -164,5 +166,18 @@
             },
             closeOnClickOut: 'inner-upload-image-modal'
         });
+
+        function makeImageCard({image_src, image_alt, id,sort_order}){
+            return `
+              <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
+              <div class="flex items-center justify-center gap-2 ">
+                <p class="text-[#343a40] font-bold ">#${sort_order}</p>
+                <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
+                <a href="/admin/destroy-file/${id}">
+                <button><i
+                    class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
+              </div>
+            `
+}
     </script>
 @endsection
