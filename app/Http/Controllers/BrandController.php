@@ -15,7 +15,7 @@ class BrandController extends Controller
     public function store(){
         $data = request()->validate([
             'name'=> 'required',
-            'slug'=> 'required',
+            'slug'=> 'required|unique:App\Models\Brand',
             'image'=> 'required',
         ], [
             'name.required'=>'Nombre obligatorio',
@@ -36,19 +36,19 @@ class BrandController extends Controller
     public function update(){
         $data = request()->validate([
             'brand_id'=> 'required',
-            'name'=> 'nullable',
-            'slug'=> 'nullable',
-            'image'=> 'nullable'
+            'name'=> 'required',
+            'slug'=> 'required',
+            'image'=>'nullable|image'
         ]);
 
-        $brand = Brand::findOrFail($data['brand_id']);
-        $brand->update( array_filter($data) );
-        
+        $brand = Brand::findOrFail($data['brand_id']);        
+        $brand->update( request()->only('name','slug') );
+
         if(isset($data['image'])){
             Image::erase($brand->image);
             $brand->image = Image::store(request(), 'brands');
-            $brand->save();
         }
+        $brand->save();
         return redirect()->back()->with('success', 'Agregado correctamente!');
     }
 
@@ -57,10 +57,8 @@ class BrandController extends Controller
     }
 
     public function delete(Brand $brand){
-        if(Image::erase($brand->image)){
-            $brand->delete();
-            return redirect()->back();
-        }
-        return request();
+        Image::erase($brand->image);
+        $brand->delete();
+        return redirect()->back()->with('success', '¡Operación Exitosa!');;
     }
 }

@@ -22,20 +22,22 @@
               <input type="text"
                 name="name" id="name"
                 class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                value="{{old('name')}}"
                 placeholder="New Brand">
             </div>
             <div class="">
               <span class="text-[#343a40] font-bold mx-3">Slug de la Marca</span>
               <input type="text"
                 name="slug" id="slug"
+                value="{{old('slug')}}"
                 class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
                 placeholder="new-brand">
             </div>
             <div class="">
               <span class="text-[#343a40] font-bold mx-3">Imagen de la marca</span>
               <div>
-                <input type="file" name="image" id="image" hidden>
-                <button class="w-1/3 btn-off" type="button" onclick="document.getElementById('image').click()"><i class="fa-solid fa-upload mr-1"></i>Subir imagen</button>
+                <input type="file" name="image" id="image_new" hidden>
+                <button class="w-1/3 btn-off" type="button" onclick="document.getElementById('image_new').click()"><i class="fa-solid fa-upload mr-1"></i>Subir imagen</button>
               </div>
             </div>
 
