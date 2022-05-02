@@ -4,7 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 @include('admin.partials.upload-image')
 
     {{-- Content --}}
@@ -150,12 +150,22 @@
             axios.post(url, params, settings)
             .then(function(response){
                 console.log(response);
-                const imageEl = document.createElement('IMG');
-                const imageSlot = document.getElementById('sort_order');
-                imageEl.setAttribute('src', '/storage/'+response.data.data.image_src);
-                imageEl.classList.add('w-36', 'h-24', 'object-cover')
-                document.getElementById('image_'+imageSlot.value+'_slot').appendChild(imageEl);
-                document.getElementsByName('image_'+imageSlot.value)[0].value = response.data.data.id;
+
+                
+            const imageCard = makeImageCard(response.data.data);
+            const newImageNode = document.createElement('ARTICLE');
+
+            newImageNode.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'gap-y-2');
+            newImageNode.innerHTML = imageCard;
+            const uploadCard = document.getElementById('UploadNewImageCard');
+            document.getElementById('gallery_container').insertBefore(newImageNode, uploadCard);
+
+                // const imageEl = document.createElement('IMG');
+                // const imageSlot = document.getElementById('sort_order');
+                // imageEl.setAttribute('src', '/storage/'+response.data.data.image_src);
+                // imageEl.classList.add('w-36', 'h-24', 'object-cover')
+                // document.getElementById('image_'+imageSlot.value+'_slot').appendChild(imageEl);
+                // document.getElementsByName('image_'+imageSlot.value)[0].value = response.data.data.id;
             })
             .catch(function(error){
                 alert('Error al intentar subir su imagen');

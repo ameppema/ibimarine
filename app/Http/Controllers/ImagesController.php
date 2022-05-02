@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
@@ -44,23 +42,5 @@ class ImagesController extends Controller
     public function update()
     {
         return response(request());
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($image_id)
-    {
-
-        $image = Image::find($image_id);
-        if($image){
-            Image::erase($image->image_src);
-            $image->delete();
-            redirect()->back()->with(['success' => 'Imagen eliminada']);
-        }
-        return redirect()->back()->withErrors(['message' => 'Imagen no se pudo eliminar']);
     }
 }

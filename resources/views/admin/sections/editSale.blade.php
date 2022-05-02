@@ -4,13 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
-
-@if (session()->has('message'))
-
-  <h1>{{session()->get('message')}}</h1>
-    
-@endif
+@include('partials.alert')
 
 @include('admin.partials.upload-image')
 @include('admin.partials.update-image')
@@ -41,7 +35,7 @@
                     <select name="brand_id">
                       <option value="null" disabled selected>-- Marca --</option>
                       @foreach ($brands as $brand)
-                      <option value="{{$brand->id}}">{{$brand->name}}</option>
+                      <option value="{{$brand->id}}"  {{ $boat->brand_id === $brand->id ? 'selected' : ''}}>{{$brand->name}}</option>
                       @endforeach
                     </select>
                   </div>
@@ -392,16 +386,5 @@
         return;
     }
 
-    function makeImageCard({image_src, image_alt, id,sort_order}){
-                return `
-                  <img src="/storage/${image_src}" alt="${image_alt}" class="w-36 h-24 object-cover">
-                  <div class="flex items-center justify-center gap-2 ">
-                    <p class="text-[#343a40] font-bold ">#${sort_order}</p>
-                    <button id="image_${id}" type="button" data-open-modal="upload-image-modal"><i class="fa-solid fa-pencil text-white bg-green-600 p-2 text-base rounded-md"></i></button>
-                    <button class=""><i
-                        class="fa-solid fa-xmark text-white bg-red-600 text-2xl rounded-md py-1 px-2"></i></button>
-                  </div>
-                `
-    }
 </script>
 @endsection

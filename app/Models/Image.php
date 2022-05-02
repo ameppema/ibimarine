@@ -109,4 +109,10 @@ class Image extends Model
     public static function erase($image_path, $disk = 'public/'){
         return Storage::delete($disk . $image_path);
     }
+
+    public static function eraseGallery($files, $disk = 'public/'){
+        foreach($files as $file){
+            Image::erase($file);
+        }
+    }
 }

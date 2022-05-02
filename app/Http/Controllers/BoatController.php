@@ -161,6 +161,7 @@ class BoatController extends Controller
      */
     public function destroy(Boat $boat)
     {
+        Image::eraseGallery(Image::getGallery($boat->id)->pluck('image_src'));
         $boat->delete();
         return redirect()->back()->with('success', '¡Operación Exitosa!');
     }
