@@ -47,7 +47,7 @@ class NewsController extends Controller
         $news->updateDescriptionTranslate($data['description_en']);
     
         if(isset($data['image'])){
-            Storage::delete('public/', $news->image);
+            Image::erase($news->image);
             $news->image = Image::store(request(),'news');
         }
         $news->save();

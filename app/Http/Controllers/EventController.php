@@ -47,7 +47,7 @@ class EventController extends Controller
         $event->updateDescriptionTranslate($data['description_en']);
     
         if(isset($data['image'])){
-            Storage::delete('public/', $event->image);
+            Image::erase($event->image);
             $event->image = Image::store(request(),'events');
         }
         $event->save();

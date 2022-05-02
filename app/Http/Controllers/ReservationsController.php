@@ -24,8 +24,7 @@ class ReservationsController extends Controller
     public function create(RepositoriesReservations $reservationsReppo)
     {
         $boats  = Boat::getAllRentBoats(['name', 'id']);
-
-        if(auth()->user()->can('admin.reservations.read.others')){
+        if(auth()->user()->can('admin.reservation.read.other')){
             $reservations = $reservationsReppo->getReservations();
         } else {
             $reservations = $reservationsReppo->getOwnReservations();
@@ -35,8 +34,8 @@ class ReservationsController extends Controller
         $date_start = request('date_start');
         $ref        = request('reffer') ?? 'saveBtn';
 
-        $reservedBoats = $reservationsReppo->getReservations()->pluck('boat_id')->intersect($boats->pluck('name'));
-        $reservedBoats = $reservedBoats->contains('Otro') ? $reservedBoats->filter(function($value){return $value != 99;}) : $reservedBoats;
+        $reservedBoats = $reservationsReppo->getReservations()->pluck('boat_id')->intersect($boats->pluck('id'));
+        $reservedBoats = $reservedBoats->contains(1) ? $reservedBoats->filter(function($value){return $value != 1;}) : $reservedBoats;
 
         return view('admin.reservation.reservations', compact('date_start','date_end', 'reservations', 'ref', 'boats', 'reservedBoats'));
 
