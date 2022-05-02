@@ -30,9 +30,9 @@ class ToyController extends Controller
         if($Toy->save()){
             Translator::translate('toys', 'title', $Toy->id, $data['title_en']);
             Translator::translate('toys', 'description', $Toy->id, $data['description_en']);
-            return redirect()->back();
+            return redirect()->back()->with('success', '¡Operación Exitosa!');
         }
-        return request();
+        return redirect()->back()->withErrors('message', 'Ha ocurrido un problema!');;
     }
 
     public function update(SaveToyRequest $request,Toy $toy){
@@ -49,13 +49,13 @@ class ToyController extends Controller
             $toy->image = Image::store(request(),'toys');
         }
         $toy->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', '¡Operación Exitosa!');
     }
 
     public function delete(Toy $toy){
         Image::erase($toy->image);
         $toy->deleteTranslations();
         $toy->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', '¡Operación Exitosa!');;
     }
 }

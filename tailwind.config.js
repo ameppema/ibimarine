@@ -18,10 +18,7 @@ module.exports = {
                 8: '8',
                 9: '9',
                 12: '12',
-              },
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+              }
         },
     },
 

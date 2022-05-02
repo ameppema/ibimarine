@@ -30,9 +30,9 @@ class EventController extends Controller
 
         if($Event->save()){
             Translator::translate('events', 'description', $Event->id, $data['description_en']);
-            return redirect()->back();
+            return redirect()->back()->with('success', '¡Operación Exitosa!');
         }
-        return request();
+        return redirect()->back()->withErrors('message', '¡Ha ocurrido un error!');
     }
 
     public function update(Event $event){
@@ -51,13 +51,13 @@ class EventController extends Controller
             $event->image = Image::store(request(),'events');
         }
         $event->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', '¡Operación Exitosa!');;
     }
 
     public function delete(Event $event){
         Image::erase($event->image);
         $event->delete();
         $event->deleteTranslations();
-        return redirect()->back();
+        return redirect()->back()->with('success', '¡Operación Exitosa!');
     }
 }

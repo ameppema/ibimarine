@@ -4,7 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 
     {{-- Cotent --}}
     <section class="border block lg:w-[86%] w-3/4 bg-[#E6E6E6] px-5">

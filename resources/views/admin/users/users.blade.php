@@ -4,7 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 @include('admin.users.update-user-modal')
 @include('admin.users.create-user-modal')
 

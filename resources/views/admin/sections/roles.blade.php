@@ -4,7 +4,7 @@
 
 @section('content')
     
-@include('admin.partials.errors')
+@include('partials.alert')
 
 
     {{-- Content --}}
@@ -58,14 +58,14 @@
                 <tr class="bg-white border-b hover:bg-gray-50 ">
 
                   <th class="px-6 py-4 font-normal">
-                      <p class="text-old-gold" style="text-transform: capitalize">{{ $role->name }}</p>
+                      <p class="capitalize">{{ $role->name }}</p>
                   </th>
                   @foreach ($permissions as $permission)
                       
                   <td class=" py-4 px-6 ">
                       <div class="flex items-center ">
                           <input name="{{ $role->id }}" id="{{$permission->id}}" value="{{$permission->name}}" type="checkbox" @roleCan($role->name, $permission->name) checked @endroleCan
-                          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                           <label for="checkbox-table-2" class="sr-only">checkbox</label>
                         </div>
                     </td>
@@ -75,7 +75,7 @@
                     <td class=" py-4 px-6 ">
                       <div class="flex items-center ">
                           <input name="{{ $role->id }}" id="all" value="{{$permission->name}}" type="checkbox" @roleCan($role->name, $permission->name) checked @endroleCan
-                          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                           <label for="checkbox-table-2" class="sr-only">checkbox</label>
                         </div>
                     </td>

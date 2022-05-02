@@ -26,7 +26,7 @@ class UserController extends Controller
         $data['password'] = Hash::make($data['password']);
         $user->create( array_filter($data) )->assignRole($data['role']);
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Usuario registrado!');
     }
 
 
@@ -46,7 +46,7 @@ class UserController extends Controller
             $user->assignRole($data['role']);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Usuario actualizado!');;
     }
 
 
@@ -70,12 +70,13 @@ class UserController extends Controller
 
         $user->update( array_filter($data) );
         
+        return redirect()->route('admin.profile')->with('success', '¡Actualziación Exitosa!');
         return view('admin.profile.profile', compact('user'));
     }
     
 
     public function delete(){
         User::destroy(request('user_id'));
-        return redirect()->back();
+        return redirect()->back()->with('success','Usuario Eliminado!');;
     }
 }
