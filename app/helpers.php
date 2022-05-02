@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Brand;
 use App\Models\Menu;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -152,6 +153,10 @@ function feature_display_name($name){
 
 // General WEBSITE
 
-function menuItems(){
+function TheMenu(){
     return Menu::all();
+}
+
+function TheBrands(){
+    return Brand::all(['name','image','slug']);
 }

@@ -1,7 +1,7 @@
 <div class="hidden lg:block lg:w-11/12 xl:w-full lg:mx-auto">
     <div class="lg:w-11/12 xl:w-4/5 mx-auto mt-8">
         <ul class="flex justify-around items-center text-old-black ">
-            @foreach (menuItems() as $item)
+            @foreach (TheMenu() as $item)
                 <li class="{{ (request()->routeIs($item->route) || request()->routeIs($item->route . '.*')) ? 'active-link' : ''}} lg:py-0 xl:py-1 lg:px-3"><a class="uppercase text-sm " href="{{ route($item->route)}}"> {{$item->name}} </a></li>
             @endforeach
             @if (auth()->user())  

@@ -162,6 +162,6 @@ class BoatController extends Controller
     public function destroy(Boat $boat)
     {
         $boat->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', '¡Operación Exitosa!');
     }
 }

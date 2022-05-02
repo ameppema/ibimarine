@@ -43,7 +43,7 @@
     </section>
 
     <section>
-        @foreach (menuItems() as $item)
+        @foreach (TheMenu() as $item)
             @if ($loop->last)
                 @break
             @endif
@@ -60,7 +60,7 @@
     <section class="mb-4">
         <div class="border-y-2 border-old-gold w-4/5 mx-auto flex justify-center gap-4 columns-2 text-white py-2">
             <div>
-                <p class="font-bold text-2xl"> <a href="{{ route(menuItems()->last()->route) }}">{{menuItems()->last()->name}}</a> </p>
+                <p class="font-bold text-2xl"> <a href="{{ route(TheMenu()->last()->route) }}">{{TheMenu()->last()->name}}</a> </p>
             </div>
         </div>
     </section>
