@@ -53,6 +53,10 @@ const customeYearCalendar = new UICustomeFullCalendar({
             seeDatesBtn.classList.add('btn-off');
     },
     onChangeMonth: function(calendar){
+        console.log(UCalendar.getDayString());
+        const Today = calendar.querySelector('[data-day-id="'+UCalendar.getDayString()+'"]')
+        Today.style.color = '#aaa173';
+        Today.style.border = '1px solid #aaa173';
         const {month, year} = UCalendar.stringToDateYM(calendar.getAttribute('data-date-id'));
         let date_start = UCalendar.getMonthCalendarInfo(year , month );
         axios.get(ROUTE, {

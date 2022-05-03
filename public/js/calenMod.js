@@ -47,6 +47,10 @@ const UCalendar = new (function(){
         };
     };
 
+    this.getDayString = function(){
+        return `${this.Now().Year}-${this.toValidDateNumber(this.Now().Month + 1)}-${this.toValidDateNumber(this.Now().Day)}`;
+    }
+
     this.weekDays = this.DaysOfTheWeekSlots.map((dayIndex) => // This Speceific day starts on Monday
                         LocaleForWeeks.format(new Date(2022, 7, dayIndex + 1))
                     );
@@ -294,9 +298,9 @@ const UICalendar = function({startsOn, monthName, numberDaysInMonth, monthId, ye
 
     this.firstDayAttributes = `class='first-day month-day' style='--first-day-start: ${startsOn}'`;
     
-    this.HtmlMonthDays = [...Array(numberDaysInMonth).keys()].map((dayIndex) =>
-    `<li ${dayIndex === 0 ? this.firstDayAttributes : 'class="month-day"'} data-day-id="${monthId}-${UCalendar.toValidDateNumber(dayIndex + 1)}">${dayIndex + 1}</li>\n`
-    );
+    // this.HtmlMonthDays = [...Array(numberDaysInMonth).keys()].map((dayIndex) =>
+    // `<li ${dayIndex === 0 ? this.firstDayAttributes : 'class="month-day"'} data-day-id="${monthId}-${UCalendar.toValidDateNumber(dayIndex + 1)}">${dayIndex + 1}</li>\n`
+    // );
 
     this.HtmlMonthDays = [...Array(numberDaysInMonth).keys()].map((dayIndex) =>
     `<li ${dayIndex === 0 ? this.firstDayAttributes : 'class="month-day"'} data-day-id="${monthId}-${UCalendar.toValidDateNumber(dayIndex + 1)}">${dayIndex + 1}</li>\n`
