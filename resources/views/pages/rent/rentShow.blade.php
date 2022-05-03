@@ -281,7 +281,7 @@
                                 <div class="h-[100px] overflow-y-hidden">
                                     <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">
                                 </div>
-                                <p class="text-center uppercase mt-2">{{$similar_boat->boat->name}}</p>
+                                <p class="text-center uppercase mt-2 text-xs">{{$similar_boat->boat->name}}</p>
                             </div>
                             </a>
                             @endforeach

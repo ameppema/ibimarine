@@ -164,7 +164,7 @@
 
                     <!-- Submit -->
                     <div class="my-4 text-center">
-                        <input class="btn" type="submit" value="Guardar">
+                        <input class="btn" type="submit" value="Guardar" id="send_reservation" onclick="sendOnce(this)">
                         <button type="button" class="btn-off" id="cancel-reservation-btn">Cancelar</button>
                     </div>
 
@@ -299,6 +299,12 @@
 
 {{-- Edit Rerservation modal --}}
 <script>
+function sendOnce(button){
+    button.disabled = true;
+
+    button.form.submit();
+}
+
 const modalEdit = document.getElementById('reservation_edit_modal');
 function getElementById(ID){
     return document.getElementById(ID);
