@@ -6,6 +6,8 @@
 
         <title>Ibimarine - @yield('title')</title>
 
+        <script src="/vendor/sweetalert2.js"></script>
+
 {{-- Load Fonts Globally Developer --}}
 <style>
 /* Fonts */
@@ -87,6 +89,9 @@ html {
     @yield('js')
 
     @yield('css')
+
+    
+    @include('partials.cookiesModal')
 
     <!-- Show Menu -->
     <script>
