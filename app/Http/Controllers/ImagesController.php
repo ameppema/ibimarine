@@ -43,4 +43,16 @@ class ImagesController extends Controller
     {
         return response(request());
     }
+
+    public function destroy($image_id)
+    {
+
+        $image = Image::find($image_id);
+        if($image){
+            Image::erase($image->image_src);
+            $image->delete();
+            redirect()->back()->with(['success' => 'Imagen eliminada']);
+        }
+        return redirect()->back()->withErrors(['message' => 'Imagen no se pudo eliminar']);
+    }
 }
