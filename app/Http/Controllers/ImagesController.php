@@ -44,7 +44,7 @@ class ImagesController extends Controller
         return response(request());
     }
 
-	public function destroy($image_id)
+    public function destroy($image_id)
     {
         $image = Image::find($image_id);
         if($image){
