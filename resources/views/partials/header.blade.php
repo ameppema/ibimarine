@@ -16,9 +16,12 @@
         <div>
             <p class="font-bold text-old-black uppercase">{{__('Ibiza Oficial Agent')}}</p>
         </div>
+
         <div class="columns-3xs flex justify-center items-center gap-3 mt-1 mb-1 ">
             @foreach (TheBrands() as $brand)
-            <a href="#" ><img class="w-14" src="/storage/{{$brand->image}}" alt="{{$brand->slug}}"></a>
+            	<a href="#">
+					<img class="w-14" src="/img/brands/{{$brand->image}}" alt="{{$brand->slug}}" style="width: 100px;">
+				</a>
             @endforeach
         </div>
     </div>

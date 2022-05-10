@@ -34,6 +34,7 @@
                     <div>
                         <img src="{{asset('img/lang_en.png')}}" alt=""> 
                     </div>
+
                     <div>
                         <span class="text-2xl font-bold ml-2">EN</span>
                     </div>

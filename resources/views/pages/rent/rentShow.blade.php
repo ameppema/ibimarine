@@ -94,7 +94,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($boat->getGallery() as $image)
                         <div class="swiper-slide">
-                            <img class="md:w-full lg:w-[1007px] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
+                            <img class="md:w-full lg:w-[100%] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
                         </div>
                         @endforeach
                     </div>
@@ -278,7 +278,7 @@
                             @foreach ($boat->silimarBoats as $similar_boat)
                             <a href="{{route('rent.show', ['boat_id'=>$similar_boat->boat->id])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
                             <div>
-                                <div class="h-[100px] overflow-y-hidden">
+                                <div class="h-[100px] overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
                                     <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">
                                 </div>
                                 <p class="text-center uppercase mt-2 text-xs">{{$similar_boat->boat->name}}</p>

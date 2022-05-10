@@ -7,7 +7,7 @@
     <section class="my-5">
         <div class="border-y-8 border-old-gold">
             <div class="h-48 overflow-hidden lg:h-[32rem]">
-                <img class="w-full object-cover lg:object-center"src="img/home/home-06.jpg" alt="Hero Image">
+                <img class="w-full object-cover lg:object-center" style="height:100%;" src="/img/home/head_banner.jpg" alt="Hero Image">
             </div>
         </div>
     </section>
@@ -34,9 +34,7 @@
                 Ut in vehicula ex. Vivamus fermentum nunc mi,
                 ac condimentum magna porttitor faucibus.
                 Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubila curae;
-                sed non lorem at felis tincidunt lacinia nec
-                id leo fermentum quam gravida ut.
+                orci luctus et ultrices posuere cubila curae.
             </p>
         </div>
     </div>
@@ -54,13 +52,11 @@
         </div>
         <div class="p-4 text-center text-old-black">
             <p class="hidden lg:inline text-sm lg:text-lg lg:leading-6 text-center">
-                Cras venenatis porta ligula sed suscipit.
-                Ut in vehicula ex. Vivamus fermentum nunc mi,
-                ac condimentum magna porttitor faucibus.
-                Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubila curae;
-                sed non lorem at felis tincidunt lacinia nec
-                id leo fermentum quam gravida ut.
+                Nulla at lectus at odio vulputate pellentesque
+				in sed ipsum. Phasellus ut ligula ac sapien sodales
+				tincidunt. Cras diam felis, hendrerit sit amet quam vel,
+				scelerisque dapibus libero, donec at lacus rhoncus,
+				dignissim urna at.
             </p>
         </div>
     </div>
@@ -78,13 +74,10 @@
         </div>
         <div class="p-4 text-center text-old-black">
             <p class="hidden lg:inline text-sm lg:text-lg lg:leading-6 text-center">
-                Cras venenatis porta ligula sed suscipit.
-                Ut in vehicula ex. Vivamus fermentum nunc mi,
-                ac condimentum magna porttitor faucibus.
-                Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubila curae;
-                sed non lorem at felis tincidunt lacinia nec
-                id leo fermentum quam gravida ut.
+                Proin at laoreet nulla, quis facilisis sem. Donec ut sodales
+				turpis, a ultricies orci. Aliquam lacinia sem urna,
+				eget mattis dui iaculis vel. Fusce feugiat neque arcu,
+				non elementum odio vehicula ac.
             </p>
         </div>
     </div>
@@ -106,9 +99,7 @@
                 Ut in vehicula ex. Vivamus fermentum nunc mi,
                 ac condimentum magna porttitor faucibus.
                 Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubila curae;
-                sed non lorem at felis tincidunt lacinia nec
-                id leo fermentum quam gravida ut.
+                orci luctus et ultrices posuere cubila curae.
             </p>
         </div>
     </div>
@@ -126,13 +117,11 @@
         </div>
         <div class="p-4 text-center text-old-black">
             <p class="hidden lg:inline text-sm lg:text-lg lg:leading-6 text-center">
-                Cras venenatis porta ligula sed suscipit.
-                Ut in vehicula ex. Vivamus fermentum nunc mi,
-                ac condimentum magna porttitor faucibus.
-                Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubila curae;
-                sed non lorem at felis tincidunt lacinia nec
-                id leo fermentum quam gravida ut.
+                Nulla at lectus at odio vulputate pellentesque
+				in sed ipsum. Phasellus ut ligula ac sapien sodales
+				tincidunt. Cras diam felis, hendrerit sit amet quam vel,
+				scelerisque dapibus libero, donec at lacus rhoncus,
+				dignissim urna at.
             </p>
         </div>
     </div>
@@ -150,13 +139,10 @@
         </div>
         <div class="p-4 text-center text-old-black">
             <p class="hidden lg:inline text-sm lg:text-lg lg:leading-6 text-center">
-                Cras venenatis porta ligula sed suscipit.
-                Ut in vehicula ex. Vivamus fermentum nunc mi,
-                ac condimentum magna porttitor faucibus.
-                Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubila curae;
-                sed non lorem at felis tincidunt lacinia nec
-                id leo fermentum quam gravida ut.
+                Proin at laoreet nulla, quis facilisis sem. Donec ut sodales
+				turpis, a ultricies orci. Aliquam lacinia sem urna,
+				eget mattis dui iaculis vel. Fusce feugiat neque arcu,
+				non elementum odio vehicula ac.
             </p>
         </div>
     </div>
