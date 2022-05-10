@@ -29,17 +29,6 @@
                 </form>
             </article>
             @endforeach
- 
-            {{-- Not Used --}}
-            {{-- <article class="flex flex-col items-center justify-center gap-y-2">
-              <p class="text-sm">Sin Título</p>
-              <img src="assets/images/rent/rent-04.jpeg" alt="" class="w-28 h-24 object-cover">
-              <div class="flex items-center justify-center gap-2 ">
-                <button><i class="fa-solid fa-upload text-white bg-[#b2b2b2] p-2 rounded-md"></i></i></button>
-                <button class=""><i
-                    class="fa-solid fa-xmark text-white bg-[#b2b2b2] text-2xl rounded-md py-1 px-2"></i></button>
-              </div>
-            </article> --}}
   
           </div>
         </div>

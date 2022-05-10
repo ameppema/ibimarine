@@ -18,7 +18,7 @@ public function getDescriptionEnAttribute($value){
 }
 
 public function updateDescriptionTranslate($value = ''){
-    Translator::updateTranslate('contact', 'description',$this->id, $value, 'en');
+    Translator::updateTranslate('toys', 'description',$this->id, $value, 'en');
 }
 public function getTitleAttribute($value){
         return $this->translate('title', $value);
