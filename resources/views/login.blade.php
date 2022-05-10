@@ -10,7 +10,7 @@
 <body style="background-color: RGB(17, 24, 39);">
 
     <div class="mt-28 flex max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
-        <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image:url('/img/events/events-01.jpg')"></div>
+        <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image:url('/img/others/login.jpg')"></div>
         
         <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
             <a href="/">

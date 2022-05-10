@@ -46,7 +46,6 @@ class ImagesController extends Controller
 
     public function destroy($image_id)
     {
-
         $image = Image::find($image_id);
         if($image){
             Image::erase($image->image_src);

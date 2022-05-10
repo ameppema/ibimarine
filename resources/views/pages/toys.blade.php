@@ -17,11 +17,11 @@
 
     <!-- Cards -->
     @foreach ($toys as $toy)        
-    <div class="w-4/5 mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem] sm:max-w-[300px] lg:max-w-[23rem]">
+    <div class="w-4/5 my-6 md:max-w-[340px] xl:max-w-[30rem] sm:max-w-[300px] lg:max-w-[23rem]">
         <!-- Card Head -->
         <div class="relative lg:h-56 xl:h-72">
 
-            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
+            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
                 <img class="rounded-t-[12px]"  src="/storage/{{$toy->image}}" alt="{{$toy->title}}">
             </div>
             <div class="absolute bottom-0 md:-bottom-9  lg:-bottom-4 h-8 md:h-12 md:bg-opacity-0 bg-old-gold w-full text-center">

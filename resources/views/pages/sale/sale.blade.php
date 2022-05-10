@@ -13,7 +13,7 @@
 
 @section('content')
     
-<div class="container md:mx-auto md:flex md:flex-wrap md:columns-2 md:justify-center lg:justify-between md:gap-0 lg:gap-6 xl:gap-x-10 md:w-11/12 xl:w-4/5 lg:border-b-4 lg:border-b-old-gold">
+<div class="container md:mx-auto md:flex md:flex-wrap md:columns-2 md:justify-center md:gap-0 lg:gap-6 xl:gap-x-10 md:w-11/12 xl:w-4/5 lg:border-b-4 lg:border-b-old-gold">
 
     <!-- Cards -->
     @foreach ($boats as $boat)

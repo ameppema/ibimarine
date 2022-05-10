@@ -82,7 +82,7 @@
 
     </div>
 
-    <div class="container">
+    <div class="container" style="margin: 0 auto;">
 
         <!-- Section Slides -->
         <div>
@@ -94,7 +94,7 @@
 
                         @foreach ($boat->getGallery() as $image)
                         <div class="swiper-slide">
-                            <img class="md:w-full lg:w-[1007px] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
+                            <img class="md:w-full lg:w-[100%] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
                         </div>
                         @endforeach
 

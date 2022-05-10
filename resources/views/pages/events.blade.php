@@ -45,7 +45,7 @@
             <!-- Card body -->
             <div class="p-4 lg:py-8 lg:px-10 @if($loop->first) lg:px-32 @endif  text-center lg:text-justify text-old-black">
                 <div>
-                    <p class="text-sm xl:text-xl">
+                    <p class="text-sm xl:text-xl" style="text-align: center;">
                         {{$event->description}}
                     </p>
                 </div>
