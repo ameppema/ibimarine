@@ -28,7 +28,7 @@
 
             <!-- Card Right side -->
             <div class="w-1/2 lg:w-2/5 h-44 lg:h-auto p-4 text-center border-2 border-old-gold">
-                <div class="line-clamp-5 lg:line-clamp-8 text-md lg:text-xl leading-5 lg:align-middle">
+                <div class="line-clamp-5 lg:line-clamp-8 text-sm lg:text-xl leading-5 lg:align-middle">
                     {{$new->description}}
                 </div>
                 <div class="mt-4 ">

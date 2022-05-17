@@ -27,7 +27,7 @@
                 <!-- Card body -->
                 <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black lg:leading-4">
                     <div>
-                        <p class="text-sm xl:text-xl">
+                        <p class="text-sm lg:text-xl">
                             {{$news->description}}
                         </p>
                     </div>

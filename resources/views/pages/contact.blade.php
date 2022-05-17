@@ -24,7 +24,7 @@
             <!-- Card body -->
             <div class="p-4 lg:py-6 lg:px-32 text-center text-old-black">
                 <div>
-                    <p class="text-sm xl:text-xl">
+                    <p class="text-sm lg:text-xl">
                         {{$contact->description}}
                     </p>
                 </div>

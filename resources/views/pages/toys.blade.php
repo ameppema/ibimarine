@@ -25,7 +25,7 @@
                 <img class="rounded-t-[12px]"  src="/storage/{{$toy->image}}" alt="{{$toy->title}}">
             </div>
             <div class="absolute bottom-0 md:-bottom-9  lg:-bottom-4 h-8 md:h-12 md:bg-opacity-0 bg-old-gold w-full text-center">
-                <p class="text-white md:text-old-black leading-8 md:leading-[3rem] text-lg xl:text-2xl uppercase md:font-bold">{{$toy->title}}</p>
+                <p class="text-white md:text-old-black leading-8 md:leading-[3rem] text-lg lg:text-2xl uppercase md:font-bold">{{$toy->title}}</p>
             </div>
         </div>
         <!-- Card body -->
