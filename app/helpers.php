@@ -157,6 +157,6 @@ function TheMenu(){
     return Menu::all();
 }
 
-function TheBrands(){
-    return Brand::all(['name','image','slug']);
+function TheBrand(){
+    return Brand::first(['name','image','slug']);
 }
