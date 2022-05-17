@@ -25,7 +25,7 @@
 
                     <form id="update_image_form" action="{{ route('image.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
+ 
                         <div class="flex w-full items-center justify-between">
                             <input class="w-2/3 hidden" type="file" name="image_src" id="update_image_src">
                             
