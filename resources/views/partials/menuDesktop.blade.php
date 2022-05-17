@@ -11,12 +11,12 @@
             </form>
             @endif
             <li class="flex">
-                <a href="{{route('setlocale', ['locale'=>'es'])}}" class="flex items-center mr-1 {{ app()->getLocale() == 'es' ? 'opacity-100' : 'opacity-50' }}" >
+                <a href="{{route('setlocale', ['locale'=>'es'])}}" class="flex items-center mr-1 {{ app()->getLocale() == 'en' ? 'opacity-100' : 'opacity-50' }}" >
                     <img class="mr-1 w-4 h-3" src="{{asset('./img/lang_es.png')}}" alt="">
                     <span>ES</span>
                 </a>
                 <span class="m-1 -mt-[1.6px]">|</span>
-                <a href="{{route('setlocale', ['locale'=>'en'])}}" class="flex items-center {{ app()->getLocale() == 'en' ? 'opacity-100' : 'opacity-50' }}">
+                <a href="{{route('setlocale', ['locale'=>'en'])}}" class="flex items-center {{ app()->getLocale() == 'es' ? 'opacity-100' : 'opacity-50' }}">
                     <img class="mx-1 w-4 h-3 opacity-100" src="{{asset('./img/lang_en.png')}}" alt="">
                     <span>EN</span>
                 </a>

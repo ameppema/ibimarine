@@ -19,7 +19,7 @@
     <section>
         <div class="border-y-2 border-old-gold w-4/5 lg:w-96 lg:h-56 mx-auto flex justify-center gap-4 columns-2 text-white py-2">
             <a href="{{route('setlocale', ['locale'=>'es'])}}">
-                <div class="w-16 flex items-center {{ app()->getLocale() == 'es' ? 'opacity-100' : 'opacity-50'}}">
+                <div class="w-16 flex items-center {{ app()->getLocale() == 'en' ? 'opacity-100' : 'opacity-50'}}">
                     <div>
                         <img src="{{asset('img/lang_es.png')}}" alt=""> 
                     </div>
@@ -30,7 +30,7 @@
             </a>
             <span class="place-self-center text-lg">&#124;</span>
             <a href="{{route('setlocale', ['locale'=>'en'])}}">
-                <div class="w-16 flex items-center {{ app()->getLocale() == 'en' ? 'opacity-100' : 'opacity-50'}}">
+                <div class="w-16 flex items-center {{ app()->getLocale() == 'es' ? 'opacity-100' : 'opacity-50'}}">
                     <div>
                         <img src="{{asset('img/lang_en.png')}}" alt=""> 
                     </div>
