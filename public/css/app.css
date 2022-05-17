@@ -1331,6 +1331,9 @@ select {
 .border-b-2 {
   border-bottom-width: 2px;
 }
+.border-t-4 {
+  border-top-width: 4px;
+}
 .border-b-4 {
   border-bottom-width: 4px;
 }
