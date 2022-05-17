@@ -41,7 +41,13 @@ class ImagesController extends Controller
      */
     public function update()
     {
-        return response(request());
+        $oldImage = Image::findOrFail(request('image_id'));
+
+        Image::erase($oldImage->image_src);
+
+        $newImage = $this->store(request());
+
+        return $newImage;
     }
 
     public function destroy($image_id)

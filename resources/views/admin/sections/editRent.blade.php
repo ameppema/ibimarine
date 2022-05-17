@@ -277,14 +277,15 @@ UpdateImageForm.addEventListener('submit', function(e){
       e.preventDefault();
       console.log('Se dispara actualizar imagen')
       const imgSrc = document.getElementById("update_image_src").files[0];
+      const imgID = document.getElementById('image_id').value;
       const formData = new FormData();
 
-      formData.append('image', imgSrc, imgSrc.name)
+      formData.append('image', imgSrc, imgSrc.name);
+      formData.append('image_id', imgID);
       formData.append('image_alt', document.getElementById('update_image_alt').value);
       formData.append('belongs_to', document.getElementById('update_belongs_to').value);
       formData.append('gallery_type', document.getElementById('update_gallery_type').value);
       formData.append('gallery_id', GALLERY_ID);
-      formData.append('sort_order', document.getElementById('update_sort_order').value);
 
       const settings = { 
           headers: { 
