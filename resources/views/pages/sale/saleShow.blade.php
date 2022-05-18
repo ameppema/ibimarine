@@ -360,7 +360,7 @@
         
         function openPhotos(e){
             e.preventDefault()
-            photostOverlay.src = e.target.src;
+            photoOverlayImage.src = e.target.src;
             document.body.style.overflow = 'hidden';
             photostOverlay.style.display = 'block';
             photostOverlay.style.overflowY = 'scroll';
