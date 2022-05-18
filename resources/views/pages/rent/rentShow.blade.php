@@ -389,7 +389,8 @@
         const openRequestBtn = document.getElementById('request_open');
         const requestOverlay = document.getElementById('request_overlay');
 
-        closeOverlayRequest.addEventListener('click', closeRequest);
+        if(closeOverlayRequest) closeOverlayRequest.addEventListener('click', closeRequest);;
+        
         // openRequestBtn.addEventListener('click', openRequest)
 
         function closeRequest(e){
