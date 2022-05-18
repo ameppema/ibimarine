@@ -229,7 +229,7 @@
 
             <!-- Form -->
             <div class="lg:ml-10 lg:w-80 w-4/5 mx-auto">
-                <form id="request_reservation_form" method="POST" action="{{ route('rent.show.reserve') }}" class="font-bold text-old-black">
+                <form id="request_reservation_form" method="POST" action="{{ route('reservation.mail') }}" class="font-bold text-old-black">
                     @csrf
                     @method('post')
                     <input type="hidden" name="boat_id" value="{{$boat->id}}">

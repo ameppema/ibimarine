@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailReservationRequestController;
 use Illuminate\Support\Facades\App;
 use App\Models\Boat;
 use Illuminate\Http\Request;
@@ -40,9 +41,7 @@ Route::get('/rent/show/{boat_id}', function ($boat_id) {
     return view('pages.rent.rentShow', compact('boat'));
 })->name('rent.show');
 
-Route::post('/rent/show', function (Request $request) {
-    return $request;
-})->name('rent.show.reserve');
+Route::post('/rent/show', [MailReservationRequestController::class, 'handleEmail'])->name('reservation.mail');
 
 Route::get('/sale', function () {
     $boats = Boat::getSaleBoats(['id', 'name', 'description']);
