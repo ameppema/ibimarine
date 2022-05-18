@@ -41,7 +41,7 @@ Route::get('/rent/show/{boat_id}', function ($boat_id) {
     return view('pages.rent.rentShow', compact('boat'));
 })->name('rent.show');
 
-Route::post('/rent/show', [MailReservationRequestController::class, 'handleEmail'])->name('reservation.mail');
+Route::post('/rent/show', [MailReservationRequestController::class, 'rentEmail'])->name('reservation.rent.mail');
 
 Route::get('/sale', function () {
     $boats = Boat::getSaleBoats(['id', 'name', 'description']);
@@ -53,9 +53,8 @@ Route::get('/sale/show/{boat_id}', function ($boat_id) {
     return view('pages.sale.saleShow', compact('boat'));
 })->name('sale.show');
 
-Route::post('/sale/show', function () {
-    return request();
-})->name('sale.show.reserve');
+Route::post('/sale/show', [MailReservationRequestController::class, 'saleEmail'])->name('reservation.sale.mail');
+
 
 Route::get('/toys', function () {
     $toys = Toy::all(['id','title','description','image']);

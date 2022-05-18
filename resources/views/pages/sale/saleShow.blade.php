@@ -20,7 +20,9 @@
 
 {{-- OVERLAYS --}}
     <!-- Request - overlay -->
-    <div id="request_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
+
+@if(session()->has('success'))
+    <div id="request_overlay" class="fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
 
         <!-- Overlay content -->
         <div class="h-screen flex flex-col items-center text-center">
@@ -48,6 +50,7 @@
         </div>
 
     </div>
+@endif
     <!-- Photos - overlay -->
     <div id="photos_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
 
@@ -189,21 +192,21 @@
 
             <!-- Form -->
             <div class="lg:w-80 w-4/5 mx-auto">
-                <form id="request_reservation_form" method="POST" action="{{ route('reservation.mail') }}" class="font-bold text-old-black">
+                <form id="request_reservation_form" method="POST" action="{{ route('reservation.sale.mail') }}" class="font-bold text-old-black">
                     @csrf
                     <input type="hidden" name="boat_id" value="{{$boat->id}}">
                     <input type="hidden" name="boat_name" value="{{$boat->name}}">
                     <div class="mb-4">
                         <label class="block" for="name">{{__('Name')}}</label>
-                        <input class="w-full" type="text" name="name" id="">
+                        <input class="w-full" type="text" name="name" id="" required>
                     </div>
                     <div class="mb-4">
                         <label class="block" for="email">{{__('Email')}}</label>
-                        <input class="w-full" type="text" name="email" id="">
+                        <input class="w-full" type="text" name="email" id="" required>
                     </div>
                     <div class="mb-4">
                         <label class="block" for="phone">{{__('Phone')}}</label>
-                        <input class="w-full" type="text" name="phone" id="">
+                        <input class="w-full" type="text" name="phone" id="" required>
                     </div>
 
                     <div class="text-center">
@@ -319,7 +322,7 @@
         const requestOverlay = document.getElementById('request_overlay');
 
         closeOverlayRequest.addEventListener('click', closeRequest);
-        openRequestBtn.addEventListener('click', openRequest)
+        // openRequestBtn.addEventListener('click', openRequest)
 
         function closeRequest(e){
             requestOverlay.style.display = 'none';
@@ -329,7 +332,7 @@
             requestOverlay.style.display = 'block';
         }
 
-        // Phtos Overlay 
+        // Photos Overlay 
 
         const closePhotosBtn = document.getElementById('photos_close');
         const openPhotostBtn = document.getElementById('photos_open');
@@ -338,6 +341,15 @@
         closePhotosBtn.addEventListener('click', closePhotos);
         openPhotostBtn.addEventListener('click', openPhotos)
 
+
+        const photoOverlayImage = document.getElementById('photo_overlay_image');
+        // const photoOverlayThumbnail = document.getElementsByClassName('photo_overlay_thumbnail');
+
+        photostOverlay.addEventListener('click', function(e){
+            if(e.target.classList.contains('photo_overlay_thumbnail')){
+                photoOverlayImage.src = e.target.src;
+            }
+        })
         function closePhotos(e){
             e.preventDefault()
             document.body.style.overflow = 'scroll';
@@ -347,7 +359,7 @@
         
         function openPhotos(e){
             e.preventDefault()
-            photoOverlayImage.src = e.target.src;
+            photostOverlay.src = e.target.src;
             document.body.style.overflow = 'hidden';
             photostOverlay.style.display = 'block';
             photostOverlay.style.overflowY = 'scroll';
@@ -355,15 +367,4 @@
 
     </script>
 
-    <!-- Photo Overlay Image -->
-    <script>
-        const photoOverlayImage = document.getElementById('photo_overlay_image');
-        const photoOverlayThumbnail = document.getElementsByClassName('photo_overlay_thumbnail');
-
-        photostOverlay.addEventListener('click', function(e){
-            if(e.target.classList.contains('photo_overlay_thumbnail')){
-                photoOverlayImage.src = e.target.src;
-            }
-        })
-    </script>
 @endsection

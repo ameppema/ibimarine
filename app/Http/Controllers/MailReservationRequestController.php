@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MailReservationRequest;
+use App\Mail\MailSaleRequest;
+use App\Mail\MailSaleRequst;
 use Illuminate\Support\Facades\Mail;
 
 class MailReservationRequestController extends Controller
 {
-    public function handleEmail(){
+    public function rentEmail(){
         $data = request()->validate([
             'boat_id' => 'required',
             'boat_name' => 'required',
@@ -19,6 +21,19 @@ class MailReservationRequestController extends Controller
             'end_date' => 'required',
         ]);
         Mail::to('jeanmacario048@gmail.com')->queue(new MailReservationRequest($data));
-        return new MailReservationRequest($data);
+
+        return redirect()->back()->with('success','Perición de reserva reliazada con exito. ');
+    }
+    public function saleEmail(){
+        $data = request()->validate([
+            'boat_id' => 'required',
+            'boat_name' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ]);
+        Mail::to('jeanmacario048@gmail.com')->queue(new MailSaleRequest($data));
+
+        return redirect()->back()->with('success','Perición de reserva reliazada con exito. ');
     }
 }

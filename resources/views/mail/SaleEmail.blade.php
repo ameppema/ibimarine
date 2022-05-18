@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation Email for Rent</title>
+    <title>Reservation Email for Sale</title>
 
     <style>
         html {
@@ -23,7 +23,7 @@
 
 <div class="text-center">
 
-    <h1>New rent reservation request from Ibimarine.com - {{ $data['boat_name'] }}</h1>
+    <h1>New sale reservation request from Ibimarine.com - {{ $data['boat_name'] }}</h1>
 
     <h2>Boat: <strong>{{ $data['boat_name'] }}</strong> Boat ID: <em>{{$data['boat_id']}}</em></h2>
 
@@ -33,9 +33,7 @@
 
     <p>Client Phone: <strong>{{ $data['phone'] }}</strong></p>
 
-    <h3>Start Reservation Date: <em>{{$data['start_date']}}</em> - End Reservation Date: <em>{{$data['end_date']}}</em></h3>
 
-    <p>Season price Selected: <em>{{$data['season_price'] ?? 'None'}}</em></p>
 </div>  
 </body>
 </html>

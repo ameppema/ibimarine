@@ -21,7 +21,8 @@
 @section('content')
     {{-- OVERLAYS --}}
     <!-- Request - overlay -->
-    <div id="request_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
+@if(session()->has('success'))
+    <div id="request_overlay" class="fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
 
         <!-- Overlay content -->
         <div class="h-screen flex flex-col items-center text-center">
@@ -49,6 +50,8 @@
         </div>
 
     </div>
+@endif
+
     <!-- Photos - overlay -->
     <div id="photos_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
 
@@ -229,7 +232,7 @@
 
             <!-- Form -->
             <div class="lg:ml-10 lg:w-80 w-4/5 mx-auto">
-                <form id="request_reservation_form" method="POST" action="{{ route('reservation.mail') }}" class="font-bold text-old-black">
+                <form id="request_reservation_form" method="POST" action="{{ route('reservation.rent.mail') }}" class="font-bold text-old-black">
                     @csrf
                     @method('post')
                     <input type="hidden" name="boat_id" value="{{$boat->id}}">
@@ -238,15 +241,15 @@
                     <input type="hidden" name="boat_name" value="{{$boat->name}}">
                     <div class="mb-4">
                         <label class="block" for="name">{{__('Name')}}</label>
-                        <input class="w-full" type="text" name="name" id="">
+                        <input class="w-full" type="text" name="name" id="" required>
                     </div>
                     <div class="mb-4">
                         <label class="block" for="email">{{__('Email')}}</label>
-                        <input class="w-full" type="text" name="email" id="">
+                        <input class="w-full" type="text" name="email" id="" required>
                     </div>
                     <div class="mb-4">
                         <label class="block" for="phone">{{__('Phone')}}</label>
-                        <input class="w-full" type="text" name="phone" id="">
+                        <input class="w-full" type="text" name="phone" id="" required>
                     </div>
 
                     <div class="text-center">
@@ -387,15 +390,15 @@
         const requestOverlay = document.getElementById('request_overlay');
 
         closeOverlayRequest.addEventListener('click', closeRequest);
-        openRequestBtn.addEventListener('click', openRequest)
+        // openRequestBtn.addEventListener('click', openRequest)
 
         function closeRequest(e){
             requestOverlay.style.display = 'none';
         }
         
-        function openRequest(e){
+/*         function openRequest(e){
             requestOverlay.style.display = 'block';
-        }
+        } */
 
         // Phtos Overlay 
 
