@@ -415,6 +415,7 @@
         
         function openPhotos(e){
             e.preventDefault()
+            photoOverlayImage.src = e.target.src;
             document.body.style.overflow = 'hidden';
             photostOverlay.style.display = 'block';
             photostOverlay.style.overflowY = 'scroll';
