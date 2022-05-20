@@ -219,12 +219,12 @@
                 
                 
                 <div id="low_season_price" class=" bg-gray-1 mx-auto text-center w-64 lg:w-96 lg:p-2 text-white mb-4 cursor-pointer">
-                    <div><p class="text-xl lg:text-3xl">{{$boat->low_season_price}}&euro; / Dia  <span>(Jun o Sep)</span></p></div>
+                    <div><p class="text-xl lg:text-3xl">{{$boat->low_season_price}}&euro; / Día  <span>(Jun o Sep)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
                 <span class="hidden bg-old-gold"></span>
                 <div id="high_season_price" class="bg-gray-1 mx-auto text-center w-64 lg:w-96 lg:p-2 text-white cursor-pointer">
-                    <div><p class="text-xl lg:text-3xl">{{$boat->high_season_price}}&euro; / Dia  <span>(Jul o Ago)</span></p></div>
+                    <div><p class="text-xl lg:text-3xl">{{$boat->high_season_price}}&euro; / Día  <span>(Jul o Ago)</span></p></div>
                     <div><p class="lg:text-xl"><span>+ 21% </span> IVA + Combustible</p></div>
                 </div>
                 
@@ -313,34 +313,6 @@
 
     <!-- Menu Script -->
     <script src="/vendor/swiper/swiper-bundle.min.js"></script>
-    
-    <!-- Price Season Buttons -->
-    <script>
-        const lowPrice = document.getElementById('low_season_price');
-        const highPrice = document.getElementById('high_season_price');
-        const seasonPriceInput = document.getElementById('season_price_input');
-
-        lowPrice.onclick = function(e){
-            if(highPrice.classList.contains('bg-old-gold')){                
-                highPrice.classList.toggle('bg-gray-1');
-                highPrice.classList.toggle('bg-old-gold');
-            }  
-            this.classList.toggle('bg-gray-1');
-            this.classList.toggle('bg-old-gold');
-            seasonPriceInput.value = 'low season';
-        }
-        highPrice.onclick = function(e){
-            if(lowPrice.classList.contains('bg-old-gold')){                
-                lowPrice.classList.toggle('bg-gray-1');
-                lowPrice.classList.toggle('bg-old-gold');
-            }  
-            this.classList.toggle('bg-gray-1');
-            this.classList.toggle('bg-old-gold');
-            seasonPriceInput.value = 'high season';
-        }
-    </script>
-
-
     <script>
 
        // Main Slide

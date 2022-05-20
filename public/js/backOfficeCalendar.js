@@ -2,11 +2,17 @@
 
 const form = document.getElementById('request_reservation_form');
 
+const lowPrice = document.getElementById('low_season_price');
+const highPrice = document.getElementById('high_season_price');
+const seasonPriceInput = document.getElementById('season_price_input');
+
 
 const MyYearCalendar = new UICustomeFullCalendar({
     year: 2022,
     target: document.getElementById('reservationCalendar'),
     onDayPicked: function(calendar){
+
+        // Get Start/End dates to send request email
         const dateStart = calendar.getDates()[0];
         const dateEnd = calendar.getDates()[calendar.getDates().length - 1];
 
@@ -24,7 +30,30 @@ const MyYearCalendar = new UICustomeFullCalendar({
         inputDateEnd.style.display = 'none';
         inputDateEnd.value = dateEnd.dateValue; 
         form.appendChild(inputDateEnd);
+
+        const firstPickedDay = UCalendar.parse(dateStart.dateValue);
+        if(firstPickedDay.month == 6 || firstPickedDay.month == 7){            
+            lowPrice.classList.add('bg-gray-1');
+            highPrice.classList.remove('bg-gray-1');
+            highPrice.classList.add('bg-old-gold');
+            seasonPriceInput.value = 'High Season';
+          } else if(firstPickedDay.month == 5 || firstPickedDay.month == 8){            
+            highPrice.classList.add('bg-gray-1');
+            lowPrice.classList.remove('bg-gray-1');
+            lowPrice.classList.add('bg-old-gold');
+            seasonPriceInput.value = 'Low Season';
+          } else {
+            highPrice.classList.add('bg-gray-1');
+            highPrice.classList.remove('bg-old-gold');
+            lowPrice.classList.add('bg-gray-1');
+            lowPrice.classList.remove('bg-old-gold');
+            seasonPriceInput.value = 'None Season Selected';
+        }
     },
+    onEmptyDates: function(){
+      lowPrice.classList.add('bg-gray-1');
+      highPrice.classList.add('bg-gray-1');
+    }
 });
 
 MyYearCalendar.CustomeUI(function({monthName, monthId, year, HtmlMonthDays, HtmlWeekDays}) {

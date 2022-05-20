@@ -129,6 +129,38 @@ const UCalendar = new (function(){
       }
     }
 
+    /**
+     * 
+     * @param string StringDate - 2020-12-31 example date string
+     * @returns UCalendar.Date
+     */
+
+    this.parse = function(StringDate = 'yyyy-mm-dd'){
+      const [year, month, day] = StringDate.split('-');
+
+      if(!year || !month || !day) return console.error('Invalid String Format Date Recived: "'+ StringDate + '" Expected format example: "1969-01-30"');
+
+      const ParsedDate = new Date(Number(year),Number(month - 1),Number(day));
+      const calendarElement = document.querySelector(`[data-day-id="${StringDate}"]`);
+
+      return {
+        date: ParsedDate,
+        dateValue: StringDate,
+        dateId: [year,month,day].join(''),
+        dateElement: calendarElement,
+        year: ParsedDate.getFullYear(),
+        month: ParsedDate.getMonth(),
+        monthName: LocaleForMonths.format(ParsedDate),
+        day: ParsedDate.getDate(),
+        addDays: function(days){
+                    const newDate = new Date( ParsedDate );
+                    newDate.setDate(newDate.getDate() + Number(days));
+                    return UCalendar.parserFromNumbers(newDate.getFullYear(),newDate.getMonth(),newDate.getDate());
+                }
+            
+      }
+    }
+
     this.parser = function(calendarDate){
       if(!calendarDate.hasAttribute('data-day-id')) return ;
       const [year, month, day] = calendarDate.getAttribute('data-day-id').split('-');
