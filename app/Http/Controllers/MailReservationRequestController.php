@@ -20,7 +20,13 @@ class MailReservationRequestController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
-        Mail::to('jeanmacario048@gmail.com')->queue(new MailReservationRequest($data));
+
+        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com'];
+
+        foreach ($emailClients as $client) {
+            Mail::to($client)->queue(new MailReservationRequest($data));
+        }
+        // Mail::to('jeanmacario048@gmail.com')->queue(new MailReservationRequest($data));
 
         return redirect()->back()->with('success','Perición de reserva reliazada con exito. ');
     }
