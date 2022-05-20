@@ -21,7 +21,7 @@ class MailReservationRequestController extends Controller
             'end_date' => 'required',
         ]);
 
-        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com'];
+        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com', 'ameppema@hotmail.com'];
 
         foreach ($emailClients as $client) {
             Mail::to($client)->queue(new MailReservationRequest($data));
@@ -39,7 +39,7 @@ class MailReservationRequestController extends Controller
             'phone' => 'required',
         ]);
 
-        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com'];
+        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com', 'ameppema@hotmail.com'];
 
         foreach ($emailClients as $client) {
             Mail::to($client)->queue(new MailSaleRequest($data));
