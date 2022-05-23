@@ -51,7 +51,7 @@
                 <p class="xl:text-2xl text-old-black font-bold">Desde <span class="price">{{$boat->price}}</span><span class="currency">€</span> / Día</p>
             </div>
             <div>
-                <a href="{{route('rent.show', ['boat_id'=>$boat->id])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('Booking')}}</button></a>
+                <a href="{{route('rent.show', ['boat_slug'=>$boat->slug])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('Booking')}}</button></a>
             </div>
         </div>
     </div>

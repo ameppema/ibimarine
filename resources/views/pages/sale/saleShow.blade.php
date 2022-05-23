@@ -221,7 +221,7 @@
 
     </div>
 
-        @if ($boat->silimarBoats->count())
+        @if ($boat->similarBoats->count())
         <!-- Section similar boats -->
         <section class="lg:w-4/5 lg:mx-auto mt-5">
             <div class="w-2xl border-y-4 border-old-gold py-2  lg:px-16 lg:mx-auto">
@@ -237,8 +237,8 @@
                     <div class="swiper swiper-similar-boats mx-auto w-10/12" thumbsSlider="">
                         <div class="swiper-wrapper flex">
     
-                            @foreach ($boat->silimarBoats as $similar_boat)
-                            <a href="{{route('sale.show', ['boat_id'=>$similar_boat->boat->id])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
+                            @foreach ($boat->similarBoats as $similar_boat)
+                            <a href="{{route('sale.show', ['boat_slug'=>$similar_boat->boat->id])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
                             <div>
                                 <div class="h-[100px] overflow-y-hidden">
                                     <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">

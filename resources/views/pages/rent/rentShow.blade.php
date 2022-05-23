@@ -278,8 +278,8 @@
                     <div class="swiper swiper-similar-boats mx-auto w-10/12" thumbsSlider="">
                         <div class="swiper-wrapper flex">
     
-                            @foreach ($boat->silimarBoats as $similar_boat)
-                            <a href="{{route('rent.show', ['boat_id'=>$similar_boat->boat->id])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
+                            @foreach ($boat->similarBoats as $similar_boat)
+                            <a href="{{route('rent.show', ['boat_slug'=>$similar_boat->boat->slug])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
                             <div>
                                 <div class="h-[100px] overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
                                     <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">

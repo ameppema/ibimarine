@@ -32,24 +32,25 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/rent', function () {
-    $boats = Boat::getRentBoats(['id', 'name', 'description', 'is_recomended', 'low_season_price as price']);
+    $boats = Boat::getRentBoats(['id', 'name', 'description', 'is_recomended','slug', 'low_season_price as price']);
     return view('pages.rent.rent', compact('boats'));
 })->name('rent');
 
-Route::get('/rent/show/{boat_id}', function ($boat_id) {
-    $boat = Boat::findOrFail($boat_id);
+Route::get('/rent/show/{boat_slug}', function ($boat_slug) {
+    $boat = Boat::where('slug', $boat_slug)->first();
+    // dd($boat->similarBoats);
     return view('pages.rent.rentShow', compact('boat'));
 })->name('rent.show');
 
 Route::post('/rent/show', [MailReservationRequestController::class, 'rentEmail'])->name('reservation.rent.mail');
 
 Route::get('/sale', function () {
-    $boats = Boat::getSaleBoats(['id', 'name', 'description']);
+    $boats = Boat::getSaleBoats(['id', 'name', 'description','slug']);
     return view('pages.sale.sale', compact('boats'));
 })->name('sale');
 
-Route::get('/sale/show/{boat_id}', function ($boat_id) {
-    $boat = Boat::findOrFail($boat_id);
+Route::get('/sale/show/{boat_slug}', function ($boat_slug) {
+    $boat = Boat::where('slug', $boat_slug)->first();
     return view('pages.sale.saleShow', compact('boat'));
 })->name('sale.show');
 

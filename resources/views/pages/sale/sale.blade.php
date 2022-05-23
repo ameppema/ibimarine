@@ -39,7 +39,7 @@
                 <div class="w-20"><img class="w-full" src="img/sessa.png" alt="brand imgage"></div>
             </div>
             <div>
-                <a href="{{route('sale.show', ['boat_id'=>$boat->id])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('See Info.')}}</button></a>
+                <a href="{{route('sale.show', ['boat_slug'=>$boat->slug])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('See Info.')}}</button></a>
             </div>
         </div>
     </div>

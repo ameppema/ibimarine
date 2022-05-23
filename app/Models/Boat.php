@@ -58,7 +58,7 @@ class Boat extends Model
         return $this->belongsTo(Brand::class);
     }
 
-    public function silimarBoats(){
+    public function similarBoats(){
         return $this->hasMany(SimilarBoat::class);
     }
 }
