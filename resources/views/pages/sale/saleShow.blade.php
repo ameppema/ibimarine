@@ -170,7 +170,7 @@
                             @foreach ($boat->getFeatures()->getAttributes() as $key => $value)
                             <tr class="even:bg-gray-1 flex justify-between w-full px-3">
                                 <td class="xl:text-xl text-sm text-old-black font-light capitalize">
-                                    {{feature_display_name($key)}}
+                                    {{__(feature_display_name($key))}}
                                 </td>
                                 <td class="xl:text-xl text-sm text-old-black font-light">
                                     {{$value ?? '-'}}

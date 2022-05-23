@@ -19,7 +19,7 @@
 
         <div class="columns-3xs flex justify-center items-center gap-3 mt-1 mb-1 ">
             	<a href="#">
-					<img class="w-14" src="/img/brands/{{TheBrand()->image}}" alt="{{TheBrand()->slug}}" style="width: 100px;">
+					<img class="w-14" src="/img/home/oficial_agent_brand_logo.jpeg" alt="{{TheBrand()->slug}}" style="width: 100px;">
 				</a>
         </div>
     </div>
