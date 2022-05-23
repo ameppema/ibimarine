@@ -262,10 +262,12 @@
 <script>
 const GALLERY_ID = "{{ $boat->id }}";
 const UpdateImageForm = document.getElementById('update_image_form');
+let IMG_SLOT;
 
 ToggleModal('update-image-modal', {
   onOpen: function(trigger){
       document.getElementById('image_id').value = trigger.id.split('_')[1];
+      IMG_SLOT = trigger.parentElement.parentElement.getElementsByTagName('IMG')[0];
   },
   onClose: function(){
     UpdateImageForm.reset();
@@ -305,6 +307,7 @@ UpdateImageForm.addEventListener('submit', function(e){
       axios.post(url, params, settings)
       .then(function(response){
         console.log('Update Image response;')
+          IMG_SLOT.setAttribute('src', '/storage/'+ response.data);
           console.log(response);
       })
       .catch(function(error){

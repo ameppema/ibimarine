@@ -42,10 +42,15 @@ class ImagesController extends Controller
     public function update()
     {
         $oldImage = Image::findOrFail(request('image_id'));
-
+        
         Image::erase($oldImage->image_src);
+        
+        $newImage = Image::store(request(), 'boats');
 
-        $newImage = $this->store(request());
+        $oldImage->image_src = $newImage;
+        $oldImage->image_alt = request()->image_alt;
+
+        $oldImage->save();  
 
         return $newImage;
     }
