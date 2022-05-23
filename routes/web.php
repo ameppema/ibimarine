@@ -36,9 +36,8 @@ Route::get('/rent', function () {
     return view('pages.rent.rent', compact('boats'));
 })->name('rent');
 
-Route::get('/rent/show/{boat_slug}', function ($boat_slug) {
+Route::get('/rent/boat/{boat_slug}', function ($boat_slug) {
     $boat = Boat::where('slug', $boat_slug)->first();
-    // dd($boat->similarBoats);
     return view('pages.rent.rentShow', compact('boat'));
 })->name('rent.show');
 
@@ -49,7 +48,7 @@ Route::get('/sale', function () {
     return view('pages.sale.sale', compact('boats'));
 })->name('sale');
 
-Route::get('/sale/show/{boat_slug}', function ($boat_slug) {
+Route::get('/sale/boat/{boat_slug}', function ($boat_slug) {
     $boat = Boat::where('slug', $boat_slug)->first();
     return view('pages.sale.saleShow', compact('boat'));
 })->name('sale.show');
