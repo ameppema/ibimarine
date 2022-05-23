@@ -270,7 +270,6 @@
   ToggleModal('update-image-modal', {
     onOpen: function(trigger){
         document.getElementById('image_id').value = trigger.id.split('_')[1];
-        console.log(trigger.parentElement.parentElement);
         IMG_SLOT = trigger.parentElement.parentElement.getElementsByTagName('IMG')[0];
     },
     onClose: function(){
