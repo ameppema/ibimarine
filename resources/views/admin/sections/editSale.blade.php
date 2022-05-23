@@ -265,10 +265,13 @@
 <script>
   const GALLERY_ID = "{{ $boat->id }}";
   const UpdateImageForm = document.getElementById('update_image_form');
+  let IMG_SLOT;
 
   ToggleModal('update-image-modal', {
     onOpen: function(trigger){
         document.getElementById('image_id').value = trigger.id.split('_')[1];
+        console.log(trigger.parentElement.parentElement);
+        IMG_SLOT = trigger.parentElement.parentElement.getElementsByTagName('IMG')[0];
     },
     onClose: function(){
       UpdateImageForm.reset();
@@ -280,14 +283,15 @@
         e.preventDefault();
         console.log('Se dispara actualizar imagen')
         const imgSrc = document.getElementById("update_image_src").files[0];
+        const imgID = document.getElementById('image_id').value;
         const formData = new FormData();
-
+        
+        formData.append('image_id', imgID);
         formData.append('image', imgSrc, imgSrc.name)
         formData.append('image_alt', document.getElementById('update_image_alt').value);
         formData.append('belongs_to', document.getElementById('update_belongs_to').value);
         formData.append('gallery_type', document.getElementById('update_gallery_type').value);
         formData.append('gallery_id', GALLERY_ID);
-        formData.append('sort_order', document.getElementById('update_sort_order').value);
 
         const settings = { 
             headers: { 
@@ -304,8 +308,10 @@
     function UdateImageByAjax(url, params, settings){
         axios.post(url, params, settings)
         .then(function(response){
-          console.log('Update Image response;')
-            console.log(response);
+            IMG_SLOT.setAttribute('src', '/storage/'+ response.data);
+            UpdateImageForm.reset();
+            IMG_SLOT = null;
+            ToggleModal('update-image-modal',{restart:true})
         })
         .catch(function(error){
             alert('Error al intentar subir su imagen');
@@ -319,7 +325,7 @@
 <!-- Upload Image -->
 <script>const ROUTE_UPLOAD = "{{route('image.upload')}}";</script>
 <script>
-    const uniqueToken = {{ $boat->id }};
+    const uniqueToken = "{{ $boat->id }}";
     const UploadImageForm = document.getElementById('upload_image_form');
     let TriggerUploadImageId = '';
 
