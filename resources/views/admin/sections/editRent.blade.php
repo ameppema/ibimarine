@@ -297,18 +297,16 @@ UpdateImageForm.addEventListener('submit', function(e){
       }
 
       UdateImageByAjax(ROUTE_UPDATE, formData, settings);
-
-      ToggleModal('upload-image-modal',{restart: true})
-
       return true;
   });
 
   function UdateImageByAjax(url, params, settings){
       axios.post(url, params, settings)
       .then(function(response){
-        console.log('Update Image response;')
           IMG_SLOT.setAttribute('src', '/storage/'+ response.data);
-          console.log(response);
+          UpdateImageForm.reset();
+          IMG_SLOT = null;
+          ToggleModal('update-image-modal', {restart:true});
       })
       .catch(function(error){
           alert('Error al intentar subir su imagen');
