@@ -43,8 +43,8 @@
     <a href="{{route('sale')}}" class="block">
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
-            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px]"  src="./img/home/home-05.jpg" alt="">
+            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
+                <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="./img/home/home-05.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Sale Of Yachts')}}</p>
@@ -65,8 +65,8 @@
     <a href="{{route('toys')}}" class="block">
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
-            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px]"  src="./img/home/home-03.jpg" alt="">
+            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
+                <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="./img/home/home-03.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">Toys</p>
@@ -86,8 +86,8 @@
     <a href="{{route('events')}}" class="block">
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
-            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px] w-[120%]"  src="./img/home/home-01.jpg" alt="">
+            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
+                <img class="rounded-t-[12px] w-[120%] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="./img/home/home-01.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Events')}}</p>
@@ -108,8 +108,8 @@
     <a href="{{route('news')}}" class="block">
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
-            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px]"  src="./img/home/home-02.jpg" alt="">
+            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
+                <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="./img/home/home-02.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('News & Lifestyle')}}</p>
@@ -130,8 +130,8 @@
     <a href="{{route('contact')}}" class="block">
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
-            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-y-hidden">
-                <img class="rounded-t-[12px]"  src="./img/home/contact.jpg" alt="">
+            <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
+                <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="./img/home/contact.jpg" alt="">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__('Contact')}}</p>
