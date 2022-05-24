@@ -38,8 +38,8 @@
         <div class="w-4/5 mx-auto my-6 md:max-w-[340px] sm:max-w-[300px] lg:max-w-full lg:w-full @if(!$loop->first) lg:grid lg:grid-cols-2 items-center @endif">
             <!-- Card Head -->
             <div class="relative lg:h-56 xl:h-72  @if($loop->first) xl:h-96 @endif">
-                <div class="">
-                    <img class="w-full rounded-t-lg max-h-[200px] xl:max-h-64 @if($loop->first) xl:max-h-96 xl:h-96 @endif   overflow-y-hidden object-cover"  src="/storage/{{$event->image}}" alt="Ibimarine Events">
+                <div class="overflow-hidden">
+                    <img class="w-full rounded-t-lg max-h-[200px] xl:max-h-64 @if($loop->first) xl:max-h-96 xl:h-96 @endif overflow-hidden object-cover grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="/storage/{{$event->image}}" alt="Ibimarine Events">
                 </div>
             </div>
             <!-- Card body -->
