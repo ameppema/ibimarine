@@ -272,7 +272,7 @@
                     <p class=" text-center text-old-black text-2xl uppercase font-bold">{{__('Similar Boats')}}</p>
                 </div>            <!-- Slider thumbnails Carousel -->
                 <div class="flex mx-auto justify-center items-center my-2">
-                    <div class="lg:-mt-12 arrow w-1/12 h-6 xl:h-12" id="arrowPrev">
+                    <div class="lg:-mt-8 arrow w-1/12 h-6 xl:h-12" id="arrowPrev">
                         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="43.026 0 161.967 490" width="161.967" height="490">
                             <polyline style="stroke: rgb(60, 64, 69); fill: rgb(60, 64, 69);" points="204.993 0.285 204.993 490 43.026 244.36 204.72 0" bx:origin="0.525 0.496"/>
                         </svg>
@@ -293,7 +293,7 @@
 
                         </div>
                     </div>
-                    <div class="lg:-mt-12 arrow w-1/12 h-6 xl:h-12" id="arrowNext">
+                    <div class="lg:-mt-8 arrow w-1/12 h-6 xl:h-12" id="arrowNext">
                         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="51.124 -3.92 161.967 490" width="161.967" height="490">
                             <polyline style="stroke: rgb(60, 64, 69); fill: rgb(60, 64, 69);" points="204.993 0.285 204.993 490 43.026 244.36 204.72 0" transform="matrix(-1, 0, 0, -1, 256.117344, 486.079994)" bx:origin="0.525 0.496"/>
                           </svg>
