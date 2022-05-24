@@ -21,7 +21,7 @@
         <div class="w-11/12 h-44 lg:h-80 my-6 mx-auto flex columns-2 even:flex-row-reverse overflow-y-hidden rounded-l-xl even:rounded-l-none even:rounded-r-xl">
             <!-- Card Left Side -->
             <div class="w-1/2 lg:w-3/5">
-                <div class="overfow-hidden">
+                <div class="overflow-hidden">
                     <img class="object-cover h-44 lg:h-80 w-full grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden" src="/storage/{{$new->image}}" alt="Ibimarine News">
                 </div>
             </div>
