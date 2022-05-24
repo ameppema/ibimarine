@@ -283,7 +283,7 @@
                             @foreach ($boat->similarBoats as $similar_boat)
                             <a href="{{route('rent.show', ['boat_slug'=>$similar_boat->boat->slug])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
                             <div>
-                                <div class="h-[100px] overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="md:h-[100px] overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
                                     <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">
                                 </div>
                                 <p class="text-center uppercase mt-2 text-xs">{{$similar_boat->boat->name}}</p>
