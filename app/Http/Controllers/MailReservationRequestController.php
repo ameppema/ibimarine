@@ -23,15 +23,12 @@ class MailReservationRequestController extends Controller
             'start_date.required'=>__('Please select a date to continue.'),
             'end_date.required'=>''
         ]);
-        dd(request());
 
-
-        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com', 'ameppema@hotmail.com'];
+        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'ameppema@hotmail.com'];
 
         foreach ($emailClients as $client) {
             Mail::to($client)->queue(new MailReservationRequest($data));
         }
-        // Mail::to('jeanmacario048@gmail.com')->queue(new MailReservationRequest($data));
 
         return redirect()->back()->with('success','Perición de reserva reliazada con exito. ');
     }
@@ -44,7 +41,7 @@ class MailReservationRequestController extends Controller
             'phone' => 'required',
         ]);
 
-        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com', 'ameppema@hotmail.com'];
+        $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'ameppema@hotmail.com'];
 
         foreach ($emailClients as $client) {
             Mail::to($client)->queue(new MailSaleRequest($data));
