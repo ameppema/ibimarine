@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-<div class="container md:mx-auto md:flex md:flex-wrap md:columns-2 md:justify-center md:gap-x-10 lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
+<div class="container mx-auto flex flex-wrap md:columns-2 justify-center md:gap-x-10 lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
 
     <!-- Cards -->
     @foreach ($toys as $toy)        
