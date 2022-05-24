@@ -19,7 +19,12 @@ class MailReservationRequestController extends Controller
             'phone' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+        ], [
+            'start_date.required'=>__('Please select a date to continue.'),
+            'end_date.required'=>''
         ]);
+        dd(request());
+
 
         $emailClients = ['jeanmacario048@gmail.com', 'jeanlangarica@outlook.com', 'janma7@outlook.com', 'ameppema@hotmail.com'];
 

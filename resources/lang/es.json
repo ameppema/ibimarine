@@ -36,5 +36,6 @@
     "cabins":"cabinas",
     "year":"año",
     "port":"puerto",
-    "model":"modelo"
+    "model":"modelo",
+    "Please select a date to continue.":"Porfavor seleccione una fecha para poder continuar."
 }

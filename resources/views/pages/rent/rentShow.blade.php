@@ -52,6 +52,8 @@
     </div>
 @endif
 
+@include('partials.alert')
+
     <!-- Photos - overlay -->
     <div id="photos_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
 
@@ -241,15 +243,15 @@
                     <input type="hidden" name="boat_name" value="{{$boat->name}}">
                     <div class="mb-4">
                         <label class="block" for="name">{{__('Name')}}</label>
-                        <input class="w-full" type="text" name="name" id="" required>
+                        <input class="w-full" type="text" name="name" id="" value="{{old('name')}}" required>
                     </div>
                     <div class="mb-4">
                         <label class="block" for="email">{{__('Email')}}</label>
-                        <input class="w-full" type="text" name="email" id="" required>
+                        <input class="w-full" type="text" name="email" id="" value="{{old('email')}}" required>
                     </div>
                     <div class="mb-4">
                         <label class="block" for="phone">{{__('Phone')}}</label>
-                        <input class="w-full" type="text" name="phone" id="" required>
+                        <input class="w-full" type="text" name="phone" id="" value="{{old('phone')}}" required>
                     </div>
 
                     <div class="text-center">
