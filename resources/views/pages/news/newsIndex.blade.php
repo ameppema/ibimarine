@@ -32,7 +32,7 @@
                     {{$new->description}}
                 </div>
                 <div class="mt-4 ">
-                    <a class="btn-gold" href="{{route('news.show', $new)}}">{{__('Read more')}}</a>
+                    <a class="btn-gold" style="padding-left: 1rem; padding-right: 1rem;" href="{{route('news.show', $new)}}">{{__('Read more')}}</a>
                 </div>
             </div>
         </div>
