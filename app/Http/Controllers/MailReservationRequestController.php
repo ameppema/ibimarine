@@ -30,7 +30,7 @@ class MailReservationRequestController extends Controller
             Mail::to($client)->queue(new MailReservationRequest($data));
         }
 
-        return redirect()->back()->with('success','Perición de reserva reliazada con exito. ');
+        return redirect()->back()->with('success','We have received your request.');
     }
     public function saleEmail(){
         $data = request()->validate([
@@ -47,6 +47,6 @@ class MailReservationRequestController extends Controller
             Mail::to($client)->queue(new MailSaleRequest($data));
         }
 
-        return redirect()->back()->with('success','Perición de reserva reliazada con exito. ');
+        return redirect()->back()->with('success','We have received your request.');
     }
 }

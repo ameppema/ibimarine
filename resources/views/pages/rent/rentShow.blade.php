@@ -52,7 +52,7 @@
     </div>
 @endif
 
-@include('partials.alert')
+@include('partials.errorAlert')
 
     <!-- Photos - overlay -->
     <div id="photos_overlay" class="hidden fixed top-0 left-0 z-10  bg-old-black/95  h-screen w-full">
