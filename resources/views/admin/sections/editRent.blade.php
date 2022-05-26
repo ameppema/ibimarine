@@ -200,7 +200,7 @@
                                        
                     @foreach ($gallery as $image)
 
-                    <article class="flex flex-col items-center justify-center gap-y-2">
+                    <article data-id="{{$image->id}}" class="flex flex-col items-center justify-center gap-y-2">
                       
                       <img src="/storage/{{$image->image_src}}" alt="{{$image->alt}}" class="w-36 h-24 object-cover">
 
@@ -221,7 +221,7 @@
 
                     @endforeach
    
-                    <article id="UploadNewImageCard" class="flex flex-col items-center justify-center gap-y-2">
+                    <article data-id="0" id="UploadNewImageCard" class="filtered flex flex-col items-center justify-center gap-y-2">
 
                       <div id="" data-open-modal="upload-image-modal" title="Upload Image" class="w-36 h-24 object-cover border-2 border-[#dadbdc]">
                       </div>
@@ -256,7 +256,21 @@
 @section('js')
 
 <script src="{{asset('/vendor/axios.min.js')}}"></script>
+<script src="{{asset('/vendor/sortable.min.js')}}"></script>
 <script src="{{asset('/js/utils.js')}}"></script>
+<!-- Order -->
+<script>
+const ImageGridSort = document.getElementById('gallery_container');
+const getOrderFrom = () => {
+    const orderedList = sortGrid.toArray();
+    console.log(orderedList);
+}
+const sortGrid = Sortable.create(ImageGridSort, {
+    animation: 100,
+    filter: '.filtered',
+    onEnd: getOrderFrom
+})
+</script>
 <!-- Update Image -->
 <script>const ROUTE_UPDATE = "{{route('image.update')}}";</script>
 <script>
