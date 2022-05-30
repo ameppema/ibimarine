@@ -262,8 +262,8 @@
 <script>
 const ImageGridSort = document.getElementById('gallery_container');
 const getOrderFrom = () => {
-    const orderedList = sortGrid.toArray();
-    console.log(orderedList);
+    const ImagesListOrdered = sortGrid.toArray().filter(el => el !=   0);
+    console.log(ImagesListOrdered);
 }
 const sortGrid = Sortable.create(ImageGridSort, {
     animation: 100,
