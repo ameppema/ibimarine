@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.swiper-slide-thumb-active {
+    @apply opacity-100;
+}
+
 @layer base {
     /* Fonts */
 

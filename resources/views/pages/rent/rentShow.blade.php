@@ -116,7 +116,7 @@
                 <div class="swiper thumbnails-row mx-auto w-10/12" thumbsSlider="">
                     <div class="swiper-wrapper flex">
                         @foreach ($boat->getGallery() as $image)  
-                        <div class="swiper-slide max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
+                        <div class="swiper-slide opacity-40 max-h-14 lg:max-h-[4.5rem] xl:max-h-[100px] overflow-y-hidden">
                             <img class="md:w-44 md:h-28 object-cover" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
                         </div>
                         @endforeach
