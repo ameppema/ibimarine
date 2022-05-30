@@ -37,7 +37,7 @@ const MyYearCalendar = new UICustomeFullCalendar({
             highPrice.classList.remove('bg-gray-1');
             highPrice.classList.add('bg-old-gold');
             seasonPriceInput.value = 'High Season';
-          } else if(firstPickedDay.month == 5 || firstPickedDay.month == 8){            
+          } else if(firstPickedDay.month != 6 || firstPickedDay.month != 7){            
             highPrice.classList.add('bg-gray-1');
             lowPrice.classList.remove('bg-gray-1');
             lowPrice.classList.add('bg-old-gold');
