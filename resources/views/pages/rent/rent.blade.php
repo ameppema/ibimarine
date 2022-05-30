@@ -26,9 +26,9 @@
             <!-- Recomended Label -->
             @if ($boat->is_recomended)
                 @if (session()->get('locale') === 'es')
-                <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomendado'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm"></span>
+                <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomendado'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm" style="z-index: 9999;"></span>
                 @else
-                <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomended'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm"></span>
+                <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomended'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm" style="z-index: 9999;"></span>
                 @endif
             @endif
 
