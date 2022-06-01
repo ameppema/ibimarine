@@ -162,6 +162,10 @@ function Thehero(){
     return (new HomePage)->getHeroImage();
 }
 
+function TheContactNumbers(){
+    return (new HomePage)->getContactNumbers();
+}
+
 function TheBrand(){
     return Brand::first(['name','image','slug']);
 }

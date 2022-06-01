@@ -12,46 +12,51 @@
 
               <!-- Phone Section -->
       <div class="border-[#3c4045] border bg-white mt-8 px-5 py-5 rounded-lg mb-5">
-        <p class="text-[#343a40] text-xl font-bold mb-4">Numeros de Contacto</p>
+          <!-- Phone contact section -->
+          <p class="text-[#343a40] text-xl font-bold mb-4">Numeros de Contacto</p>
 
-        {{-- Form To Update Contact Number --}}
-        <form method="POST" action="{{route('admin.brands.store')}}" enctype="multipart/form-data"> @csrf
-          <div
-            class="flex columns-2 gap-4 border-[#3c4045] border bg-white mt-8 px-5 py-5  mb-5">
+          {{-- Form To Update Contact Number --}}
+          <form method="POST" action="{{route('admin.contact.update.phones')}}" enctype="multipart/form-data"> @csrf
+            <div
+              class="flex columns-2 gap-4 border-[#3c4045] border bg-white mt-8 px-5 py-5  mb-5">
 
-            <div class="w-6/12 flex flex-col">
-              <div class="flex">
-                <img src="{{asset('img/lang_es.png')}}" class="w-8 h-6 mr-3 object-cover" alt="">
-                <span class="text-[#343a40] font-bold mr-3">Numero de Telefono</span>
+              <div class="w-6/12 flex flex-col">
+                <div class="flex">
+                  <img src="{{asset('img/lang_es.png')}}" class="w-8 h-6 mr-3 object-cover" alt="">
+                  <span class="text-[#343a40] font-bold mr-3">Numero de Telefono</span>
+                </div>
+                <input type="text"
+                  name="phone_es" id="phone_es"
+                  class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                  value="{{old('phone_es', $contact->phone_es)}}"
+                  placeholder="+xx xxx xxx xxx" />
               </div>
-              <input type="text"
-                name="name" id="name"
-                class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
-                value="{{old('name')}}"
-                placeholder="+xx xxx xxx xxx" />
-            </div>
 
-            <div class="w-6/12 flex flex-col">
-              <div class="flex">
-                <img src="{{asset('img/lang_en.png')}}" class="w-8 h-6 mr-3 object-cover" alt="">
-                <span class="text-[#343a40] font-bold mr-3">Phone Number</span>
+              <div class="w-6/12 flex flex-col">
+                <div class="flex">
+                  <img src="{{asset('img/lang_en.png')}}" class="w-8 h-6 mr-3 object-cover" alt="">
+                  <span class="text-[#343a40] font-bold mr-3">Phone Number</span>
+                </div>
+                <input type="text"
+                  name="phone_en" id="phone_en"
+                  value="{{old('phone_en', $contact->phone_en)}}"
+                  class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                  placeholder="+xx xxx xxx xxx">
               </div>
-              <input type="text"
-                name="slug" id="slug"
-                value="{{old('slug')}}"
-                class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
-                placeholder="+xx xxx xxx xxx">
-            </div>
 
-            <button
-            class="w-full mt-4 bg-[#037bff] border border-transparent text-white py-1  rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 ">
-            Actualizar numeros de contacto
-            </button>
-          </div>
-        </form>
+              <button
+              class="w-full mt-4 bg-[#037bff] border border-transparent text-white py-1  rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300 ">
+              Actualizar numeros de contacto
+              </button>
+            </div>
+          </form>
       </div>
 
         <div class="border-[#3c4045] border bg-white mt-8 px-5 py-10 rounded-lg mb-5 flex flex-col items-center gap-y-5">
+
+          <!-- Phone contact section -->
+          <p class="text-[#343a40] text-xl font-bold mb-4">Contacto</p>
+
           <img src="/storage/{{$contact->image}}" alt="Contact Main Image " class="w-4/5 h-96 object-cover">
             <form action="{{route('admin.contact.update')}}" method="POST" enctype="multipart/form-data"> @csrf
                 <div class="w-full flex gap-5">

@@ -2,12 +2,13 @@
 
 namespace App\Repositories;
 
+use App\Models\Contact;
 use App\Models\Image;
 
 class HomePage {
 
-    public function getContactNumber(){
-        return /* Contact Numbers  */;
+    public function getContactNumbers(){
+        return Contact::find(1)->first(['phone_es','phone_en']);
     }
 
     public function getCards(){

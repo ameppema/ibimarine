@@ -58,6 +58,7 @@ Route::post('/menu/delete', [MenuController::class, 'delete'])->name('admin.menu
 
 Route::get('/contact',[ContactController::class, 'index'])->name('admin.contact');
 Route::post('/contact',[ContactController::class, 'update'])->name('admin.contact.update');
+Route::post('/contact-phones',[ContactController::class, 'updatePhones'])->name('admin.contact.update.phones');
 
 // Toys
 
