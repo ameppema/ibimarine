@@ -9,6 +9,7 @@ use App\Http\Controllers\BoatController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MenuController;
@@ -21,11 +22,16 @@ Route::get('/', function () {
     return view('admin.index');
 })->name('admin');
 
+// Front Home Page
+
+Route::get('/home-page', [HomePageController::class, 'index'])->name('admin.home');
+
 // Gallery - Images
 
 Route::post('/upload-file', [ImagesController::class, 'store'])->name('image.upload');
 Route::get('/destroy-file/{image_id}', [ImagesController::class, 'destroy'])->name('image.destroy');
 Route::post('/change-file', [ImagesController::class, 'update'])->name('image.update');
+Route::post('/store-or-update', [ImagesController::class, 'storeOrUpdate'])->name('image.storeOrUpdate');
 
 // Boat - Rent/Sale
 Route::get('/rent/new', [BoatController::class, 'addRent'])->name('admin.rent');

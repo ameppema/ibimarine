@@ -39,13 +39,13 @@ class ImagesController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update($belongs_to = 'boats')
     {
         $oldImage = Image::findOrFail(request('image_id'));
         
         Image::erase($oldImage->image_src);
         
-        $newImage = Image::store(request(), 'boats');
+        $newImage = Image::store(request(), $belongs_to);
 
         $oldImage->image_src = $newImage;
         $oldImage->image_alt = request()->image_alt;
@@ -53,6 +53,15 @@ class ImagesController extends Controller
         $oldImage->save();  
 
         return $newImage;
+    }
+
+    public function storeOrUpdate(){
+        $oldImage = Image::find(request('image_id')); 
+
+        if($oldImage)  $this->update(request('belongs_to'));
+        else $this->store(request());
+
+        return redirect()->back()->with(['success' => 'Imagen Actualizada']);
     }
 
     public function destroy($image_id)

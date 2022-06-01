@@ -2,6 +2,7 @@
 
 use App\Models\Brand;
 use App\Models\Menu;
+use App\Repositories\HomePage;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -155,6 +156,10 @@ function feature_display_name($name){
 
 function TheMenu(){
     return Menu::all();
+}
+
+function Thehero(){
+    return (new HomePage)->getHeroImage();
 }
 
 function TheBrand(){

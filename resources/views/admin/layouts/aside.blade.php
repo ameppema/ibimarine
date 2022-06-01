@@ -13,6 +13,13 @@
           </li>
         </a>
 
+        <a class="block" href="{{route('admin.home')}}">
+          <li class="flex text-white py-1 {{ isActive('admin.home') ? 'bg-[#037bff]' : ''}} items-center cursor-pointer mb-6">
+            <div class="ml-3"> <i class="fa-solid fa-pager"></i></div>
+            <p class="ml-3">Home Page</p>
+          </li>
+        </a>
+
         <a href="{{route('admin.menu')}}">
         <li class="{{ isActive('admin.menu') ? 'bg-[#037bff]' : ''}}  flex text-white py-1 items-center cursor-pointer mb-6">
           <div class="ml-3"><i class="fa-solid fa-bars icons"></i></div>

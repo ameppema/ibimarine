@@ -7,7 +7,7 @@
     <section class="my-5">
         <div class="border-y-8 border-old-gold">
             <div class="h-48 overflow-hidden lg:h-[32rem]">
-                <img class="w-full object-cover lg:object-center" style="height:100%;" src="/img/home/head_banner.jpg" alt="Hero Image">
+                <img class="w-full object-cover lg:object-center" style="height:100%;" src="/storage/{{ TheHero()->image_src }}" alt="Hero Image">
             </div>
         </div>
     </section>
