@@ -135,13 +135,14 @@
         </form>
 
         {{-- Space Between Add new Card and Update --}}
+        <hr>
         <div class="h-36 w-ful"></div>
 
         <p class="text-[#343a40] text-xl font-bold mb-4">Actualizar</p>
 
         {{-- Update Card --}}
         @foreach($cards as $card)
-        <form action="{{route('admin.home.card.update', $card)}}" method="POST" enctype="multipart/form-data"> @csrf @method('PATCH')
+        <form class="mb-4" action="{{route('admin.home.card.update', $card)}}" method="POST" enctype="multipart/form-data"> @csrf @method('PATCH')
           <input type="file" name="image" id="image_{{$card->id}}" onchange="previewBackgroundImage('image_{{$card->id}}', 'image_{{$card->id}}_container')" hidden>
           <div class="flex mt-10 justify-between">
             <div class="w-3/12 ">
@@ -232,6 +233,10 @@
 
           </div>
         </form>
+        <br/>
+        <hr/>
+        <br/>
+        <br/>
         @endforeach
       </div>
     </section>

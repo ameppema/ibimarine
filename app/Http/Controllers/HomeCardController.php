@@ -23,9 +23,9 @@ class HomeCardController extends Controller
         if($HomeCard->save()){
             Translator::translate('home_cards', 'title', $HomeCard->id, $data['title_en']);
             Translator::translate('home_cards', 'description', $HomeCard->id, $data['description_en']);
-            return redirect()->back()->with('success', '¡Operación Exitosa!');
+            return redirect()->back()->with('success', 'Nuevo Card Agregada!');
         }
-        return redirect()->back()->withErrors('message', 'Ha ocurrido un problema!');;
+        return redirect()->back()->withErrors('message', 'Ha ocurrido un problema vuelva a intentarlo!');;
     }
 
     public function update(SaveHomeCardRequest $request, HomeCard $HomeCard){
@@ -42,7 +42,7 @@ class HomeCardController extends Controller
             $HomeCard->image = Image::store(request(),'home');
         }
         $HomeCard->save();
-        return redirect()->back()->with('success', '¡Operación Exitosa!');
+        return redirect()->back()->with('success', '¡Card Actualizada!');
     }
 
     public function delete(HomeCard $HomeCard){
