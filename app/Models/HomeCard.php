@@ -14,5 +14,5 @@ class HomeCard extends Model
 
     public $appends = ['title_en','description_en'];
 
-    public $fillable = ['title', 'description'];
+    public $fillable = ['title', 'description','route'];
 }

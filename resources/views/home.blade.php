@@ -150,7 +150,7 @@
 
     @foreach(TheHomeCards() as $card)
         <!-- Cards -->
-    <a href="{{route('contact')}}" class="block">
+    <a href="{{route($card->route)}}" class="block">
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
             <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">

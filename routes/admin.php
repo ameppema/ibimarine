@@ -9,6 +9,7 @@ use App\Http\Controllers\BoatController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeCardController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ImagesController;
@@ -25,6 +26,9 @@ Route::get('/', function () {
 // Front Home Page
 
 Route::get('/home-page', [HomePageController::class, 'index'])->name('admin.home');
+Route::post('/home-card', [HomeCardController::class, 'store'])->name('admin.home.card.store');
+Route::patch('/home-card/{HomeCard}', [HomeCardController::class, 'update'])->name('admin.home.card.update');
+Route::get('/home-card/{HomeCard}', [HomeCardController::class, 'delete'])->name('admin.home.card.delete');
 
 // Gallery - Images
 

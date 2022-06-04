@@ -13,6 +13,10 @@
 
       <!-- Hero Section -->
       <div class="border-[#3c4045] border bg-white mt-8 px-5 py-10 rounded-lg mb-5 flex flex-col items-center gap-y-5">
+
+      <p class="text-[#343a40] text-xl font-bold mb-4">Hero Image</p>
+
+
           <img id="hero_image_container" src="/storage/{{$hero->image_src}}" alt="Ibimarine Hero Image " class="w-4/5 h-96 object-cover">
             <form action="{{route('image.storeOrUpdate')}}" method="POST" enctype="multipart/form-data"> @csrf
  
@@ -37,17 +41,34 @@
 
       <!-- Cards Sections -->
       <div class="border-[#3c4045] border bg-white mt-8 px-5 py-5 rounded-lg mb-5">
-        <p class="text-[#343a40] text-xl font-bold mb-4">Home Cards</p>
-        <form action="{{route('admin.events.store')}}" method="POST" enctype="multipart/form-data"> @csrf
-          <input type="file" name="image" id="image" hidden>
+        <p class="text-center text-[#343a40] text-xl font-bold mb-4">Home Cards</p>
+
+
+        <p class="text-[#343a40] text-xl font-bold mb-4">Agregar nueva</p>
+
+        {{-- Create Card --}}
+        <form action="{{route('admin.home.card.store')}}" method="POST" enctype="multipart/form-data"> @csrf
+          <input type="file" name="image" id="image_create" hidden>
           <div class="flex mt-10 justify-between">
             <div class="w-3/12 ">
               <div class="flex items-center mb-3">
                 <span class="text-[#343a40] font-bold mx-5">Imagen</span>
               </div>
-              <div class="w-full border h-[9.7rem] relative cursor-pointer" onclick="document.getElementById('image').click()">
+              <div id="image_create_container" class="w-full border h-[9.7rem] relative cursor-pointer" onclick="document.getElementById('image_create').click()">
                 <i class="text-old-black fa-solid fa-upload absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl"></i>
               </div>
+
+
+              <div class="mt-4">
+                <span class="text-[#343a40] font-bold">Ruta <span class="text-xs">(Por defecto es "home")</span></span>
+
+                <input type="text"
+                    name="route" id="route"
+                    class="border-[#343a40] text-gray-700  appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                    value="{{ old('route') }}"
+                    placeholder="home">
+              </div>
+
             </div>
 
             <div class="w-4/12 ">
@@ -60,9 +81,9 @@
                 </div>
                 
                 <input type="text"
-                  name="name" id="name"
+                  name="title" id="title"
                   class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
-                  value="{{old('name')}}"
+                  value="{{ old('title') }}"
                   placeholder="Aa">
 
               </div>
@@ -72,7 +93,7 @@
               </div>
 
               <textarea name="description" id="description" rows="4" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                placeholder="Texto de la tarjeta"></textarea>
+                placeholder="Texto de la tarjeta">{{ old('description') }}</textarea>
 
             </div>
 
@@ -87,9 +108,9 @@
                 </div>
                 
                 <input type="text"
-                  name="name" id="name"
+                  name="title_en" id="title_en"
                   class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
-                  value="{{old('name')}}"
+                  value="{{old('title_en')}}"
                   placeholder="Aa">
 
               </div>
@@ -98,8 +119,8 @@
                 <span class="text-[#343a40] font-bold">Card Text</span>
               </div>
 
-              <textarea name="description" id="description" rows="4" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
-                placeholder="Card Text"></textarea>
+              <textarea name="description_en" id="description_en" rows="4" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
+                placeholder="Card Text">{{ old('description_en') }}</textarea>
 
             </div>
 
@@ -112,6 +133,106 @@
             </button>
           </div>
         </form>
+
+        {{-- Space Between Add new Card and Update --}}
+        <div class="h-36 w-ful"></div>
+
+        <p class="text-[#343a40] text-xl font-bold mb-4">Actualizar</p>
+
+        {{-- Update Card --}}
+        @foreach($cards as $card)
+        <form action="{{route('admin.home.card.update', $card)}}" method="POST" enctype="multipart/form-data"> @csrf @method('PATCH')
+          <input type="file" name="image" id="image_{{$card->id}}" onchange="previewBackgroundImage('image_{{$card->id}}', 'image_{{$card->id}}_container')" hidden>
+          <div class="flex mt-10 justify-between">
+            <div class="w-3/12 ">
+              <div class="flex items-center mb-3">
+                <span class="text-[#343a40] font-bold mx-5">Imagen</span>
+              </div>
+              <div id="image_{{$card->id}}_container" style="background: url('/storage/{{$card->image}}'); background-size: cover; opacity: .9" class="max-w-full w-[265px] border h-[9.7rem] relative cursor-pointer" onclick="document.getElementById('image_{{$card->id}}').click()">
+                <i class="text-old-black fa-solid fa-upload absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl"></i>
+              </div>
+
+              <div class="mt-4">
+                <span class="text-[#343a40] font-bold">Ruta</span></span>
+
+                <input type="text"
+                    name="route" id="route"
+                    class="border-[#343a40] text-gray-700  appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                    value="{{ old('route', $card->route) }}"
+                    placeholder="home">
+              </div>
+            </div>
+
+            <div class="w-4/12 ">
+
+              <div class="mb-4">
+
+                <div class="flex items-center mb-3 gap-4">
+                  <img src="{{asset('img/lang_es.png')}}" class="w-8 h-6 object-cover" alt="">
+                  <span class="text-[#343a40] font-bold">Titula de la tarjeta</span>
+                </div>
+                
+                <input type="text"
+                  name="title" id="title"
+                  class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                  value="{{ old('title', $card->title) }}"
+                  placeholder="Aa">
+
+              </div>
+              
+              <div class="flex items-center mb-3">
+                <span class="text-[#343a40] font-bold">Texto de la tarjeta</span>
+              </div>
+
+              <textarea name="description" id="description" rows="4" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
+                placeholder="Texto de la tarjeta">{{ old('description', $card->description) }}</textarea>
+
+            </div>
+
+
+            <div class="w-4/12 ">
+
+              <div class="mb-4">
+
+                <div class="flex items-center mb-3 gap-4">
+                  <img src="{{asset('img/lang_en.png')}}" class="w-8 h-6 object-cover" alt="">
+                  <span class="text-[#343a40] font-bold">Card Title</span>
+                </div>
+                
+                <input type="text"
+                  name="title_en" id="title_en"
+                  class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
+                  value="{{old('title_en',$card->title_en)}}"
+                  placeholder="Aa">
+
+              </div>
+              
+              <div class="flex items-center mb-3">
+                <span class="text-[#343a40] font-bold">Card Text</span>
+              </div>
+
+              <textarea name="description_en" id="description_en" rows="4" class="border-[#3c4045] border w-full p-5 outline-none text-gray-700"
+                placeholder="Card Text">{{ old('description_en', $card->description_en) }}</textarea>
+
+            </div>
+
+
+          </div>
+          <div class="flex justify-center mb-6 mt-10">
+            <input type="submit"
+              class="bg-[#037bff] border border-transparent text-white py-1 px-20 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300"
+              value="Actualizar"
+              >
+
+            <a href="{{route('admin.home.card.delete', $card)}}">
+                <button type="button"
+                    class="ml-4 bg-red-600 border border-transparent text-white py-1 px-20 rounded-md hover:text-red-600 hover:border-red-600 hover:bg-white hover:border transition-all ease-out duration-300 "        
+                >Eliminar</button>
+            </a> 
+
+          </div>
+        </form>
+        @endforeach
       </div>
     </section>
     {{-- End Content --}}
@@ -121,9 +242,14 @@
 @section('js')
     <script>
 
-        
+    // Hero Preview Image
     document.getElementById('image_src').addEventListener('change', function(){
         previewImage('image_src','hero_image_container');
+    })
+
+    // Add Card Preview Image
+    document.getElementById('image_create').addEventListener('change', function(){
+        previewBackgroundImage('image_create','image_create_container');
     })
 
     function previewImage(inputSource, targetID){
@@ -133,6 +259,14 @@
         const imageHolder = document.getElementById(targetID);
 
         imageHolder.setAttribute('src', imgSrc);
+    }
+    function previewBackgroundImage(inputSource, targetID){
+        const file = document.getElementById(inputSource).files[0];
+        const imgSrc = URL.createObjectURL(file);
+
+        const imageHolder = document.getElementById(targetID);
+
+        imageHolder.setAttribute('style', 'background: url('+imgSrc+'); background-size: cover');
     }
     </script>
 @endsection

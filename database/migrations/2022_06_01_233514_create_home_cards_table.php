@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateHomeCardsTable extends Migration
 {
-    /**
+    /**php artisan migrate --path=database/migrations/2022_06_01_233514_create_home_cards_table.php
      * Run the migrations.
      *
      * @return void
@@ -18,6 +18,7 @@ class CreateHomeCardsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('image');
+            $table->string('route')->default('home');
             $table->string('locale')->default('es');
         });
     }

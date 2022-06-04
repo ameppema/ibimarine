@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveHomeCardRequest;
 use App\Models\Image;
 use App\Repositories\Translator;
 use App\Models\HomeCard;
@@ -15,6 +16,7 @@ class HomeCardController extends Controller
         $HomeCard = new HomeCard();
         $HomeCard->title = $data['title'];
         $HomeCard->description = $data['description'];
+        $HomeCard->route = $data['route'] ?? 'home';
 
         $HomeCard->image = Image::store(request(),'home');
 
@@ -26,7 +28,7 @@ class HomeCardController extends Controller
         return redirect()->back()->withErrors('message', 'Ha ocurrido un problema!');;
     }
 
-    public function update(SaveHomeCardRequest $request,HomeCard $HomeCard){
+    public function update(SaveHomeCardRequest $request, HomeCard $HomeCard){
 
         $data = $request->validated();
 
@@ -37,7 +39,7 @@ class HomeCardController extends Controller
 
         if(isset($data['image'])){
             Image::erase($HomeCard->image);
-            $HomeCard->image = Image::store(request(),'toys');
+            $HomeCard->image = Image::store(request(),'home');
         }
         $HomeCard->save();
         return redirect()->back()->with('success', '¡Operación Exitosa!');

@@ -13,7 +13,7 @@ class HomePage {
     }
 
     public function getCards(){
-        return HomeCard::all(['id','title','description','image']);
+        return HomeCard::all(['id','title','description','image', 'route']);
     }
 
     public function getHeroImage(){

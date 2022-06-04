@@ -26,6 +26,7 @@ class SaveHomeCardRequest extends FormRequest
         return [
             'title'=> 'required',
             'title_en'=> 'required',
+            'route'=> 'nullable',
             'description'=> 'required',
             'description_en'=> 'required',
             'image'=> 'nullable|image'
