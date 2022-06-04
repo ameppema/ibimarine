@@ -4,57 +4,54 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Repositories\Translator;
-use App\Http\Requests\SaveToyRequest;
+use App\Models\HomeCard;
 
 class HomeCardController extends Controller
 {
     public function index(){
-        $toys = Toy::all(['id','title','description','image']);
-        return view('admin.toys.toy', compact('toys'));
-    }
-    public function edit(Toy $toy){
-        return view('admin.toys.editToy', compact('toy'));
+        $cards = HomeCard::all(['id','title','description','image']);
+        return view('admin.toys.toy', compact('cards'));
     }
 
-    public function store(SaveToyRequest $request){
+    public function store(SaveHomeCardRequest $request){
 
         $data = $request->validated();
 
-        $Toy = new Toy;
-        $Toy->title = $data['title'];
-        $Toy->description = $data['description'];
+        $HomeCard = new HomeCard();
+        $HomeCard->title = $data['title'];
+        $HomeCard->description = $data['description'];
 
-        $Toy->image = Image::store(request(),'toys');
+        $HomeCard->image = Image::store(request(),'home');
 
-        if($Toy->save()){
-            Translator::translate('toys', 'title', $Toy->id, $data['title_en']);
-            Translator::translate('toys', 'description', $Toy->id, $data['description_en']);
+        if($HomeCard->save()){
+            Translator::translate('home_cards', 'title', $HomeCard->id, $data['title_en']);
+            Translator::translate('home_cards', 'description', $HomeCard->id, $data['description_en']);
             return redirect()->back()->with('success', '¡Operación Exitosa!');
         }
         return redirect()->back()->withErrors('message', 'Ha ocurrido un problema!');;
     }
 
-    public function update(SaveToyRequest $request,Toy $toy){
+    public function update(SaveHomeCardRequest $request,HomeCard $HomeCard){
 
         $data = $request->validated();
 
-        $toy->update( array_filter($data) );
+        $HomeCard->update( array_filter($data) );
         
-        $toy->updateTitleTranslate($data['title_en']);
-        $toy->updateDescriptionTranslate($data['description_en']);
+        $HomeCard->updateTitleTranslate($data['title_en']);
+        $HomeCard->updateDescriptionTranslate($data['description_en']);
 
         if(isset($data['image'])){
-            Image::erase($toy->image);
-            $toy->image = Image::store(request(),'toys');
+            Image::erase($HomeCard->image);
+            $HomeCard->image = Image::store(request(),'toys');
         }
-        $toy->save();
+        $HomeCard->save();
         return redirect()->back()->with('success', '¡Operación Exitosa!');
     }
 
-    public function delete(Toy $toy){
-        Image::erase($toy->image);
-        $toy->deleteTranslations();
-        $toy->delete();
+    public function delete(HomeCard $HomeCard){
+        Image::erase($HomeCard->image);
+        $HomeCard->deleteTranslations();
+        $HomeCard->delete();
         return redirect()->back()->with('success', '¡Operación Exitosa!');;
     }
 }
