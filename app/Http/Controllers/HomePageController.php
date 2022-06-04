@@ -8,8 +8,9 @@ class HomePageController extends Controller
 {
     public function index(HomePage $home){
         $hero = $home->getHeroImage();
+        $cards = $home->getCards();
 
-        return view('admin.home.home_page', compact('hero'));
+        return view('admin.home.home_page', compact('hero', 'cards'));
     }
 
     public function update(){

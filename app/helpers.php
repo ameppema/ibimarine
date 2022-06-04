@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Brand;
+use App\Models\HomeCard;
 use App\Models\Menu;
 use App\Repositories\HomePage;
 use Carbon\Carbon;
@@ -168,4 +169,8 @@ function TheContactNumbers(){
 
 function TheBrand(){
     return Brand::first(['name','image','slug']);
+}
+
+function TheHomeCards(){
+    return (new HomePage)->getCards();
 }

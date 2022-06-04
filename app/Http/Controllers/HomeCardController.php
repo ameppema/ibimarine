@@ -8,11 +8,6 @@ use App\Models\HomeCard;
 
 class HomeCardController extends Controller
 {
-    public function index(){
-        $cards = HomeCard::all(['id','title','description','image']);
-        return view('admin.toys.toy', compact('cards'));
-    }
-
     public function store(SaveHomeCardRequest $request){
 
         $data = $request->validated();

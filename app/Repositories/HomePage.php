@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Contact;
+use App\Models\HomeCard;
 use App\Models\Image;
 
 class HomePage {
@@ -12,7 +13,7 @@ class HomePage {
     }
 
     public function getCards(){
-        return /* Cards information  */;
+        return HomeCard::all(['id','title','description','image']);
     }
 
     public function getHeroImage(){
