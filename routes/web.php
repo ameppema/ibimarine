@@ -44,7 +44,7 @@ Route::get('/rent/boat/{boat_slug}', function ($boat_slug) {
 Route::post('/rent/show', [MailReservationRequestController::class, 'rentEmail'])->name('reservation.rent.mail');
 
 Route::get('/sale', function () {
-    $boats = Boat::getSaleBoats(['id', 'name', 'description','slug']);
+    $boats = Boat::getSaleBoats(['id', 'name', 'description','slug','brand_id']);
     return view('pages.sale.sale', compact('boats'));
 })->name('sale');
 

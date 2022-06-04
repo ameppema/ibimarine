@@ -36,7 +36,7 @@
                 </p>
             </div>
             <div class="flex justify-center my-5">
-                <div class="w-20"><img class="w-full" src="img/sessa.png" alt="brand imgage"></div>
+                <!-- <div class="w-20"><img class="w-full" src="/storage/{{$boat->brand->image}}" alt="brand imgage"></div> -->
             </div>
             <div>
                 <a href="{{route('sale.show', ['boat_slug'=>$boat->slug])}}"><button class="bg-old-gold text-white py-1 px-5 rounded-lg">{{__('See Info.')}}</button></a>
