@@ -28,7 +28,7 @@
                 <input type="text"
                   name="phone_es" id="phone_es"
                   class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
-                  value="{{old('phone_es', $contact->phone_es)}}"
+                  value="{{old('phone_es', $phones->phone_es)}}"
                   placeholder="+xx xxx xxx xxx" />
               </div>
 
@@ -39,7 +39,7 @@
                 </div>
                 <input type="text"
                   name="phone_en" id="phone_en"
-                  value="{{old('phone_en', $contact->phone_en)}}"
+                  value="{{old('phone_en', $phones->phone_en)}}"
                   class="border-[#343a40] text-gray-700 w-80 appearance-none leading-tight font-bold border py-[6px] rounded-md  pl-2 outline-none "
                   placeholder="+xx xxx xxx xxx">
               </div>

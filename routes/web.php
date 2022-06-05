@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Contact;
 use App\Models\Event;
+use App\Models\HomeCard;
 use App\Models\News;
 use App\Models\Toy;
 
@@ -76,7 +77,7 @@ Route::get('/news/show/{news}', function (News $news) {
 })->name('news.show');
 
 Route::get('/contact', function () {
-    $contact = Contact::first(['id','description','image']);
+    $contact = HomeCard::where('route', 'contact')->first(['id','description','image']) ?? Contact::first(['id','description','image']);
     return view('pages.contact', compact('contact'));
 })->name('contact');
 
