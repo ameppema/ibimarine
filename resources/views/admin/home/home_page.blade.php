@@ -43,10 +43,10 @@
       <div class="border-[#3c4045] border bg-white mt-8 px-5 py-5 rounded-lg mb-5">
         <p class="text-center text-[#343a40] text-xl font-bold mb-4">Home Cards</p>
 
-
+        {{--
         <p class="text-[#343a40] text-xl font-bold mb-4">Agregar nueva</p>
 
-        {{-- Create Card 
+         Create Card 
         <form action="{{route('admin.home.card.store')}}" method="POST" enctype="multipart/form-data"> @csrf
           <input type="file" name="image" id="image_create" hidden>
           <div class="flex mt-10 justify-between">
@@ -139,7 +139,7 @@
         <hr>
         <div class="h-36 w-ful"></div>
 
-        <p class="text-[#343a40] text-xl font-bold mb-4">Actualizar</p>
+        <!-- <p class="text-[#343a40] text-xl font-bold mb-4">Editar</p> -->
 
         {{-- Update Card --}}
         @foreach($cards as $card)
