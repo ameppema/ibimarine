@@ -46,7 +46,7 @@
 
         <p class="text-[#343a40] text-xl font-bold mb-4">Agregar nueva</p>
 
-        {{-- Create Card --}}
+        {{-- Create Card 
         <form action="{{route('admin.home.card.store')}}" method="POST" enctype="multipart/form-data"> @csrf
           <input type="file" name="image" id="image_create" hidden>
           <div class="flex mt-10 justify-between">
@@ -133,6 +133,7 @@
             </button>
           </div>
         </form>
+        --}}
 
         {{-- Space Between Add new Card and Update --}}
         <hr>
@@ -142,6 +143,8 @@
 
         {{-- Update Card --}}
         @foreach($cards as $card)
+        <p class="text-center text-[#343a40] text-xl font-bold mb-4">{{$card->title}}</p>
+
         <form class="mb-4" action="{{route('admin.home.card.update', $card)}}" method="POST" enctype="multipart/form-data"> @csrf @method('PATCH')
           <input type="file" name="image" id="image_{{$card->id}}" onchange="previewBackgroundImage('image_{{$card->id}}', 'image_{{$card->id}}_container')" hidden>
           <div class="flex mt-10 justify-between">
@@ -224,12 +227,13 @@
               class="bg-[#037bff] border border-transparent text-white py-1 px-20 rounded-md hover:text-[#037bff] hover:border-[#037bff] hover:bg-white hover:border transition-all ease-out duration-300"
               value="Actualizar"
               >
-
+            {{--
             <a href="{{route('admin.home.card.delete', $card)}}">
                 <button type="button"
                     class="ml-4 bg-red-600 border border-transparent text-white py-1 px-20 rounded-md hover:text-red-600 hover:border-red-600 hover:bg-white hover:border transition-all ease-out duration-300 "        
                 >Eliminar</button>
-            </a> 
+            </a>
+            --}} 
 
           </div>
         </form>
