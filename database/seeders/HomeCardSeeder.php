@@ -66,7 +66,7 @@ class HomeCardSeeder extends Seeder
             'route' => 'contact',
             'image' => 'Non',
         ]);
-        Translator::translate('home_car ds', 'title', $card->id, 'Conatct');
+        Translator::translate('home_cards', 'title', $card->id, 'Conatct');
         Translator::translate('home_cards', 'description', $card->id, 'Nulla at lectus at odio vulputate pellente in sed ipsum. Phasellus ut ligula ac sapien sodales incidunt. Cras diam felis, hendrerit sit amet quam vel, scelerisque dapibus libero, donec at lacus rhoncus, dignissim urna at.');
     }
 }
