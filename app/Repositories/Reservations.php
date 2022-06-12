@@ -4,10 +4,12 @@ namespace App\Repositories;
 
 use App\Models\DailyReservationRecord;
 use App\Models\Reservations as Reservation;
+use Illuminate\Support\Facades\DB;
 
 class Reservations {
 
     public function getReservations(){
+        DB::statement("SET SQL_MODE=''");
         return DailyReservationRecord::select('reservations.*', 'mb.name as made_by_user', 'lub.name  as update_by_user', 'boats.name as boat_name')
         ->whereBetween('reserved_date', [request('date_start'), request('date_end')])
         ->leftJoin('reservations', 'reservations.id', 'daily_reservation_records.reservation_id')
