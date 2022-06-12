@@ -21,6 +21,9 @@
             	<a href="#">
 					<img class="w-14" src="/img/home/oficial_agent_brand_logo.png" alt="{{TheBrand()->slug}}" style="width: 150px;">
 				</a>
+                <a href="#">
+                    <img class="w-14" src="/img/sessa.png" alt="{{TheBrand()->slug}}" style="width: 150px;">
+                </a>
         </div>
     </div>
 
