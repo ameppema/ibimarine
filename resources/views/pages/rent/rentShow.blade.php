@@ -254,6 +254,11 @@
                         <input class="w-full" type="text" name="phone" id="" value="{{old('phone')}}" required>
                     </div>
 
+                    <div class="mb-4">
+                        <input type="checkbox" name="consent" id="consent">
+                        <label for="consent">{{ __('I agree to the') }} <a style="text-decoration: underline;" href="{{ route('legal.privacy') }}">{{ __('Privacy Policy') }}</a></label>
+                    </div>
+
                     <div class="text-center">
                         <input id="request_open" class="btn-gold" type="submit" value="{{__('Send Request')}}">
                     </div>

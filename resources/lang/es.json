@@ -37,5 +37,6 @@
     "year":"año",
     "port":"puerto",
     "model":"modelo",
-    "Please select a date to continue.":"Porfavor seleccione una fecha para poder continuar."
+    "Please select a date to continue.":"Porfavor seleccione una fecha para poder continuar.",
+    "I agree to the":"Acepto la"
 }
