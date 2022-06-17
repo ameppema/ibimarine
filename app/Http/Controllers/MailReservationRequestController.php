@@ -19,9 +19,11 @@ class MailReservationRequestController extends Controller
             'phone' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'consent'=> 'required'
         ], [
             'start_date.required'=>__('Please select a date to continue.'),
-            'end_date.required'=>''
+            'end_date.required'=>'',
+            'consent.required'=>__('You must accept the privacy policies to continue')
         ]);
 
         $emailClients = ['jeanmacario048@gmail.com', 'reservas@ibimarine.com', 'ameppema@hotmail.com'];
@@ -39,7 +41,8 @@ class MailReservationRequestController extends Controller
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-        ]);
+            'consent'=> 'required'
+        ], ['consent.required'=>__('You must accept the privacy policies to continue')]);
 
         $emailClients = ['jeanmacario048@gmail.com', 'reservas@ibimarine.com', 'ameppema@hotmail.com'];
 

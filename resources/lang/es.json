@@ -38,5 +38,6 @@
     "port":"puerto",
     "model":"modelo",
     "Please select a date to continue.":"Porfavor seleccione una fecha para poder continuar.",
-    "I agree to the":"Acepto la"
+    "I agree to the":"Acepto la",
+    "You must accept the privacy policies to continue":"Debe aceptar las politicas de privacidad para poder continuar"
 }
