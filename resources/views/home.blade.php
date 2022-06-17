@@ -23,7 +23,7 @@
     <div class="xl:last:ml-0 w-4/5 lg:w-full mx-auto my-6 md:max-w-[340px] xl:max-w-[30rem]  sm:max-w-[300px] lg:max-w-md">
         <div class="relative lg:h-56 xl:h-72">
             <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
-                <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="/storage/{{ $card->image }}" alt="{{ $card->title }}">
+                <img class="w-full rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="/storage/{{ $card->image }}" alt="{{ $card->title }}">
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{__($card->title)}}</p>
