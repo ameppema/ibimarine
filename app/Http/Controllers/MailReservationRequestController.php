@@ -26,7 +26,7 @@ class MailReservationRequestController extends Controller
             'consent.required'=>__('You must accept the privacy policies to continue')
         ]);
 
-        $emailClients = ['jeanmacario048@gmail.com', 'reservas@ibimarine.com', 'ameppema@hotmail.com'];
+        $emailClients = ['reservas@ibimarine.com'];
 
         foreach ($emailClients as $client) {
             Mail::to($client)->queue(new MailReservationRequest($data));
@@ -44,7 +44,7 @@ class MailReservationRequestController extends Controller
             'consent'=> 'required'
         ], ['consent.required'=>__('You must accept the privacy policies to continue')]);
 
-        $emailClients = ['jeanmacario048@gmail.com', 'reservas@ibimarine.com', 'ameppema@hotmail.com'];
+        $emailClients = ['reservas@ibimarine.com'];
 
         foreach ($emailClients as $client) {
             Mail::to($client)->queue(new MailSaleRequest($data));

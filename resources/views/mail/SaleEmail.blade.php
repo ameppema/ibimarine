@@ -23,7 +23,7 @@
 
 <div class="text-center">
 
-    <h1>New sale reservation request from Ibimarine.com - {{ $data['boat_name'] }}</h1>
+    <h1>New sale request from Ibimarine.com - {{ $data['boat_name'] }}</h1>
 
     <h2>Boat: <strong>{{ $data['boat_name'] }}</strong> Boat ID: <em>{{$data['boat_id']}}</em></h2>
 
