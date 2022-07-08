@@ -88,7 +88,7 @@ Route::view('terms-and-conditions','legal.termsandconditions')->name('legal.term
 
 Route::view('privacy-policy','legal.privacy')->name('legal.privacy');
 
-Route::view('data-protection','legal.dataprotection')->name('legal.dataprotection');
+Route::view('data-protection','legal.privacy')->name('legal.dataprotection');
 
 Route::view('cookies-policy','legal.cookies')->name('legal.cookies');
 
