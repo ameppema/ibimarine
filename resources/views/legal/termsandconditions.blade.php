@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-<div class="text-xl container lg:mx-auto lg: flex-col lg:flex-wrap lg:justify-center gap-4 lg:w-4/5 lg:border-b-4 lg:border-b-old-gold">
+<div class="text-xl container mx-auto flex-col lg:flex-wrap justify-center w-4/5 lg:border-b-4 lg:border-b-old-gold">
 
 <p class="my-4">
     <h2 class="mb-2 text-center">AVISO LEGAL</h2>
