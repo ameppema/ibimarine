@@ -36,45 +36,35 @@
 </p>
 
 <p>
-    <strong>
         DATOS FACILITADOS POR TERCEROS
-    </strong>
 </p>
 <p class="mb-4">
     En caso de que en la solicitud se incluyeran datos de carácter personal, por personas no titulares de los mismos, el usuario deberá, con carácter previo a su inclusión, informar a dichas personas de los extremos contenidos en los párrafos anteriores. Ibimarine Charter & Maintenance S.L. se exime de cualquier responsabilidad por el incumplimiento de éste requisito.
 </p>
 
 <p>
-    <strong>
         DATOS MENORES
-    </strong>
 </p>
 <p class="mb-4">
     No está autorizado facilitar datos de personas menores de catorce años de edad a través de este Sitio Web. Ibimarine Charter & Maintenance S.L. se exime de cualquier responsabilidad por el incumplimiento de este requisito.
 </p>
 
 <p>
-    <strong>
         COMUNICACIONES COMERCIALES POR MEDIOS ELECTRÓNICOS
-    </strong>
 </p>
 <p class="mb-4">
     Las comunicaciones que se realicen por correo electrónico o por cualquier otro medio electrónico, serán las necesarias para gestionar su solicitud. No obstante, serán aquellas que hayan sido consentidas o autorizadas expresamente por los destinatarios de conformidad con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, salvo lo dispuesto por el artículo 21.2 de esta misma Ley, en la redacción dada por la Disposición Final Primera de la nueva Ley General de Telecomunicaciones.
 </p>
 
 <p>
-    <strong>
         MEDIDAS DE SEGURIDAD
-    </strong>
 </p>
 <p class="mb-4">
     El responsable del fichero ha adoptado los niveles de seguridad de protección de los Datos Personales legalmente requeridos, y ha instalado todos los medios y medidas técnicas a disposición según el estado de la tecnología para evitar la pérdida, mal uso, alteración, acceso no autorizado y robo de los Datos Personales facilitados.
 </p>
 
 <p>
-    <strong>
         DEBER DE SECRETO
-    </strong>
 </p>
 <p class="mb-4">
     El usuario cuenta con la confidencialidad y el deber de secreto de todos aquellos que traten los datos en nombre y por cuenta del mismo. Sin perjuicio de lo anterior, el usuario es consciente de la posibilidad de que la seguridad de las comunicaciones a través de red no sea invulnerable.

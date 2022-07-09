@@ -18,7 +18,7 @@
     <h2 class="mb-2 text-center">AVISO LEGAL</h2>
 </p>
 <p>
-    <strong>INTRODUCCIÓN:</strong>
+    INTRODUCCIÓN:
 </p>
 
 <p class="my-2">
@@ -30,7 +30,7 @@
 </p>
 
 <p>
-    <strong>DATOS IDENTIFICATIVOS:</strong>
+    DATOS IDENTIFICATIVOS:
 </p>
 
 <p class="mb-4">
@@ -38,9 +38,9 @@
 </p>
 
 <p>
-    <strong>
+    
         El titular del presente Sitio es:
-    </strong>
+    
 </p>
 
 <p class="my-4">
@@ -53,7 +53,7 @@ Nombre del dominio: www.ibimarine.com <br>
 </p>
 
 <p>
-    <strong>USUARIOS:</strong>
+    USUARIOS:
 </p>
 
 <p class="mb-4">
@@ -61,9 +61,9 @@ Nombre del dominio: www.ibimarine.com <br>
 </p>
 
 <p>
-    <strong>
+    
         USO DEL PORTAL:
-    </strong>
+    
 </p>
 
 <p class="mb-4">
@@ -74,18 +74,18 @@ Nombre del dominio: www.ibimarine.com <br>
 </p>
 
 <p>
-    <strong>
+    
         PROPIEDAD INTELECTUAL E INDUSTRIAL:
-    </strong>
+    
 </p>
 <p class="mb-4">
     Ibimarine Charter & Maintenance S.L. por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, selección de materiales usados, programas de ordenador necesarios para su funcionamiento, acceso y uso, etc.), titularidad de Ibimarine Charter & Maintenance S.L. todos los derechos reservados. En virtud de lo dispuesto en los artículos 8 y 32.1, párrafo segundo, de la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización de Ibimarine Charter & Maintenance S.L. El usuario se compromete a respetar los derechos de Propiedad Intelectual e Industrial titularidad de Ibimarine Charter & Maintenance S.L. La utilización no autorizada de la información contenida en este Sitio, así como los perjuicios ocasionados en los derechos de propiedad intelectual e industrial de Ibimarine Charter & Maintenance S.L. pueden dar lugar al ejercicio de las acciones que legalmente correspondan y, si procede, a las responsabilidades que de dicho ejercicio se deriven.
 </p>
 
 <p>
-    <strong>
+    
         EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD:
-    </strong>
+    
 </p>
 <p class="mb-4">
     Ibimarine Charter & Maintenance S.L. no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos o lesivos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.
@@ -107,45 +107,45 @@ Nombre del dominio: www.ibimarine.com <br>
 </p>
 
 <p>
-    <strong>
+    
         MODIFICACIONES:
-    </strong>
+    
 </p>
 <p class="mb-4">
     Ibimarine Charter & Maintenance S.L. se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que éstos aparezcan presentados o localizados en su portal.
 </p>
 
 <p>
-    <strong>
+    
         DERECHO DE EXCLUSIÓN:
-    </strong>
+    
 </p>
 <p class="mb-4">
     Ibimarine Charter & Maintenance S.L. se reserva el derecho a denegar o retirar el acceso a portal y/o los servicios ofrecidos sin necesidad de preaviso, a instancia propia o de un tercero, a aquellos usuarios que incumplan las presentes Condiciones Generales de Uso.
 </p>
 
 <p>
-    <strong>
+    
         GENERALIDADES:
-    </strong>
+    
 </p>
 <p class="mb-4">
     Ibimarine Charter & Maintenance S.L. perseguirá el incumplimiento de las presentes condiciones así como cualquier utilización indebida de su portal ejerciendo todas las acciones civiles y penales que le puedan corresponder en derecho.
 </p>
 
 <p>
-    <strong>
+    
         LEGISLACIÓN APLICABLE
-    </strong>
+    
 </p>
 <p class="mb-4">
     El presente Aviso Legal se rige en todos y cada uno de sus extremos por la legislación española.
 </p>
 
 <p>
-    <strong>
+    
         LEGISLACIÓN APLICABLE Y JURISDICCIÓN:
-    </strong>
+    
 </p>
 <p class="mb-4">
     La relación entre Ibimarine Charter & Maintenance S.L. y el usuario se regirá por la normativa española vigente.
