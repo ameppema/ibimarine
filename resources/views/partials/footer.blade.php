@@ -12,8 +12,8 @@
             <span class="hidden lg:inline">&nbsp;&nbsp</span>
         </div>
         <div>
-            <p class="inline"><a href="{{route('legal.cookies')}}">{{__('Cookies policy')}}</a></p>
-            <span class="hidden lg:inline">&nbsp;&nbsp</span>
+            {{-- <p class="inline"><a href="{{route('legal.cookies')}}">{{__('Cookies policy')}}</a></p>
+            <span class="hidden lg:inline">&nbsp;&nbsp</span> --}}
             <span class="lg:hidden">-</span>
             <p class="inline"><a href="{{route('legal.dataprotection')}}">{{__('Data Protection')}}</a></p>
         </div>
