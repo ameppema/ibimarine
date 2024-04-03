@@ -18,22 +18,28 @@
 
     <!-- Cards -->
     @foreach ($boats as $boat)
-        
+
     <div class="lg:last:ml-0 w-4/5 mx-auto md:mx-0 my-6 xl:max-w-[30rem] sm:max-w-[300px] lg:max-w-[28rem]">
         <!-- Card Head -->
         <div class="relative md:h-56 xl:h-72">
 
             <!-- Recomended Label -->
             @if ($boat->is_recomended)
+            <a href="{{route('rent.show', ['boat_slug'=>$boat->slug])}}">
+
                 @if (session()->get('locale') === 'es')
                 <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomendado'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm" style="z-index: 9999;"></span>
                 @else
                 <span class="absolute top-0 right-0 h-[150px] w-[150px] flex justify-center items-center overflow-hidden before:content-['Recomended'] before:absolute before:h-[30px] before:w-[150%] before:bg-old-gold before:rotate-45 before:-translate-y-[26px] before:translate-x-[30px] before:flex before:justify-center before:items-center before:uppercase before:font-bold before:text-white before:text-sm" style="z-index: 9999;"></span>
                 @endif
+            </a>
             @endif
 
+            <!-- <div onclick="window.location  = '{{route('rent.show', ['boat_slug'=>$boat->slug])}}'" class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden"> -->
             <div class="rounded-t-lg max-h-[200px] xl:max-h-64 overflow-hidden">
-                <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="/storage/{{$boat->getCover()}}" alt="">
+                <a href="{{route('rent.show', ['boat_slug'=>$boat->slug])}}">
+                    <img class="rounded-t-[12px] grayscale hover:grayscale-0 hover:scale-110 transition ease-in-out duration-300 overflow-hidden"  src="/storage/{{$boat->getCover()}}" alt="">
+                </a>    
             </div>
             <div class="absolute bottom-0 h-8 xl:h-12 bg-old-gold w-full text-center">
                 <p class="text-white leading-8 xl:leading-[3rem] text-lg xl:text-2xl uppercase">{{$boat->name}}</p>
