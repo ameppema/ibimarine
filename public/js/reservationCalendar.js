@@ -18,7 +18,7 @@ seeDatesBtn.addEventListener('click', function(e){
 
 
 const customeYearCalendar = new UICustomeFullCalendar({
-    year: 2022,
+    year: 2024,
     target: document.querySelector('#reservationCalendar'),
     onDayPicked: function(calendar){
         saveDatesBtn.classList.remove('btn-off');

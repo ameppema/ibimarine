@@ -8,7 +8,7 @@ const seasonPriceInput = document.getElementById('season_price_input');
 
 
 const MyYearCalendar = new UICustomeFullCalendar({
-    year: 2022,
+    year: 2024,
     target: document.getElementById('reservationCalendar'),
     onDayPicked: function(calendar){
 
