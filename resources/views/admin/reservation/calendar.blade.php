@@ -33,7 +33,7 @@
                         </div>
                           <div class="calendar__month_year font-bold mx-10 lg:text-3xl">
                             <span class="calendar__month text-capitalize">May</span>
-                            <span class="calendar__year">2022</span>
+                            <span class="calendar__year">2024</span>
                           </div>
                         <div style="width: 2rem; text-align: end;" data-arrow-next="" class="calendar-right-arrow cursor-pointer">
                             <svg data-arrow-next="" class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
