@@ -23,7 +23,7 @@
     </div>
     <div class="ml-36 hidden lg:justify-self-end lg:flex">
         <p class="mr-5">{{__('Find us')}}:</p>
-        <a href="https://www.facebook.com/ibimarine/" class="text-old-gold"><i class="fa-brands fa-facebook-square mr-3"></i></a>
-        <a href="https://www.instagram.com/ibimarine_ibiza/" class="text-old-gold"><i class="fa-brands fa-instagram-square "></i></a>
+        <a href="https://www.facebook.com/ibimarine/" target="_blank" class="text-old-gold"><i class="fa-brands fa-facebook-square mr-3"></i></a>
+        <a href="https://www.instagram.com/ibimarine_ibiza/" target="_blank" class="text-old-gold"><i class="fa-brands fa-instagram-square "></i></a>
     </div>
 </footer>
