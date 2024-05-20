@@ -94,12 +94,12 @@
         <div>
 
             <!-- Slider Hero Image -->
-            <div id="photos_open" class="lg:md:w-4/5 mx-auto">
-                <div class="swiper main_img h-56 lg:h-96 md:h-80 overflow-y-hidden md:rounded-t-xl">
+            <div id="photos_open" class="lg:md:w-4/5 xl:max-w-5xl mx-auto">
+                <div class="swiper main_img h-56 lg:h-96 xl:h-[28rem] md:h-80 overflow-y-hidden md:rounded-t-xl">
                     <div class="swiper-wrapper">
                         @foreach ($boat->getGallery() as $image)
                         <div class="swiper-slide">
-                            <img class="md:w-full lg:w-[100%] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
+                            <img class="md:w-full lg:w-[100%] xl:h-[28rem] md:h-96 object-cover" src="/storage/{{$image->image_src}}" alt="{{$image->image_alt ?? '' }}">
                         </div>
                         @endforeach
                     </div>
@@ -107,7 +107,7 @@
             </div>
 
             <!-- Slider thumbnails Carousel -->
-            <div class="md:w-[70%] flex mx-auto justify-center items-center my-2">
+            <div class="md:w-[70%] xl:w-[60%] flex mx-auto justify-center items-center my-2">
                 <div class="arrow w-1/12 h-6 md:h-12" id="arrowPrev">
                     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="43.026 0 161.967 490" width="161.967" height="490">
                         <polyline style="stroke: rgb(60, 64, 69); fill: rgb(60, 64, 69);" points="204.993 0.285 204.993 490 43.026 244.36 204.72 0" bx:origin="0.525 0.496"/>
@@ -288,7 +288,7 @@
                             @foreach ($boat->similarBoats as $similar_boat)
                             <a href="{{route('rent.show', ['boat_slug'=>$similar_boat->boat->slug])}}"  class="swiper-slide max-h-14 xl:max-h-48 overflow-y-hidden">
                             <div>
-                                <div class="md:h-[100px] overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="md:h-32 overflow-y-hidden" style="display: flex; justify-content: center; align-items: center;">
                                     <img class="object-cover" src="/storage/{{$similar_boat->boat->getCover()}}" alt="thumbnail">
                                 </div>
                                 <p class="text-center uppercase mt-2 text-xs">{{$similar_boat->boat->name}}</p>
@@ -335,7 +335,7 @@
         })
 
         const slideMain = new Swiper('.main_img', {
-            spaceBetween: 10,
+            spaceBetween: 0,
             navigation: {
                 nextEl: '#arrowNext',
                 prevEl: '#arrowPrev'
