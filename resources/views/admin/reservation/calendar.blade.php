@@ -10,7 +10,7 @@
     <!-- Section Hero - Title -->
     <section class="my-5">
         <div class="lg:mt-16 mt-4 border-y-4 border-old-gold py-1  lg:px-16 lg:mx-auto lg:w-max">
-           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('Calendar')}} 2022</p>
+           <p class="text-center text-old-black text-2xl uppercase font-bold">{{__('Calendar')}} <script>document.write( new Date().getFullYear() );</script></p>
         </div>
     </section>
 @endsection
@@ -23,7 +23,7 @@
         <div>
     
             <div id="reservationCalendar">
-                <div data-date-id="2022-05" class="bg-gray-1 hidden reservation-calendar w-80 mx-auto font-bold lg:text-2xl">
+                <div data-date-id="2024-05" class="bg-gray-1 hidden reservation-calendar w-80 mx-auto font-bold lg:text-2xl">
                     <!-- Calendar Head -->
                     <div class="flex lg:mb-2 justify-center text-old-black h-11 items-center rounded-t-xl text-xl">
                         <div style="width: 2rem" data-arrow-prev="" class="calendar-left-arrow cursor-pointer">
